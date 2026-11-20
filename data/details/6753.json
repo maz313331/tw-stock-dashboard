@@ -1,7 +1,7 @@
 {
   "symbol": "6753",
   "name": "龍德造船",
-  "updated_at": "2026-11-20 13:34（行情日 2026-11-20）",
+  "updated_at": "2026-11-20 12:51（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-8.81%"
+        "value": "-9.08%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,27 +94,27 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:30.8 / D:44.0"
+        "value": "K:30.2 / D:43.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:33.0"
+        "value": "RSI14:32.8"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-5.26"
+        "value": "DIF:-5.28"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:106.78"
+        "value": "5MA:106.72"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:111.82"
+        "value": "20MA:111.80"
       },
       {
         "label": "月線大於季線",
