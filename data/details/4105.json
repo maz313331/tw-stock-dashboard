@@ -1,7 +1,7 @@
 {
   "symbol": "4105",
   "name": "東洋",
-  "updated_at": "2026-11-20 12:44（行情日 2026-11-20）",
+  "updated_at": "2026-11-20 11:45（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-5.78%"
+        "value": "-6.63%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:39.9 / D:60.2"
+        "value": "K:38.4 / D:59.7"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:43.9"
+        "value": "RSI14:41.9"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:0.31"
+        "value": "DIF:0.26"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:81.40"
+        "value": "5MA:81.26"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:81.00"
+        "value": "20MA:80.96"
       },
       {
         "label": "月線大於季線",
         "passed": true,
-        "value": "20MA/60MA:81.0/79.7"
+        "value": "20MA/60MA:81.0/79.6"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
