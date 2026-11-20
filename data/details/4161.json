@@ -1,7 +1,7 @@
 {
   "symbol": "4161",
   "name": "聿新科",
-  "updated_at": "2026-11-20 12:44（行情日 2026-11-20）",
+  "updated_at": "2026-11-20 11:56（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-6.70%"
+        "value": "-7.20%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -99,17 +99,17 @@
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:22.0"
+        "value": "RSI14:21.4"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.50"
+        "value": "DIF:-0.51"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:19.72"
+        "value": "5MA:19.70"
       },
       {
         "label": "收盤價大於月線",
