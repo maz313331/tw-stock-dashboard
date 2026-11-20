@@ -1,7 +1,7 @@
 {
   "symbol": "6199",
   "name": "天品",
-  "updated_at": "2026-11-20 13:17（行情日 2026-11-20）",
+  "updated_at": "2026-11-20 12:23（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-1.18%"
+        "value": "-0.29%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:76.1 / D:84.6"
+        "value": "K:82.8 / D:86.9"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:62.2"
+        "value": "RSI14:66.7"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:8.24"
+        "value": "DIF:8.36"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:170.20"
+        "value": "5MA:170.50"
       },
       {
         "label": "收盤價大於月線",
         "passed": true,
-        "value": "20MA:164.47"
+        "value": "20MA:164.55"
       },
       {
         "label": "月線大於季線",
         "passed": true,
-        "value": "20MA/60MA:164.5/133.2"
+        "value": "20MA/60MA:164.6/133.2"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
