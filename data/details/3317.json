@@ -1,7 +1,7 @@
 {
   "symbol": "3317",
   "name": "尼克森",
-  "updated_at": "2026-11-20 12:28（行情日 2026-11-20）",
+  "updated_at": "2026-11-20 11:32（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-15.11%"
+        "value": "-16.82%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:12.6 / D:19.8"
+        "value": "K:11.2 / D:19.3"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:21.1"
+        "value": "RSI14:20.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-5.32"
+        "value": "DIF:-5.38"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:42.20"
+        "value": "5MA:42.05"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:50.97"
+        "value": "20MA:50.93"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:51.0/58.7"
+        "value": "20MA/60MA:50.9/58.7"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

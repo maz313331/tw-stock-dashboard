@@ -1,7 +1,7 @@
 {
   "symbol": "3135",
   "name": "凌航",
-  "updated_at": "2026-11-20 12:28（行情日 2026-11-20）",
+  "updated_at": "2026-11-20 11:32（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-14.32%"
+        "value": "-16.51%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:15.7 / D:21.8"
+        "value": "K:13.3 / D:21.0"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:21.7"
+        "value": "RSI14:21.0"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-11.22"
+        "value": "DIF:-11.42"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:108.42"
+        "value": "5MA:107.92"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:125.83"
+        "value": "20MA:125.70"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:125.8/148.9"
+        "value": "20MA/60MA:125.7/148.9"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

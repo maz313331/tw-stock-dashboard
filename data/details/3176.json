@@ -1,7 +1,7 @@
 {
   "symbol": "3176",
   "name": "基亞",
-  "updated_at": "2026-11-20 12:28（行情日 2026-11-20）",
+  "updated_at": "2026-11-20 11:32（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-10.33%"
+        "value": "-11.83%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,27 +94,27 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:12.4 / D:19.7"
+        "value": "K:11.4 / D:19.4"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:22.1"
+        "value": "RSI14:21.3"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-1.73"
+        "value": "DIF:-1.77"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:29.03"
+        "value": "5MA:28.94"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:31.51"
+        "value": "20MA:31.49"
       },
       {
         "label": "月線大於季線",
