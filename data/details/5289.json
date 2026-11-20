@@ -1,7 +1,7 @@
 {
   "symbol": "5289",
   "name": "宜鼎",
-  "updated_at": "2026-11-20 13:01（行情日 2026-11-20）",
+  "updated_at": "2026-11-20 12:10（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-14.92%"
+        "value": "-15.75%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:13.8 / D:20.9"
+        "value": "K:13.1 / D:20.7"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:13.7"
+        "value": "RSI14:13.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-104.59"
+        "value": "DIF:-105.15"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:805.00"
+        "value": "5MA:803.60"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:973.25"
+        "value": "20MA:972.90"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:973.2/1187.9"
+        "value": "20MA/60MA:972.9/1187.8"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
