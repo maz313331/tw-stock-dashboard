@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-20 11:04（行情日 2026-11-20）",
+  "updated_at": "2026-11-20 11:18（行情日 2026-11-20）",
   "regime": {
     "signal": "保守防禦",
     "suggested_exposure": "30% ~ 45%",
@@ -22,7 +22,7 @@
   "market_breadth": {
     "advancing": 132,
     "declining": 1205,
-    "high_score_count": 1,
+    "high_score_count": 0,
     "excluded_count": 4
   },
   "us_indices": [
