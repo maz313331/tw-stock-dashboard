@@ -1,7 +1,7 @@
 {
   "symbol": "2106",
   "name": "建大",
-  "updated_at": "2026-11-20 12:08（行情日 2026-11-20）",
+  "updated_at": "2026-11-20 10:51（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-5.86%"
+        "value": "-7.59%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:4.4 / D:5.6"
+        "value": "K:2.9 / D:5.1"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:7.1"
+        "value": "RSI14:6.7"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.74"
+        "value": "DIF:-0.75"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:14.19"
+        "value": "5MA:14.14"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:15.62"
+        "value": "20MA:15.61"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:15.6/16.5"
+        "value": "20MA/60MA:15.6/16.4"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

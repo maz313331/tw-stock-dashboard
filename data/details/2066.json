@@ -1,7 +1,7 @@
 {
   "symbol": "2066",
   "name": "世德",
-  "updated_at": "2026-11-20 12:08（行情日 2026-11-20）",
+  "updated_at": "2026-11-20 10:51（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-10.03%"
+        "value": "-11.80%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -99,27 +99,27 @@
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:13.4"
+        "value": "RSI14:12.7"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-2.20"
+        "value": "DIF:-2.27"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:44.34"
+        "value": "5MA:44.18"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:48.18"
+        "value": "20MA:48.14"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:48.2/51.2"
+        "value": "20MA/60MA:48.1/51.2"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

@@ -1,7 +1,7 @@
 {
   "symbol": "2028",
   "name": "威致",
-  "updated_at": "2026-11-20 11:51（行情日 2026-11-20）",
+  "updated_at": "2026-11-20 10:51（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-6.01%"
+        "value": "-4.59%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,27 +94,27 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:15.7 / D:15.6"
+        "value": "K:19.1 / D:16.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:11.0"
+        "value": "RSI14:11.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.64"
+        "value": "DIF:-0.62"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:13.97"
+        "value": "5MA:14.01"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:15.15"
+        "value": "20MA:15.16"
       },
       {
         "label": "月線大於季線",
