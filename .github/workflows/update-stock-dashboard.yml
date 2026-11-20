@@ -2,101 +2,162 @@ name: Update TW Stock Dashboard Data
 
 on:
   schedule:
-    # 週一至週五盤後分批執行（時間為 UTC，對應台灣時間 15:00 ~ 18:30）
-    - cron: "0 7 * * 1-5"    # 15:00 CST -> offset 0
-    - cron: "25 7 * * 1-5"   # 15:25 CST -> offset 250
-    - cron: "50 7 * * 1-5"   # 15:50 CST -> offset 500
-    - cron: "15 8 * * 1-5"   # 16:15 CST -> offset 750
-    - cron: "40 8 * * 1-5"   # 16:40 CST -> offset 1000
-    - cron: "5 9 * * 1-5"    # 17:05 CST -> offset 1250
-    - cron: "30 9 * * 1-5"   # 17:30 CST -> offset 1500
-    - cron: "55 9 * * 1-5"   # 17:55 CST -> offset 1750
-    - cron: "30 10 * * 1-5"  # 18:30 CST -> --only-missing 補抓
-
+    # 週一至週五 15:00 ~ 18:30 CST (UTC 07:00 ~ 10:30) 依既有盤後排程執行
+    - cron: "0 7 * * 1-5"
+    - cron: "30 7 * * 1-5"
+    - cron: "0 8 * * 1-5"
+    - cron: "30 8 * * 1-5"
+    - cron: "0 9 * * 1-5"
+    - cron: "30 9 * * 1-5"
+    - cron: "0 10 * * 1-5"
+    - cron: "30 10 * * 1-5"
   workflow_dispatch:
     inputs:
+      run_mode:
+        description: "執行模式：single_batch（單批/排程同款）或 full_auto_all（手動全自動分批跑完）"
+        required: true
+        default: "full_auto_all"
+        type: choice
+        options:
+          - full_auto_all
+          - single_batch
       offset:
         description: "起始筆數 (offset)"
         required: true
         default: "0"
+        type: string
       limit:
-        description: "單批處理檔數 (limit)"
+        description: "單批處理檔數 (limit)；full_auto_all 模式下建議 100~200"
         required: true
-        default: "250"
+        default: "150"
+        type: string
+      sleep:
+        description: "每檔間隔秒數 (sleep)，建議 0.3~0.6 降低限流風險"
+        required: true
+        default: "0.4"
+        type: string
       only_missing:
         description: "是否僅補抓尚未入庫標的 (true/false)"
         required: true
         default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
 
 permissions:
   contents: write
 
-concurrency:
-  group: stock-data-update
-  cancel-in-progress: false
-
 jobs:
   fetch-and-commit:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
-
     steps:
-      - name: Checkout repository (淺層複製省空間)
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
+          fetch-depth: 0
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: "3.12"
           cache: "pip"
 
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-      - name: Determine batch arguments
-        id: batch_args
-        run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            if [ "${{ github.event.inputs.only_missing }}" = "true" ]; then
-              echo "ARGS=--only-missing --limit ${{ github.event.inputs.limit }} --sleep 0.35" >> $GITHUB_OUTPUT
-            else
-              echo "ARGS=--offset ${{ github.event.inputs.offset }} --limit ${{ github.event.inputs.limit }} --sleep 0.25" >> $GITHUB_OUTPUT
-            fi
-          else
-            case "${{ github.event.schedule }}" in
-              "0 7 * * 1-5")   echo "ARGS=--offset 0 --limit 250 --sleep 0.25" >> $GITHUB_OUTPUT ;;
-              "25 7 * * 1-5")  echo "ARGS=--offset 250 --limit 250 --sleep 0.25" >> $GITHUB_OUTPUT ;;
-              "50 7 * * 1-5")  echo "ARGS=--offset 500 --limit 250 --sleep 0.25" >> $GITHUB_OUTPUT ;;
-              "15 8 * * 1-5")  echo "ARGS=--offset 750 --limit 250 --sleep 0.25" >> $GITHUB_OUTPUT ;;
-              "40 8 * * 1-5")  echo "ARGS=--offset 1000 --limit 250 --sleep 0.25" >> $GITHUB_OUTPUT ;;
-              "5 9 * * 1-5")   echo "ARGS=--offset 1250 --limit 250 --sleep 0.25" >> $GITHUB_OUTPUT ;;
-              "30 9 * * 1-5")  echo "ARGS=--offset 1500 --limit 250 --sleep 0.25" >> $GITHUB_OUTPUT ;;
-              "55 9 * * 1-5")  echo "ARGS=--offset 1750 --limit 250 --sleep 0.25" >> $GITHUB_OUTPUT ;;
-              "30 10 * * 1-5") echo "ARGS=--only-missing --limit 200 --sleep 0.40" >> $GITHUB_OUTPUT ;;
-              *)               echo "ARGS=--offset 0 --limit 250 --sleep 0.25" >> $GITHUB_OUTPUT ;;
-            esac
-          fi
-
-      - name: Run dashboard batch update
-        env:
-          PYTHONPATH: scripts
-        run: |
-          python -u scripts/run_dashboard_batch.py ${{ steps.batch_args.outputs.ARGS }}
-
-      - name: Commit and push updated JSON data
+      - name: Configure git user
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/
-          if git diff --staged --quiet; then
-            echo "No data changes to commit."
-            exit 0
-          fi
-          git commit -m "chore(data): update stock dashboard (${{ steps.batch_args.outputs.ARGS }})"
-          # 若期間有其他推送先拉取再推，避免衝突
-          git pull --rebase origin main || true
-          git push origin HEAD:main
+
+      - name: Run dashboard update (scheduled, single_batch, or full_auto_all)
+        env:
+          PYTHONPATH: scripts
+          EVENT_NAME: ${{ github.event_name }}
+          RUN_MODE: ${{ github.event.inputs.run_mode || 'single_batch' }}
+          START_OFFSET: ${{ github.event.inputs.offset || '0' }}
+          BATCH_LIMIT: ${{ github.event.inputs.limit || '250' }}
+          SLEEP_SEC: ${{ github.event.inputs.sleep || '0.25' }}
+          ONLY_MISSING: ${{ github.event.inputs.only_missing || 'false' }}
+        run: |
+          python - << 'EOF'
+          import json
+          import math
+          import os
+          import subprocess
+          import time
+
+          event_name = os.environ["EVENT_NAME"]
+          run_mode = os.environ["RUN_MODE"]
+          start_offset = int(os.environ["START_OFFSET"])
+          batch_limit = int(os.environ["BATCH_LIMIT"])
+          sleep_sec = float(os.environ["SLEEP_SEC"])
+          only_missing = os.environ["ONLY_MISSING"].lower() == "true"
+
+          # 讀取股票清單總數，若找不到檔案則給安全上限由腳本自行判斷結尾
+          total_symbols = None
+          for candidate in ["data/stock_list_common.json", "scripts/data/stock_list_common.json"]:
+              if os.path.exists(candidate):
+                  with open(candidate, "r", encoding="utf-8") as f:
+                      data = json.load(f)
+                      if isinstance(data, list):
+                          total_symbols = len(data)
+                      elif isinstance(data, dict) and "items" in data:
+                          total_symbols = len(data["items"])
+                  break
+
+          def run_one_batch(cur_offset: int, cur_limit: int, cur_sleep: float, desc_tag: str):
+              cmd = [
+                  "python", "-u", "scripts/run_dashboard_batch.py",
+                  "--offset", str(cur_offset),
+                  "--limit", str(cur_limit),
+                  "--sleep", str(cur_sleep),
+              ]
+              if only_missing:
+                  cmd.append("--only-missing")
+
+              print(f"=== 執行批次 ({desc_tag}): {' '.join(cmd)} ===")
+              subprocess.run(cmd, check=True)
+
+              # 每完成一小批就同步並推送，避免中途被限流或逾時導致進度遺失
+              subprocess.run(["git", "add", "data/"], check=True)
+              status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
+              if status.stdout.strip():
+                  msg = f"chore(data): update stock dashboard ({desc_tag} --offset {cur_offset} --limit {cur_limit})"
+                  subprocess.run(["git", "commit", "-m", msg], check=True)
+                  subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
+                  subprocess.run(["git", "push", "origin", "main"], check=True)
+                  print(f"已推送批次提交: {msg}")
+              else:
+                  print("本批無資料檔案變更，略過 commit。")
+
+          # 1. 排程 (schedule) 或單批模式 (single_batch)：維持原本單批執行邏輯
+          if event_name != "workflow_dispatch" or run_mode == "single_batch":
+              run_one_batch(start_offset, batch_limit, sleep_sec, event_name)
+
+          # 2. 手動 full_auto_all 模式：自動分批跑到清單結尾
+          else:
+              step_size = batch_limit if batch_limit > 0 else 150
+              cur = start_offset
+              batch_idx = 1
+
+              while True:
+                  if total_symbols is not None and cur >= total_symbols:
+                      print(f"已達清單結尾 (total={total_symbols})，full_auto_all 完成。")
+                      break
+
+                  run_one_batch(cur, step_size, sleep_sec, f"full_auto_all #{batch_idx}")
+                  cur += step_size
+                  batch_idx += 1
+
+                  # 若無法取得總數且單批跑完後沒有新變更，可視情況停止或依上限推進
+                  if total_symbols is None and batch_idx > 25:
+                      print("已達安全上限 25 批，結束迴圈。")
+                      break
+
+                  # 批次間稍作休息，降低外部 API 限流機率
+                  time.sleep(3)
+          EOF
