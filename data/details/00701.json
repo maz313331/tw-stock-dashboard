@@ -1,0 +1,26 @@
+{
+  "symbol": "00701",
+  "name": "國泰股利精選30",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:22（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「均線下方偏弱」，RSI(14)=23.9，近 20 日報酬 -4.20%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00701",
+    "name": "國泰股利精選30",
+    "asset_type": "ETF",
+    "close": 40.15,
+    "change_pct": -1.5,
+    "change_5d_pct": -3.79,
+    "change_20d_pct": -4.2,
+    "ma5": 41.37,
+    "ma20": 41.94,
+    "ma60": 41.2,
+    "rsi14": 23.9,
+    "trend_status": "均線下方偏弱",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:22（行情日 2026-11-19）"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "symbol": "006204",
+  "name": "永豐臺灣加權",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:22（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=29.1，近 20 日報酬 -16.63%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "006204",
+    "name": "永豐臺灣加權",
+    "asset_type": "ETF",
+    "close": 194.5,
+    "change_pct": -5.54,
+    "change_5d_pct": -11.09,
+    "change_20d_pct": -16.63,
+    "ma5": 207.01,
+    "ma20": 218.27,
+    "ma60": 229.94,
+    "rsi14": 29.1,
+    "trend_status": "空頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:22（行情日 2026-11-19）"
+  }
+}

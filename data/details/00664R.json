@@ -1,0 +1,26 @@
+{
+  "symbol": "00664R",
+  "name": "國泰臺灣加權反1",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:22（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「多頭排列」，RSI(14)=67.6，近 20 日報酬 +18.99%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00664R",
+    "name": "國泰臺灣加權反1",
+    "asset_type": "ETF",
+    "close": 1.88,
+    "change_pct": 4.44,
+    "change_5d_pct": 10.59,
+    "change_20d_pct": 18.99,
+    "ma5": 1.78,
+    "ma20": 1.7,
+    "ma60": 1.61,
+    "rsi14": 67.6,
+    "trend_status": "多頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:22（行情日 2026-11-19）"
+  }
+}

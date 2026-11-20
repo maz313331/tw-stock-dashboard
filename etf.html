@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ETF 獨立追蹤專區 - 台股量化儀表板</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div>
+        <h1>ETF 獨立追蹤專區</h1>
+        <p class="subtitle" id="etf-updated-at">資料載入中...</p>
+      </div>
+      <div class="header-actions">
+        <a href="index.html" class="nav-link-btn">← 返回普通股評分首頁</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="notice-banner">
+      <strong>ETF 獨立追蹤規則：</strong>ETF 不適用個股財報（EPS／ROE）與本益比門檻，本專區獨立統計均線多空架構、短中期動能與 RSI(14) 強弱水位。
+    </div>
+
+    <div class="toolbar">
+      <input type="text" id="etf-search" placeholder="搜尋 ETF 代號或名稱（如 0050、00878、高股息）..." />
+      <select id="etf-trend-filter">
+        <option value="all">全部均線架構</option>
+        <option value="多頭排列">多頭排列（Close &gt; 5MA &gt; 20MA &gt; 60MA）</option>
+        <option value="均線之上偏多">均線之上偏多</option>
+        <option value="均線糾結震盪">均線糾結震盪</option>
+        <option value="均線下方偏弱">均線下方偏弱</option>
+        <option value="空頭排列">空頭排列</option>
+      </select>
+      <select id="etf-sort">
+        <option value="symbol_asc">依代號由小到大</option>
+        <option value="chg_desc">依單日漲跌幅由高到低</option>
+        <option value="chg20_desc">依近 20 日報酬由高到低</option>
+        <option value="rsi_desc">依 RSI(14) 由高到低</option>
+        <option value="rsi_asc">依 RSI(14) 由低到高（尋找超賣）</option>
+      </select>
+    </div>
+
+    <div class="stats-bar" id="etf-stats-bar"></div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>代號</th>
+            <th>ETF 名稱</th>
+            <th class="num">收盤價</th>
+            <th class="num">單日漲跌</th>
+            <th class="num">近 5 日</th>
+            <th class="num">近 20 日</th>
+            <th class="num">5MA / 20MA / 60MA</th>
+            <th class="num">RSI(14)</th>
+            <th>均線架構</th>
+          </tr>
+        </thead>
+        <tbody id="etf-tbody"></tbody>
+      </table>
+    </div>
+  </main>
+
+  <div id="detail-modal" class="modal hidden" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2 id="modal-title">ETF 明細</h2>
+        <button type="button" id="modal-close" class="close-btn">✕</button>
+      </div>
+      <div id="modal-body" class="modal-body"></div>
+    </div>
+  </div>
+
+  <script src="etf.js"></script>
+</body>
+</html>

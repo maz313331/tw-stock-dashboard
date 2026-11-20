@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>台股多維度評分與盤勢儀表板</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand-group">
+        <h1>台股多維度評分與盤勢儀表板</h1>
+        <span class="time-badge" id="updated-at">資料時間：載入中...</span>
+      </div>
+
+      <nav class="page-tabs" aria-label="主功能分頁">
+        <button type="button" class="tab-btn active" data-page="overview">1. 大盤總覽</button>
+        <button type="button" class="tab-btn" data-page="screener">2. 強勢高分榜</button>
+        <button type="button" class="tab-btn" data-page="etf">3. ETF 專區</button>
+        <button type="button" class="tab-btn" data-page="detail">4. 2330 / 30指標</button>
+      </nav>
+
+      <div class="quick-jump">
+        <input type="text" id="quick-symbol-input" placeholder="輸入代號或股名（如 2330）..." />
+        <button type="button" id="quick-symbol-btn" class="primary-btn">查詢</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- 第 1 頁：大盤總覽（含中間走勢圖與美股四大指數） -->
+    <section id="page-overview" class="page-panel">
+      <div class="kpi-grid-4" id="overview-kpis"></div>
+
+      <div class="chart-card">
+        <div class="chart-card-header">
+          <div>
+            <h2>加權指數與三大法人買賣超走勢</h2>
+            <p class="chart-sub">折線為加權指數走勢，柱狀為三大法人買賣超（紅柱買超／綠柱賣超）</p>
+          </div>
+          <div class="range-toggle">
+            <button type="button" class="range-btn active" data-range="20">近 20 日</button>
+            <button type="button" class="range-btn" data-range="60">近 60 日</button>
+          </div>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="market-trend-canvas" width="1180" height="340"></canvas>
+          <div id="chart-tooltip" class="chart-tooltip hidden"></div>
+        </div>
+      </div>
+
+      <div class="us-card">
+        <div class="us-card-header">
+          <h3>美股四大指數漲跌幅</h3>
+          <span class="mini-tag">盤勢參考</span>
+        </div>
+        <div class="us-grid-4" id="us-indices-grid"></div>
+      </div>
+    </section>
+
+    <!-- 第 2 頁：強勢高分榜（現有篩選與列表模式） -->
+    <section id="page-screener" class="page-panel hidden">
+      <div class="toolbar">
+        <input type="text" id="stock-search" placeholder="篩選代號或中文股名（如 2330、台積電）..." />
+        <select id="stock-filter">
+          <option value="high">總分 ≥ 22 分（預設強勢）</option>
+          <option value="all">顯示全部普通股</option>
+          <option value="valid">僅顯示有效評分（未排除）</option>
+          <option value="excluded">僅顯示資料缺漏排除</option>
+        </select>
+        <select id="stock-sort">
+          <option value="score_desc">排序依據：總分（高 → 低）</option>
+          <option value="symbol_asc">排序依據：代號（小 → 大）</option>
+          <option value="chg_desc">排序依據：漲跌幅（高 → 低）</option>
+        </select>
+      </div>
+
+      <div class="stats-bar" id="stock-stats-bar"></div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>代號</th>
+              <th>股票名稱</th>
+              <th class="num">收盤價</th>
+              <th class="num">漲跌幅</th>
+              <th class="num">總分</th>
+              <th class="num">基本面</th>
+              <th class="num">技術面</th>
+              <th class="num">籌碼面</th>
+              <th>狀態 / 說明</th>
+              <th>明細</th>
+            </tr>
+          </thead>
+          <tbody id="stock-tbody"></tbody>
+        </table>
+      </div>
+
+      <div class="rule-banner" id="exclude-rule-banner"></div>
+    </section>
+
+    <!-- 第 3 頁：ETF 專區（沿用現有 etf_summary.json 模式） -->
+    <section id="page-etf" class="page-panel hidden">
+      <div class="notice-banner">
+        <strong>ETF 獨立追蹤專區：</strong>沿用現有 <code>etf_summary.json</code> 模式，檢視均線多空架構、短中期動能與 RSI(14)。
+      </div>
+      <div class="toolbar">
+        <input type="text" id="etf-search" placeholder="搜尋 ETF 代號或名稱（如 0050、00878）..." />
+        <select id="etf-trend-filter">
+          <option value="all">全部均線架構</option>
+          <option value="多頭排列">多頭排列</option>
+          <option value="均線之上偏多">均線之上偏多</option>
+          <option value="均線糾結震盪">均線糾結震盪</option>
+          <option value="均線下方偏弱">均線下方偏弱</option>
+          <option value="空頭排列">空頭排列</option>
+        </select>
+        <select id="etf-sort">
+          <option value="symbol_asc">依代號由小到大</option>
+          <option value="chg_desc">依單日漲跌幅由高到低</option>
+          <option value="chg20_desc">依近 20 日報酬由高到低</option>
+          <option value="rsi_desc">依 RSI(14) 由高到低</option>
+        </select>
+      </div>
+      <div class="stats-bar" id="etf-stats-bar"></div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>代號</th>
+              <th>ETF 名稱</th>
+              <th class="num">收盤價</th>
+              <th class="num">單日漲跌</th>
+              <th class="num">近 5 日</th>
+              <th class="num">近 20 日</th>
+              <th class="num">5MA / 20MA / 60MA</th>
+              <th class="num">RSI(14)</th>
+              <th>均線架構</th>
+            </tr>
+          </thead>
+          <tbody id="etf-tbody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- 第 4 頁：預設 2330 顯示 30 個指標，並可輸入其他股票查詢 -->
+    <section id="page-detail" class="page-panel hidden">
+      <div class="detail-switch-bar">
+        <div class="switch-left">
+          <label for="detail-symbol-input">切換查詢股票：</label>
+          <input type="text" id="detail-symbol-input" value="2330" placeholder="輸入代號或股名，例如 2330、2454、6285" />
+          <button type="button" id="detail-symbol-btn" class="primary-btn">載入 30 指標</button>
+          <button type="button" id="detail-reset-2330" class="ghost-btn">回到 2330</button>
+        </div>
+        <div class="switch-right" id="detail-quick-chips">
+          <button type="button" class="chip-btn" data-sym="2330">2330 台積電</button>
+          <button type="button" class="chip-btn" data-sym="2454">2454 聯發科</button>
+          <button type="button" class="chip-btn" data-sym="2382">2382 廣達</button>
+          <button type="button" class="chip-btn" data-sym="6285">6285 啟碁</button>
+        </div>
+      </div>
+
+      <div id="detail-page-content"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

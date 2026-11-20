@@ -1,0 +1,26 @@
+{
+  "symbol": "00985B",
+  "name": "群益ESG投等債0-5",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:25（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「均線之上偏多」，RSI(14)=54.3，近 20 日報酬 +1.17%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00985B",
+    "name": "群益ESG投等債0-5",
+    "asset_type": "ETF",
+    "close": 10.36,
+    "change_pct": 0.0,
+    "change_5d_pct": -0.19,
+    "change_20d_pct": 1.17,
+    "ma5": 10.36,
+    "ma20": 10.33,
+    "ma60": 10.2,
+    "rsi14": 54.3,
+    "trend_status": "均線之上偏多",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:25（行情日 2026-11-19）"
+  }
+}

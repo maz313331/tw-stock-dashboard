@@ -1,0 +1,26 @@
+{
+  "symbol": "00703",
+  "name": "台新MSCI中國",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:22（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=41.6，近 20 日報酬 -4.76%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00703",
+    "name": "台新MSCI中國",
+    "asset_type": "ETF",
+    "close": 17.62,
+    "change_pct": -1.67,
+    "change_5d_pct": -6.13,
+    "change_20d_pct": -4.76,
+    "ma5": 18.08,
+    "ma20": 18.37,
+    "ma60": 18.78,
+    "rsi14": 41.6,
+    "trend_status": "空頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:22（行情日 2026-11-19）"
+  }
+}

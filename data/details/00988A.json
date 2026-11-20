@@ -1,0 +1,26 @@
+{
+  "symbol": "00988A",
+  "name": "主動統一全球創新",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:25（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=30.8，近 20 日報酬 -19.19%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00988A",
+    "name": "主動統一全球創新",
+    "asset_type": "ETF",
+    "close": 12.38,
+    "change_pct": -0.32,
+    "change_5d_pct": -6.21,
+    "change_20d_pct": -19.19,
+    "ma5": 12.66,
+    "ma20": 13.65,
+    "ma60": 15.43,
+    "rsi14": 30.8,
+    "trend_status": "空頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:25（行情日 2026-11-19）"
+  }
+}

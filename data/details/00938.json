@@ -1,0 +1,26 @@
+{
+  "symbol": "00938",
+  "name": "凱基優選30",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:25（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=28.1，近 20 日報酬 -12.38%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00938",
+    "name": "凱基優選30",
+    "asset_type": "ETF",
+    "close": 23.99,
+    "change_pct": -3.07,
+    "change_5d_pct": -9.47,
+    "change_20d_pct": -12.38,
+    "ma5": 25.39,
+    "ma20": 26.38,
+    "ma60": 26.53,
+    "rsi14": 28.1,
+    "trend_status": "空頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:25（行情日 2026-11-19）"
+  }
+}

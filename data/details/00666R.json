@@ -1,0 +1,26 @@
+{
+  "symbol": "00666R",
+  "name": "富邦恒生國企反1",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:22（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「多頭排列」，RSI(14)=58.8，近 20 日報酬 +3.77%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00666R",
+    "name": "富邦恒生國企反1",
+    "asset_type": "ETF",
+    "close": 9.91,
+    "change_pct": 1.64,
+    "change_5d_pct": 5.31,
+    "change_20d_pct": 3.77,
+    "ma5": 9.67,
+    "ma20": 9.56,
+    "ma60": 9.34,
+    "rsi14": 58.8,
+    "trend_status": "多頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:22（行情日 2026-11-19）"
+  }
+}

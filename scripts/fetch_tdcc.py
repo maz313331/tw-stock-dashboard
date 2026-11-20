@@ -1,0 +1,237 @@
+import datetime as dt
+import io
+import json
+from pathlib import Path
+import pandas as pd
+import requests
+
+
+# TDCC 集保戶股權分散表常見分級代碼（1~7 為 <= 10 張；10~15 為 >= 400 張）
+RETAIL_LEVELS = {1, 2, 3, 4, 5, 6, 7}
+MAJOR_LEVELS = {10, 11, 12, 13, 14, 15}
+
+TDCC_COLUMNS = [
+    "資料日期",
+    "證券代號",
+    "持股分級",
+    "人數",
+    "股數",
+    "占集保庫存數比例(%)",
+]
+
+
+def _cache_path() -> Path:
+    root = Path(__file__).resolve().parent.parent
+    return root / "data" / "tdcc_cache.json"
+
+
+def _load_cache() -> dict:
+    p = _cache_path()
+    if not p.exists():
+        return {"updated_at": None, "stocks": {}}
+    try:
+        data = json.loads(p.read_text(encoding="utf-8"))
+        if isinstance(data, dict) and isinstance(data.get("stocks"), dict):
+            return data
+    except Exception:
+        pass
+    return {"updated_at": None, "stocks": {}}
+
+
+def _save_cache(payload: dict) -> None:
+    p = _cache_path()
+    p.parent.mkdir(parents=True, exist_ok=True)
+    p.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def _is_cache_fresh(cache: dict, max_age_days: int = 7) -> bool:
+    updated_str = cache.get("updated_at")
+    if not updated_str:
+        return False
+    try:
+        last_dt = dt.datetime.fromisoformat(updated_str)
+        return (dt.datetime.now() - last_dt).total_seconds() < max_age_days * 86400
+    except Exception:
+        return False
+
+
+def _fetch_tdcc_raw_df() -> pd.DataFrame:
+    """
+    從 TDCC 公開資料端點取得集保股權分散表資料。
+    自動辨識有標頭與無標頭 CSV。
+    """
+    url = "https://opendata.tdcc.com.tw/getOD.ashx?id=1-5"
+    headers = {
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+    }
+    try:
+        resp = requests.get(url, headers=headers, timeout=20)
+        if not resp.ok or not resp.text.strip():
+            return pd.DataFrame()
+
+        text = resp.text.lstrip("\ufeff").strip()
+        if text.startswith("[") or text.startswith("{"):
+            data = json.loads(text)
+            return pd.DataFrame(data) if isinstance(data, list) and data else pd.DataFrame()
+
+        df = pd.read_csv(io.StringIO(text), header=None, dtype=str)
+        if df is None or df.empty:
+            return pd.DataFrame()
+
+        c0 = str(df.iloc[0, 0]).strip()
+        c1 = str(df.iloc[0, 1]).strip() if df.shape[1] > 1 else ""
+        # 若第一列是中文或英文標頭列，就跳過第一列並套用標準欄名
+        if "日期" in c0 or "date" in c0.lower() or "代號" in c1 or "code" in c1.lower():
+            df = df.iloc[1:, :6].copy()
+        else:
+            df = df.iloc[:, :6].copy()
+
+        df.columns = TDCC_COLUMNS[: df.shape[1]]
+        return df.reset_index(drop=True)
+    except Exception:
+        return pd.DataFrame()
+
+
+def _normalize_code(val: str) -> str:
+    s = str(val).strip()
+    stripped = s.lstrip("0")
+    return stripped if stripped else "0"
+
+
+def _parse_stock_holding(df: pd.DataFrame, stock_id: str) -> dict | None:
+    """
+    從集保分散表整理指定個股最新大戶(>=400張)與散戶(<=10張)比例及週增減。
+    """
+    if df is None or df.empty:
+        return None
+
+    col_map = {str(c).strip(): c for c in df.columns}
+    date_col = next((col_map[k] for k in ["資料日期", "Date", "日期"] if k in col_map), None)
+    code_col = next((col_map[k] for k in ["證券代號", "StockCode", "代號"] if k in col_map), None)
+    level_col = next((col_map[k] for k in ["持股分級", "HoldingSharesLevel", "分級"] if k in col_map), None)
+    pct_col = next(
+        (col_map[k] for k in ["占集保庫存數比例(%)", "占集保庫存數比例", "Percent", "比例"] if k in col_map),
+        None,
+    )
+
+    if not all([date_col, code_col, level_col, pct_col]):
+        return None
+
+    target_norm = _normalize_code(stock_id)
+    target_raw = str(stock_id).strip()
+
+    code_series = df[code_col].astype(str).str.strip()
+    norm_series = code_series.map(_normalize_code)
+    sub = df[(code_series == target_raw) | (norm_series == target_norm)].copy()
+    if sub.empty:
+        return None
+
+    sub["_date"] = sub[date_col].astype(str).str.strip()
+    sub["_level"] = pd.to_numeric(sub[level_col], errors="coerce")
+    sub["_pct"] = pd.to_numeric(
+        sub[pct_col].astype(str).str.replace("%", "", regex=False).str.strip(),
+        errors="coerce",
+    )
+    sub = sub.dropna(subset=["_date", "_level", "_pct"])
+
+    dates = sorted(sub["_date"].unique())
+    if not dates:
+        return None
+
+    latest_date = dates[-1]
+    prev_date = dates[-2] if len(dates) >= 2 else None
+
+    def _calc_for_date(d_str: str) -> tuple[float, float]:
+        d_df = sub[sub["_date"] == d_str]
+        major_pct = float(d_df[d_df["_level"].isin(MAJOR_LEVELS)]["_pct"].sum())
+        retail_pct = float(d_df[d_df["_level"].isin(RETAIL_LEVELS)]["_pct"].sum())
+        return round(major_pct, 2), round(retail_pct, 2)
+
+    major_now, retail_now = _calc_for_date(latest_date)
+    if prev_date:
+        major_prev, retail_prev = _calc_for_date(prev_date)
+        major_chg = round(major_now - major_prev, 2)
+        retail_chg = round(retail_now - retail_prev, 2)
+    else:
+        major_chg = None
+        retail_chg = None
+
+    return {
+        "date": latest_date,
+        "prev_date": prev_date,
+        "major_ratio": major_now,
+        "retail_ratio": retail_now,
+        "major_change_1w": major_chg,
+        "retail_change_1w": retail_chg,
+    }
+
+
+def _update_stock_entry_with_history(prev_entry: dict | None, parsed: dict) -> dict:
+    """合併歷史週次紀錄，若有多週歷史則自動補算週增減。"""
+    hist_map: dict[str, dict] = {}
+    if isinstance(prev_entry, dict) and isinstance(prev_entry.get("history"), list):
+        for item in prev_entry["history"]:
+            if isinstance(item, dict) and item.get("date"):
+                hist_map[str(item["date"])] = {
+                    "date": str(item["date"]),
+                    "major_ratio": item.get("major_ratio"),
+                    "retail_ratio": item.get("retail_ratio"),
+                }
+
+    curr_d = str(parsed["date"])
+    hist_map[curr_d] = {
+        "date": curr_d,
+        "major_ratio": parsed["major_ratio"],
+        "retail_ratio": parsed["retail_ratio"],
+    }
+
+    sorted_dates = sorted(hist_map.keys())
+    history_list = [hist_map[d] for d in sorted_dates[-12:]]
+
+    out = dict(parsed)
+    out["history"] = history_list
+
+    if out.get("major_change_1w") is None and len(sorted_dates) >= 2:
+        p_date = sorted_dates[-2]
+        p_rec = hist_map[p_date]
+        if p_rec.get("major_ratio") is not None and p_rec.get("retail_ratio") is not None:
+            out["prev_date"] = p_date
+            out["major_change_1w"] = round(float(parsed["major_ratio"]) - float(p_rec["major_ratio"]), 2)
+            out["retail_change_1w"] = round(float(parsed["retail_ratio"]) - float(p_rec["retail_ratio"]), 2)
+
+    return out
+
+
+def fetch_tdcc_holding_shares(stock_id: str, force_refresh: bool = False) -> dict | None:
+    """
+    取得指定台股代號的集保大戶/散戶持股資料（每週更新一次快取）。
+    抓不到或無資料時回傳 None，由既有缺漏排除規則處理。
+    """
+    sid = str(stock_id).strip()
+    cache = _load_cache()
+    stocks_cache = cache.setdefault("stocks", {})
+
+    if not force_refresh and _is_cache_fresh(cache, max_age_days=7):
+        cached = stocks_cache.get(sid)
+        if cached is not None:
+            return cached
+
+    raw_df = _fetch_tdcc_raw_df()
+    if raw_df.empty:
+        return stocks_cache.get(sid)
+
+    parsed = _parse_stock_holding(raw_df, sid)
+    if parsed is None:
+        return stocks_cache.get(sid)
+
+    merged = _update_stock_entry_with_history(stocks_cache.get(sid), parsed)
+    stocks_cache[sid] = merged
+    cache["updated_at"] = dt.datetime.now().isoformat(timespec="seconds")
+    _save_cache(cache)
+    return merged
+
+
+if __name__ == "__main__":
+    for sid in ["2330", "2317", "2454", "0050", "00878"]:
+        res = fetch_tdcc_holding_shares(sid, force_refresh=True)
+        print(sid, "->", res)

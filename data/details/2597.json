@@ -1,0 +1,183 @@
+{
+  "symbol": "2597",
+  "name": "潤弘",
+  "updated_at": "2026-11-20 12:08（行情日 2026-11-20）",
+  "excluded": false,
+  "exclude_reason": "",
+  "partial_missing": "",
+  "total_score": 24,
+  "max_score": 30,
+  "badge": "面面領漲強勢主攻",
+  "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
+  "scores": {
+    "fundamental": 9,
+    "technical": 8,
+    "chip": 7
+  },
+  "metrics_6": {
+    "main_force_net": 387.8,
+    "retail_net": 0,
+    "margin_net": 33.0,
+    "chip_concentration_5d": 48.55,
+    "major_holder_pct": 87.26,
+    "retail_holder_pct": 9.52
+  },
+  "checks": {
+    "fundamental": [
+      {
+        "label": "本益比大於等於 10",
+        "passed": true,
+        "value": "15.0"
+      },
+      {
+        "label": "股價淨值比大於等於 0.5",
+        "passed": true,
+        "value": "6.20"
+      },
+      {
+        "label": "現金股利殖利率大於 3%",
+        "passed": true,
+        "value": "5.45%"
+      },
+      {
+        "label": "月營收創 10 個月以上新高",
+        "passed": false,
+        "value": "未創高"
+      },
+      {
+        "label": "月營收 MoM 大於 0",
+        "passed": true,
+        "value": "+16.05%"
+      },
+      {
+        "label": "最近一季營業淨利大於 0",
+        "passed": true,
+        "value": "正值"
+      },
+      {
+        "label": "最近一季稅後淨利大於 0",
+        "passed": true,
+        "value": "正值"
+      },
+      {
+        "label": "最近一季每股盈餘大於 1",
+        "passed": true,
+        "value": "3.24 元"
+      },
+      {
+        "label": "最新年度 ROA 大於等於 5",
+        "passed": true,
+        "value": "13.7%"
+      },
+      {
+        "label": "最新年度 ROE 大於等於 8",
+        "passed": true,
+        "value": "36.5%"
+      }
+    ],
+    "technical": [
+      {
+        "label": "收盤價連 3 日漲",
+        "passed": true,
+        "value": "符合"
+      },
+      {
+        "label": "3 日漲幅大於 5%",
+        "passed": false,
+        "value": "+2.30%"
+      },
+      {
+        "label": "連 3 日打敗大盤",
+        "passed": true,
+        "value": "符合"
+      },
+      {
+        "label": "KD 黃金交叉",
+        "passed": false,
+        "value": "K:74.4 / D:69.1"
+      },
+      {
+        "label": "RSI 多頭趨勢",
+        "passed": true,
+        "value": "RSI14:64.6"
+      },
+      {
+        "label": "MACD 多頭趨勢",
+        "passed": true,
+        "value": "DIF:2.36"
+      },
+      {
+        "label": "收盤價大於週線",
+        "passed": true,
+        "value": "5MA:176.50"
+      },
+      {
+        "label": "收盤價大於月線",
+        "passed": true,
+        "value": "20MA:170.40"
+      },
+      {
+        "label": "月線大於季線",
+        "passed": true,
+        "value": "20MA/60MA:170.4/168.9"
+      },
+      {
+        "label": "均線多頭排列 (5>10>20)",
+        "passed": true,
+        "value": "多頭排列"
+      }
+    ],
+    "chip": [
+      {
+        "label": "近 3 日主力單日買超 > 1,000 張",
+        "passed": false,
+        "value": "最大:+388張"
+      },
+      {
+        "label": "近 1 日、5 日籌碼集中度為正",
+        "passed": true,
+        "value": "5日集中度:+48.55%"
+      },
+      {
+        "label": "外資、投信同時連買 2 天",
+        "passed": false,
+        "value": "未連買2日"
+      },
+      {
+        "label": "近 2 日中長線買盤連續買超",
+        "passed": true,
+        "value": "連2日買超"
+      },
+      {
+        "label": "近 20 日短線強勢買盤曾連買",
+        "passed": true,
+        "value": "最長7日"
+      },
+      {
+        "label": "近 20 日波段買盤曾連買",
+        "passed": true,
+        "value": "最長7日"
+      },
+      {
+        "label": "近 1 日法人或主力買超力道放大",
+        "passed": true,
+        "value": "+388 (5日均+346)"
+      },
+      {
+        "label": "近 20 日前十大買盤淨額為正",
+        "passed": true,
+        "value": "+2701張"
+      },
+      {
+        "label": "近 20 日前十大買盤曾連日買超",
+        "passed": true,
+        "value": "符合"
+      },
+      {
+        "label": "近 1 週大戶加碼且散戶減碼",
+        "passed": false,
+        "value": "缺漏"
+      }
+    ]
+  }
+}

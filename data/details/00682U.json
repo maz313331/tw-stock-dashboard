@@ -1,0 +1,26 @@
+{
+  "symbol": "00682U",
+  "name": "期元大美元指數",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:22（行情日 2026-11-18）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「多頭排列」，RSI(14)=76.0，近 20 日報酬 +2.19%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00682U",
+    "name": "期元大美元指數",
+    "asset_type": "ETF",
+    "close": 21.46,
+    "change_pct": 0.66,
+    "change_5d_pct": 1.8,
+    "change_20d_pct": 2.19,
+    "ma5": 21.32,
+    "ma20": 21.09,
+    "ma60": 20.81,
+    "rsi14": 76.0,
+    "trend_status": "多頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:22（行情日 2026-11-18）"
+  }
+}

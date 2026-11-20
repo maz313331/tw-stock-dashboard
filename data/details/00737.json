@@ -1,0 +1,26 @@
+{
+  "symbol": "00737",
+  "name": "國泰AI機器人",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:25（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=27.1，近 20 日報酬 -9.06%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00737",
+    "name": "國泰AI機器人",
+    "asset_type": "ETF",
+    "close": 36.86,
+    "change_pct": 0.49,
+    "change_5d_pct": -6.38,
+    "change_20d_pct": -9.06,
+    "ma5": 37.59,
+    "ma20": 39.26,
+    "ma60": 40.23,
+    "rsi14": 27.1,
+    "trend_status": "空頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:25（行情日 2026-11-19）"
+  }
+}

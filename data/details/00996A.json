@@ -1,0 +1,26 @@
+{
+  "symbol": "00996A",
+  "name": "主動兆豐台灣豐收",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:25（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=30.1，近 20 日報酬 -31.23%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00996A",
+    "name": "主動兆豐台灣豐收",
+    "asset_type": "ETF",
+    "close": 9.25,
+    "change_pct": -8.23,
+    "change_5d_pct": -17.63,
+    "change_20d_pct": -31.23,
+    "ma5": 10.26,
+    "ma20": 11.38,
+    "ma60": 13.27,
+    "rsi14": 30.1,
+    "trend_status": "空頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:25（行情日 2026-11-19）"
+  }
+}

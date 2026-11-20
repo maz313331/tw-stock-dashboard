@@ -1,0 +1,26 @@
+{
+  "symbol": "00983A",
+  "name": "主動中信ARK創新",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:25（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=28.3，近 20 日報酬 -12.72%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00983A",
+    "name": "主動中信ARK創新",
+    "asset_type": "ETF",
+    "close": 11.12,
+    "change_pct": 0.54,
+    "change_5d_pct": -6.16,
+    "change_20d_pct": -12.72,
+    "ma5": 11.27,
+    "ma20": 11.96,
+    "ma60": 12.5,
+    "rsi14": 28.3,
+    "trend_status": "空頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:25（行情日 2026-11-19）"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "symbol": "00681R",
+  "name": "元大美債20反1",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:22（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「均線之上偏多」，RSI(14)=64.3，近 20 日報酬 -0.44%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00681R",
+    "name": "元大美債20反1",
+    "asset_type": "ETF",
+    "close": 22.4,
+    "change_pct": -0.62,
+    "change_5d_pct": 0.54,
+    "change_20d_pct": -0.44,
+    "ma5": 22.59,
+    "ma20": 22.2,
+    "ma60": 22.22,
+    "rsi14": 64.3,
+    "trend_status": "均線之上偏多",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:22（行情日 2026-11-19）"
+  }
+}

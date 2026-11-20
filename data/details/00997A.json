@@ -1,0 +1,26 @@
+{
+  "symbol": "00997A",
+  "name": "主動群益美國增長",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:25（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=25.8，近 20 日報酬 -15.53%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00997A",
+    "name": "主動群益美國增長",
+    "asset_type": "ETF",
+    "close": 9.08,
+    "change_pct": 0.33,
+    "change_5d_pct": -4.32,
+    "change_20d_pct": -15.53,
+    "ma5": 9.17,
+    "ma20": 9.77,
+    "ma60": 10.75,
+    "rsi14": 25.8,
+    "trend_status": "空頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:25（行情日 2026-11-19）"
+  }
+}

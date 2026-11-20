@@ -1,0 +1,26 @@
+{
+  "symbol": "00646",
+  "name": "元大S&P500",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:22（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「均線下方偏弱」，RSI(14)=40.7，近 20 日報酬 -3.28%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00646",
+    "name": "元大S&P500",
+    "asset_type": "ETF",
+    "close": 76.6,
+    "change_pct": 0.13,
+    "change_5d_pct": -2.61,
+    "change_20d_pct": -3.28,
+    "ma5": 77.41,
+    "ma20": 78.08,
+    "ma60": 77.55,
+    "rsi14": 40.7,
+    "trend_status": "均線下方偏弱",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:22（行情日 2026-11-19）"
+  }
+}

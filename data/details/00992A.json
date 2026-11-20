@@ -1,0 +1,26 @@
+{
+  "symbol": "00992A",
+  "name": "主動群益科技創新",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:25（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=30.0，近 20 日報酬 -33.39%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00992A",
+    "name": "主動群益科技創新",
+    "asset_type": "ETF",
+    "close": 11.65,
+    "change_pct": -9.34,
+    "change_5d_pct": -18.87,
+    "change_20d_pct": -33.39,
+    "ma5": 13.02,
+    "ma20": 14.7,
+    "ma60": 17.25,
+    "rsi14": 30.0,
+    "trend_status": "空頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:25（行情日 2026-11-19）"
+  }
+}

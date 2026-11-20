@@ -1,0 +1,26 @@
+{
+  "symbol": "0055",
+  "name": "元大MSCI金融",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:22（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「均線下方偏弱」，RSI(14)=28.7，近 20 日報酬 -8.69%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "0055",
+    "name": "元大MSCI金融",
+    "asset_type": "ETF",
+    "close": 46.98,
+    "change_pct": -2.69,
+    "change_5d_pct": -7.52,
+    "change_20d_pct": -8.69,
+    "ma5": 49.54,
+    "ma20": 50.73,
+    "ma60": 49.52,
+    "rsi14": 28.7,
+    "trend_status": "均線下方偏弱",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:22（行情日 2026-11-19）"
+  }
+}

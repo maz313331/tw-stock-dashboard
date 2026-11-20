@@ -1,0 +1,26 @@
+{
+  "symbol": "00912",
+  "name": "中信臺灣智慧50",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:25（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=27.4，近 20 日報酬 -20.84%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00912",
+    "name": "中信臺灣智慧50",
+    "asset_type": "ETF",
+    "close": 26.05,
+    "change_pct": -4.82,
+    "change_5d_pct": -13.31,
+    "change_20d_pct": -20.84,
+    "ma5": 27.88,
+    "ma20": 30.06,
+    "ma60": 33.62,
+    "rsi14": 27.4,
+    "trend_status": "空頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:25（行情日 2026-11-19）"
+  }
+}

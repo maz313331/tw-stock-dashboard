@@ -1,0 +1,26 @@
+{
+  "symbol": "009826",
+  "name": "貝萊德世界股票",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:25（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=37.9，近 20 日報酬 -3.15%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "009826",
+    "name": "貝萊德世界股票",
+    "asset_type": "ETF",
+    "close": 9.84,
+    "change_pct": -0.51,
+    "change_5d_pct": -3.05,
+    "change_20d_pct": -3.15,
+    "ma5": 9.98,
+    "ma20": 10.06,
+    "ma60": 10.07,
+    "rsi14": 37.9,
+    "trend_status": "空頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:25（行情日 2026-11-19）"
+  }
+}

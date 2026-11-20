@@ -1,0 +1,26 @@
+{
+  "symbol": "00898",
+  "name": "國泰基因免疫革命",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:25（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「均線下方偏弱」，RSI(14)=28.5，近 20 日報酬 -11.45%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00898",
+    "name": "國泰基因免疫革命",
+    "asset_type": "ETF",
+    "close": 10.44,
+    "change_pct": -0.29,
+    "change_5d_pct": -7.61,
+    "change_20d_pct": -11.45,
+    "ma5": 10.65,
+    "ma20": 11.38,
+    "ma60": 11.33,
+    "rsi14": 28.5,
+    "trend_status": "均線下方偏弱",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:25（行情日 2026-11-19）"
+  }
+}

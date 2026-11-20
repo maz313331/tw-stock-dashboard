@@ -1,0 +1,26 @@
+{
+  "symbol": "00661",
+  "name": "元大日經225",
+  "asset_type": "ETF",
+  "updated_at": "2026-11-19 20:22（行情日 2026-11-19）",
+  "excluded": true,
+  "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
+  "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=33.1，近 20 日報酬 -8.58%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
+  "quote": {
+    "symbol": "00661",
+    "name": "元大日經225",
+    "asset_type": "ETF",
+    "close": 76.75,
+    "change_pct": 0.13,
+    "change_5d_pct": -2.91,
+    "change_20d_pct": -8.58,
+    "ma5": 77.44,
+    "ma20": 79.69,
+    "ma60": 83.66,
+    "rsi14": 33.1,
+    "trend_status": "空頭排列",
+    "inst_5d_net": 0.0,
+    "concentration_5d": 0.0,
+    "updated_at": "2026-11-19 20:22（行情日 2026-11-19）"
+  }
+}
