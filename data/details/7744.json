@@ -1,7 +1,7 @@
 {
   "symbol": "7744",
   "name": "崴寶",
-  "updated_at": "2026-11-20 13:34（行情日 2026-11-20）",
+  "updated_at": "2026-11-20 13:04（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-10.67%"
+        "value": "-6.45%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:23.1 / D:35.2"
+        "value": "K:27.8 / D:36.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:29.4"
+        "value": "RSI14:32.0"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-24.61"
+        "value": "DIF:-23.25"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:392.30"
+        "value": "5MA:395.70"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:428.45"
+        "value": "20MA:429.30"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:428.4/483.2"
+        "value": "20MA/60MA:429.3/483.5"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
