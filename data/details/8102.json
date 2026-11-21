@@ -1,7 +1,7 @@
 {
   "symbol": "8102",
   "name": "傑霖科技",
-  "updated_at": "2026-11-20 13:16（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 14:14（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
@@ -94,7 +94,7 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:14.0 / D:19.7"
+        "value": "K:9.3 / D:16.2"
       },
       {
         "label": "RSI 多頭趨勢",
@@ -104,22 +104,22 @@
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-4.04"
+        "value": "DIF:-4.18"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:43.67"
+        "value": "5MA:42.20"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:48.40"
+        "value": "20MA:47.62"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:48.4/57.5"
+        "value": "20MA/60MA:47.6/57.0"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
