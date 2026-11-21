@@ -1,7 +1,7 @@
 {
   "symbol": "3064",
   "name": "泰偉",
-  "updated_at": "2026-11-20 11:32（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 12:22（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
@@ -94,7 +94,7 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:86.9 / D:68.8"
+        "value": "K:91.3 / D:76.3"
       },
       {
         "label": "RSI 多頭趨勢",
@@ -104,7 +104,7 @@
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.41"
+        "value": "DIF:-0.37"
       },
       {
         "label": "收盤價大於週線",
@@ -114,12 +114,12 @@
       {
         "label": "收盤價大於月線",
         "passed": true,
-        "value": "20MA:13.70"
+        "value": "20MA:13.69"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:13.7/15.8"
+        "value": "20MA/60MA:13.7/15.7"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
