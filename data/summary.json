@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 11:38（行情日 2026-11-20）",
   "stocks": [
     {
       "symbol": "1101",
@@ -2840,9 +2840,9 @@
       "name": "潤隆",
       "close": 38.75,
       "change_pct": 0.0,
-      "total_score": 2,
+      "total_score": 1,
       "fundamental_score": 0,
-      "technical_score": 2,
+      "technical_score": 1,
       "chip_score": 0,
       "badge": "中性觀望",
       "excluded": false,
@@ -3801,7 +3801,7 @@
       "symbol": "2235",
       "name": "謚源",
       "close": 28.0,
-      "change_pct": -5.08,
+      "change_pct": 0.0,
       "total_score": 1,
       "fundamental_score": 0,
       "technical_score": 1,
