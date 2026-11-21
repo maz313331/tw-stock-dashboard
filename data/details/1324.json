@@ -1,7 +1,7 @@
 {
   "symbol": "1324",
   "name": "地球",
-  "updated_at": "2026-11-20 10:40（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -17,8 +17,8 @@
   "metrics_6": {
     "main_force_net": 12.0,
     "retail_net": 0,
-    "margin_net": -9.0,
-    "chip_concentration_5d": 14.59,
+    "margin_net": -11.0,
+    "chip_concentration_5d": 15.15,
     "major_holder_pct": 70.42,
     "retail_holder_pct": 24.23
   },
@@ -136,7 +136,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": true,
-        "value": "5日集中度:+14.59%"
+        "value": "5日集中度:+15.15%"
       },
       {
         "label": "外資、投信同時連買 2 天",

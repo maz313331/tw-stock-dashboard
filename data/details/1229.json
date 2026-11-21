@@ -1,7 +1,7 @@
 {
   "symbol": "1229",
   "name": "聯華",
-  "updated_at": "2026-11-20 10:40（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -17,8 +17,8 @@
   "metrics_6": {
     "main_force_net": 2281.9,
     "retail_net": 0,
-    "margin_net": -11.0,
-    "chip_concentration_5d": 42.99,
+    "margin_net": 75.0,
+    "chip_concentration_5d": 43.16,
     "major_holder_pct": 73.1,
     "retail_holder_pct": 20.38
   },
@@ -136,7 +136,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": true,
-        "value": "5日集中度:+42.99%"
+        "value": "5日集中度:+43.16%"
       },
       {
         "label": "外資、投信同時連買 2 天",

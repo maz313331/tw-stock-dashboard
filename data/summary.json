@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-20 13:29（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
   "stocks": [
     {
       "symbol": "1101",
@@ -682,10 +682,10 @@
       "name": "台翰",
       "close": 12.5,
       "change_pct": -5.3,
-      "total_score": 5,
-      "fundamental_score": 5,
+      "total_score": 7,
+      "fundamental_score": 4,
       "technical_score": 0,
-      "chip_score": 0,
+      "chip_score": 3,
       "badge": "中性觀望",
       "excluded": false,
       "exclude_reason": ""
@@ -1735,9 +1735,9 @@
       "name": "正峰",
       "close": 7.24,
       "change_pct": 0.0,
-      "total_score": 2,
+      "total_score": 1,
       "fundamental_score": 0,
-      "technical_score": 2,
+      "technical_score": 1,
       "chip_score": 0,
       "badge": "中性觀望",
       "excluded": false,

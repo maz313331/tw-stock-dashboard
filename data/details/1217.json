@@ -1,7 +1,7 @@
 {
   "symbol": "1217",
   "name": "愛之味",
-  "updated_at": "2026-11-20 10:40（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -17,8 +17,8 @@
   "metrics_6": {
     "main_force_net": -60.0,
     "retail_net": 0,
-    "margin_net": -14.0,
-    "chip_concentration_5d": 3.72,
+    "margin_net": -34.0,
+    "chip_concentration_5d": 3.74,
     "major_holder_pct": 69.46,
     "retail_holder_pct": 24.36
   },
@@ -136,7 +136,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": false,
-        "value": "5日集中度:+3.72%"
+        "value": "5日集中度:+3.74%"
       },
       {
         "label": "外資、投信同時連買 2 天",

@@ -1,7 +1,7 @@
 {
   "symbol": "1303",
   "name": "南亞",
-  "updated_at": "2026-11-20 10:40（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -15,10 +15,10 @@
     "chip": 5
   },
   "metrics_6": {
-    "main_force_net": 6042.3,
+    "main_force_net": 5338.3,
     "retail_net": 0,
-    "margin_net": 47.0,
-    "chip_concentration_5d": -10.18,
+    "margin_net": -3867.0,
+    "chip_concentration_5d": -10.37,
     "major_holder_pct": 89.18,
     "retail_holder_pct": 8.61
   },
@@ -131,12 +131,12 @@
       {
         "label": "近 3 日主力單日買超 > 1,000 張",
         "passed": true,
-        "value": "最大:+6042張"
+        "value": "最大:+5338張"
       },
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": false,
-        "value": "5日集中度:-10.18%"
+        "value": "5日集中度:-10.37%"
       },
       {
         "label": "外資、投信同時連買 2 天",
@@ -161,12 +161,12 @@
       {
         "label": "近 1 日法人或主力買超力道放大",
         "passed": true,
-        "value": "+6042 (5日均-8794)"
+        "value": "+5338 (5日均-8934)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
         "passed": false,
-        "value": "-86930張"
+        "value": "-87634張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",

@@ -1,7 +1,7 @@
 {
   "symbol": "1308",
   "name": "亞聚",
-  "updated_at": "2026-11-20 10:40（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -17,7 +17,7 @@
   "metrics_6": {
     "main_force_net": -347.9,
     "retail_net": 0,
-    "margin_net": 69.0,
+    "margin_net": 25.0,
     "chip_concentration_5d": -3.09,
     "major_holder_pct": 62.15,
     "retail_holder_pct": 29.54

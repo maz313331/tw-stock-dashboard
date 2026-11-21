@@ -1,7 +1,7 @@
 {
   "symbol": "1110",
   "name": "東泥",
-  "updated_at": "2026-11-20 10:40（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -17,7 +17,7 @@
   "metrics_6": {
     "main_force_net": -46.8,
     "retail_net": 0,
-    "margin_net": 1.0,
+    "margin_net": -1.0,
     "chip_concentration_5d": 5.29,
     "major_holder_pct": 96.62,
     "retail_holder_pct": 2.04

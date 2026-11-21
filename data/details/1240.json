@@ -1,7 +1,7 @@
 {
   "symbol": "1240",
   "name": "茂生農經",
-  "updated_at": "2026-11-20 10:40（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -18,7 +18,7 @@
     "main_force_net": -9.0,
     "retail_net": 0,
     "margin_net": 0.0,
-    "chip_concentration_5d": -6.17,
+    "chip_concentration_5d": -6.22,
     "major_holder_pct": 81.51,
     "retail_holder_pct": 13.67
   },
@@ -136,7 +136,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": false,
-        "value": "5日集中度:-6.17%"
+        "value": "5日集中度:-6.22%"
       },
       {
         "label": "外資、投信同時連買 2 天",

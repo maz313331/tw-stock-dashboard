@@ -1,7 +1,7 @@
 {
   "symbol": "1313",
   "name": "聯成",
-  "updated_at": "2026-11-20 10:40（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -17,7 +17,7 @@
   "metrics_6": {
     "main_force_net": -585.7,
     "retail_net": 0,
-    "margin_net": -17.0,
+    "margin_net": -283.0,
     "chip_concentration_5d": -6.82,
     "major_holder_pct": 77.0,
     "retail_holder_pct": 17.25

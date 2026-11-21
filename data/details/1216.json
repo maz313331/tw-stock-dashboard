@@ -1,7 +1,7 @@
 {
   "symbol": "1216",
   "name": "統一",
-  "updated_at": "2026-11-20 10:40（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -17,8 +17,8 @@
   "metrics_6": {
     "main_force_net": 609.2,
     "retail_net": 0,
-    "margin_net": 90.0,
-    "chip_concentration_5d": 14.61,
+    "margin_net": 97.0,
+    "chip_concentration_5d": 14.62,
     "major_holder_pct": 92.66,
     "retail_holder_pct": 5.88
   },
@@ -136,7 +136,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": true,
-        "value": "5日集中度:+14.61%"
+        "value": "5日集中度:+14.62%"
       },
       {
         "label": "外資、投信同時連買 2 天",

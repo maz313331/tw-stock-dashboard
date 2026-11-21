@@ -1,7 +1,7 @@
 {
   "symbol": "1232",
   "name": "大統益",
-  "updated_at": "2026-11-20 10:40（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -17,8 +17,8 @@
   "metrics_6": {
     "main_force_net": 67.9,
     "retail_net": 0,
-    "margin_net": -1.0,
-    "chip_concentration_5d": 33.54,
+    "margin_net": 0.0,
+    "chip_concentration_5d": 33.98,
     "major_holder_pct": 78.2,
     "retail_holder_pct": 18.52
   },
@@ -136,7 +136,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": true,
-        "value": "5日集中度:+33.54%"
+        "value": "5日集中度:+33.98%"
       },
       {
         "label": "外資、投信同時連買 2 天",

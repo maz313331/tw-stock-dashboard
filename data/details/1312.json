@@ -1,7 +1,7 @@
 {
   "symbol": "1312",
   "name": "國喬",
-  "updated_at": "2026-11-20 10:40（行情日 2026-11-20）",
+  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -17,8 +17,8 @@
   "metrics_6": {
     "main_force_net": 48.4,
     "retail_net": 0,
-    "margin_net": -1177.0,
-    "chip_concentration_5d": -13.28,
+    "margin_net": -2006.0,
+    "chip_concentration_5d": -13.29,
     "major_holder_pct": 67.53,
     "retail_holder_pct": 25.16
   },
@@ -136,7 +136,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": false,
-        "value": "5日集中度:-13.28%"
+        "value": "5日集中度:-13.29%"
       },
       {
         "label": "外資、投信同時連買 2 天",
