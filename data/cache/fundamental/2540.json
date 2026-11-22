@@ -1,0 +1,25 @@
+{
+  "per": {
+    "updated_at": "2026-11-22",
+    "pe": 41.42,
+    "pb": 3.62,
+    "dividend_yield": 13.29
+  },
+  "revenue": {
+    "updated_at": "2026-11-22",
+    "rev_new_10m": false,
+    "rev_mom_pct": -23.3587602288114
+  },
+  "metrics": {
+    "pe": 41.42,
+    "pb": 3.62,
+    "dividend_yield": 13.29,
+    "rev_new_10m": false,
+    "rev_mom_pct": -23.3587602288114,
+    "op_income": null,
+    "net_income": null,
+    "eps": null,
+    "roa_pct": null,
+    "roe_pct": null
+  }
+}
