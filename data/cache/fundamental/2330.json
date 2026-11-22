@@ -1,0 +1,15 @@
+{
+  "revenue": {
+    "updated_at": "2026-11-22",
+    "rev_new_10m": true,
+    "rev_mom_pct": 14.658949962741477
+  },
+  "financial": {
+    "updated_at": "2026-11-22",
+    "op_income": 876445164000.0,
+    "net_income": 763340827000.0,
+    "eps": 29.43,
+    "roa_pct": 25.34931763089058,
+    "roe_pct": 36.181401386324396
+  }
+}

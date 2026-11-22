@@ -37,7 +37,7 @@ on:
         default: "0.4"
         type: string
       only_missing:
-        description: "是否僅補抓尚未入庫標的 (true/false)"
+        description: "是否僅補抓尚未入庫或缺漏標的 (true/false)"
         required: true
         default: "false"
         type: choice
@@ -76,6 +76,7 @@ jobs:
       - name: Run dashboard update (scheduled, single_batch, or full_auto_all)
         env:
           PYTHONPATH: scripts
+          FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
           EVENT_NAME: ${{ github.event_name }}
           RUN_MODE: ${{ github.event.inputs.run_mode || 'single_batch' }}
           START_OFFSET: ${{ github.event.inputs.offset || '0' }}
@@ -85,7 +86,6 @@ jobs:
         run: |
           python - << 'EOF'
           import json
-          import math
           import os
           import subprocess
           import time
@@ -97,7 +97,6 @@ jobs:
           sleep_sec = float(os.environ["SLEEP_SEC"])
           only_missing = os.environ["ONLY_MISSING"].lower() == "true"
 
-          # 讀取股票清單總數，若找不到檔案則給安全上限由腳本自行判斷結尾
           total_symbols = None
           for candidate in ["data/stock_list_common.json", "scripts/data/stock_list_common.json"]:
               if os.path.exists(candidate):
@@ -109,7 +108,7 @@ jobs:
                           total_symbols = len(data["items"])
                   break
 
-          def run_one_batch(cur_offset: int, cur_limit: int, cur_sleep: float, desc_tag: str):
+          def run_one_batch(cur_offset: int, cur_limit: int, cur_sleep: float, desc_tag: str, force_check: bool = False):
               cmd = [
                   "python", "-u", "scripts/run_dashboard_batch.py",
                   "--offset", str(cur_offset),
@@ -118,11 +117,12 @@ jobs:
               ]
               if only_missing:
                   cmd.append("--only-missing")
+              if force_check:
+                  cmd.append("--force-check")
 
               print(f"=== 執行批次 ({desc_tag}): {' '.join(cmd)} ===")
               subprocess.run(cmd, check=True)
 
-              # 每完成一小批就同步並推送，避免中途被限流或逾時導致進度遺失
               subprocess.run(["git", "add", "data/"], check=True)
               status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
               if status.stdout.strip():
@@ -134,11 +134,11 @@ jobs:
               else:
                   print("本批無資料檔案變更，略過 commit。")
 
-          # 1. 排程 (schedule) 或單批模式 (single_batch)：維持原本單批執行邏輯
+          # 1. 排程 (schedule) 或單批模式 (single_batch)
           if event_name != "workflow_dispatch" or run_mode == "single_batch":
-              run_one_batch(start_offset, batch_limit, sleep_sec, event_name)
+              run_one_batch(start_offset, batch_limit, sleep_sec, event_name, force_check=False)
 
-          # 2. 手動 full_auto_all 模式：自動分批跑到清單結尾
+          # 2. 手動 full_auto_all 模式：自動分批跑到清單結尾（強制完整檢查補齊）
           else:
               step_size = batch_limit if batch_limit > 0 else 150
               cur = start_offset
@@ -149,15 +149,13 @@ jobs:
                       print(f"已達清單結尾 (total={total_symbols})，full_auto_all 完成。")
                       break
 
-                  run_one_batch(cur, step_size, sleep_sec, f"full_auto_all #{batch_idx}")
+                  run_one_batch(cur, step_size, sleep_sec, f"full_auto_all #{batch_idx}", force_check=True)
                   cur += step_size
                   batch_idx += 1
 
-                  # 若無法取得總數且單批跑完後沒有新變更，可視情況停止或依上限推進
                   if total_symbols is None and batch_idx > 25:
                       print("已達安全上限 25 批，結束迴圈。")
                       break
 
-                  # 批次間稍作休息，降低外部 API 限流機率
                   time.sleep(3)
           EOF

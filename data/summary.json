@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-21 14:28（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 14:15（行情日 2026-11-20）",
   "stocks": [
     {
       "symbol": "1101",
@@ -19,9 +19,9 @@
       "name": "亞泥",
       "close": 32.35,
       "change_pct": -3.58,
-      "total_score": 11,
+      "total_score": 10,
       "fundamental_score": 5,
-      "technical_score": 2,
+      "technical_score": 1,
       "chip_score": 4,
       "badge": "中性觀望",
       "excluded": false,
@@ -58,9 +58,9 @@
       "name": "幸福",
       "close": 9.51,
       "change_pct": -4.9,
-      "total_score": 9,
+      "total_score": 8,
       "fundamental_score": 4,
-      "technical_score": 1,
+      "technical_score": 0,
       "chip_score": 4,
       "badge": "中性觀望",
       "excluded": false,

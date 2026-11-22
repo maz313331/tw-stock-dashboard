@@ -1,6 +1,7 @@
 import argparse
 import datetime as dt
 import json
+import math
 from pathlib import Path
 import time
 import requests
@@ -17,6 +18,87 @@ DEFAULT_WATCHLIST = [
     ("0050", "元大台灣50", "TW"),
     ("00878", "國泰永續高股息", "TW"),
 ]
+
+
+def _is_valid_value(val) -> bool:
+    if val is None:
+        return False
+    if isinstance(val, float) and math.isnan(val):
+        return False
+    if isinstance(val, str):
+        s = val.strip()
+        if not s or s in {"缺漏", "N/A", "NaN", "None", "--"}:
+            return False
+    return True
+
+
+def merge_without_overwrite(old_data: dict, new_data: dict) -> dict:
+    """
+    防空值洗資料：遞迴合併新舊字典。
+    若 new_data 的欄位為空/缺漏，而 old_data 有有效值，則保留 old_data。
+    """
+    if not isinstance(old_data, dict) or not old_data:
+        return new_data or {}
+    if not isinstance(new_data, dict) or not new_data:
+        return old_data
+
+    merged = dict(old_data)
+    for k, new_val in new_data.items():
+        # 狀態與時間戳記欄位直接採用最新值
+        if k in {"updated_at", "partial_missing", "missing_reasons", "excluded", "exclude_reason"}:
+            merged[k] = new_val
+            continue
+
+        old_val = old_data.get(k)
+        if isinstance(old_val, dict) and isinstance(new_val, dict):
+            merged[k] = merge_without_overwrite(old_val, new_val)
+        elif isinstance(old_val, list) and isinstance(new_val, list):
+            if not new_val and old_val:
+                merged[k] = old_val
+            elif old_val and len(old_val) == len(new_val) and all(
+                isinstance(x, dict) for x in old_val + new_val
+            ):
+                # 逐項保留各指標檢查的有效值
+                merged_list = []
+                for o_item, n_item in zip(old_val, new_val):
+                    merged_list.append(merge_without_overwrite(o_item, n_item))
+                merged[k] = merged_list
+            else:
+                old_missing = sum(
+                    1 for item in old_val
+                    if isinstance(item, dict) and not _is_valid_value(item.get("value"))
+                )
+                new_missing = sum(
+                    1 for item in new_val
+                    if isinstance(item, dict) and not _is_valid_value(item.get("value"))
+                )
+                if new_val and (len(new_val) >= len(old_val) and new_missing <= old_missing):
+                    merged[k] = new_val
+        else:
+            if _is_valid_value(new_val):
+                merged[k] = new_val
+            elif _is_valid_value(old_val):
+                merged[k] = old_val
+    return merged
+
+
+def load_batch_state(state_path: Path) -> dict:
+    if state_path.exists():
+        try:
+            data = json.loads(state_path.read_text(encoding="utf-8"))
+            if isinstance(data, dict):
+                return data
+        except Exception:
+            pass
+    return {}
+
+
+def save_batch_state(state_path: Path, state_data: dict) -> None:
+    try:
+        state_path.parent.mkdir(parents=True, exist_ok=True)
+        state_path.write_text(json.dumps(state_data, ensure_ascii=False, indent=2), encoding="utf-8")
+    except Exception:
+        pass
 
 
 def fetch_twse_market_stats() -> dict:
@@ -163,11 +245,13 @@ def load_target_symbols(root: Path, offset: int = 0, limit: int = 250) -> list[t
 
 
 def filter_missing_symbols(
-    root: Path, pool: list[tuple[str, str, str]]
+    root: Path, pool: list[tuple[str, str, str]], batch_state: dict
 ) -> list[tuple[str, str, str]]:
-    """只保留尚未存在於 data/summary.json 的標的，方便回頭補抓略過清單。"""
+    """保留尚未存在於 summary.json，或先前抓取標記為缺漏 (complete=False) 的標的。"""
     summary_path = root / "data" / "summary.json"
     existing_syms: set[str] = set()
+    incomplete_syms: set[str] = set()
+
     if summary_path.exists():
         try:
             prev = json.loads(summary_path.read_text(encoding="utf-8"))
@@ -176,9 +260,20 @@ def filter_missing_symbols(
                     s = str(r.get("symbol") or "").strip()
                     if s:
                         existing_syms.add(s)
+                        if r.get("partial_missing"):
+                            incomplete_syms.add(s)
         except Exception:
             pass
-    return [(sym, name, mkt) for (sym, name, mkt) in pool if sym not in existing_syms]
+
+    for sym, st in batch_state.items():
+        if isinstance(st, dict) and not st.get("complete", False):
+            incomplete_syms.add(sym)
+
+    return [
+        (sym, name, mkt)
+        for (sym, name, mkt) in pool
+        if (sym not in existing_syms) or (sym in incomplete_syms)
+    ]
 
 
 def fetch_stock_history_with_market(sym: str, mkt: str, s2330_df):
@@ -196,8 +291,8 @@ def fetch_stock_history_with_market(sym: str, mkt: str, s2330_df):
 
 def merge_summary_stocks(summary_path: Path, new_rows: list[dict], merge: bool = True) -> list[dict]:
     """
-    將本批次產出的股票列合併進既有 summary.json（依 symbol 更新或新增），
-    確保分批執行時先前累積的股票不會被覆蓋掉。
+    將本批次產出的股票列合併進既有 summary.json（依 symbol 防空值安全合併），
+    確保分批執行時先前累積的股票與有效欄位不會被覆蓋掉。
     """
     if not merge or not summary_path.exists():
         return sorted(new_rows, key=lambda r: str(r.get("symbol") or ""))
@@ -219,7 +314,10 @@ def merge_summary_stocks(summary_path: Path, new_rows: list[dict], merge: bool =
     for r in new_rows:
         sym = str(r.get("symbol") or "").strip()
         if sym:
-            by_symbol[sym] = r
+            if sym in by_symbol:
+                by_symbol[sym] = merge_without_overwrite(by_symbol[sym], r)
+            else:
+                by_symbol[sym] = r
 
     return sorted(by_symbol.values(), key=lambda r: str(r.get("symbol") or ""))
 
@@ -232,7 +330,12 @@ def main():
     parser.add_argument(
         "--only-missing",
         action="store_true",
-        help="僅針對 data/stock_list_common.json 中尚未寫入 summary.json 的標的補抓",
+        help="僅針對尚未入庫或先前缺漏的標的補抓",
+    )
+    parser.add_argument(
+        "--force-check",
+        action="store_true",
+        help="強制重抓並檢查所有標的（忽略同日已抓齊跳過規則）",
     )
     parser.add_argument(
         "--no-merge",
@@ -244,6 +347,9 @@ def main():
     root = Path(__file__).resolve().parent.parent
     market_path = root / "data" / "market.json"
     summary_path = root / "data" / "summary.json"
+    state_path = root / "data" / "cache" / "batch_state.json"
+
+    batch_state = load_batch_state(state_path)
 
     prev_market = {}
     if market_path.exists():
@@ -297,12 +403,12 @@ def main():
 
     if args.only_missing:
         all_pool = load_target_symbols(root, offset=0, limit=0)
-        targets = filter_missing_symbols(root, all_pool)
+        targets = filter_missing_symbols(root, all_pool, batch_state)
         if args.offset > 0:
             targets = targets[args.offset :]
         if args.limit and args.limit > 0:
             targets = targets[: args.limit]
-        print(f"[補抓模式] 偵測到尚未入庫普通股共 {len(targets)} 檔：{[t[0] for t in targets]}")
+        print(f"[補抓模式] 偵測到尚未入庫或缺漏標的共 {len(targets)} 檔")
     else:
         targets = load_target_symbols(root, offset=args.offset, limit=args.limit)
 
@@ -310,18 +416,33 @@ def main():
     batch_excluded_cnt = 0
     batch_high_score_cnt = 0
     skipped_cnt = 0
+    already_complete_cnt = 0
 
     now_str = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
     updated_label = f"{now_str}（行情日 {latest_trade_date}）"
 
     for idx, (sym, name, mkt) in enumerate(targets):
+        detail_path = root / "data" / "details" / f"{sym}.json"
+        st_entry = batch_state.get(sym, {})
+
+        # 缺漏檢查與跳過：若非強制全查，且該檔在最新行情日已完整入庫，則跳過避免重複打 API
+        if (
+            not args.force_check
+            and not args.only_missing
+            and detail_path.exists()
+            and st_entry.get("trade_date") == latest_trade_date
+            and st_entry.get("complete") is True
+        ):
+            already_complete_cnt += 1
+            continue
+
         if args.only_missing or (idx + 1) % 25 == 0 or idx == 0:
             print(f"[進度] {idx + 1}/{len(targets)} -> {sym} {name} ({mkt})")
 
         s_df = fetch_stock_history_with_market(sym, mkt, s2330_df)
         if s_df is None or s_df.empty or len(s_df) < 2:
             skipped_cnt += 1
-            print(f"[略過] {sym} {name} ({mkt}) 暫時無法取得日線行情")
+            print(f"[略過] {sym} {name} ({mkt}) 暫時無法取得日線行情（保留既有資料）")
             continue
 
         fund_data = fetch_fundamental_data(sym)
@@ -338,8 +459,26 @@ def main():
         )
         detail_obj, row_obj = refine_etf_exclusion_message(sym, detail_obj, row_obj)
 
-        write_json(root / "data" / "details" / f"{sym}.json", detail_obj)
+        # 防空值洗資料：若已有舊檔，合併保留舊有有效欄位
+        if detail_path.exists():
+            try:
+                old_detail = json.loads(detail_path.read_text(encoding="utf-8"))
+                detail_obj = merge_without_overwrite(old_detail, detail_obj)
+            except Exception:
+                pass
+
+        write_json(detail_path, detail_obj)
         batch_rows.append(row_obj)
+
+        # 記錄本檔抓齊狀態供後續排程判斷
+        is_fund_ok = bool(fund_data.get("complete", False)) or str(sym).startswith("00")
+        is_chip_ok = bool(chip_data.get("complete", True))
+        has_missing_msg = bool(detail_obj.get("partial_missing"))
+        batch_state[sym] = {
+            "trade_date": latest_trade_date,
+            "updated_at": now_str,
+            "complete": bool(is_fund_ok and is_chip_ok and not has_missing_msg),
+        }
 
         if row_obj.get("excluded"):
             batch_excluded_cnt += 1
@@ -348,6 +487,8 @@ def main():
 
         if args.sleep > 0 and idx < len(targets) - 1:
             time.sleep(args.sleep)
+
+    save_batch_state(state_path, batch_state)
 
     merged_rows = merge_summary_stocks(summary_path, batch_rows, merge=not args.no_merge)
     write_json(
@@ -385,8 +526,8 @@ def main():
     write_json(market_path, market_out)
 
     print(
-        f"[完成] 批次更新 ({latest_trade_date}) | 本批成功={len(batch_rows)} (略過={skipped_cnt}, "
-        f"本批高分={batch_high_score_cnt}, 本批排除={batch_excluded_cnt}) | "
+        f"[完成] 批次更新 ({latest_trade_date}) | 本批更新={len(batch_rows)} (同日已齊全跳過={already_complete_cnt}, "
+        f"略過={skipped_cnt}, 本批高分={batch_high_score_cnt}, 本批排除={batch_excluded_cnt}) | "
         f"累計總檔數={len(merged_rows)} (累計高分={total_high_score_cnt}, 累計排除={total_excluded_cnt})"
     )
 

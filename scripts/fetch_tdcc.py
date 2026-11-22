@@ -19,6 +19,10 @@ TDCC_COLUMNS = [
     "占集保庫存數比例(%)",
 ]
 
+# 同一次執行期間的記憶體快取，避免多檔查詢時重複下載整份 TDCC CSV
+_SESSION_RAW_DF: pd.DataFrame | None = None
+_SESSION_RAW_LOADED: bool = False
+
 
 def _cache_path() -> Path:
     root = Path(__file__).resolve().parent.parent
@@ -55,11 +59,15 @@ def _is_cache_fresh(cache: dict, max_age_days: int = 7) -> bool:
         return False
 
 
-def _fetch_tdcc_raw_df() -> pd.DataFrame:
+def _fetch_tdcc_raw_df(force_download: bool = False) -> pd.DataFrame:
     """
     從 TDCC 公開資料端點取得集保股權分散表資料。
-    自動辨識有標頭與無標頭 CSV。
+    同一次執行內自動複用已下載的 DataFrame，避免重複請求。
     """
+    global _SESSION_RAW_DF, _SESSION_RAW_LOADED
+    if _SESSION_RAW_LOADED and not force_download:
+        return _SESSION_RAW_DF if _SESSION_RAW_DF is not None else pd.DataFrame()
+
     url = "https://opendata.tdcc.com.tw/getOD.ashx?id=1-5"
     headers = {
         "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
@@ -67,28 +75,39 @@ def _fetch_tdcc_raw_df() -> pd.DataFrame:
     try:
         resp = requests.get(url, headers=headers, timeout=20)
         if not resp.ok or not resp.text.strip():
+            _SESSION_RAW_DF = pd.DataFrame()
+            _SESSION_RAW_LOADED = True
             return pd.DataFrame()
 
         text = resp.text.lstrip("\ufeff").strip()
         if text.startswith("[") or text.startswith("{"):
             data = json.loads(text)
-            return pd.DataFrame(data) if isinstance(data, list) and data else pd.DataFrame()
+            df = pd.DataFrame(data) if isinstance(data, list) and data else pd.DataFrame()
+            _SESSION_RAW_DF = df
+            _SESSION_RAW_LOADED = True
+            return df
 
         df = pd.read_csv(io.StringIO(text), header=None, dtype=str)
         if df is None or df.empty:
+            _SESSION_RAW_DF = pd.DataFrame()
+            _SESSION_RAW_LOADED = True
             return pd.DataFrame()
 
         c0 = str(df.iloc[0, 0]).strip()
         c1 = str(df.iloc[0, 1]).strip() if df.shape[1] > 1 else ""
-        # 若第一列是中文或英文標頭列，就跳過第一列並套用標準欄名
         if "日期" in c0 or "date" in c0.lower() or "代號" in c1 or "code" in c1.lower():
             df = df.iloc[1:, :6].copy()
         else:
             df = df.iloc[:, :6].copy()
 
         df.columns = TDCC_COLUMNS[: df.shape[1]]
-        return df.reset_index(drop=True)
+        df = df.reset_index(drop=True)
+        _SESSION_RAW_DF = df
+        _SESSION_RAW_LOADED = True
+        return df
     except Exception:
+        _SESSION_RAW_DF = pd.DataFrame()
+        _SESSION_RAW_LOADED = True
         return pd.DataFrame()
 
 
@@ -167,7 +186,7 @@ def _parse_stock_holding(df: pd.DataFrame, stock_id: str) -> dict | None:
 
 
 def _update_stock_entry_with_history(prev_entry: dict | None, parsed: dict) -> dict:
-    """合併歷史週次紀錄，若有多週歷史則自動補算週增減。"""
+    """合併歷史週次紀錄，若有多週歷史則自動補算週增減，並保留既有有效週變動。"""
     hist_map: dict[str, dict] = {}
     if isinstance(prev_entry, dict) and isinstance(prev_entry.get("history"), list):
         for item in prev_entry["history"]:
@@ -199,6 +218,12 @@ def _update_stock_entry_with_history(prev_entry: dict | None, parsed: dict) -> d
             out["major_change_1w"] = round(float(parsed["major_ratio"]) - float(p_rec["major_ratio"]), 2)
             out["retail_change_1w"] = round(float(parsed["retail_ratio"]) - float(p_rec["retail_ratio"]), 2)
 
+    if isinstance(prev_entry, dict):
+        if out.get("major_change_1w") is None and prev_entry.get("major_change_1w") is not None:
+            out["major_change_1w"] = prev_entry["major_change_1w"]
+        if out.get("retail_change_1w") is None and prev_entry.get("retail_change_1w") is not None:
+            out["retail_change_1w"] = prev_entry["retail_change_1w"]
+
     return out
 
 
@@ -216,7 +241,7 @@ def fetch_tdcc_holding_shares(stock_id: str, force_refresh: bool = False) -> dic
         if cached is not None:
             return cached
 
-    raw_df = _fetch_tdcc_raw_df()
+    raw_df = _fetch_tdcc_raw_df(force_download=force_refresh)
     if raw_df.empty:
         return stocks_cache.get(sid)
 

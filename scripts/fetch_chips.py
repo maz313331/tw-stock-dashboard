@@ -1,5 +1,7 @@
 import datetime as dt
+import os
 import re
+import time
 import pandas as pd
 import requests
 
@@ -25,19 +27,31 @@ CHIP_LABELS = [
 ]
 
 
-def _finmind_get(dataset: str, stock_id: str, start_date: str, retries: int = 1) -> pd.DataFrame:
+def _finmind_get(dataset: str, stock_id: str, start_date: str, retries: int = 3) -> pd.DataFrame:
     url = "https://api.finmindtrade.com/api/v4/data"
     params = {
         "dataset": dataset,
         "data_id": stock_id,
         "start_date": start_date,
     }
+    token = os.getenv("FINMIND_TOKEN", "").strip()
+    if token:
+        params["token"] = token
+
     for attempt in range(retries + 1):
         try:
-            resp = requests.get(url, params=params, timeout=10)
-            if resp.status_code == 429 or resp.status_code >= 500:
+            resp = requests.get(url, params=params, timeout=12)
+            if resp.status_code == 429:
+                wait_sec = 1.5 * (attempt + 1)
                 if attempt < retries:
-                    time.sleep(0.5 * (attempt + 1))
+                    print(f"[限流] {stock_id} {dataset} 觸發 429，等待 {wait_sec:.1f}s 後重試 ({attempt + 1}/{retries})")
+                    time.sleep(wait_sec)
+                    continue
+                print(f"[警告] {stock_id} {dataset} 多次觸發 429 限流，略過本次抓取")
+                return pd.DataFrame()
+            if resp.status_code >= 500:
+                if attempt < retries:
+                    time.sleep(0.8 * (attempt + 1))
                     continue
                 return pd.DataFrame()
             resp.raise_for_status()
@@ -46,10 +60,11 @@ def _finmind_get(dataset: str, stock_id: str, start_date: str, retries: int = 1)
             if rows:
                 return pd.DataFrame(rows)
             return pd.DataFrame()
-        except Exception:
+        except Exception as exc:
             if attempt < retries:
-                time.sleep(0.4)
+                time.sleep(0.6 * (attempt + 1))
             else:
+                print(f"[警告] {stock_id} {dataset} 請求異常: {exc}")
                 return pd.DataFrame()
     return pd.DataFrame()
 
@@ -191,7 +206,6 @@ def fetch_chip_data(stock_id: str, stock_df: pd.DataFrame | None = None) -> dict
     conc_5d_pct = 0.0
     if stock_df is not None and not stock_df.empty and "volume" in stock_df.columns and len(stock_df) >= 5:
         vol_5d_raw = float(pd.to_numeric(stock_df["volume"], errors="coerce").tail(5).sum())
-        # 若 volume 為股數（通常遠大於張數），轉成張數（/ 1000）；若已接近張數則直接使用
         vol_5d_lots = (vol_5d_raw / 1000.0) if vol_5d_raw > 50_000 else vol_5d_raw
         if vol_5d_lots > 0:
             conc_5d_pct = round((inst_5d_lots / vol_5d_lots) * 100.0, 2)
