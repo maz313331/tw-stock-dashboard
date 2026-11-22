@@ -469,14 +469,3 @@ def evaluate_fundamental_10(fund: dict) -> tuple[list[dict], int]:
     ]
     score = sum(1 for item in checks if item["passed"])
     return checks, score
-
-### 更新與重新執行步驟
-
-1. 將上方程式碼存回 `scripts/fetch_fundamental.py`（注意不要把引用標記一起貼進去）。
-2. 在 PowerShell 推上 GitHub：
-   ```powershell
-   cd "C:\Users\Chen Chia\Desktop\股市Test\tw-stock-dashboard"
-   git add scripts/fetch_fundamental.py
-   git commit -m "perf(fundamental): skip blocked 402/403 FinMind datasets immediately and reuse cache"
-   git pull --rebase origin main
-   git push origin main
