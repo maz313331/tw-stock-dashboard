@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-22 14:15（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 14:46（行情日 2026-11-20）",
   "regime": {
     "signal": "保守防禦",
     "suggested_exposure": "30% ~ 45%",
@@ -17,7 +17,8 @@
   "institutional_flow": {
     "foreign_net": 148.6,
     "trust_net": 32.4,
-    "dealer_net": -11.2
+    "dealer_net": -11.2,
+    "total_net": 169.8
   },
   "market_breadth": {
     "advancing": 39,

@@ -2,7 +2,7 @@
   "symbol": "00413A",
   "name": "主動玉山關鍵科技",
   "asset_type": "ETF",
-  "updated_at": "2026-11-19 20:22（行情日 2026-11-19）",
+  "updated_at": "2026-11-22 15:33（行情日 2026-11-20）",
   "excluded": true,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「均線下方偏弱」，RSI(14)=50.0，近 20 日報酬 +0.00%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -10,17 +10,17 @@
     "symbol": "00413A",
     "name": "主動玉山關鍵科技",
     "asset_type": "ETF",
-    "close": 8.56,
-    "change_pct": -8.35,
-    "change_5d_pct": -17.77,
+    "close": 7.87,
+    "change_pct": -8.06,
+    "change_5d_pct": -26.31,
     "change_20d_pct": 0.0,
-    "ma5": 9.51,
-    "ma20": 9.83,
-    "ma60": 9.83,
+    "ma5": 8.95,
+    "ma20": 9.59,
+    "ma60": 9.59,
     "rsi14": 50.0,
     "trend_status": "均線下方偏弱",
     "inst_5d_net": 0.0,
     "concentration_5d": 0.0,
-    "updated_at": "2026-11-19 20:22（行情日 2026-11-19）"
+    "updated_at": "2026-11-22 15:33（行情日 2026-11-20）"
   }
 }

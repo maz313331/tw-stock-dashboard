@@ -19,6 +19,12 @@ function fmtNum(val, dec = 2) {
   return Number.isInteger(n) ? String(n) : n.toFixed(dec);
 }
 
+function fmtSignedNum(val, suffix = "") {
+  if (val === null || val === undefined || val === "" || Number.isNaN(Number(val))) return "--";
+  const n = Number(val);
+  return `${n > 0 ? "+" : ""}${n}${suffix}`;
+}
+
 function pctClass(val) {
   const n = Number(val);
   if (n > 0) return "up";
@@ -26,8 +32,31 @@ function pctClass(val) {
   return "flat";
 }
 
+function getRsiHint(rsiVal) {
+  const n = Number(rsiVal);
+  if (Number.isNaN(n)) return "動能待觀察";
+  if (n >= 70) return "短線偏超買（留意過熱與拉回）";
+  if (n <= 30) return "短線偏超賣（留意止跌與分批節奏）";
+  if (n >= 50) return "多方動能佔上風";
+  return "空方動能偏弱";
+}
+
+function getMaPositionText(closeVal, maVal, label) {
+  const c = Number(closeVal);
+  const m = Number(maVal);
+  if (Number.isNaN(c) || Number.isNaN(m) || m === 0) return `${label}：--`;
+  const diffPct = ((c - m) / m) * 100;
+  const side = c >= m ? "站上" : "跌破";
+  return `${label} ${fmtNum(m, 2)}（${side} ${fmtPct(diffPct)}）`;
+}
+
 function switchPage(pageName) {
   appState.activePage = pageName;
+  const tooltip = document.getElementById("chart-tooltip");
+  if (pageName !== "overview" && tooltip) {
+    tooltip.classList.add("hidden");
+  }
+
   document.querySelectorAll(".tab-btn").forEach((btn) => {
     btn.classList.toggle("active", btn.dataset.page === pageName);
   });
@@ -69,12 +98,20 @@ function resolveSymbolInput(rawInput) {
 function renderOverview() {
   const m = appState.market || {};
   const tw = m.tw_index || {};
+  const otc = m.otc_index || m.tp_index || {};
   const inst = m.institutional_flow || {};
   const breadth = m.market_breadth || {};
 
   const validCount = appState.stocks.filter((s) => !s.excluded).length;
   const highCount = appState.stocks.filter((s) => !s.excluded && (s.total_score || 0) >= 22).length;
   const excludedCount = appState.stocks.filter((s) => s.excluded).length;
+
+  const foreignVal = inst.foreign_net ?? inst.foreign;
+  const trustVal = inst.trust_net ?? inst.trust;
+  const dealerVal = inst.dealer_net ?? inst.dealer;
+
+  const upVal = breadth.advancing ?? breadth.up_count ?? "--";
+  const downVal = breadth.declining ?? breadth.down_count ?? "--";
 
   const kpiHtml = `
     <div class="kpi-card">
@@ -85,24 +122,23 @@ function renderOverview() {
     <div class="kpi-card">
       <div class="kpi-top"><span>加權 / 櫃買指數</span><span class="kpi-muted">大盤水位</span></div>
       <div class="kpi-main ${pctClass(tw.change_pct)}">${tw.close ?? "--"} <small>(${fmtPct(tw.change_pct)})</small></div>
-      <div class="kpi-sub">櫃買：${m.tp_index?.close ?? "--"} (${fmtPct(m.tp_index?.change_pct)})</div>
+      <div class="kpi-sub">櫃買：${otc.close ?? "--"} (${fmtPct(otc.change_pct)})</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-top"><span>三大法人買賣超 (億元)</span><span class="kpi-muted">合計</span></div>
-      <div class="kpi-main ${pctClass(inst.total_net)}">${inst.total_net !== undefined ? `${Number(inst.total_net) > 0 ? "+" : ""}${inst.total_net}` : "--"}</div>
-      <div class="kpi-sub">外資 ${inst.foreign ?? "--"}・投信 ${inst.trust ?? "--"}・自營 ${inst.dealer ?? "--"}</div>
+      <div class="kpi-main ${pctClass(inst.total_net)}">${inst.total_net !== undefined && inst.total_net !== null ? `${Number(inst.total_net) > 0 ? "+" : ""}${inst.total_net}` : "--"}</div>
+      <div class="kpi-sub">外資 ${fmtSignedNum(foreignVal)}・投信 ${fmtSignedNum(trustVal)}・自營 ${fmtSignedNum(dealerVal)}</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-top"><span>市場 breadth 與高分家數</span><span class="kpi-muted">≥22分強勢</span></div>
       <div class="kpi-main">
-        <span class="up">漲 ${breadth.up_count ?? "--"}</span> / <span class="down">跌 ${breadth.down_count ?? "--"}</span>
+        <span class="up">漲 ${upVal}</span> / <span class="down">跌 ${downVal}</span>
       </div>
       <div class="kpi-sub">高分 ≥22 分：${breadth.high_score_count ?? highCount} 檔・排除：${breadth.excluded_count ?? excludedCount} 檔</div>
     </div>
   `;
   document.getElementById("overview-kpis").innerHTML = kpiHtml;
 
-  // 美股四大指數
   const usList = Array.isArray(m.us_indices) && m.us_indices.length > 0
     ? m.us_indices
     : [
@@ -141,7 +177,6 @@ function getTrendSeries() {
     }));
   }
 
-  // 若 market.json 尚未提供歷史序列，以最新指數與法人數值生成平滑參考序列
   const baseIdx = Number(m.tw_index?.close) || 23000;
   const lastFlow = Number(m.institutional_flow?.total_net) || 0;
   const len = appState.chartRange;
@@ -160,6 +195,12 @@ function getTrendSeries() {
 }
 
 function drawMarketTrendChart() {
+  const tooltip = document.getElementById("chart-tooltip");
+  if (appState.activePage !== "overview") {
+    if (tooltip) tooltip.classList.add("hidden");
+    return;
+  }
+
   const canvas = document.getElementById("market-trend-canvas");
   if (!canvas) return;
   const ctx = canvas.getContext("2d");
@@ -186,7 +227,6 @@ function drawMarketTrendChart() {
 
   const maxAbsFlow = Math.max(...flowVals.map((v) => Math.abs(v)), 100);
 
-  // 背景格線
   ctx.strokeStyle = "rgba(148, 163, 184, 0.14)";
   ctx.lineWidth = 1;
   for (let g = 0; g <= 4; g++) {
@@ -203,7 +243,6 @@ function drawMarketTrendChart() {
     ctx.fillText(tickVal.toFixed(0), pad.left - 8, y + 4);
   }
 
-  // 右軸法人買賣超刻度
   ctx.fillStyle = "#94a3b8";
   ctx.font = "11px sans-serif";
   ctx.textAlign = "left";
@@ -211,7 +250,6 @@ function drawMarketTrendChart() {
   ctx.fillText("0", W - pad.right + 8, pad.top + plotH / 2 + 4);
   ctx.fillText(`-${maxAbsFlow.toFixed(0)}`, W - pad.right + 8, pad.top + plotH);
 
-  // 柱狀圖：三大法人買賣超
   const stepX = plotW / series.length;
   const barW = Math.max(6, Math.min(22, stepX * 0.45));
   const zeroY = pad.top + plotH * 0.65;
@@ -226,7 +264,6 @@ function drawMarketTrendChart() {
       ctx.fillRect(cx - barW / 2, zeroY, barW, barH);
     }
 
-    // X 軸日期
     if (i === 0 || i === Math.floor(series.length / 2) || i === series.length - 1 || i % Math.ceil(series.length / 6) === 0) {
       ctx.fillStyle = "#94a3b8";
       ctx.font = "11px sans-serif";
@@ -235,7 +272,6 @@ function drawMarketTrendChart() {
     }
   });
 
-  // 折線圖：加權指數
   ctx.strokeStyle = "#38bdf8";
   ctx.lineWidth = 2.4;
   ctx.beginPath();
@@ -248,7 +284,6 @@ function drawMarketTrendChart() {
   });
   ctx.stroke();
 
-  // 折線節點
   series.forEach((pt, i) => {
     const cx = pad.left + stepX * (i + 0.5);
     const ratio = (pt.indexVal - yIdxMin) / (yIdxMax - yIdxMin);
@@ -259,10 +294,13 @@ function drawMarketTrendChart() {
     ctx.fill();
   });
 
-  // 滑鼠互動提示
-  const tooltip = document.getElementById("chart-tooltip");
   canvas.onmousemove = (ev) => {
+    if (appState.activePage !== "overview" || !tooltip) {
+      if (tooltip) tooltip.classList.add("hidden");
+      return;
+    }
     const rect = canvas.getBoundingClientRect();
+    if (!rect.width || !rect.height) return;
     const scaleX = canvas.width / rect.width;
     const x = (ev.clientX - rect.left) * scaleX;
     if (x < pad.left || x > W - pad.right) {
@@ -276,7 +314,9 @@ function drawMarketTrendChart() {
     tooltip.style.top = `${Math.max(10, (ev.clientY - rect.top) - 48)}px`;
     tooltip.classList.remove("hidden");
   };
-  canvas.onmouseleave = () => tooltip.classList.add("hidden");
+  canvas.onmouseleave = () => {
+    if (tooltip) tooltip.classList.add("hidden");
+  };
 }
 
 /* ================= 第 2 頁：強勢高分榜 ================= */
@@ -377,7 +417,7 @@ function renderEtfs() {
     .join("");
 }
 
-/* ================= 第 4 頁：預設 2330 顯示 30 個指標 ================= */
+/* ================= 第 4 頁：個股 30 指標 / ETF 獨立追蹤面板 ================= */
 function isMissingVal(v) {
   if (v === null || v === undefined) return true;
   if (typeof v === "string") {
@@ -386,6 +426,89 @@ function isMissingVal(v) {
   }
   if (typeof v === "number") return Number.isNaN(v);
   return false;
+}
+
+function renderEtfDetailPanel(symbol, detail, etfSummaryRow) {
+  const q = detail?.quote || etfSummaryRow || {};
+  const name = detail?.name || q.name || symbol;
+  const trendStatus = q.trend_status || "--";
+  const closeVal = q.close;
+  const chg1d = q.change_pct;
+  const chg5d = q.change_5d_pct;
+  const chg20d = q.change_20d_pct;
+  const ma5 = q.ma5;
+  const ma20 = q.ma20;
+  const ma60 = q.ma60;
+  const rsi14 = q.rsi14;
+  const inst5d = q.inst_5d_net;
+  const conc5d = q.concentration_5d;
+  const updatedAt = detail?.updated_at || q.updated_at || "--";
+  const noticeText =
+    detail?.notice ||
+    `ETF 獨立追蹤模式：目前均線架構為「${trendStatus}」，RSI(14)=${fmtNum(rsi14, 1)}，近 20 日報酬 ${fmtPct(chg20d)}。ETF 不適用個股財報(EPS/ROE)與本益比評分。`;
+
+  return `
+    <div class="stock-hero-card">
+      <div class="hero-top">
+        <div>
+          <h2>${symbol} ${name} <span class="mini-pill">ETF 獨立追蹤</span></h2>
+          <p class="hero-note">${noticeText}</p>
+          <p class="hero-note">資料時間：${updatedAt}</p>
+        </div>
+        <div class="hero-total">${trendStatus}</div>
+      </div>
+
+      <div class="chip-metrics-6">
+        <div class="cm-box"><span>最新收盤價</span><strong class="${pctClass(chg1d)}">${fmtNum(closeVal, 2)}</strong></div>
+        <div class="cm-box"><span>單日漲跌幅</span><strong class="${pctClass(chg1d)}">${fmtPct(chg1d)}</strong></div>
+        <div class="cm-box"><span>近 5 日報酬</span><strong class="${pctClass(chg5d)}">${fmtPct(chg5d)}</strong></div>
+        <div class="cm-box"><span>近 20 日報酬</span><strong class="${pctClass(chg20d)}">${fmtPct(chg20d)}</strong></div>
+        <div class="cm-box"><span>RSI (14)</span><strong>${fmtNum(rsi14, 1)}</strong></div>
+        <div class="cm-box"><span>近 5 日法人買賣超</span><strong class="${pctClass(inst5d)}">${fmtSignedNum(inst5d, " 張")}</strong></div>
+      </div>
+    </div>
+
+    <div class="thirty-grid">
+      <div class="dim-card">
+        <div class="dim-head">
+          <h3>趨勢與均線結構</h3>
+          <span class="dim-score">${trendStatus}</span>
+        </div>
+        <div class="dim-rows">
+          <div class="dim-row"><span class="m-badge m-pass">MA</span><span class="r-idx">1.</span><span class="r-label">5 日均線位置</span><span class="r-val">${getMaPositionText(closeVal, ma5, "5MA")}</span><span class="r-pts">短線</span></div>
+          <div class="dim-row"><span class="m-badge m-pass">MA</span><span class="r-idx">2.</span><span class="r-label">20 日均線位置</span><span class="r-val">${getMaPositionText(closeVal, ma20, "20MA")}</span><span class="r-pts">月線</span></div>
+          <div class="dim-row"><span class="m-badge m-pass">MA</span><span class="r-idx">3.</span><span class="r-label">60 日均線位置</span><span class="r-val">${getMaPositionText(closeVal, ma60, "60MA")}</span><span class="r-pts">季線</span></div>
+          <div class="dim-row"><span class="m-badge m-pass">架構</span><span class="r-idx">4.</span><span class="r-label">均線排列型態</span><span class="r-val v-pass">${trendStatus}</span><span class="r-pts">趨勢</span></div>
+        </div>
+      </div>
+
+      <div class="dim-card">
+        <div class="dim-head">
+          <h3>短中長動能與強弱</h3>
+          <span class="dim-score">RSI ${fmtNum(rsi14, 1)}</span>
+        </div>
+        <div class="dim-rows">
+          <div class="dim-row"><span class="m-badge m-pass">1D</span><span class="r-idx">1.</span><span class="r-label">單日漲跌幅</span><span class="r-val ${pctClass(chg1d)}">${fmtPct(chg1d)}</span><span class="r-pts">當日</span></div>
+          <div class="dim-row"><span class="m-badge m-pass">5D</span><span class="r-idx">2.</span><span class="r-label">近 5 日累積報酬</span><span class="r-val ${pctClass(chg5d)}">${fmtPct(chg5d)}</span><span class="r-pts">一週</span></div>
+          <div class="dim-row"><span class="m-badge m-pass">20D</span><span class="r-idx">3.</span><span class="r-label">近 20 日累積報酬</span><span class="r-val ${pctClass(chg20d)}">${fmtPct(chg20d)}</span><span class="r-pts">一月</span></div>
+          <div class="dim-row"><span class="m-badge m-pass">RSI</span><span class="r-idx">4.</span><span class="r-label">RSI(14) 強弱判讀</span><span class="r-val">${getRsiHint(rsi14)}</span><span class="r-pts">${fmtNum(rsi14, 1)}</span></div>
+        </div>
+      </div>
+
+      <div class="dim-card">
+        <div class="dim-head">
+          <h3>籌碼與 ETF 追蹤說明</h3>
+          <span class="dim-score">獨立模式</span>
+        </div>
+        <div class="dim-rows">
+          <div class="dim-row"><span class="m-badge m-pass">籌碼</span><span class="r-idx">1.</span><span class="r-label">近 5 日法人買賣超</span><span class="r-val ${pctClass(inst5d)}">${fmtSignedNum(inst5d, " 張")}</span><span class="r-pts">5日</span></div>
+          <div class="dim-row"><span class="m-badge m-pass">籌碼</span><span class="r-idx">2.</span><span class="r-label">5 日籌碼集中度</span><span class="r-val">${conc5d !== undefined && conc5d !== null ? `${fmtNum(conc5d, 2)}%` : "--"}</span><span class="r-pts">集中</span></div>
+          <div class="dim-row"><span class="m-badge m-warn">i</span><span class="r-idx">3.</span><span class="r-label">財報與估值評分</span><span class="r-val">不適用 ETF</span><span class="r-pts">排除</span></div>
+          <div class="dim-row"><span class="m-badge m-warn">i</span><span class="r-idx">4.</span><span class="r-label">資料來源</span><span class="r-val">ETF 獨立批次</span><span class="r-pts">ETF</span></div>
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function normalize30FromDetail(detail) {
@@ -462,16 +585,51 @@ function render30ColumnHtml(title, scoreVal, items) {
   `;
 }
 
+async function fetchDetailJson(symbol) {
+  const cleanSymbol = String(symbol || "").trim().toUpperCase();
+  const url = `./data/details/${encodeURIComponent(cleanSymbol)}.json`;
+
+  let res;
+  try {
+    res = await fetch(url, { cache: "no-store" });
+  } catch (_) {
+    throw new Error("無法連線至資料來源或本機伺服器");
+  }
+
+  if (!res.ok) {
+    throw new Error(`尚未建立此代號的明細檔案（HTTP ${res.status}）`);
+  }
+
+  const rawText = await res.text();
+  const trimmed = rawText.trim();
+
+  if (!trimmed || trimmed.startsWith("<")) {
+    throw new Error("尚無此代號的明細資料（可能尚未更新或已略過）");
+  }
+
+  try {
+    return JSON.parse(trimmed);
+  } catch (_) {
+    throw new Error("明細資料格式異常，請重新執行批次更新後再查詢");
+  }
+}
+
 async function loadStock30Page(symbolInput) {
   const symbol = resolveSymbolInput(symbolInput);
   appState.currentDetailSymbol = symbol;
   const container = document.getElementById("detail-page-content");
-  container.innerHTML = `<div class="loading-box">正在讀取 ${symbol} 30 項指標明細...</div>`;
+  container.innerHTML = `<div class="loading-box">正在讀取 ${symbol} 明細...</div>`;
+
+  const etfRow = appState.etfs.find((e) => String(e.symbol).toUpperCase() === String(symbol).toUpperCase());
 
   try {
-    const res = await fetch(`./data/details/${symbol}.json`);
-    if (!res.ok) throw new Error(`找不到 ./data/details/${symbol}.json`);
-    const detail = await res.json();
+    const detail = await fetchDetailJson(symbol);
+
+    if (detail?.asset_type === "ETF" || detail?.quote || etfRow) {
+      container.innerHTML = renderEtfDetailPanel(symbol, detail, etfRow);
+      return;
+    }
+
     const { fundamental, technical, chip } = normalize30FromDetail(detail);
     const sc = detail.scores || {};
     const m6 = detail.metrics_6 || {};
@@ -490,8 +648,16 @@ async function loadStock30Page(symbolInput) {
             <p class="hero-note">${detail.trading_note || detail.exclude_reason || "30 項多維度因子檢視（基本面 10 + 技術面 10 + 籌碼面 10）"}</p>
           </div>
           <div class="hero-total ${detail.excluded ? "is-excl" : ""}">
-            ${detail.excluded ? "已排除" : `${totalScore} / 30`} </div> </div>  <div class="chip-metrics-6"> <div class="cm-box"><span>主力買賣超</span><strong>${m6.main_force_net ?? "--"} 張</strong></div> <div class="cm-box"><span>散戶買賣超</span><strong>${m6.retail_net ?? "--"} 張</strong></div> <div class="cm-box"><span>融資增減</span><strong>${m6.margin_net ?? "--"} 張</strong></div> <div class="cm-box"><span>5日籌碼集中度</span><strong>${m6.chip_concentration_5d !== undefined ? `${m6.chip_concentration_5d}%` : "--"}</strong></div>
-          <div class="cm-box"><span>大戶持股比例</span><strong>${m6.major_holder_pct !== undefined ? `${m6.major_holder_pct}\%` : "--"}</strong></div> <div class="cm-box"><span>散戶持股比例</span><strong>${m6.retail_holder_pct !== undefined ? `${m6.retail_holder_pct}%` : "--"}</strong></div>
+            ${detail.excluded ? "已排除" : `${totalScore} / 30`}
+          </div>
+        </div>
+        <div class="chip-metrics-6">
+          <div class="cm-box"><span>主力買賣超</span><strong>${m6.main_force_net ?? "--"} 張</strong></div>
+          <div class="cm-box"><span>散戶買賣超</span><strong>${m6.retail_net ?? "--"} 張</strong></div>
+          <div class="cm-box"><span>融資增減</span><strong>${m6.margin_net ?? "--"} 張</strong></div>
+          <div class="cm-box"><span>5日籌碼集中度</span><strong>${m6.chip_concentration_5d !== undefined ? `${m6.chip_concentration_5d}%` : "--"}</strong></div>
+          <div class="cm-box"><span>大戶持股比例</span><strong>${m6.major_holder_pct !== undefined ? `${m6.major_holder_pct}%` : "--"}</strong></div>
+          <div class="cm-box"><span>散戶持股比例</span><strong>${m6.retail_holder_pct !== undefined ? `${m6.retail_holder_pct}%` : "--"}</strong></div>
         </div>
       </div>
 
@@ -502,9 +668,14 @@ async function loadStock30Page(symbolInput) {
       </div>
     `;
   } catch (err) {
+    if (etfRow) {
+      container.innerHTML = renderEtfDetailPanel(symbol, null, etfRow);
+      return;
+    }
+    const reason = err && err.message ? err.message : "暫時無法取得此代號資料";
     container.innerHTML = `
       <div class="warn-banner">
-        <strong>查無 ${symbol} 明細：</strong>${err.message}。請確認代號是否正確或重新輸入其他股票代號。
+        <strong>查無 ${symbol} 明細：</strong>${reason}。請確認代號是否正確或改查其他股票與 ETF 代號。
       </div>
     `;
   }
@@ -536,12 +707,10 @@ async function initDashboard() {
     console.error("初始化失敗:", e);
   }
 
-  // 分頁按鈕
   document.querySelectorAll(".tab-btn").forEach((btn) => {
     btn.addEventListener("click", () => switchPage(btn.dataset.page));
   });
 
-  // 走勢圖區間切換
   document.querySelectorAll(".range-btn").forEach((btn) => {
     btn.addEventListener("click", () => {
       document.querySelectorAll(".range-btn").forEach((b) => b.classList.remove("active"));
@@ -551,7 +720,6 @@ async function initDashboard() {
     });
   });
 
-  // 頂部快速查詢：直接帶入第 4 頁顯示 30 項指標
   const runQuickLookup = () => {
     const val = document.getElementById("quick-symbol-input").value;
     if (!val.trim()) {
@@ -566,19 +734,16 @@ async function initDashboard() {
     if (e.key === "Enter") runQuickLookup();
   });
 
-  // 第 2 頁篩選與排序
   ["stock-search", "stock-filter", "stock-sort"].forEach((id) => {
     document.getElementById(id)?.addEventListener("input", renderStocks);
     document.getElementById(id)?.addEventListener("change", renderStocks);
   });
 
-  // 第 3 頁 ETF 篩選與排序
   ["etf-search", "etf-trend-filter", "etf-sort"].forEach((id) => {
     document.getElementById(id)?.addEventListener("input", renderEtfs);
     document.getElementById(id)?.addEventListener("change", renderEtfs);
   });
 
-  // 第 4 頁股票切換
   const runDetailSwitch = () => {
     const val = document.getElementById("detail-symbol-input").value;
     loadStock30Page(val);

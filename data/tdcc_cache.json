@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-20T12:27:46",
+  "updated_at": "2026-11-22T15:14:32",
   "stocks": {
     "2330": {
       "date": "20261113",
@@ -29878,6 +29878,3636 @@
           "date": "20261113",
           "major_ratio": 74.16,
           "retail_ratio": 21.22
+        }
+      ]
+    },
+    "00400A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 36.66,
+      "retail_ratio": 40.06,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 36.66,
+          "retail_ratio": 40.06
+        }
+      ]
+    },
+    "00401A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 35.71,
+      "retail_ratio": 41.0,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 35.71,
+          "retail_ratio": 41.0
+        }
+      ]
+    },
+    "00402A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 38.69,
+      "retail_ratio": 42.33,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 38.69,
+          "retail_ratio": 42.33
+        }
+      ]
+    },
+    "00403A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 33.91,
+      "retail_ratio": 42.62,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 33.91,
+          "retail_ratio": 42.62
+        }
+      ]
+    },
+    "00404A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 28.73,
+      "retail_ratio": 47.87,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 28.73,
+          "retail_ratio": 47.87
+        }
+      ]
+    },
+    "00405A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 38.9,
+      "retail_ratio": 36.9,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 38.9,
+          "retail_ratio": 36.9
+        }
+      ]
+    },
+    "00406A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 54.31,
+      "retail_ratio": 23.89,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 54.31,
+          "retail_ratio": 23.89
+        }
+      ]
+    },
+    "00407A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 46.06,
+      "retail_ratio": 33.92,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 46.06,
+          "retail_ratio": 33.92
+        }
+      ]
+    },
+    "00408A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 39.19,
+      "retail_ratio": 39.22,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 39.19,
+          "retail_ratio": 39.22
+        }
+      ]
+    },
+    "00410A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 37.88,
+      "retail_ratio": 43.33,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 37.88,
+          "retail_ratio": 43.33
+        }
+      ]
+    },
+    "00412A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 42.63,
+      "retail_ratio": 33.07,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 42.63,
+          "retail_ratio": 33.07
+        }
+      ]
+    },
+    "00413A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 43.69,
+      "retail_ratio": 29.96,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 43.69,
+          "retail_ratio": 29.96
+        }
+      ]
+    },
+    "00415A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 39.05,
+      "retail_ratio": 33.38,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 39.05,
+          "retail_ratio": 33.38
+        }
+      ]
+    },
+    "00416A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 42.25,
+      "retail_ratio": 29.87,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 42.25,
+          "retail_ratio": 29.87
+        }
+      ]
+    },
+    "00418A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 55.48,
+      "retail_ratio": 23.88,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 55.48,
+          "retail_ratio": 23.88
+        }
+      ]
+    },
+    "0051": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 20.22,
+      "retail_ratio": 74.63,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 20.22,
+          "retail_ratio": 74.63
+        }
+      ]
+    },
+    "0052": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 26.44,
+      "retail_ratio": 62.03,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 26.44,
+          "retail_ratio": 62.03
+        }
+      ]
+    },
+    "0053": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 37.68,
+      "retail_ratio": 59.37,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 37.68,
+          "retail_ratio": 59.37
+        }
+      ]
+    },
+    "0055": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 46.04,
+      "retail_ratio": 46.1,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 46.04,
+          "retail_ratio": 46.1
+        }
+      ]
+    },
+    "0057": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 35.1,
+      "retail_ratio": 48.82,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 35.1,
+          "retail_ratio": 48.82
+        }
+      ]
+    },
+    "0061": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 49.89,
+      "retail_ratio": 34.4,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 49.89,
+          "retail_ratio": 34.4
+        }
+      ]
+    },
+    "006203": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 147.33,
+      "retail_ratio": 46.64,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 147.33,
+          "retail_ratio": 46.64
+        }
+      ]
+    },
+    "006204": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 65.43,
+      "retail_ratio": 119.92,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 65.43,
+          "retail_ratio": 119.92
+        }
+      ]
+    },
+    "006205": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 109.7,
+      "retail_ratio": 73.62,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 109.7,
+          "retail_ratio": 73.62
+        }
+      ]
+    },
+    "006206": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 101.16,
+      "retail_ratio": 77.62,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 101.16,
+          "retail_ratio": 77.62
+        }
+      ]
+    },
+    "006207": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 73.1,
+      "retail_ratio": 107.09,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 73.1,
+          "retail_ratio": 107.09
+        }
+      ]
+    },
+    "006208": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 85.2,
+      "retail_ratio": 102.35,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 85.2,
+          "retail_ratio": 102.35
+        }
+      ]
+    },
+    "00625K": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 34.53,
+      "retail_ratio": 27.3,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 34.53,
+          "retail_ratio": 27.3
+        }
+      ]
+    },
+    "00631L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 53.06,
+      "retail_ratio": 28.41,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 53.06,
+          "retail_ratio": 28.41
+        }
+      ]
+    },
+    "00632R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 74.14,
+      "retail_ratio": 13.66,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 74.14,
+          "retail_ratio": 13.66
+        }
+      ]
+    },
+    "00633L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 63.61,
+      "retail_ratio": 20.03,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 63.61,
+          "retail_ratio": 20.03
+        }
+      ]
+    },
+    "00634R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 79.13,
+      "retail_ratio": 11.6,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 79.13,
+          "retail_ratio": 11.6
+        }
+      ]
+    },
+    "00635U": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 37.55,
+      "retail_ratio": 52.04,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 37.55,
+          "retail_ratio": 52.04
+        }
+      ]
+    },
+    "00636": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 40.03,
+      "retail_ratio": 43.43,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 40.03,
+          "retail_ratio": 43.43
+        }
+      ]
+    },
+    "00636K": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 0.0,
+      "retail_ratio": 99.98,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 0.0,
+          "retail_ratio": 99.98
+        }
+      ]
+    },
+    "00637L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 77.77,
+      "retail_ratio": 11.6,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 77.77,
+          "retail_ratio": 11.6
+        }
+      ]
+    },
+    "00638R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 78.61,
+      "retail_ratio": 12.35,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 78.61,
+          "retail_ratio": 12.35
+        }
+      ]
+    },
+    "00639": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 46.07,
+      "retail_ratio": 35.7,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 46.07,
+          "retail_ratio": 35.7
+        }
+      ]
+    },
+    "00640L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 48.6,
+      "retail_ratio": 44.01,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 48.6,
+          "retail_ratio": 44.01
+        }
+      ]
+    },
+    "00641R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 78.64,
+      "retail_ratio": 11.43,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 78.64,
+          "retail_ratio": 11.43
+        }
+      ]
+    },
+    "00642U": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 55.03,
+      "retail_ratio": 37.66,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 55.03,
+          "retail_ratio": 37.66
+        }
+      ]
+    },
+    "00643": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 56.53,
+      "retail_ratio": 28.05,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 56.53,
+          "retail_ratio": 28.05
+        }
+      ]
+    },
+    "00643K": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 57.14,
+      "retail_ratio": 6.9,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 57.14,
+          "retail_ratio": 6.9
+        }
+      ]
+    },
+    "00645": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 42.11,
+      "retail_ratio": 51.99,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 42.11,
+          "retail_ratio": 51.99
+        }
+      ]
+    },
+    "00646": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 49.66,
+      "retail_ratio": 42.6,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 49.66,
+          "retail_ratio": 42.6
+        }
+      ]
+    },
+    "00647L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 29.49,
+      "retail_ratio": 57.06,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 29.49,
+          "retail_ratio": 57.06
+        }
+      ]
+    },
+    "00648R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 71.7,
+      "retail_ratio": 14.08,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 71.7,
+          "retail_ratio": 14.08
+        }
+      ]
+    },
+    "00650L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 71.51,
+      "retail_ratio": 15.46,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 71.51,
+          "retail_ratio": 15.46
+        }
+      ]
+    },
+    "00651R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 87.06,
+      "retail_ratio": 8.02,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 87.06,
+          "retail_ratio": 8.02
+        }
+      ]
+    },
+    "00652": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 43.77,
+      "retail_ratio": 47.75,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 43.77,
+          "retail_ratio": 47.75
+        }
+      ]
+    },
+    "00653L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 41.4,
+      "retail_ratio": 40.8,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 41.4,
+          "retail_ratio": 40.8
+        }
+      ]
+    },
+    "00654R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 74.71,
+      "retail_ratio": 13.84,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 74.71,
+          "retail_ratio": 13.84
+        }
+      ]
+    },
+    "00655L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 55.38,
+      "retail_ratio": 26.91,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 55.38,
+          "retail_ratio": 26.91
+        }
+      ]
+    },
+    "00656R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 85.59,
+      "retail_ratio": 8.49,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 85.59,
+          "retail_ratio": 8.49
+        }
+      ]
+    },
+    "00657": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 42.08,
+      "retail_ratio": 53.25,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 42.08,
+          "retail_ratio": 53.25
+        }
+      ]
+    },
+    "00657K": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 0.0,
+      "retail_ratio": 99.99,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 0.0,
+          "retail_ratio": 99.99
+        }
+      ]
+    },
+    "00660": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 59.83,
+      "retail_ratio": 31.45,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 59.83,
+          "retail_ratio": 31.45
+        }
+      ]
+    },
+    "00661": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 27.99,
+      "retail_ratio": 62.63,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 27.99,
+          "retail_ratio": 62.63
+        }
+      ]
+    },
+    "00662": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 76.42,
+      "retail_ratio": 13.66,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 76.42,
+          "retail_ratio": 13.66
+        }
+      ]
+    },
+    "00663L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 38.64,
+      "retail_ratio": 44.77,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 38.64,
+          "retail_ratio": 44.77
+        }
+      ]
+    },
+    "00664R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 85.33,
+      "retail_ratio": 6.38,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 85.33,
+          "retail_ratio": 6.38
+        }
+      ]
+    },
+    "00665L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 80.99,
+      "retail_ratio": 9.32,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 80.99,
+          "retail_ratio": 9.32
+        }
+      ]
+    },
+    "00666R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 93.22,
+      "retail_ratio": 4.24,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 93.22,
+          "retail_ratio": 4.24
+        }
+      ]
+    },
+    "00668": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 47.74,
+      "retail_ratio": 45.96,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 47.74,
+          "retail_ratio": 45.96
+        }
+      ]
+    },
+    "00668K": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 0.0,
+      "retail_ratio": 99.99,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 0.0,
+          "retail_ratio": 99.99
+        }
+      ]
+    },
+    "00669R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 73.74,
+      "retail_ratio": 12.24,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 73.74,
+          "retail_ratio": 12.24
+        }
+      ]
+    },
+    "00670L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 24.78,
+      "retail_ratio": 60.8,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 24.78,
+          "retail_ratio": 60.8
+        }
+      ]
+    },
+    "00671R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 87.35,
+      "retail_ratio": 5.23,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 87.35,
+          "retail_ratio": 5.23
+        }
+      ]
+    },
+    "00673R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 77.09,
+      "retail_ratio": 10.36,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 77.09,
+          "retail_ratio": 10.36
+        }
+      ]
+    },
+    "00674R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 54.16,
+      "retail_ratio": 35.43,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 54.16,
+          "retail_ratio": 35.43
+        }
+      ]
+    },
+    "00675L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 29.15,
+      "retail_ratio": 59.25,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 29.15,
+          "retail_ratio": 59.25
+        }
+      ]
+    },
+    "00676R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 74.35,
+      "retail_ratio": 13.38,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 74.35,
+          "retail_ratio": 13.38
+        }
+      ]
+    },
+    "00678": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 63.82,
+      "retail_ratio": 31.62,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 63.82,
+          "retail_ratio": 31.62
+        }
+      ]
+    },
+    "00680L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 76.63,
+      "retail_ratio": 11.61,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 76.63,
+          "retail_ratio": 11.61
+        }
+      ]
+    },
+    "00681R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 97.19,
+      "retail_ratio": 2.16,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 97.19,
+          "retail_ratio": 2.16
+        }
+      ]
+    },
+    "00682U": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 93.25,
+      "retail_ratio": 5.34,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 93.25,
+          "retail_ratio": 5.34
+        }
+      ]
+    },
+    "00683L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 81.4,
+      "retail_ratio": 11.91,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 81.4,
+          "retail_ratio": 11.91
+        }
+      ]
+    },
+    "00684R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 88.09,
+      "retail_ratio": 6.56,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 88.09,
+          "retail_ratio": 6.56
+        }
+      ]
+    },
+    "00685L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 62.44,
+      "retail_ratio": 19.94,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 62.44,
+          "retail_ratio": 19.94
+        }
+      ]
+    },
+    "00686R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 89.34,
+      "retail_ratio": 4.23,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 89.34,
+          "retail_ratio": 4.23
+        }
+      ]
+    },
+    "00688L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 72.71,
+      "retail_ratio": 13.49,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 72.71,
+          "retail_ratio": 13.49
+        }
+      ]
+    },
+    "00689R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 99.14,
+      "retail_ratio": 0.82,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 99.14,
+          "retail_ratio": 0.82
+        }
+      ]
+    },
+    "00690": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 19.5,
+      "retail_ratio": 66.73,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 19.5,
+          "retail_ratio": 66.73
+        }
+      ]
+    },
+    "00692": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 22.03,
+      "retail_ratio": 65.99,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 22.03,
+          "retail_ratio": 65.99
+        }
+      ]
+    },
+    "00693U": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 63.06,
+      "retail_ratio": 24.33,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 63.06,
+          "retail_ratio": 24.33
+        }
+      ]
+    },
+    "00700": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 35.24,
+      "retail_ratio": 43.31,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 35.24,
+          "retail_ratio": 43.31
+        }
+      ]
+    },
+    "00701": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 11.23,
+      "retail_ratio": 79.92,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 11.23,
+          "retail_ratio": 79.92
+        }
+      ]
+    },
+    "00702": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 62.76,
+      "retail_ratio": 36.46,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 62.76,
+          "retail_ratio": 36.46
+        }
+      ]
+    },
+    "00703": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 39.52,
+      "retail_ratio": 43.54,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 39.52,
+          "retail_ratio": 43.54
+        }
+      ]
+    },
+    "00706L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 56.9,
+      "retail_ratio": 26.89,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 56.9,
+          "retail_ratio": 26.89
+        }
+      ]
+    },
+    "00707R": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 99.86,
+      "retail_ratio": 0.1,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 99.86,
+          "retail_ratio": 0.1
+        }
+      ]
+    },
+    "00708L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 38.79,
+      "retail_ratio": 46.42,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 38.79,
+          "retail_ratio": 46.42
+        }
+      ]
+    },
+    "00709": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 53.09,
+      "retail_ratio": 41.6,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 53.09,
+          "retail_ratio": 41.6
+        }
+      ]
+    },
+    "00710B": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 86.08,
+      "retail_ratio": 10.84,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 86.08,
+          "retail_ratio": 10.84
+        }
+      ]
+    },
+    "00711B": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 99.45,
+      "retail_ratio": 0.35,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 99.45,
+          "retail_ratio": 0.35
+        }
+      ]
+    },
+    "00712": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 62.62,
+      "retail_ratio": 18.7,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 62.62,
+          "retail_ratio": 18.7
+        }
+      ]
+    },
+    "00713": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 27.15,
+      "retail_ratio": 61.44,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 27.15,
+          "retail_ratio": 61.44
+        }
+      ]
+    },
+    "00714": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 52.91,
+      "retail_ratio": 40.31,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 52.91,
+          "retail_ratio": 40.31
+        }
+      ]
+    },
+    "00715L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 68.94,
+      "retail_ratio": 21.0,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 68.94,
+          "retail_ratio": 21.0
+        }
+      ]
+    },
+    "00717": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 41.82,
+      "retail_ratio": 38.44,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 41.82,
+          "retail_ratio": 38.44
+        }
+      ]
+    },
+    "00728": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 10.85,
+      "retail_ratio": 79.71,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 10.85,
+          "retail_ratio": 79.71
+        }
+      ]
+    },
+    "00730": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 20.16,
+      "retail_ratio": 70.39,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 20.16,
+          "retail_ratio": 70.39
+        }
+      ]
+    },
+    "00731": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 22.85,
+      "retail_ratio": 73.39,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 22.85,
+          "retail_ratio": 73.39
+        }
+      ]
+    },
+    "00733": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 15.4,
+      "retail_ratio": 78.79,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 15.4,
+          "retail_ratio": 78.79
+        }
+      ]
+    },
+    "00735": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 27.88,
+      "retail_ratio": 62.67,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 27.88,
+          "retail_ratio": 62.67
+        }
+      ]
+    },
+    "00736": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 78.35,
+      "retail_ratio": 17.12,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 78.35,
+          "retail_ratio": 17.12
+        }
+      ]
+    },
+    "00737": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 29.42,
+      "retail_ratio": 61.99,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 29.42,
+          "retail_ratio": 61.99
+        }
+      ]
+    },
+    "00738U": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 36.92,
+      "retail_ratio": 48.3,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 36.92,
+          "retail_ratio": 48.3
+        }
+      ]
+    },
+    "00739": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 52.71,
+      "retail_ratio": 35.82,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 52.71,
+          "retail_ratio": 35.82
+        }
+      ]
+    },
+    "00752": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 45.83,
+      "retail_ratio": 37.92,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 45.83,
+          "retail_ratio": 37.92
+        }
+      ]
+    },
+    "00753L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 73.72,
+      "retail_ratio": 13.26,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 73.72,
+          "retail_ratio": 13.26
+        }
+      ]
+    },
+    "00757": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 38.64,
+      "retail_ratio": 52.43,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 38.64,
+          "retail_ratio": 52.43
+        }
+      ]
+    },
+    "00762": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 26.67,
+      "retail_ratio": 67.67,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 26.67,
+          "retail_ratio": 67.67
+        }
+      ]
+    },
+    "00763U": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 60.99,
+      "retail_ratio": 32.14,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 60.99,
+          "retail_ratio": 32.14
+        }
+      ]
+    },
+    "00770": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 27.7,
+      "retail_ratio": 61.41,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 27.7,
+          "retail_ratio": 61.41
+        }
+      ]
+    },
+    "00771": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 25.28,
+      "retail_ratio": 57.36,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 25.28,
+          "retail_ratio": 57.36
+        }
+      ]
+    },
+    "00775B": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 99.82,
+      "retail_ratio": 0.06,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 99.82,
+          "retail_ratio": 0.06
+        }
+      ]
+    },
+    "00783": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 42.78,
+      "retail_ratio": 44.52,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 42.78,
+          "retail_ratio": 44.52
+        }
+      ]
+    },
+    "00830": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 31.13,
+      "retail_ratio": 57.82,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 31.13,
+          "retail_ratio": 57.82
+        }
+      ]
+    },
+    "00850": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 21.87,
+      "retail_ratio": 67.86,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 21.87,
+          "retail_ratio": 67.86
+        }
+      ]
+    },
+    "00851": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 38.28,
+      "retail_ratio": 54.43,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 38.28,
+          "retail_ratio": 54.43
+        }
+      ]
+    },
+    "00852L": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 53.6,
+      "retail_ratio": 35.5,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 53.6,
+          "retail_ratio": 35.5
+        }
+      ]
+    },
+    "00861": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 9.9,
+      "retail_ratio": 77.9,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 9.9,
+          "retail_ratio": 77.9
+        }
+      ]
+    },
+    "00865B": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 59.77,
+      "retail_ratio": 21.98,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 59.77,
+          "retail_ratio": 21.98
+        }
+      ]
+    },
+    "00875": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 28.03,
+      "retail_ratio": 67.88,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 28.03,
+          "retail_ratio": 67.88
+        }
+      ]
+    },
+    "00876": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 33.32,
+      "retail_ratio": 56.5,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 33.32,
+          "retail_ratio": 56.5
+        }
+      ]
+    },
+    "00881": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 24.35,
+      "retail_ratio": 60.88,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 24.35,
+          "retail_ratio": 60.88
+        }
+      ]
+    },
+    "00882": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 50.29,
+      "retail_ratio": 30.41,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 50.29,
+          "retail_ratio": 30.41
+        }
+      ]
+    },
+    "00885": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 35.47,
+      "retail_ratio": 45.65,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 35.47,
+          "retail_ratio": 45.65
+        }
+      ]
+    },
+    "00891": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 25.03,
+      "retail_ratio": 55.94,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 25.03,
+          "retail_ratio": 55.94
+        }
+      ]
+    },
+    "00892": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 23.14,
+      "retail_ratio": 63.27,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 23.14,
+          "retail_ratio": 63.27
+        }
+      ]
+    },
+    "00893": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 17.29,
+      "retail_ratio": 69.5,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 17.29,
+          "retail_ratio": 69.5
+        }
+      ]
+    },
+    "00894": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 20.79,
+      "retail_ratio": 67.18,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 20.79,
+          "retail_ratio": 67.18
+        }
+      ]
+    },
+    "00895": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 15.54,
+      "retail_ratio": 71.8,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 15.54,
+          "retail_ratio": 71.8
+        }
+      ]
+    },
+    "00896": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 15.24,
+      "retail_ratio": 67.11,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 15.24,
+          "retail_ratio": 67.11
+        }
+      ]
+    },
+    "00897": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 33.49,
+      "retail_ratio": 48.24,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 33.49,
+          "retail_ratio": 48.24
+        }
+      ]
+    },
+    "00898": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 30.85,
+      "retail_ratio": 50.82,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 30.85,
+          "retail_ratio": 50.82
+        }
+      ]
+    },
+    "00899": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 19.19,
+      "retail_ratio": 67.55,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 19.19,
+          "retail_ratio": 67.55
+        }
+      ]
+    },
+    "00900": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 26.59,
+      "retail_ratio": 53.69,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 26.59,
+          "retail_ratio": 53.69
+        }
+      ]
+    },
+    "00901": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 16.1,
+      "retail_ratio": 72.1,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 16.1,
+          "retail_ratio": 72.1
+        }
+      ]
+    },
+    "00902": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 31.65,
+      "retail_ratio": 48.82,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 31.65,
+          "retail_ratio": 48.82
+        }
+      ]
+    },
+    "00903": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 20.98,
+      "retail_ratio": 64.9,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 20.98,
+          "retail_ratio": 64.9
+        }
+      ]
+    },
+    "00904": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 18.5,
+      "retail_ratio": 67.73,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 18.5,
+          "retail_ratio": 67.73
+        }
+      ]
+    },
+    "00905": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 16.73,
+      "retail_ratio": 63.75,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 16.73,
+          "retail_ratio": 63.75
+        }
+      ]
+    },
+    "00907": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 21.64,
+      "retail_ratio": 63.75,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 21.64,
+          "retail_ratio": 63.75
+        }
+      ]
+    },
+    "00908": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 45.9,
+      "retail_ratio": 41.54,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 45.9,
+          "retail_ratio": 41.54
+        }
+      ]
+    },
+    "00909": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 19.85,
+      "retail_ratio": 68.25,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 19.85,
+          "retail_ratio": 68.25
+        }
+      ]
+    },
+    "00910": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 17.59,
+      "retail_ratio": 73.96,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 17.59,
+          "retail_ratio": 73.96
+        }
+      ]
+    },
+    "00912": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 23.15,
+      "retail_ratio": 63.1,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 23.15,
+          "retail_ratio": 63.1
+        }
+      ]
+    },
+    "00913": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 20.0,
+      "retail_ratio": 68.13,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 20.0,
+          "retail_ratio": 68.13
+        }
+      ]
+    },
+    "00915": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 21.23,
+      "retail_ratio": 67.27,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 21.23,
+          "retail_ratio": 67.27
+        }
+      ]
+    },
+    "00916": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 24.45,
+      "retail_ratio": 66.44,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 24.45,
+          "retail_ratio": 66.44
+        }
+      ]
+    },
+    "00917": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 23.86,
+      "retail_ratio": 62.7,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 23.86,
+          "retail_ratio": 62.7
+        }
+      ]
+    },
+    "00918": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 25.23,
+      "retail_ratio": 53.37,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 25.23,
+          "retail_ratio": 53.37
+        }
+      ]
+    },
+    "00919": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 26.55,
+      "retail_ratio": 50.34,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 26.55,
+          "retail_ratio": 50.34
+        }
+      ]
+    },
+    "00920": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 34.96,
+      "retail_ratio": 57.24,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 34.96,
+          "retail_ratio": 57.24
+        }
+      ]
+    },
+    "00921": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 12.57,
+      "retail_ratio": 74.98,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 12.57,
+          "retail_ratio": 74.98
+        }
+      ]
+    },
+    "00922": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 32.82,
+      "retail_ratio": 50.59,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 32.82,
+          "retail_ratio": 50.59
+        }
+      ]
+    },
+    "00923": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 21.86,
+      "retail_ratio": 63.43,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 21.86,
+          "retail_ratio": 63.43
+        }
+      ]
+    },
+    "00924": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 30.44,
+      "retail_ratio": 55.81,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 30.44,
+          "retail_ratio": 55.81
+        }
+      ]
+    },
+    "00926": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 59.7,
+      "retail_ratio": 33.86,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 59.7,
+          "retail_ratio": 33.86
+        }
+      ]
+    },
+    "00927": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 19.84,
+      "retail_ratio": 61.5,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 19.84,
+          "retail_ratio": 61.5
+        }
+      ]
+    },
+    "00929": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 24.04,
+      "retail_ratio": 52.73,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 24.04,
+          "retail_ratio": 52.73
+        }
+      ]
+    },
+    "00930": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 11.38,
+      "retail_ratio": 73.47,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 11.38,
+          "retail_ratio": 73.47
+        }
+      ]
+    },
+    "00932": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 19.04,
+      "retail_ratio": 66.81,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 19.04,
+          "retail_ratio": 66.81
+        }
+      ]
+    },
+    "00934": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 17.78,
+      "retail_ratio": 63.23,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 17.78,
+          "retail_ratio": 63.23
+        }
+      ]
+    },
+    "00935": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 31.72,
+      "retail_ratio": 54.34,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 31.72,
+          "retail_ratio": 54.34
+        }
+      ]
+    },
+    "00936": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 16.29,
+      "retail_ratio": 65.32,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 16.29,
+          "retail_ratio": 65.32
+        }
+      ]
+    },
+    "00938": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 53.67,
+      "retail_ratio": 34.85,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 53.67,
+          "retail_ratio": 34.85
+        }
+      ]
+    },
+    "00939": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 17.69,
+      "retail_ratio": 59.74,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 17.69,
+          "retail_ratio": 59.74
+        }
+      ]
+    },
+    "00940": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 29.73,
+      "retail_ratio": 45.61,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 29.73,
+          "retail_ratio": 45.61
+        }
+      ]
+    },
+    "00941": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 22.44,
+      "retail_ratio": 59.18,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 22.44,
+          "retail_ratio": 59.18
+        }
+      ]
+    },
+    "00943": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 16.82,
+      "retail_ratio": 63.17,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 16.82,
+          "retail_ratio": 63.17
+        }
+      ]
+    },
+    "00944": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 14.4,
+      "retail_ratio": 68.02,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 14.4,
+          "retail_ratio": 68.02
+        }
+      ]
+    },
+    "00945B": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 65.59,
+      "retail_ratio": 17.52,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 65.59,
+          "retail_ratio": 17.52
+        }
+      ]
+    },
+    "00946": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 30.14,
+      "retail_ratio": 50.75,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 30.14,
+          "retail_ratio": 50.75
+        }
+      ]
+    },
+    "00947": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 30.34,
+      "retail_ratio": 57.43,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 30.34,
+          "retail_ratio": 57.43
+        }
+      ]
+    },
+    "00949": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 29.89,
+      "retail_ratio": 54.52,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 29.89,
+          "retail_ratio": 54.52
+        }
+      ]
+    },
+    "00951": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 35.48,
+      "retail_ratio": 45.06,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 35.48,
+          "retail_ratio": 45.06
+        }
+      ]
+    },
+    "00952": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 25.03,
+      "retail_ratio": 53.92,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 25.03,
+          "retail_ratio": 53.92
+        }
+      ]
+    },
+    "00953B": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 78.56,
+      "retail_ratio": 8.88,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 78.56,
+          "retail_ratio": 8.88
+        }
+      ]
+    },
+    "00954": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 37.51,
+      "retail_ratio": 45.55,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 37.51,
+          "retail_ratio": 45.55
+        }
+      ]
+    },
+    "00956": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 31.61,
+      "retail_ratio": 48.43,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 31.61,
+          "retail_ratio": 48.43
+        }
+      ]
+    },
+    "00960": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 21.8,
+      "retail_ratio": 67.83,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 21.8,
+          "retail_ratio": 67.83
+        }
+      ]
+    },
+    "00961": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 29.85,
+      "retail_ratio": 44.24,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 29.85,
+          "retail_ratio": 44.24
+        }
+      ]
+    },
+    "00962": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 26.76,
+      "retail_ratio": 48.36,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 26.76,
+          "retail_ratio": 48.36
+        }
+      ]
+    },
+    "00963": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 55.02,
+      "retail_ratio": 27.21,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 55.02,
+          "retail_ratio": 27.21
+        }
+      ]
+    },
+    "00964": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 40.3,
+      "retail_ratio": 35.35,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 40.3,
+          "retail_ratio": 35.35
+        }
+      ]
+    },
+    "00965": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 49.29,
+      "retail_ratio": 38.01,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 49.29,
+          "retail_ratio": 38.01
+        }
+      ]
+    },
+    "00971": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 25.64,
+      "retail_ratio": 61.5,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 25.64,
+          "retail_ratio": 61.5
+        }
+      ]
+    },
+    "009800": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 46.57,
+      "retail_ratio": 37.35,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 46.57,
+          "retail_ratio": 37.35
+        }
+      ]
+    },
+    "009801": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 106.62,
+      "retail_ratio": 71.99,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 106.62,
+          "retail_ratio": 71.99
+        }
+      ]
+    },
+    "009802": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 100.22,
+      "retail_ratio": 69.8,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 100.22,
+          "retail_ratio": 69.8
+        }
+      ]
+    },
+    "009803": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 24.82,
+      "retail_ratio": 55.66,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 24.82,
+          "retail_ratio": 55.66
+        }
+      ]
+    },
+    "009804": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 22.83,
+      "retail_ratio": 60.03,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 22.83,
+          "retail_ratio": 60.03
+        }
+      ]
+    },
+    "009805": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 33.9,
+      "retail_ratio": 48.61,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 33.9,
+          "retail_ratio": 48.61
+        }
+      ]
+    },
+    "009808": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 22.5,
+      "retail_ratio": 63.26,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 22.5,
+          "retail_ratio": 63.26
+        }
+      ]
+    },
+    "009809": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 44.81,
+      "retail_ratio": 41.19,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 44.81,
+          "retail_ratio": 41.19
+        }
+      ]
+    },
+    "00980A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 32.91,
+      "retail_ratio": 49.96,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 32.91,
+          "retail_ratio": 49.96
+        }
+      ]
+    },
+    "009810": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 50.97,
+      "retail_ratio": 37.65,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 50.97,
+          "retail_ratio": 37.65
+        }
+      ]
+    },
+    "009811": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 30.9,
+      "retail_ratio": 51.17,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 30.9,
+          "retail_ratio": 51.17
+        }
+      ]
+    },
+    "009812": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 49.69,
+      "retail_ratio": 35.21,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 49.69,
+          "retail_ratio": 35.21
+        }
+      ]
+    },
+    "009813": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 33.82,
+      "retail_ratio": 45.82,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 33.82,
+          "retail_ratio": 45.82
+        }
+      ]
+    },
+    "009816": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 40.25,
+      "retail_ratio": 40.61,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 40.25,
+          "retail_ratio": 40.61
+        }
+      ]
+    },
+    "009817": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 44.22,
+      "retail_ratio": 33.08,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 44.22,
+          "retail_ratio": 33.08
+        }
+      ]
+    },
+    "009818": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 22.07,
+      "retail_ratio": 60.0,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 22.07,
+          "retail_ratio": 60.0
+        }
+      ]
+    },
+    "009819": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 23.52,
+      "retail_ratio": 56.45,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 23.52,
+          "retail_ratio": 56.45
+        }
+      ]
+    },
+    "00981A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 35.0,
+      "retail_ratio": 47.49,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 35.0,
+          "retail_ratio": 47.49
+        }
+      ]
+    },
+    "00981T": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 60.87,
+      "retail_ratio": 22.48,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 60.87,
+          "retail_ratio": 22.48
+        }
+      ]
+    },
+    "009820": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 54.02,
+      "retail_ratio": 25.79,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 54.02,
+          "retail_ratio": 25.79
+        }
+      ]
+    },
+    "009821": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 23.79,
+      "retail_ratio": 56.84,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 23.79,
+          "retail_ratio": 56.84
+        }
+      ]
+    },
+    "009824": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 25.93,
+      "retail_ratio": 52.13,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 25.93,
+          "retail_ratio": 52.13
+        }
+      ]
+    },
+    "009826": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 47.38,
+      "retail_ratio": 35.34,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 47.38,
+          "retail_ratio": 35.34
+        }
+      ]
+    },
+    "009827": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 31.07,
+      "retail_ratio": 46.67,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 31.07,
+          "retail_ratio": 46.67
+        }
+      ]
+    },
+    "009828": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 34.46,
+      "retail_ratio": 44.01,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 34.46,
+          "retail_ratio": 44.01
+        }
+      ]
+    },
+    "009829": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 61.87,
+      "retail_ratio": 23.65,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 61.87,
+          "retail_ratio": 23.65
+        }
+      ]
+    },
+    "00982A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 27.32,
+      "retail_ratio": 50.65,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 27.32,
+          "retail_ratio": 50.65
+        }
+      ]
+    },
+    "00982D": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 53.93,
+      "retail_ratio": 25.21,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 53.93,
+          "retail_ratio": 25.21
+        }
+      ]
+    },
+    "00982T": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 30.48,
+      "retail_ratio": 54.65,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 30.48,
+          "retail_ratio": 54.65
+        }
+      ]
+    },
+    "009831": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 28.03,
+      "retail_ratio": 50.48,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 28.03,
+          "retail_ratio": 50.48
+        }
+      ]
+    },
+    "009832": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 40.95,
+      "retail_ratio": 38.79,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 40.95,
+          "retail_ratio": 38.79
+        }
+      ]
+    },
+    "00983A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 31.35,
+      "retail_ratio": 52.95,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 31.35,
+          "retail_ratio": 52.95
+        }
+      ]
+    },
+    "00983D": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 56.03,
+      "retail_ratio": 21.52,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 56.03,
+          "retail_ratio": 21.52
+        }
+      ]
+    },
+    "00984A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 21.98,
+      "retail_ratio": 58.33,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 21.98,
+          "retail_ratio": 58.33
+        }
+      ]
+    },
+    "00984D": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 73.79,
+      "retail_ratio": 10.44,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 73.79,
+          "retail_ratio": 10.44
+        }
+      ]
+    },
+    "00985A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 20.81,
+      "retail_ratio": 61.6,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 20.81,
+          "retail_ratio": 61.6
+        }
+      ]
+    },
+    "00985B": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 80.26,
+      "retail_ratio": 8.79,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 80.26,
+          "retail_ratio": 8.79
+        }
+      ]
+    },
+    "00986A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 23.23,
+      "retail_ratio": 58.0,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 23.23,
+          "retail_ratio": 58.0
+        }
+      ]
+    },
+    "00987A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 24.74,
+      "retail_ratio": 57.86,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 24.74,
+          "retail_ratio": 57.86
+        }
+      ]
+    },
+    "00988A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 35.0,
+      "retail_ratio": 45.61,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 35.0,
+          "retail_ratio": 45.61
+        }
+      ]
+    },
+    "00989A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 30.33,
+      "retail_ratio": 53.65,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 30.33,
+          "retail_ratio": 53.65
+        }
+      ]
+    },
+    "00990A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 49.92,
+      "retail_ratio": 32.11,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 49.92,
+          "retail_ratio": 32.11
+        }
+      ]
+    },
+    "00991A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 33.0,
+      "retail_ratio": 46.89,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 33.0,
+          "retail_ratio": 46.89
+        }
+      ]
+    },
+    "00991B": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 99.33,
+      "retail_ratio": 0.45,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 99.33,
+          "retail_ratio": 0.45
+        }
+      ]
+    },
+    "00992A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 31.91,
+      "retail_ratio": 46.41,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 31.91,
+          "retail_ratio": 46.41
+        }
+      ]
+    },
+    "00993A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 35.84,
+      "retail_ratio": 41.34,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 35.84,
+          "retail_ratio": 41.34
+        }
+      ]
+    },
+    "00994A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 27.39,
+      "retail_ratio": 54.32,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 27.39,
+          "retail_ratio": 54.32
+        }
+      ]
+    },
+    "00995A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 28.07,
+      "retail_ratio": 51.33,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 28.07,
+          "retail_ratio": 51.33
+        }
+      ]
+    },
+    "00996A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 27.89,
+      "retail_ratio": 50.37,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 27.89,
+          "retail_ratio": 50.37
+        }
+      ]
+    },
+    "00997A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 33.44,
+      "retail_ratio": 43.73,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 33.44,
+          "retail_ratio": 43.73
+        }
+      ]
+    },
+    "00999A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 23.58,
+      "retail_ratio": 53.72,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 23.58,
+          "retail_ratio": 53.72
+        }
+      ]
+    },
+    "00409A": {
+      "date": "20261120",
+      "prev_date": null,
+      "major_ratio": 49.79,
+      "retail_ratio": 28.62,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "20261120",
+          "major_ratio": 49.79,
+          "retail_ratio": 28.62
         }
       ]
     }

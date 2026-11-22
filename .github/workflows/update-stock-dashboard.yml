@@ -2,15 +2,12 @@ name: Update TW Stock Dashboard Data
 
 on:
   schedule:
-    # 週一至週五 15:00 ~ 18:30 CST (UTC 07:00 ~ 10:30) 依既有盤後排程執行
+    # 週一至週五 15:00 CST (UTC 07:00)：盤後收盤價與技術面主更新
     - cron: "0 7 * * 1-5"
-    - cron: "30 7 * * 1-5"
+    # 週一至週五 16:00 CST (UTC 08:00)：三大法人與籌碼面補齊更新
     - cron: "0 8 * * 1-5"
-    - cron: "30 8 * * 1-5"
-    - cron: "0 9 * * 1-5"
-    - cron: "30 9 * * 1-5"
-    - cron: "0 10 * * 1-5"
-    - cron: "30 10 * * 1-5"
+    # 每週六 09:00 CST (UTC 01:00)：基本面（營收/季報/除權息）與清單低頻校準
+    - cron: "0 1 * * 6"
   workflow_dispatch:
     inputs:
       run_mode:
@@ -21,6 +18,16 @@ on:
         options:
           - full_auto_all
           - single_batch
+      phase:
+        description: "更新分段：auto（依時間自動分流）、close_tech（收盤/技術面）、chips（籌碼面）、fundamental（基本面/清單）"
+        required: true
+        default: "auto"
+        type: choice
+        options:
+          - auto
+          - close_tech
+          - chips
+          - fundamental
       offset:
         description: "起始筆數 (offset)"
         required: true
@@ -79,12 +86,14 @@ jobs:
           FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
           EVENT_NAME: ${{ github.event_name }}
           RUN_MODE: ${{ github.event.inputs.run_mode || 'single_batch' }}
+          PHASE_INPUT: ${{ github.event.inputs.phase || 'auto' }}
           START_OFFSET: ${{ github.event.inputs.offset || '0' }}
           BATCH_LIMIT: ${{ github.event.inputs.limit || '250' }}
           SLEEP_SEC: ${{ github.event.inputs.sleep || '0.25' }}
           ONLY_MISSING: ${{ github.event.inputs.only_missing || 'false' }}
         run: |
           python - << 'EOF'
+          import datetime as dt
           import json
           import os
           import subprocess
@@ -92,10 +101,25 @@ jobs:
 
           event_name = os.environ["EVENT_NAME"]
           run_mode = os.environ["RUN_MODE"]
+          phase_input = os.environ["PHASE_INPUT"]
           start_offset = int(os.environ["START_OFFSET"])
           batch_limit = int(os.environ["BATCH_LIMIT"])
           sleep_sec = float(os.environ["SLEEP_SEC"])
           only_missing = os.environ["ONLY_MISSING"].lower() == "true"
+
+          # 依台灣時間 (UTC+8) 決定排程分段
+          cst_now = dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=8)
+          if phase_input != "auto":
+              phase = phase_input
+          elif event_name == "schedule":
+              if cst_now.weekday() == 5:  # 週六低頻基本面/清單
+                  phase = "fundamental"
+              elif cst_now.hour >= 16:      # 16:00 籌碼補齊段
+                  phase = "chips"
+              else:                       # 15:00 盤後收盤與技術面
+                  phase = "close_tech"
+          else:
+              phase = "close_tech"
 
           total_symbols = None
           for candidate in ["data/stock_list_common.json", "scripts/data/stock_list_common.json"]:
@@ -111,6 +135,7 @@ jobs:
           def run_one_batch(cur_offset: int, cur_limit: int, cur_sleep: float, desc_tag: str, force_check: bool = False):
               cmd = [
                   "python", "-u", "scripts/run_dashboard_batch.py",
+                  "--phase", phase,
                   "--offset", str(cur_offset),
                   "--limit", str(cur_limit),
                   "--sleep", str(cur_sleep),
@@ -120,13 +145,13 @@ jobs:
               if force_check:
                   cmd.append("--force-check")
 
-              print(f"=== 執行批次 ({desc_tag}): {' '.join(cmd)} ===")
+              print(f"=== 執行批次 ({desc_tag} | phase={phase}): {' '.join(cmd)} ===")
               subprocess.run(cmd, check=True)
 
               subprocess.run(["git", "add", "data/"], check=True)
               status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
               if status.stdout.strip():
-                  msg = f"chore(data): update stock dashboard ({desc_tag} --offset {cur_offset} --limit {cur_limit})"
+                  msg = f"chore(data): update stock dashboard [{phase}] ({desc_tag} --offset {cur_offset} --limit {cur_limit})"
                   subprocess.run(["git", "commit", "-m", msg], check=True)
                   subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
                   subprocess.run(["git", "push", "origin", "main"], check=True)
@@ -134,11 +159,8 @@ jobs:
               else:
                   print("本批無資料檔案變更，略過 commit。")
 
-          # 1. 排程 (schedule) 或單批模式 (single_batch)
           if event_name != "workflow_dispatch" or run_mode == "single_batch":
               run_one_batch(start_offset, batch_limit, sleep_sec, event_name, force_check=False)
-
-          # 2. 手動 full_auto_all 模式：自動分批跑到清單結尾（強制完整檢查補齊）
           else:
               step_size = batch_limit if batch_limit > 0 else 150
               cur = start_offset
