@@ -5398,5 +5398,905 @@
     "updated_at": "2026-11-22 14:06",
     "complete_close_tech": true,
     "complete": false
+  },
+  "4120": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4121": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4123": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4126": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4127": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4128": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4129": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4131": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4133": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4137": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4138": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4139": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4142": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4147": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4148": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4153": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4154": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4155": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4157": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4160": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4161": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4162": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4163": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4164": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4166": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4167": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4168": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4169": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4171": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4173": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4174": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4175": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4178": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4183": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4188": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4190": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4192": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4195": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4198": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4205": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4207": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4303": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4304": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4305": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4306": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4401": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4402": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4406": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4413": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4414": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4416": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4417": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4419": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4420": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4426": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4430": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4432": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4433": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4438": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4439": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4440": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4441": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4442": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4502": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4503": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4506": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4510": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4513": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4523": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4526": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4527": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4528": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4529": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4530": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4532": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4533": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4534": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4535": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4536": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4538": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4540": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4541": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4542": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4543": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4545": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4549": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4550": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4551": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4552": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4554": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4555": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4556": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4557": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4558": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4560": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4561": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4562": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4563": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4564": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4566": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4568": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4569": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4571": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4572": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4576": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4577": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4580": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4581": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4582": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4583": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4584": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4585": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4588": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4590": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4609": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4702": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4706": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4707": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4711": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4714": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4716": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4720": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4721": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4722": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4726": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4728": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4729": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4735": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4736": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4737": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4739": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4741": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4743": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4744": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4745": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4746": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4747": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4749": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4754": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4755": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4760": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4763": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4764": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4766": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4767": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4768": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4770": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4771": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4772": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
+  },
+  "4804": {
+    "trade_date": "2026-11-20",
+    "updated_at": "2026-11-22 14:08",
+    "complete_close_tech": true,
+    "complete": false
   }
 }
