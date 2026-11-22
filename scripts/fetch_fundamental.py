@@ -22,8 +22,13 @@ FUNDAMENTAL_LABELS = [
 # 快取目錄與有效期設定（天數）
 ROOT_DIR = Path(__file__).resolve().parent.parent
 CACHE_DIR = ROOT_DIR / "data" / "cache" / "fundamental"
-REV_CACHE_DAYS = 5       # 月營收快取 5 天
-FIN_CACHE_DAYS = 14      # 季報與資產負債表快取 14 天
+PER_CACHE_DAYS = 1        # 估值快取 1 天（每日盤後一次即可）
+REV_CACHE_DAYS = 7        # 月營收快取 7 天
+FIN_CACHE_DAYS = 30       # 季報與資產負債表快取 30 天
+
+# 單次行程內若遇到 402 / 403，記錄起來後續股票直接跳過不再重試
+_BLOCKED_DATASETS: set[str] = set()
+_WARNED_BLOCKED_DATASETS: set[str] = set()
 
 
 def _load_stock_cache(stock_id: str) -> dict:
@@ -55,7 +60,10 @@ def _is_cache_valid(updated_str: str | None, valid_days: int) -> bool:
         return False
 
 
-def _finmind_get(dataset: str, stock_id: str, start_date: str, retries: int = 3) -> pd.DataFrame:
+def _finmind_get(dataset: str, stock_id: str, start_date: str, retries: int = 2) -> pd.DataFrame:
+    if dataset in _BLOCKED_DATASETS:
+        return pd.DataFrame()
+
     url = "https://api.finmindtrade.com/api/v4/data"
     params = {
         "dataset": dataset,
@@ -68,20 +76,34 @@ def _finmind_get(dataset: str, stock_id: str, start_date: str, retries: int = 3)
 
     for attempt in range(retries + 1):
         try:
-            resp = requests.get(url, params=params, timeout=12)
-            if resp.status_code == 429:
-                wait_sec = 1.5 * (attempt + 1)
+            resp = requests.get(url, params=params, timeout=10)
+            status = resp.status_code
+
+            if status in {402, 403}:
+                _BLOCKED_DATASETS.add(dataset)
+                if dataset not in _WARNED_BLOCKED_DATASETS:
+                    _WARNED_BLOCKED_DATASETS.add(dataset)
+                    print(f"[跳過受限資料集] {dataset} 回傳 HTTP {status}，本輪後續標的不再重複請求")
+                return pd.DataFrame()
+
+            if status == 429:
+                wait_sec = 1.2 * (attempt + 1)
                 if attempt < retries:
                     print(f"[限流] {stock_id} {dataset} 觸發 429，等待 {wait_sec:.1f}s 後重試 ({attempt + 1}/{retries})")
                     time.sleep(wait_sec)
                     continue
-                print(f"[警告] {stock_id} {dataset} 多次觸發 429 限流，略過本次抓取")
+                _BLOCKED_DATASETS.add(dataset)
+                if dataset not in _WARNED_BLOCKED_DATASETS:
+                    _WARNED_BLOCKED_DATASETS.add(dataset)
+                    print(f"[跳過限流資料集] {dataset} 持續 429，本輪先暫停請求避免卡住")
                 return pd.DataFrame()
-            if resp.status_code >= 500:
+
+            if status >= 500:
                 if attempt < retries:
-                    time.sleep(0.8 * (attempt + 1))
+                    time.sleep(0.6 * (attempt + 1))
                     continue
                 return pd.DataFrame()
+
             resp.raise_for_status()
             payload = resp.json()
             rows = payload.get("data", []) if isinstance(payload, dict) else []
@@ -90,9 +112,10 @@ def _finmind_get(dataset: str, stock_id: str, start_date: str, retries: int = 3)
             return pd.DataFrame()
         except Exception as exc:
             if attempt < retries:
-                time.sleep(0.6 * (attempt + 1))
+                time.sleep(0.4 * (attempt + 1))
             else:
-                print(f"[警告] {stock_id} {dataset} 請求異常: {exc}")
+                if dataset not in _BLOCKED_DATASETS:
+                    print(f"[警告] {stock_id} {dataset} 請求異常: {exc}")
                 return pd.DataFrame()
     return pd.DataFrame()
 
@@ -136,40 +159,66 @@ def fetch_fundamental_data(stock_id: str, force_refresh: bool = False) -> dict:
     fin_start = (today - dt.timedelta(days=950)).strftime("%Y-%m-%d")
 
     cache = {} if force_refresh else _load_stock_cache(stock_id)
+    cached_metrics = cache.get("metrics") if isinstance(cache.get("metrics"), dict) else {}
     cache_dirty = False
 
     missing = []
-    pe = None
-    pb = None
-    div_yield = None
-    rev_new_10m = None
-    rev_mom_pct = None
-    op_income = None
-    net_income = None
-    eps = None
-    roa_pct = None
-    roe_pct = None
+    pe = cached_metrics.get("pe")
+    pb = cached_metrics.get("pb")
+    div_yield = cached_metrics.get("dividend_yield")
+    rev_new_10m = cached_metrics.get("rev_new_10m")
+    rev_mom_pct = cached_metrics.get("rev_mom_pct")
+    op_income = cached_metrics.get("op_income")
+    net_income = cached_metrics.get("net_income")
+    eps = cached_metrics.get("eps")
+    roa_pct = cached_metrics.get("roa_pct")
+    roe_pct = cached_metrics.get("roe_pct")
 
-    # 1. 估值（本益比、股價淨值比、殖利率 - 每日更新）
-    try:
-        df_per = _finmind_get("TaiwanStockPER", stock_id, per_start)
-        if not df_per.empty:
-            df_per = df_per.sort_values("date")
-            last_per = df_per.iloc[-1]
-            pe = _pick_first_value(last_per, df_per.columns, ["PER", "pe_ratio"])
-            pb = _pick_first_value(last_per, df_per.columns, ["PBR", "pb_ratio"])
-            div_yield = _pick_first_value(
-                last_per,
-                df_per.columns,
-                ["dividend_yield", "DividendYield", "dividend_yield_rate"],
-            )
-    except Exception:
-        pass
+    # 1. 估值（本益比、股價淨值比、殖利率 - 優先使用當日快取或未封鎖時抓取）
+    per_cache = cache.get("per", {})
+    if (
+        not force_refresh
+        and _is_cache_valid(per_cache.get("updated_at"), PER_CACHE_DAYS)
+        and any(per_cache.get(k) is not None for k in ["pe", "pb", "dividend_yield"])
+    ):
+        pe = per_cache.get("pe", pe)
+        pb = per_cache.get("pb", pb)
+        div_yield = per_cache.get("dividend_yield", div_yield)
+    elif "TaiwanStockPER" not in _BLOCKED_DATASETS:
+        try:
+            df_per = _finmind_get("TaiwanStockPER", stock_id, per_start)
+            if not df_per.empty:
+                df_per = df_per.sort_values("date")
+                last_per = df_per.iloc[-1]
+                new_pe = _pick_first_value(last_per, df_per.columns, ["PER", "pe_ratio"])
+                new_pb = _pick_first_value(last_per, df_per.columns, ["PBR", "pb_ratio"])
+                new_dy = _pick_first_value(
+                    last_per,
+                    df_per.columns,
+                    ["dividend_yield", "DividendYield", "dividend_yield_rate"],
+                )
+                if new_pe is not None:
+                    pe = new_pe
+                if new_pb is not None:
+                    pb = new_pb
+                if new_dy is not None:
+                    div_yield = new_dy
+
+                if any(x is not None for x in [pe, pb, div_yield]):
+                    cache["per"] = {
+                        "updated_at": today_str,
+                        "pe": pe,
+                        "pb": pb,
+                        "dividend_yield": div_yield,
+                    }
+                    cache_dirty = True
+        except Exception:
+            pass
 
     if any(x is None for x in [pe, pb, div_yield]):
         missing.append("估值資料(PE/PB/殖利率)部分缺漏")
 
-    # 2. 月營收（優先讀取 5 天內有效快取）
+    # 2. 月營收（優先讀取有效快取）
     rev_cache = cache.get("revenue", {})
     if (
         not force_refresh
@@ -179,7 +228,7 @@ def fetch_fundamental_data(stock_id: str, force_refresh: bool = False) -> dict:
     ):
         rev_new_10m = rev_cache["rev_new_10m"]
         rev_mom_pct = rev_cache["rev_mom_pct"]
-    else:
+    elif "TaiwanStockMonthRevenue" not in _BLOCKED_DATASETS:
         try:
             df_rev = _finmind_get("TaiwanStockMonthRevenue", stock_id, rev_start)
             if not df_rev.empty and "revenue" in df_rev.columns:
@@ -211,7 +260,7 @@ def fetch_fundamental_data(stock_id: str, force_refresh: bool = False) -> dict:
     if rev_new_10m is None or rev_mom_pct is None:
         missing.append("月營收資料缺漏或尚未公布")
 
-    # 3. 季報與資產負債表（優先讀取 14 天內有效快取）
+    # 3. 季報與資產負債表（優先讀取有效快取）
     fin_cache = cache.get("financial", {})
     if (
         not force_refresh
@@ -226,29 +275,34 @@ def fetch_fundamental_data(stock_id: str, force_refresh: bool = False) -> dict:
         eps = fin_cache["eps"]
         roa_pct = fin_cache["roa_pct"]
         roe_pct = fin_cache["roe_pct"]
-    else:
+    elif not (
+        "TaiwanStockFinancialStatements" in _BLOCKED_DATASETS
+        and "TaiwanStockBalanceSheet" in _BLOCKED_DATASETS
+    ):
         piv_fin = pd.DataFrame()
         piv_bs = pd.DataFrame()
 
-        try:
-            df_fin = _finmind_get("TaiwanStockFinancialStatements", stock_id, fin_start)
-            if not df_fin.empty and {"date", "type", "value"}.issubset(df_fin.columns):
-                df_fin["val"] = pd.to_numeric(df_fin["value"], errors="coerce")
-                piv_fin = df_fin.pivot_table(
-                    index="date", columns="type", values="val", aggfunc="last"
-                ).sort_index()
-        except Exception:
-            pass
+        if "TaiwanStockFinancialStatements" not in _BLOCKED_DATASETS:
+            try:
+                df_fin = _finmind_get("TaiwanStockFinancialStatements", stock_id, fin_start)
+                if not df_fin.empty and {"date", "type", "value"}.issubset(df_fin.columns):
+                    df_fin["val"] = pd.to_numeric(df_fin["value"], errors="coerce")
+                    piv_fin = df_fin.pivot_table(
+                        index="date", columns="type", values="val", aggfunc="last"
+                    ).sort_index()
+            except Exception:
+                pass
 
-        try:
-            df_bs = _finmind_get("TaiwanStockBalanceSheet", stock_id, fin_start)
-            if not df_bs.empty and {"date", "type", "value"}.issubset(df_bs.columns):
-                df_bs["val"] = pd.to_numeric(df_bs["value"], errors="coerce")
-                piv_bs = df_bs.pivot_table(
-                    index="date", columns="type", values="val", aggfunc="last"
-                ).sort_index()
-        except Exception:
-            pass
+        if "TaiwanStockBalanceSheet" not in _BLOCKED_DATASETS:
+            try:
+                df_bs = _finmind_get("TaiwanStockBalanceSheet", stock_id, fin_start)
+                if not df_bs.empty and {"date", "type", "value"}.issubset(df_bs.columns):
+                    df_bs["val"] = pd.to_numeric(df_bs["value"], errors="coerce")
+                    piv_bs = df_bs.pivot_table(
+                        index="date", columns="type", values="val", aggfunc="last"
+                    ).sort_index()
+            except Exception:
+                pass
 
         op_candidates = [
             "OperatingIncome",
@@ -288,9 +342,15 @@ def fetch_fundamental_data(stock_id: str, force_refresh: bool = False) -> dict:
 
         if not piv_fin.empty:
             latest_q = piv_fin.iloc[-1]
-            op_income = _pick_first_value(latest_q, piv_fin.columns, op_candidates)
-            net_income = _pick_first_value(latest_q, piv_fin.columns, net_candidates)
-            eps = _pick_first_value(latest_q, piv_fin.columns, eps_candidates)
+            new_op = _pick_first_value(latest_q, piv_fin.columns, op_candidates)
+            new_ni = _pick_first_value(latest_q, piv_fin.columns, net_candidates)
+            new_eps = _pick_first_value(latest_q, piv_fin.columns, eps_candidates)
+            if new_op is not None:
+                op_income = new_op
+            if new_ni is not None:
+                net_income = new_ni
+            if new_eps is not None:
+                eps = new_eps
 
             net_col = None
             norm_fin_cols = {
@@ -351,24 +411,26 @@ def fetch_fundamental_data(stock_id: str, force_refresh: bool = False) -> dict:
     if any(x is None for x in [op_income, net_income, eps, roa_pct, roe_pct]):
         missing.append("財報/ROA/ROE欄位尚未公布或缺漏")
 
+    metrics_out = {
+        "pe": pe,
+        "pb": pb,
+        "dividend_yield": div_yield,
+        "rev_new_10m": rev_new_10m,
+        "rev_mom_pct": rev_mom_pct,
+        "op_income": op_income,
+        "net_income": net_income,
+        "eps": eps,
+        "roa_pct": roa_pct,
+        "roe_pct": roe_pct,
+    }
     if cache_dirty:
+        cache["metrics"] = metrics_out
         _save_stock_cache(stock_id, cache)
 
     return {
         "complete": len(missing) == 0,
         "missing_reasons": missing,
-        "metrics": {
-            "pe": pe,
-            "pb": pb,
-            "dividend_yield": div_yield,
-            "rev_new_10m": rev_new_10m,
-            "rev_mom_pct": rev_mom_pct,
-            "op_income": op_income,
-            "net_income": net_income,
-            "eps": eps,
-            "roa_pct": roa_pct,
-            "roe_pct": roe_pct,
-        },
+        "metrics": metrics_out,
     }
 
 
@@ -407,3 +469,17 @@ def evaluate_fundamental_10(fund: dict) -> tuple[list[dict], int]:
     ]
     score = sum(1 for item in checks if item["passed"])
     return checks, score
+```[cite: 9, 10, 11]
+
+---
+
+### 更新與重新執行步驟
+
+1. 將上方程式碼存回 `scripts/fetch_fundamental.py`（注意不要把引用標記一起貼進去）。
+2. 在 PowerShell 推上 GitHub：
+   ```powershell
+   cd "C:\Users\Chen Chia\Desktop\股市Test\tw-stock-dashboard"
+   git add scripts/fetch_fundamental.py
+   git commit -m "perf(fundamental): skip blocked 402/403 FinMind datasets immediately and reuse cache"
+   git pull --rebase origin main
+   git push origin main
