@@ -1,16 +1,16 @@
 {
   "symbol": "1526",
   "name": "日馳",
-  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
-  "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏",
-  "total_score": 1,
+  "partial_missing": "",
+  "total_score": 2,
   "max_score": 30,
   "badge": "中性觀望",
-  "trading_note": "部分欄位暫缺（估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
+  "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
-    "fundamental": 0,
+    "fundamental": 1,
     "technical": 1,
     "chip": 0
   },
@@ -19,60 +19,60 @@
     "retail_net": 0,
     "margin_net": 0,
     "chip_concentration_5d": 0.0,
-    "major_holder_pct": 49.87,
-    "retail_holder_pct": 39.14
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
       {
         "label": "本益比大於等於 10",
         "passed": false,
-        "value": "缺漏"
+        "value": "0.0"
       },
       {
         "label": "股價淨值比大於等於 0.5",
-        "passed": false,
-        "value": "缺漏"
+        "passed": true,
+        "value": "0.64"
       },
       {
         "label": "現金股利殖利率大於 3%",
         "passed": false,
-        "value": "缺漏"
+        "value": "0.00%"
       },
       {
         "label": "月營收創 10 個月以上新高",
         "passed": false,
-        "value": "缺漏"
+        "value": "未創高"
       },
       {
         "label": "月營收 MoM 大於 0",
         "passed": false,
-        "value": "缺漏"
+        "value": "-3.85%"
       },
       {
         "label": "最近一季營業淨利大於 0",
         "passed": false,
-        "value": "缺漏"
+        "value": "非正值"
       },
       {
         "label": "最近一季稅後淨利大於 0",
         "passed": false,
-        "value": "缺漏"
+        "value": "非正值"
       },
       {
         "label": "最近一季每股盈餘大於 1",
         "passed": false,
-        "value": "缺漏"
+        "value": "-0.36 元"
       },
       {
         "label": "最新年度 ROA 大於等於 5",
         "passed": false,
-        "value": "缺漏"
+        "value": "-2.9%"
       },
       {
         "label": "最新年度 ROE 大於等於 8",
         "passed": false,
-        "value": "缺漏"
+        "value": "-5.7%"
       }
     ],
     "technical": [
@@ -179,5 +179,30 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": true,
+    "missing_reasons": [],
+    "metrics": {
+      "pe": 0.0,
+      "pb": 0.64,
+      "dividend_yield": 0.0,
+      "rev_new_10m": false,
+      "rev_mom_pct": -3.851813700242808,
+      "op_income": -25608000.0,
+      "net_income": -21786000.0,
+      "eps": -0.36,
+      "roa_pct": -2.8592096816514,
+      "roe_pct": -5.745424565152278
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": 0,
+    "retail_net": 0,
+    "margin_net": 0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 49.87,
+    "retail_holder_pct": 39.14
   }
 }

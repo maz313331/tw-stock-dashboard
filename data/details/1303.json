@@ -1,26 +1,26 @@
 {
   "symbol": "1303",
   "name": "南亞",
-  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 15,
+  "total_score": 10,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 9,
     "technical": 1,
-    "chip": 5
+    "chip": 0
   },
   "metrics_6": {
-    "main_force_net": 5338.3,
+    "main_force_net": 0,
     "retail_net": 0,
-    "margin_net": -3867.0,
-    "chip_concentration_5d": -10.37,
-    "major_holder_pct": 89.18,
-    "retail_holder_pct": 8.61
+    "margin_net": 0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
@@ -130,7 +130,7 @@
     "chip": [
       {
         "label": "近 3 日主力單日買超 > 1,000 張",
-        "passed": true,
+        "passed": false,
         "value": "最大:+5338張"
       },
       {
@@ -150,17 +150,17 @@
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長5日"
       },
       {
         "label": "近 20 日波段買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長5日"
       },
       {
         "label": "近 1 日法人或主力買超力道放大",
-        "passed": true,
+        "passed": false,
         "value": "+5338 (5日均-8934)"
       },
       {
@@ -170,7 +170,7 @@
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
@@ -179,5 +179,30 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": true,
+    "missing_reasons": [],
+    "metrics": {
+      "pe": 19.27,
+      "pb": 3.06,
+      "dividend_yield": 0.39,
+      "rev_new_10m": true,
+      "rev_mom_pct": 1.5083141733268424,
+      "op_income": 18291183000.0,
+      "net_income": 40136935000.0,
+      "eps": 4.9,
+      "roa_pct": 11.203243736735587,
+      "roe_pct": 15.81136146871747
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": 5338.3,
+    "retail_net": 0,
+    "margin_net": -3867.0,
+    "chip_concentration_5d": -10.37,
+    "major_holder_pct": 89.18,
+    "retail_holder_pct": 8.61
   }
 }

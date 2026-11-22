@@ -1,26 +1,26 @@
 {
   "symbol": "1229",
   "name": "聯華",
-  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 16,
+  "total_score": 7,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 7,
     "technical": 0,
-    "chip": 9
+    "chip": 0
   },
   "metrics_6": {
-    "main_force_net": 2281.9,
+    "main_force_net": 0,
     "retail_net": 0,
-    "margin_net": 75.0,
-    "chip_concentration_5d": 43.16,
-    "major_holder_pct": 73.1,
-    "retail_holder_pct": 20.38
+    "margin_net": 0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
@@ -130,47 +130,47 @@
     "chip": [
       {
         "label": "近 3 日主力單日買超 > 1,000 張",
-        "passed": true,
+        "passed": false,
         "value": "最大:+2282張"
       },
       {
         "label": "近 1 日、5 日籌碼集中度為正",
-        "passed": true,
+        "passed": false,
         "value": "5日集中度:+43.16%"
       },
       {
         "label": "外資、投信同時連買 2 天",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
         "label": "近 2 日中長線買盤連續買超",
-        "passed": true,
+        "passed": false,
         "value": "連2日買超"
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長6日"
       },
       {
         "label": "近 20 日波段買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長6日"
       },
       {
         "label": "近 1 日法人或主力買超力道放大",
-        "passed": true,
+        "passed": false,
         "value": "+2282 (5日均+1557)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
-        "passed": true,
+        "passed": false,
         "value": "+6501張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
@@ -179,5 +179,30 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": true,
+    "missing_reasons": [],
+    "metrics": {
+      "pe": 11.97,
+      "pb": 1.06,
+      "dividend_yield": 5.17,
+      "rev_new_10m": false,
+      "rev_mom_pct": -13.080819167914207,
+      "op_income": 1655693000.0,
+      "net_income": 3697026000.0,
+      "eps": 1.49,
+      "roa_pct": 6.244370999936882,
+      "roe_pct": 7.572750384038616
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": 2281.9,
+    "retail_net": 0,
+    "margin_net": 75.0,
+    "chip_concentration_5d": 43.16,
+    "major_holder_pct": 73.1,
+    "retail_holder_pct": 20.38
   }
 }

@@ -1,26 +1,26 @@
 {
   "symbol": "1256",
   "name": "鮮活果汁-KY",
-  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 11,
+  "total_score": 7,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 7,
     "technical": 0,
-    "chip": 4
+    "chip": 0
   },
   "metrics_6": {
-    "main_force_net": -42.1,
+    "main_force_net": 0,
     "retail_net": 0,
-    "margin_net": -4.0,
-    "chip_concentration_5d": -2.25,
-    "major_holder_pct": 71.11,
-    "retail_holder_pct": 24.91
+    "margin_net": 0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
@@ -150,12 +150,12 @@
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長5日"
       },
       {
         "label": "近 20 日波段買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長5日"
       },
       {
@@ -165,12 +165,12 @@
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
-        "passed": true,
+        "passed": false,
         "value": "+41張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
@@ -179,5 +179,30 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": true,
+    "missing_reasons": [],
+    "metrics": {
+      "pe": 8.02,
+      "pb": 1.18,
+      "dividend_yield": 4.4,
+      "rev_new_10m": false,
+      "rev_mom_pct": -43.147576013889505,
+      "op_income": 366935000.0,
+      "net_income": 281613000.0,
+      "eps": 7.87,
+      "roa_pct": 10.799311369651859,
+      "roe_pct": 14.760635954866128
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": -42.1,
+    "retail_net": 0,
+    "margin_net": -4.0,
+    "chip_concentration_5d": -2.25,
+    "major_holder_pct": 71.11,
+    "retail_holder_pct": 24.91
   }
 }

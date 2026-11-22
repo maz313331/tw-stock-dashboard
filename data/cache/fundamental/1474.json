@@ -1,0 +1,33 @@
+{
+  "per": {
+    "updated_at": "2026-11-22",
+    "pe": 71.0,
+    "pb": 0.55,
+    "dividend_yield": 2.71
+  },
+  "revenue": {
+    "updated_at": "2026-11-22",
+    "rev_new_10m": false,
+    "rev_mom_pct": -0.7296352197498394
+  },
+  "financial": {
+    "updated_at": "2026-11-22",
+    "op_income": -1516000.0,
+    "net_income": 1950000.0,
+    "eps": 0.01,
+    "roa_pct": 0.40800744372202846,
+    "roe_pct": 0.7035361795725001
+  },
+  "metrics": {
+    "pe": 71.0,
+    "pb": 0.55,
+    "dividend_yield": 2.71,
+    "rev_new_10m": false,
+    "rev_mom_pct": -0.7296352197498394,
+    "op_income": -1516000.0,
+    "net_income": 1950000.0,
+    "eps": 0.01,
+    "roa_pct": 0.40800744372202846,
+    "roe_pct": 0.7035361795725001
+  }
+}

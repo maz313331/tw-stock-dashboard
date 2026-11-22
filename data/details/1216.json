@@ -1,26 +1,26 @@
 {
   "symbol": "1216",
   "name": "統一",
-  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 15,
+  "total_score": 8,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 7,
     "technical": 1,
-    "chip": 7
+    "chip": 0
   },
   "metrics_6": {
-    "main_force_net": 609.2,
+    "main_force_net": 0,
     "retail_net": 0,
-    "margin_net": 97.0,
-    "chip_concentration_5d": 14.62,
-    "major_holder_pct": 92.66,
-    "retail_holder_pct": 5.88
+    "margin_net": 0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
@@ -130,12 +130,12 @@
     "chip": [
       {
         "label": "近 3 日主力單日買超 > 1,000 張",
-        "passed": true,
+        "passed": false,
         "value": "最大:+3906張"
       },
       {
         "label": "近 1 日、5 日籌碼集中度為正",
-        "passed": true,
+        "passed": false,
         "value": "5日集中度:+14.62%"
       },
       {
@@ -145,17 +145,17 @@
       },
       {
         "label": "近 2 日中長線買盤連續買超",
-        "passed": true,
+        "passed": false,
         "value": "連2日買超"
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長8日"
       },
       {
         "label": "近 20 日波段買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長8日"
       },
       {
@@ -165,12 +165,12 @@
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
-        "passed": true,
+        "passed": false,
         "value": "+55894張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
@@ -179,5 +179,30 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": true,
+    "missing_reasons": [],
+    "metrics": {
+      "pe": 17.77,
+      "pb": 2.95,
+      "dividend_yield": 4.0,
+      "rev_new_10m": false,
+      "rev_mom_pct": -7.614488403906447,
+      "op_income": 10538380000.0,
+      "net_income": 9616541000.0,
+      "eps": 1.14,
+      "roa_pct": 4.649568367054784,
+      "roe_pct": 16.107006493084068
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": 609.2,
+    "retail_net": 0,
+    "margin_net": 97.0,
+    "chip_concentration_5d": 14.62,
+    "major_holder_pct": 92.66,
+    "retail_holder_pct": 5.88
   }
 }

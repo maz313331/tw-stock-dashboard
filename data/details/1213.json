@@ -1,26 +1,26 @@
 {
   "symbol": "1213",
   "name": "大飲",
-  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
-  "partial_missing": "三大法人買賣超缺漏或天數不足",
+  "partial_missing": "",
   "total_score": 1,
   "max_score": 30,
   "badge": "中性觀望",
-  "trading_note": "部分欄位暫缺（三大法人買賣超缺漏或天數不足），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
+  "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 1,
     "technical": 0,
     "chip": 0
   },
   "metrics_6": {
-    "main_force_net": -1.1,
+    "main_force_net": 0,
     "retail_net": 0,
-    "margin_net": 0.0,
+    "margin_net": 0,
     "chip_concentration_5d": 0.0,
-    "major_holder_pct": 85.59,
-    "retail_holder_pct": 11.97
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
@@ -179,5 +179,30 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": true,
+    "missing_reasons": [],
+    "metrics": {
+      "pe": 0.0,
+      "pb": 0.5,
+      "dividend_yield": 0.0,
+      "rev_new_10m": false,
+      "rev_mom_pct": -18.003210272873194,
+      "op_income": -14061000.0,
+      "net_income": -17304000.0,
+      "eps": -0.31,
+      "roa_pct": -8.35654018070214,
+      "roe_pct": -9.98698822988673
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": -1.1,
+    "retail_net": 0,
+    "margin_net": 0.0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 85.59,
+    "retail_holder_pct": 11.97
   }
 }

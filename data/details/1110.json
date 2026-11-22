@@ -1,26 +1,26 @@
 {
   "symbol": "1110",
   "name": "東泥",
-  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 10,
+  "total_score": 7,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 6,
     "technical": 1,
-    "chip": 3
+    "chip": 0
   },
   "metrics_6": {
-    "main_force_net": -46.8,
+    "main_force_net": 0,
     "retail_net": 0,
-    "margin_net": -1.0,
-    "chip_concentration_5d": 5.29,
-    "major_holder_pct": 96.62,
-    "retail_holder_pct": 2.04
+    "margin_net": 0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
@@ -150,12 +150,12 @@
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長7日"
       },
       {
         "label": "近 20 日波段買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長7日"
       },
       {
@@ -170,7 +170,7 @@
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
@@ -179,5 +179,30 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": true,
+    "missing_reasons": [],
+    "metrics": {
+      "pe": 24.29,
+      "pb": 0.81,
+      "dividend_yield": 2.21,
+      "rev_new_10m": true,
+      "rev_mom_pct": 50.50315425315425,
+      "op_income": 49345000.0,
+      "net_income": 85377000.0,
+      "eps": 0.15,
+      "roa_pct": 2.3999600796868545,
+      "roe_pct": 3.2730784417675682
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": -46.8,
+    "retail_net": 0,
+    "margin_net": -1.0,
+    "chip_concentration_5d": 5.29,
+    "major_holder_pct": 96.62,
+    "retail_holder_pct": 2.04
   }
 }

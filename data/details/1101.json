@@ -1,26 +1,26 @@
 {
   "symbol": "1101",
   "name": "台泥",
-  "updated_at": "2026-11-22 14:46（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 12,
+  "total_score": 8,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 7,
     "technical": 1,
-    "chip": 4
+    "chip": 0
   },
   "metrics_6": {
-    "main_force_net": -7087.6,
+    "main_force_net": 0,
     "retail_net": 0,
-    "margin_net": 186.0,
-    "chip_concentration_5d": 7.08,
-    "major_holder_pct": 64.63,
-    "retail_holder_pct": 26.7
+    "margin_net": 0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
@@ -130,7 +130,7 @@
     "chip": [
       {
         "label": "近 3 日主力單日買超 > 1,000 張",
-        "passed": true,
+        "passed": false,
         "value": "最大:+10496張"
       },
       {
@@ -150,7 +150,7 @@
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長4日"
       },
       {
@@ -165,12 +165,12 @@
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
-        "passed": true,
+        "passed": false,
         "value": "+67469張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
@@ -179,5 +179,30 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": true,
+    "missing_reasons": [],
+    "metrics": {
+      "pe": 69.57,
+      "pb": 0.78,
+      "dividend_yield": 3.29,
+      "rev_new_10m": true,
+      "rev_mom_pct": 14.213679016442068,
+      "op_income": 4401422000.0,
+      "net_income": 3351501000.0,
+      "eps": 0.24,
+      "roa_pct": 1.0539883165539878,
+      "roe_pct": 2.0858656918890714
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": -7087.6,
+    "retail_net": 0,
+    "margin_net": 186.0,
+    "chip_concentration_5d": 7.08,
+    "major_holder_pct": 64.63,
+    "retail_holder_pct": 26.7
   }
 }

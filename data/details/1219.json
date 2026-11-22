@@ -1,26 +1,26 @@
 {
   "symbol": "1219",
   "name": "福壽",
-  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 7,
+  "total_score": 3,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 3,
     "technical": 0,
-    "chip": 4
+    "chip": 0
   },
   "metrics_6": {
-    "main_force_net": 28.0,
+    "main_force_net": 0,
     "retail_net": 0,
-    "margin_net": -2.0,
-    "chip_concentration_5d": -9.6,
-    "major_holder_pct": 72.46,
-    "retail_holder_pct": 21.03
+    "margin_net": 0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
@@ -150,17 +150,17 @@
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長6日"
       },
       {
         "label": "近 20 日波段買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長6日"
       },
       {
         "label": "近 1 日法人或主力買超力道放大",
-        "passed": true,
+        "passed": false,
         "value": "+28 (5日均-36)"
       },
       {
@@ -170,7 +170,7 @@
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
@@ -179,5 +179,30 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": true,
+    "missing_reasons": [],
+    "metrics": {
+      "pe": 0.0,
+      "pb": 0.97,
+      "dividend_yield": 4.98,
+      "rev_new_10m": false,
+      "rev_mom_pct": 11.134661628703002,
+      "op_income": -221223000.0,
+      "net_income": -445114000.0,
+      "eps": -1.28,
+      "roa_pct": -8.25453298177905,
+      "roe_pct": -22.09928160069493
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": 28.0,
+    "retail_net": 0,
+    "margin_net": -2.0,
+    "chip_concentration_5d": -9.6,
+    "major_holder_pct": 72.46,
+    "retail_holder_pct": 21.03
   }
 }

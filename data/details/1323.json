@@ -1,26 +1,26 @@
 {
   "symbol": "1323",
   "name": "永裕",
-  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 17,
+  "total_score": 11,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 5,
     "technical": 6,
-    "chip": 6
+    "chip": 0
   },
   "metrics_6": {
-    "main_force_net": 9.0,
+    "main_force_net": 0,
     "retail_net": 0,
-    "margin_net": 5.0,
-    "chip_concentration_5d": 10.8,
-    "major_holder_pct": 78.74,
-    "retail_holder_pct": 14.54
+    "margin_net": 0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
@@ -135,7 +135,7 @@
       },
       {
         "label": "近 1 日、5 日籌碼集中度為正",
-        "passed": true,
+        "passed": false,
         "value": "5日集中度:+10.80%"
       },
       {
@@ -145,17 +145,17 @@
       },
       {
         "label": "近 2 日中長線買盤連續買超",
-        "passed": true,
+        "passed": false,
         "value": "連2日買超"
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長6日"
       },
       {
         "label": "近 20 日波段買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長6日"
       },
       {
@@ -165,12 +165,12 @@
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
-        "passed": true,
+        "passed": false,
         "value": "+165張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
@@ -179,5 +179,30 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": true,
+    "missing_reasons": [],
+    "metrics": {
+      "pe": 12.09,
+      "pb": 0.76,
+      "dividend_yield": 3.98,
+      "rev_new_10m": false,
+      "rev_mom_pct": -11.567547381196901,
+      "op_income": 51146000.0,
+      "net_income": 59891000.0,
+      "eps": 0.66,
+      "roa_pct": 3.6647280564199476,
+      "roe_pct": 6.267940723921503
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": 9.0,
+    "retail_net": 0,
+    "margin_net": 5.0,
+    "chip_concentration_5d": 10.8,
+    "major_holder_pct": 78.74,
+    "retail_holder_pct": 14.54
   }
 }

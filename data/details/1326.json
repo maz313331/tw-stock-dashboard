@@ -1,26 +1,26 @@
 {
   "symbol": "1326",
   "name": "台化",
-  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 10,
+  "total_score": 5,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 5,
     "technical": 0,
-    "chip": 5
+    "chip": 0
   },
   "metrics_6": {
-    "main_force_net": 249.0,
+    "main_force_net": 0,
     "retail_net": 0,
-    "margin_net": -2300.0,
-    "chip_concentration_5d": -7.17,
-    "major_holder_pct": 87.23,
-    "retail_holder_pct": 10.11
+    "margin_net": 0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
@@ -150,27 +150,27 @@
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長6日"
       },
       {
         "label": "近 20 日波段買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長6日"
       },
       {
         "label": "近 1 日法人或主力買超力道放大",
-        "passed": true,
+        "passed": false,
         "value": "+249 (5日均-2338)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
-        "passed": true,
+        "passed": false,
         "value": "+4170張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
@@ -179,5 +179,30 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": true,
+    "missing_reasons": [],
+    "metrics": {
+      "pe": 19.23,
+      "pb": 0.56,
+      "dividend_yield": 1.05,
+      "rev_new_10m": true,
+      "rev_mom_pct": 7.282107339763641,
+      "op_income": -960923000.0,
+      "net_income": 5535183000.0,
+      "eps": 0.92,
+      "roa_pct": 2.2299204715381293,
+      "roe_pct": 2.797670360336772
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": 249.0,
+    "retail_net": 0,
+    "margin_net": -2300.0,
+    "chip_concentration_5d": -7.17,
+    "major_holder_pct": 87.23,
+    "retail_holder_pct": 10.11
   }
 }

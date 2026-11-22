@@ -1,26 +1,26 @@
 {
   "symbol": "1304",
   "name": "台聚",
-  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 5,
+  "total_score": 2,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 2,
     "technical": 0,
-    "chip": 3
+    "chip": 0
   },
   "metrics_6": {
-    "main_force_net": -474.2,
+    "main_force_net": 0,
     "retail_net": 0,
-    "margin_net": -400.0,
-    "chip_concentration_5d": 1.36,
-    "major_holder_pct": 68.37,
-    "retail_holder_pct": 24.45
+    "margin_net": 0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
@@ -150,12 +150,12 @@
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長7日"
       },
       {
         "label": "近 20 日波段買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長7日"
       },
       {
@@ -170,7 +170,7 @@
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
@@ -179,5 +179,30 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": true,
+    "missing_reasons": [],
+    "metrics": {
+      "pe": 0.0,
+      "pb": 0.62,
+      "dividend_yield": 1.52,
+      "rev_new_10m": false,
+      "rev_mom_pct": 12.93559423154009,
+      "op_income": -1327736000.0,
+      "net_income": -1089135000.0,
+      "eps": -0.52,
+      "roa_pct": -6.961080328119874,
+      "roe_pct": -13.341460773365066
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": -474.2,
+    "retail_net": 0,
+    "margin_net": -400.0,
+    "chip_concentration_5d": 1.36,
+    "major_holder_pct": 68.37,
+    "retail_holder_pct": 24.45
   }
 }

@@ -1,7 +1,7 @@
 {
   "symbol": "1314",
   "name": "中石化",
-  "updated_at": "2026-11-21 11:26（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -15,12 +15,12 @@
     "chip": 0
   },
   "metrics_6": {
-    "main_force_net": -4569.4,
+    "main_force_net": 0,
     "retail_net": 0,
-    "margin_net": -2757.0,
-    "chip_concentration_5d": -13.19,
-    "major_holder_pct": 56.73,
-    "retail_holder_pct": 31.01
+    "margin_net": 0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
@@ -179,5 +179,30 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": true,
+    "missing_reasons": [],
+    "metrics": {
+      "pe": 0.0,
+      "pb": 0.33,
+      "dividend_yield": 0.0,
+      "rev_new_10m": false,
+      "rev_mom_pct": -25.646270617293087,
+      "op_income": -698939000.0,
+      "net_income": -1005840000.0,
+      "eps": -0.27,
+      "roa_pct": -2.5575525315447005,
+      "roe_pct": -4.2147532904563505
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": -4569.4,
+    "retail_net": 0,
+    "margin_net": -2757.0,
+    "chip_concentration_5d": -13.19,
+    "major_holder_pct": 56.73,
+    "retail_holder_pct": 31.01
   }
 }

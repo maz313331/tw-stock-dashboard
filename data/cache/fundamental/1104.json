@@ -11,5 +11,23 @@
     "eps": 0.65,
     "roa_pct": 5.6695540891688445,
     "roe_pct": 6.999491946757158
+  },
+  "per": {
+    "updated_at": "2026-11-22",
+    "pe": 9.6,
+    "pb": 0.68,
+    "dividend_yield": 7.61
+  },
+  "metrics": {
+    "pe": 9.6,
+    "pb": 0.68,
+    "dividend_yield": 7.61,
+    "rev_new_10m": false,
+    "rev_mom_pct": 4.170433354378095,
+    "op_income": 259303000.0,
+    "net_income": 454485000.0,
+    "eps": 0.65,
+    "roa_pct": 5.6695540891688445,
+    "roe_pct": 6.999491946757158
   }
 }
