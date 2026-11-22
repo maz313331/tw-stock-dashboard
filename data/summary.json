@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-22 14:00（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 14:01（行情日 2026-11-20）",
   "stocks": [
     {
       "symbol": "1101",
@@ -4166,8 +4166,8 @@
       "name": "台積電",
       "close": 2000.0,
       "change_pct": -4.76,
-      "total_score": 0,
-      "fundamental_score": 0,
+      "total_score": 7,
+      "fundamental_score": 7,
       "technical_score": 0,
       "chip_score": 0,
       "badge": "中性觀望",

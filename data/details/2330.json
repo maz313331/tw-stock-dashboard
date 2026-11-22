@@ -1,37 +1,37 @@
 {
   "symbol": "2330",
   "name": "台積電",
-  "updated_at": "本機驗證",
+  "updated_at": "2026-11-22 14:01（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
-  "partial_missing": "",
-  "total_score": 9,
+  "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏",
+  "total_score": 7,
   "max_score": 30,
   "badge": "中性觀望",
-  "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
+  "trading_note": "部分欄位暫缺（估值資料(PE/PB/殖利率)部分缺漏），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
-    "fundamental": 9,
+    "fundamental": 7,
     "technical": 0,
     "chip": 0
   },
   "metrics_6": {
-    "main_force_net": -10901.2,
+    "main_force_net": 0,
     "retail_net": 0,
-    "margin_net": -2934.0,
+    "margin_net": 0,
     "chip_concentration_5d": 0.0,
-    "major_holder_pct": 89.5,
-    "retail_holder_pct": 8.94
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
       {
         "label": "本益比大於等於 10",
-        "passed": true,
+        "passed": false,
         "value": "20.4"
       },
       {
         "label": "股價淨值比大於等於 0.5",
-        "passed": true,
+        "passed": false,
         "value": "7.41"
       },
       {
@@ -179,5 +179,32 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": false,
+    "missing_reasons": [
+      "估值資料(PE/PB/殖利率)部分缺漏"
+    ],
+    "metrics": {
+      "pe": null,
+      "pb": null,
+      "dividend_yield": null,
+      "rev_new_10m": true,
+      "rev_mom_pct": 14.658949962741477,
+      "op_income": 876445164000.0,
+      "net_income": 763340827000.0,
+      "eps": 29.43,
+      "roa_pct": 25.34931763089058,
+      "roe_pct": 36.181401386324396
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": -10901.2,
+    "retail_net": 0,
+    "margin_net": -2934.0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 89.5,
+    "retail_holder_pct": 8.94
   }
 }
