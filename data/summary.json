@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-22 14:11（行情日 2026-11-20）",
+  "updated_at": "2026-11-22 14:12（行情日 2026-11-20）",
   "stocks": [
     {
       "symbol": "1101",
@@ -18245,8 +18245,8 @@
       "name": "啟碁",
       "close": 172.0,
       "change_pct": -9.95,
-      "total_score": 0,
-      "fundamental_score": 0,
+      "total_score": 5,
+      "fundamental_score": 5,
       "technical_score": 0,
       "chip_score": 0,
       "badge": "中性觀望",

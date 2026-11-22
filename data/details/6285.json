@@ -1,37 +1,37 @@
 {
   "symbol": "6285",
   "name": "啟碁",
-  "updated_at": "本機驗證",
+  "updated_at": "2026-11-22 14:12（行情日 2026-11-20）",
   "excluded": false,
   "exclude_reason": "",
-  "partial_missing": "",
-  "total_score": 9,
+  "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏",
+  "total_score": 5,
   "max_score": 30,
   "badge": "中性觀望",
-  "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
+  "trading_note": "部分欄位暫缺（估值資料(PE/PB/殖利率)部分缺漏），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
-    "fundamental": 7,
+    "fundamental": 5,
     "technical": 0,
-    "chip": 2
+    "chip": 0
   },
   "metrics_6": {
-    "main_force_net": -632.5,
+    "main_force_net": 0,
     "retail_net": 0,
-    "margin_net": -880.0,
+    "margin_net": 0,
     "chip_concentration_5d": 0.0,
-    "major_holder_pct": 66.43,
-    "retail_holder_pct": 30.28
+    "major_holder_pct": 0.0,
+    "retail_holder_pct": 0.0
   },
   "checks": {
     "fundamental": [
       {
         "label": "本益比大於等於 10",
-        "passed": true,
+        "passed": false,
         "value": "14.2"
       },
       {
         "label": "股價淨值比大於等於 0.5",
-        "passed": true,
+        "passed": false,
         "value": "2.14"
       },
       {
@@ -130,7 +130,7 @@
     "chip": [
       {
         "label": "近 3 日主力單日買超 > 1,000 張",
-        "passed": true,
+        "passed": false,
         "value": "最大:+2270張"
       },
       {
@@ -170,7 +170,7 @@
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
@@ -179,5 +179,32 @@
         "value": "缺漏"
       }
     ]
+  },
+  "fundamental_data": {
+    "complete": false,
+    "missing_reasons": [
+      "估值資料(PE/PB/殖利率)部分缺漏"
+    ],
+    "metrics": {
+      "pe": null,
+      "pb": null,
+      "dividend_yield": null,
+      "rev_new_10m": false,
+      "rev_mom_pct": 4.8451873107943895,
+      "op_income": 2567153000.0,
+      "net_income": 2090048000.0,
+      "eps": 4.35,
+      "roa_pct": 4.672673477085461,
+      "roe_pct": 15.061814197217952
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "main_force_net": -632.5,
+    "retail_net": 0,
+    "margin_net": -880.0,
+    "chip_concentration_5d": 0.0,
+    "major_holder_pct": 66.43,
+    "retail_holder_pct": 30.28
   }
 }
