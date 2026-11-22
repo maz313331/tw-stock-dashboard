@@ -469,9 +469,6 @@ def evaluate_fundamental_10(fund: dict) -> tuple[list[dict], int]:
     ]
     score = sum(1 for item in checks if item["passed"])
     return checks, score
-```[cite: 9, 10, 11]
-
----
 
 ### 更新與重新執行步驟
 
