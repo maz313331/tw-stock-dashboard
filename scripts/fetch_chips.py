@@ -15,6 +15,14 @@ except Exception:
     except Exception:
         fetch_tdcc_holding_shares = None
 
+try:
+    from chips_fallback_helper import ChipsFallbackManager
+except Exception:
+    try:
+        from scripts.chips_fallback_helper import ChipsFallbackManager
+    except Exception:
+        ChipsFallbackManager = None
+
 CHIP_LABELS = [
     "近 3 日主力單日買超 > 1,000 張",
     "近 1 日、5 日籌碼集中度為正",
@@ -27,6 +35,20 @@ CHIP_LABELS = [
     "近 20 日前十大買盤曾連日買超",
     "近 1 週大戶加碼且散戶減碼",
 ]
+
+_BLOCKED_FINMIND_DATASETS: set[str] = set()
+_TWSE_T86_CACHE: dict[str, dict[str, dict]] = {}
+_TWSE_MARGIN_CACHE: dict[str, dict[str, dict]] = {}
+_TWSE_HEADERS = {
+    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+}
+
+
+def reset_chip_session_cache() -> None:
+    """若需要跨多次呼叫重置熔斷與快取，可呼叫此函式"""
+    _BLOCKED_FINMIND_DATASETS.clear()
+    _TWSE_T86_CACHE.clear()
+    _TWSE_MARGIN_CACHE.clear()
 
 
 def _to_finite_float(val) -> Optional[float]:
@@ -52,13 +74,179 @@ def _clean_float_series(s: pd.Series) -> pd.Series:
     return clean.dropna()
 
 
+def _parse_num_str(val) -> float:
+    if val is None:
+        return 0.0
+    s = str(val).replace(",", "").replace("+", "").strip()
+    if not s or s in ("-", "--", "N/A", "nan", "None"):
+        return 0.0
+    try:
+        return float(s)
+    except ValueError:
+        return 0.0
+
+
+def _to_yyyymmdd(date_str: str) -> str:
+    cleaned = str(date_str).replace("-", "").replace("/", "").strip()
+    if len(cleaned) == 8 and cleaned.isdigit():
+        return cleaned
+    return dt.date.fromisoformat(str(date_str)[:10]).strftime("%Y%m%d")
+
+
+def _mark_dataset_blocked(dataset: str, status_code: int | None) -> None:
+    if status_code in (402, 403) and dataset not in _BLOCKED_FINMIND_DATASETS:
+        _BLOCKED_FINMIND_DATASETS.add(dataset)
+        print(f"[熔斷] FinMind {dataset} 回傳 {status_code}，本批次改用備援/跳過，避免逐檔拖慢")
+
+
+def _get_twse_t86_day_map(yyyymmdd: str) -> dict[str, dict]:
+    """抓取 TWSE T86 單日全市場法人資料並快取（單位轉為股，貼齊 FinMind buy/sell）"""
+    if yyyymmdd in _TWSE_T86_CACHE:
+        return _TWSE_T86_CACHE[yyyymmdd]
+
+    url = "https://www.twse.com.tw/rwd/zh/fund/T86"
+    params = {"date": yyyymmdd, "selectType": "ALL", "response": "json"}
+    day_map: dict[str, dict] = {}
+    iso_date = f"{yyyymmdd[:4]}-{yyyymmdd[4:6]}-{yyyymmdd[6:8]}"
+
+    try:
+        resp = requests.get(url, params=params, headers=_TWSE_HEADERS, timeout=15)
+        payload = resp.json() if resp.status_code == 200 else {}
+        rows = payload.get("data", []) if isinstance(payload, dict) and payload.get("stat") == "OK" else []
+        for row in rows:
+            if not row or len(row) < 12:
+                continue
+            sym = str(row[0]).strip()
+            if not sym:
+                continue
+            # T86 常見欄位順序：
+            # 0:代號, 1:名稱, 2:外陸資買進(不含外資自營商), 3:外陸資賣出, 4:外陸資買賣超,
+            # 5:外資自營商買進, 6:外資自營商賣出, 7:外資自營商買賣超,
+            # 8:投信買進, 9:投信賣出, 10:投信買賣超, 11:自營商買賣超
+            f_buy = _parse_num_str(row[2]) + _parse_num_str(row[5])
+            f_sell = _parse_num_str(row[3]) + _parse_num_str(row[6])
+            t_buy = _parse_num_str(row[8])
+            t_sell = _parse_num_str(row[9])
+            d_net = _parse_num_str(row[11]) if len(row) > 11 else 0.0
+            d_buy = d_net if d_net > 0 else 0.0
+            d_sell = abs(d_net) if d_net < 0 else 0.0
+
+            day_map[sym] = {
+                "date": iso_date,
+                "foreign_buy": f_buy,
+                "foreign_sell": f_sell,
+                "trust_buy": t_buy,
+                "trust_sell": t_sell,
+                "dealer_buy": d_buy,
+                "dealer_sell": d_sell,
+            }
+    except Exception as exc:
+        print(f"[備援警告] TWSE T86 ({yyyymmdd}) 抓取失敗: {exc}")
+
+    _TWSE_T86_CACHE[yyyymmdd] = day_map
+    return day_map
+
+
+def _get_twse_margin_day_map(yyyymmdd: str) -> dict[str, dict]:
+    """抓取 TWSE MI_MARGN 單日全市場融資融券資料並快取"""
+    if yyyymmdd in _TWSE_MARGIN_CACHE:
+        return _TWSE_MARGIN_CACHE[yyyymmdd]
+
+    url = "https://www.twse.com.tw/rwd/zh/marginTrading/MI_MARGN"
+    params = {"date": yyyymmdd, "selectType": "ALL", "response": "json"}
+    day_map: dict[str, dict] = {}
+    iso_date = f"{yyyymmdd[:4]}-{yyyymmdd[4:6]}-{yyyymmdd[6:8]}"
+
+    try:
+        resp = requests.get(url, params=params, headers=_TWSE_HEADERS, timeout=15)
+        payload = resp.json() if resp.status_code == 200 else {}
+        tables = payload.get("tables", []) if isinstance(payload, dict) else []
+        for tbl in tables:
+            for row in tbl.get("data", []) or []:
+                if not row or len(row) < 6:
+                    continue
+                sym = str(row[0]).strip()
+                if not sym:
+                    continue
+                # MI_MARGN 常見欄位：0:代號, 1:名稱, 2:融資買進, 3:融資賣出, 4:現金償還, 5:前日融資餘額, 6:今日融資餘額
+                m_buy = _parse_num_str(row[2])
+                m_sell = _parse_num_str(row[3])
+                day_map[sym] = {
+                    "date": iso_date,
+                    "MarginPurchaseBuy": m_buy,
+                    "MarginPurchaseSell": m_sell,
+                }
+    except Exception as exc:
+        print(f"[備援警告] TWSE MI_MARGN ({yyyymmdd}) 抓取失敗: {exc}")
+
+    _TWSE_MARGIN_CACHE[yyyymmdd] = day_map
+    return day_map
+
+
+def _recent_trading_dates_yyyymmdd(stock_df: pd.DataFrame | None = None, count: int = 5) -> list[str]:
+    """優先從傳入的 stock_df 拿最近幾個交易日；若無則往回推算近 10 天（跳過週末）"""
+    dates: list[str] = []
+    if stock_df is not None and not stock_df.empty and "date" in stock_df.columns:
+        raw_dates = sorted(pd.to_datetime(stock_df["date"], errors="coerce").dropna().dt.strftime("%Y%m%d").unique())
+        dates = list(raw_dates[-count:])
+    if len(dates) >= 2:
+        return dates
+
+    cursor = dt.date.today()
+    found: list[str] = []
+    for _ in range(14):
+        if cursor.weekday() < 5:
+            found.append(cursor.strftime("%Y%m%d"))
+        if len(found) >= count:
+            break
+        cursor -= dt.timedelta(days=1)
+    return list(reversed(found))
+
+
+def _fetch_twse_inst_df(stock_id: str, stock_df: pd.DataFrame | None = None) -> pd.DataFrame:
+    """從 TWSE T86 快取組出與 FinMind 相同結構的三大法人 DataFrame"""
+    sym = str(stock_id).strip()
+    if sym.startswith(("00", "6")) or not sym.isdigit():
+        return pd.DataFrame()
+
+    ymd_list = _recent_trading_dates_yyyymmdd(stock_df=stock_df, count=6)
+    records = []
+    for ymd in ymd_list:
+        item = _get_twse_t86_day_map(ymd).get(sym)
+        if not item:
+            continue
+        d_str = item["date"]
+        records.append({"date": d_str, "name": "Foreign_Investor", "buy": item["foreign_buy"], "sell": item["foreign_sell"]})
+        records.append({"date": d_str, "name": "Investment_Trust", "buy": item["trust_buy"], "sell": item["trust_sell"]})
+        records.append({"date": d_str, "name": "Dealer_self", "buy": item["dealer_buy"], "sell": item["dealer_sell"]})
+    return pd.DataFrame(records) if records else pd.DataFrame()
+
+
+def _fetch_twse_margin_df(stock_id: str, stock_df: pd.DataFrame | None = None) -> pd.DataFrame:
+    """從 TWSE MI_MARGN 快取組出融資融券 DataFrame"""
+    sym = str(stock_id).strip()
+    if not sym.isdigit():
+        return pd.DataFrame()
+
+    ymd_list = _recent_trading_dates_yyyymmdd(stock_df=stock_df, count=3)
+    records = []
+    for ymd in ymd_list:
+        item = _get_twse_margin_day_map(ymd).get(sym)
+        if item:
+            records.append(item)
+    return pd.DataFrame(records) if records else pd.DataFrame()
+
+
 def _finmind_get(
     dataset: str,
     stock_id: str,
     start_date: str,
-    retries: int = 3,
+    retries: int = 2,
     quota_guard=None,
 ) -> pd.DataFrame:
+    if dataset in _BLOCKED_FINMIND_DATASETS:
+        return pd.DataFrame()
+
     if quota_guard is not None:
         allowed, _ = quota_guard.can_call()
         if not allowed:
@@ -84,6 +272,9 @@ def _finmind_get(
             return resp.status_code, payload
 
         ok, status_code, payload, _ = quota_guard.execute_with_guard(_do_req)
+        if status_code in (402, 403):
+            _mark_dataset_blocked(dataset, status_code)
+            return pd.DataFrame()
         if not ok or not isinstance(payload, dict):
             return pd.DataFrame()
         rows = payload.get("data", [])
@@ -92,8 +283,11 @@ def _finmind_get(
     for attempt in range(retries + 1):
         try:
             resp = requests.get(url, params=params, timeout=12)
+            if resp.status_code in (402, 403):
+                _mark_dataset_blocked(dataset, resp.status_code)
+                return pd.DataFrame()
             if resp.status_code == 429:
-                wait_sec = 1.5 * (attempt + 1)
+                wait_sec = 1.2 * (attempt + 1)
                 if attempt < retries:
                     print(f"[限流] {stock_id} {dataset} 觸發 429，等待 {wait_sec:.1f}s 後重試 ({attempt + 1}/{retries})")
                     time.sleep(wait_sec)
@@ -102,18 +296,19 @@ def _finmind_get(
                 return pd.DataFrame()
             if resp.status_code >= 500:
                 if attempt < retries:
-                    time.sleep(0.8 * (attempt + 1))
+                    time.sleep(0.6 * (attempt + 1))
                     continue
                 return pd.DataFrame()
             resp.raise_for_status()
             payload = resp.json()
+            if isinstance(payload, dict) and payload.get("status") in (402, 403):
+                _mark_dataset_blocked(dataset, int(payload["status"]))
+                return pd.DataFrame()
             rows = payload.get("data", []) if isinstance(payload, dict) else []
-            if rows:
-                return pd.DataFrame(rows)
-            return pd.DataFrame()
+            return pd.DataFrame(rows) if rows else pd.DataFrame()
         except Exception as exc:
             if attempt < retries:
-                time.sleep(0.6 * (attempt + 1))
+                time.sleep(0.5 * (attempt + 1))
             else:
                 print(f"[警告] {stock_id} {dataset} 請求異常: {exc}")
                 return pd.DataFrame()
@@ -152,6 +347,7 @@ def fetch_chip_data(
     hold_start = (today - dt.timedelta(days=75)).strftime("%Y-%m-%d")
 
     missing = []
+    sources_used = []
 
     foreign_daily = pd.Series(dtype=float)
     trust_daily = pd.Series(dtype=float)
@@ -163,14 +359,28 @@ def fetch_chip_data(
     major_increased_1w = None
     retail_decreased_1w = None
 
-    # 1. 三大法人買賣超（單位：股 -> 轉張 / 1000）
+    # 1. 三大法人買賣超（FinMind 為主，缺漏或受限時自動走 TWSE T86 全市場快取備援）
+    df_inst = pd.DataFrame()
     try:
-        df_inst = _finmind_get(
-            "TaiwanStockInstitutionalInvestorsBuySell",
-            stock_id,
-            chip_start,
-            quota_guard=quota_guard,
-        )
+        if "TaiwanStockInstitutionalInvestorsBuySell" not in _BLOCKED_FINMIND_DATASETS:
+            df_inst = _finmind_get(
+                "TaiwanStockInstitutionalInvestorsBuySell",
+                stock_id,
+                chip_start,
+                quota_guard=quota_guard,
+            )
+            if not df_inst.empty:
+                sources_used.append("finmind_inst")
+    except Exception:
+        df_inst = pd.DataFrame()
+
+    if df_inst.empty:
+        df_twse_inst = _fetch_twse_inst_df(stock_id, stock_df=stock_df)
+        if not df_twse_inst.empty:
+            df_inst = df_twse_inst
+            sources_used.append("twse_t86")
+
+    try:
         if not df_inst.empty and {"date", "name", "buy", "sell"}.issubset(df_inst.columns):
             df_inst["net_lots"] = (
                 pd.to_numeric(df_inst["buy"], errors="coerce").fillna(0.0)
@@ -195,17 +405,31 @@ def fetch_chip_data(
     except Exception:
         pass
 
-    if inst_total_daily.empty or len(inst_total_daily) < 5:
+    if inst_total_daily.empty or len(inst_total_daily) < 2:
         missing.append("三大法人買賣超缺漏或天數不足")
 
-    # 2. 融資融券
+    # 2. 融資融券（FinMind 為主，缺漏或受限時自動走 TWSE MI_MARGN 全市場快取備援）
+    df_margin = pd.DataFrame()
     try:
-        df_margin = _finmind_get(
-            "TaiwanStockMarginPurchaseShortSale",
-            stock_id,
-            chip_start,
-            quota_guard=quota_guard,
-        )
+        if "TaiwanStockMarginPurchaseShortSale" not in _BLOCKED_FINMIND_DATASETS:
+            df_margin = _finmind_get(
+                "TaiwanStockMarginPurchaseShortSale",
+                stock_id,
+                chip_start,
+                quota_guard=quota_guard,
+            )
+            if not df_margin.empty:
+                sources_used.append("finmind_margin")
+    except Exception:
+        df_margin = pd.DataFrame()
+
+    if df_margin.empty:
+        df_twse_margin = _fetch_twse_margin_df(stock_id, stock_df=stock_df)
+        if not df_twse_margin.empty:
+            df_margin = df_twse_margin
+            sources_used.append("twse_margin")
+
+    try:
         if not df_margin.empty and {"date", "MarginPurchaseBuy", "MarginPurchaseSell"}.issubset(df_margin.columns):
             df_margin = df_margin.sort_values("date")
             last_m = df_margin.iloc[-1]
@@ -236,6 +460,8 @@ def fetch_chip_data(
                     major_increased_1w = bool(maj_chg > 0)
                 if ret_chg is not None:
                     retail_decreased_1w = bool(ret_chg < 0)
+                if major_holder_pct is not None or retail_holder_pct is not None:
+                    sources_used.append("tdcc")
         except Exception:
             pass
 
@@ -271,16 +497,17 @@ def fetch_chip_data(
                         major_increased_1w = bool(major_curr > major_prev)
                     if retail_decreased_1w is None:
                         retail_decreased_1w = bool(retail_curr < retail_prev)
+                    sources_used.append("finmind_hold")
         except Exception:
             pass
 
     if major_holder_pct is None or retail_holder_pct is None:
         missing.append("集保大戶／散戶資料缺漏或尚未更新")
 
-    inst_5d_lots = _to_finite_float(inst_total_daily.tail(5).sum()) if len(inst_total_daily) >= 5 else 0.0
+    inst_5d_lots = _to_finite_float(inst_total_daily.tail(5).sum()) if len(inst_total_daily) >= 1 else 0.0
     inst_5d_lots = inst_5d_lots or 0.0
     conc_5d_pct = 0.0
-    if stock_df is not None and not stock_df.empty and "volume" in stock_df.columns and len(stock_df) >= 5:
+    if stock_df is not None and not stock_df.empty and "volume" in stock_df.columns and len(stock_df) >= 1:
         vol_5d_raw = _to_finite_float(pd.to_numeric(stock_df["volume"], errors="coerce").tail(5).sum()) or 0.0
         vol_5d_lots = (vol_5d_raw / 1000.0) if vol_5d_raw > 50_000 else vol_5d_raw
         if vol_5d_lots > 0:
@@ -300,6 +527,7 @@ def fetch_chip_data(
     return {
         "complete": len(missing) == 0,
         "missing_reasons": missing,
+        "sources_used": sources_used,
         "metrics_6": metrics_6,
         "series": {
             "inst_total_daily": inst_total_daily,
