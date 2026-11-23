@@ -1,5 +1,6 @@
 # scripts/calc_scores.py
 import json
+import math
 from pathlib import Path
 import numpy as np
 import pandas as pd
@@ -13,13 +14,51 @@ def _clean_series(s: pd.Series) -> pd.Series:
 
 
 def _safe_float(val, default: float = 0.0) -> float:
+    if isinstance(val, pd.Series):
+        if val.empty:
+            return default
+        val = val.iloc[-1]
+    elif isinstance(val, (list, tuple, np.ndarray)):
+        if len(val) == 0:
+            return default
+        val = val[-1]
     try:
         f = float(val)
     except (ValueError, TypeError):
         return default
-    if np.isnan(f) or np.isinf(f):
+    if np.isnan(f) or np.isinf(f) or math.isnan(f) or math.isinf(f):
         return default
     return f
+
+
+def _sanitize_for_json(value):
+    if value is None or isinstance(value, (bool, str)):
+        return value
+    if isinstance(value, pd.Series):
+        if value.empty:
+            return []
+        return [_sanitize_for_json(v) for v in value.tolist()]
+    if isinstance(value, pd.DataFrame):
+        if value.empty:
+            return []
+        return _sanitize_for_json(value.to_dict(orient="records"))
+    if isinstance(value, np.ndarray):
+        return [_sanitize_for_json(v) for v in value.tolist()]
+    if isinstance(value, (np.integer, int)):
+        return int(value)
+    if isinstance(value, (np.floating, float)):
+        num = float(value)
+        return None if (math.isnan(num) or math.isinf(num)) else num
+    if isinstance(value, dict):
+        return {str(k): _sanitize_for_json(v) for k, v in value.items()}
+    if isinstance(value, (list, tuple, set)):
+        return [_sanitize_for_json(v) for v in value]
+    try:
+        if pd.isna(value):
+            return None
+    except Exception:
+        pass
+    return str(value)
 
 
 def calc_kd(df: pd.DataFrame, n: int = 9) -> tuple[pd.Series, pd.Series]:
@@ -199,7 +238,6 @@ def build_stock_detail(
         if not chip_data.get("complete", False):
             partial_notes.extend(chip_data.get("missing_reasons", ["籌碼部分欄位缺漏"]))
 
-    # 僅在核心日線不足，或基本面＋籌碼完全無任何資料時才排除
     no_any_ext_data = (fundamental_data is None and chip_data is None)
     excluded = len(critical_reasons) > 0 or no_any_ext_data
 
@@ -288,4 +326,10 @@ def build_stock_detail(
 
 def write_json(path: Path, obj: dict):
     path.parent.mkdir(parents=True, exist_ok=True)
-    path.write_text(json.dumps(obj, ensure_ascii=False, indent=2), encoding="utf-8")
+    sanitized = _sanitize_for_json(obj)
+    tmp_path = path.with_suffix(path.suffix + ".tmp")
+    tmp_path.write_text(
+        json.dumps(sanitized, ensure_ascii=False, indent=2, allow_nan=False),
+        encoding="utf-8",
+    )
+    tmp_path.replace(path)

@@ -32,6 +32,10 @@ CHIP_LABELS = [
 def _to_finite_float(val) -> Optional[float]:
     if val is None or isinstance(val, bool):
         return None
+    if isinstance(val, pd.Series):
+        if val.empty:
+            return None
+        val = val.iloc[-1]
     try:
         num = float(val)
     except (ValueError, TypeError):
@@ -39,6 +43,13 @@ def _to_finite_float(val) -> Optional[float]:
     if math.isnan(num) or math.isinf(num):
         return None
     return num
+
+
+def _clean_float_series(s: pd.Series) -> pd.Series:
+    if s is None or s.empty:
+        return pd.Series(dtype=float)
+    clean = pd.to_numeric(s, errors="coerce").replace([float("inf"), float("-inf")], float("nan"))
+    return clean.dropna()
 
 
 def _finmind_get(
@@ -170,16 +181,17 @@ def fetch_chip_data(
             ).fillna(0.0).sort_index()
 
             if not piv.empty:
-                inst_total_daily = piv.sum(axis=1)
+                inst_total_daily = _clean_float_series(piv.sum(axis=1))
                 for col in ["Foreign_Investor", "Foreign_Dealer_Self"]:
                     if col in piv.columns:
+                        col_s = _clean_float_series(piv[col])
                         foreign_daily = (
-                            foreign_daily.add(piv[col], fill_value=0.0)
+                            foreign_daily.add(col_s, fill_value=0.0)
                             if not foreign_daily.empty
-                            else piv[col]
+                            else col_s
                         )
                 if "Investment_Trust" in piv.columns:
-                    trust_daily = piv["Investment_Trust"]
+                    trust_daily = _clean_float_series(piv["Investment_Trust"])
     except Exception:
         pass
 
@@ -246,10 +258,10 @@ def fetch_chip_data(
                     curr_sub = df_hold[df_hold["date"] == d_curr]
                     prev_sub = df_hold[df_hold["date"] == d_prev]
 
-                    major_curr = float(curr_sub[curr_sub["min_shares"] >= 400_001]["pct"].sum())
-                    major_prev = float(prev_sub[prev_sub["min_shares"] >= 400_001]["pct"].sum())
-                    retail_curr = float(curr_sub[curr_sub["min_shares"] <= 10_000]["pct"].sum())
-                    retail_prev = float(prev_sub[prev_sub["min_shares"] <= 10_000]["pct"].sum())
+                    major_curr = _to_finite_float(curr_sub[curr_sub["min_shares"] >= 400_001]["pct"].sum()) or 0.0
+                    major_prev = _to_finite_float(prev_sub[prev_sub["min_shares"] >= 400_001]["pct"].sum()) or 0.0
+                    retail_curr = _to_finite_float(curr_sub[curr_sub["min_shares"] <= 10_000]["pct"].sum()) or 0.0
+                    retail_prev = _to_finite_float(prev_sub[prev_sub["min_shares"] <= 10_000]["pct"].sum()) or 0.0
 
                     if major_holder_pct is None:
                         major_holder_pct = round(major_curr, 2)
@@ -265,16 +277,16 @@ def fetch_chip_data(
     if major_holder_pct is None or retail_holder_pct is None:
         missing.append("集保大戶／散戶資料缺漏或尚未更新")
 
-    # 計算 5 日籌碼集中度百分比（近 5 日法人淨買超張數 / 近 5 日成交量張數 * 100）
-    inst_5d_lots = float(inst_total_daily.tail(5).sum()) if len(inst_total_daily) >= 5 else 0.0
+    inst_5d_lots = _to_finite_float(inst_total_daily.tail(5).sum()) if len(inst_total_daily) >= 5 else 0.0
+    inst_5d_lots = inst_5d_lots or 0.0
     conc_5d_pct = 0.0
     if stock_df is not None and not stock_df.empty and "volume" in stock_df.columns and len(stock_df) >= 5:
-        vol_5d_raw = float(pd.to_numeric(stock_df["volume"], errors="coerce").tail(5).sum())
+        vol_5d_raw = _to_finite_float(pd.to_numeric(stock_df["volume"], errors="coerce").tail(5).sum()) or 0.0
         vol_5d_lots = (vol_5d_raw / 1000.0) if vol_5d_raw > 50_000 else vol_5d_raw
         if vol_5d_lots > 0:
             conc_5d_pct = round((inst_5d_lots / vol_5d_lots) * 100.0, 2)
 
-    main_force_last = round(float(inst_total_daily.iloc[-1]), 1) if not inst_total_daily.empty else 0.0
+    main_force_last = round(_to_finite_float(inst_total_daily.iloc[-1]) or 0.0, 1) if not inst_total_daily.empty else 0.0
 
     metrics_6 = {
         "main_force_net": main_force_last,
@@ -303,11 +315,11 @@ def fetch_chip_data(
 
 def evaluate_chip_10(chip: dict) -> tuple[list[dict], int]:
     s = chip.get("series", {})
-    tot = s.get("inst_total_daily", pd.Series(dtype=float))
-    f_s = s.get("foreign_daily", pd.Series(dtype=float))
-    t_s = s.get("trust_daily", pd.Series(dtype=float))
-    inst_5d = float(s.get("inst_5d_lots", 0.0))
-    conc_5d = float(s.get("conc_5d_pct", 0.0))
+    tot = _clean_float_series(s.get("inst_total_daily", pd.Series(dtype=float)))
+    f_s = _clean_float_series(s.get("foreign_daily", pd.Series(dtype=float)))
+    t_s = _clean_float_series(s.get("trust_daily", pd.Series(dtype=float)))
+    inst_5d = _to_finite_float(s.get("inst_5d_lots", 0.0)) or 0.0
+    conc_5d = _to_finite_float(s.get("conc_5d_pct", 0.0)) or 0.0
     maj_inc = s.get("major_increased_1w")
     ret_dec = s.get("retail_decreased_1w")
 
@@ -319,9 +331,11 @@ def evaluate_chip_10(chip: dict) -> tuple[list[dict], int]:
         }
 
     c1 = bool((tot.tail(3) > 1000).any()) if len(tot) >= 3 else None
-    v1 = f"最大:{tot.tail(3).max():+.0f}張" if len(tot) >= 3 else "缺漏"
+    max_3d = _to_finite_float(tot.tail(3).max()) or 0.0
+    v1 = f"最大:{max_3d:+.0f}張" if len(tot) >= 3 else "缺漏"
 
-    c2 = bool(float(tot.iloc[-1]) > 0 and inst_5d > 0) if len(tot) >= 5 else None
+    last_tot = _to_finite_float(tot.iloc[-1]) if not tot.empty else None
+    c2 = bool((last_tot is not None and last_tot > 0) and inst_5d > 0) if len(tot) >= 5 else None
     v2 = f"5日集中度:{conc_5d:+.2f}%" if len(tot) >= 5 else "缺漏"
 
     if not f_s.empty and not t_s.empty:
@@ -340,15 +354,16 @@ def evaluate_chip_10(chip: dict) -> tuple[list[dict], int]:
     c6 = bool(_max_consecutive_true((tot.tail(20) > 0).tolist()) >= 5) if len(tot) >= 5 else None
     v6 = f"最長{_max_consecutive_true((tot.tail(20) > 0).tolist())}日" if len(tot) >= 5 else "缺漏"
 
-    if len(tot) >= 5:
-        avg5 = float(tot.tail(5).mean())
-        c7 = bool(float(tot.iloc[-1]) > avg5 and float(tot.iloc[-1]) > 0)
-        v7 = f"{tot.iloc[-1]:+.0f} (5日均{avg5:+.0f})"
+    if len(tot) >= 5 and last_tot is not None:
+        avg5 = _to_finite_float(tot.tail(5).mean()) or 0.0
+        c7 = bool(last_tot > avg5 and last_tot > 0)
+        v7 = f"{last_tot:+.0f} (5日均{avg5:+.0f})"
     else:
         c7, v7 = None, "缺漏"
 
-    c8 = bool(float(tot.tail(20).sum()) > 0) if len(tot) >= 5 else None
-    v8 = f"{tot.tail(20).sum():+.0f}張" if len(tot) >= 5 else "缺漏"
+    sum_20d = _to_finite_float(tot.tail(20).sum()) or 0.0
+    c8 = bool(sum_20d > 0) if len(tot) >= 5 else None
+    v8 = f"{sum_20d:+.0f}張" if len(tot) >= 5 else "缺漏"
 
     c9 = bool(_max_consecutive_true((tot.tail(20) > 0).tolist()) >= 2) if len(tot) >= 5 else None
     v9 = "符合" if c9 else ("缺漏" if c9 is None else "未達標")

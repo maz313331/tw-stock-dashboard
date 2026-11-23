@@ -59,6 +59,18 @@ def _is_valid_value(val) -> bool:
     return True
 
 
+def _strip_non_serializable_series(data: dict) -> dict:
+    """移除內含 pandas Series 的暫存欄位，避免寫入 JSON 時發生序列化錯誤。"""
+    if not isinstance(data, dict):
+        return {}
+    cleaned = {}
+    for k, v in data.items():
+        if k == "series":
+            continue
+        cleaned[k] = v
+    return cleaned
+
+
 def merge_without_overwrite(old_data: dict, new_data: dict) -> dict:
     """
     防空值洗資料：遞迴合併新舊字典。
@@ -126,7 +138,7 @@ def load_batch_state(state_path: Path) -> dict:
 def save_batch_state(state_path: Path, state_data: dict) -> None:
     try:
         state_path.parent.mkdir(parents=True, exist_ok=True)
-        state_path.write_text(json.dumps(state_data, ensure_ascii=False, indent=2), encoding="utf-8")
+        write_json(state_path, state_data)
     except Exception:
         pass
 
@@ -307,13 +319,13 @@ def _extract_cached_fund_or_chip(detail_path: Path, kind: str) -> dict | None:
     if kind == "fund":
         cached = old.get("fundamental_data")
         if isinstance(cached, dict) and cached:
-            return cached
+            return _strip_non_serializable_series(cached)
         return None
 
     if kind == "chip":
         cached = old.get("chip_data")
         if isinstance(cached, dict) and cached:
-            return cached
+            return _strip_non_serializable_series(cached)
         m6 = old.get("metrics_6")
         if isinstance(m6, dict) and m6:
             return {
@@ -687,10 +699,19 @@ def main():
             detail_obj["missing_reasons"] = missing_summary.get("missing_reasons", [])
             row_obj["partial_missing"] = missing_summary.get("partial_missing", "")
 
-        if isinstance(fund_data, dict) and fund_data:
-            detail_obj["fundamental_data"] = merge_without_overwrite(detail_obj.get("fundamental_data") or {}, fund_data)
-        if isinstance(chip_data, dict) and chip_data:
-            detail_obj["chip_data"] = merge_without_overwrite(detail_obj.get("chip_data") or {}, chip_data)
+        clean_fund_for_json = _strip_non_serializable_series(fund_data) if isinstance(fund_data, dict) else {}
+        clean_chip_for_json = _strip_non_serializable_series(chip_data) if isinstance(chip_data, dict) else {}
+
+        if clean_fund_for_json:
+            detail_obj["fundamental_data"] = merge_without_overwrite(
+                _strip_non_serializable_series(detail_obj.get("fundamental_data") or {}),
+                clean_fund_for_json,
+            )
+        if clean_chip_for_json:
+            detail_obj["chip_data"] = merge_without_overwrite(
+                _strip_non_serializable_series(detail_obj.get("chip_data") or {}),
+                clean_chip_for_json,
+            )
 
         if detail_path.exists():
             try:
