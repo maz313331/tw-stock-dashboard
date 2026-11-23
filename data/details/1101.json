@@ -1,7 +1,7 @@
 {
   "symbol": "1101",
   "name": "台泥",
-  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
+  "updated_at": "2026-11-23 11:26（行情日 2026-11-23）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -25,54 +25,54 @@
   "checks": {
     "fundamental": [
       {
-        "label": "本益比大於等於 10",
-        "passed": true,
-        "value": "69.6"
+        "label": "本益比合理",
+        "passed": false,
+        "value": "69.57"
       },
       {
-        "label": "股價淨值比大於等於 0.5",
+        "label": "股價淨值比合理",
         "passed": true,
         "value": "0.78"
       },
       {
-        "label": "現金股利殖利率大於 3%",
+        "label": "殖利率具吸引力",
         "passed": true,
         "value": "3.29%"
       },
       {
-        "label": "月營收創 10 個月以上新高",
-        "passed": true,
-        "value": "創10月新高"
-      },
-      {
-        "label": "月營收 MoM 大於 0",
+        "label": "月營收月增",
         "passed": true,
         "value": "+14.21%"
       },
       {
-        "label": "最近一季營業淨利大於 0",
+        "label": "月營收年增",
+        "passed": false,
+        "value": "+14.21%"
+      },
+      {
+        "label": "營業利益為正",
         "passed": true,
-        "value": "正值"
+        "value": "4,401,422,000"
       },
       {
-        "label": "最近一季稅後淨利大於 0",
+        "label": "本期淨利為正",
         "passed": true,
-        "value": "正值"
+        "value": "3,351,501,000"
       },
       {
-        "label": "最近一季每股盈餘大於 1",
-        "passed": false,
-        "value": "0.24 元"
+        "label": "每股盈餘為正",
+        "passed": true,
+        "value": "0.24"
       },
       {
-        "label": "最新年度 ROA 大於等於 5",
-        "passed": false,
-        "value": "1.1%"
+        "label": "ROA 表現穩健",
+        "passed": true,
+        "value": "1.05%"
       },
       {
-        "label": "最新年度 ROE 大於等於 8",
+        "label": "ROE 表現穩健",
         "passed": false,
-        "value": "2.1%"
+        "value": "2.09%"
       }
     ],
     "technical": [
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-8.29%"
+        "value": "-7.62%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:19.1 / D:31.7"
+        "value": "K:14.0 / D:25.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:20.0"
+        "value": "RSI14:21.0"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.23"
+        "value": "DIF:-0.38"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:25.85"
+        "value": "5MA:25.41"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:27.16"
+        "value": "20MA:26.97"
       },
       {
         "label": "月線大於季線",
         "passed": true,
-        "value": "20MA/60MA:27.2/25.9"
+        "value": "20MA/60MA:27.0/25.9"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
@@ -204,5 +204,6 @@
     "chip_concentration_5d": 7.08,
     "major_holder_pct": 64.63,
     "retail_holder_pct": 26.7
-  }
+  },
+  "missing_reasons": []
 }

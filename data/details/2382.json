@@ -1,17 +1,17 @@
 {
   "symbol": "2382",
   "name": "廣達",
-  "updated_at": "2026-11-22 14:01（行情日 2026-11-20）",
+  "updated_at": "2026-11-23 11:09（行情日 2026-11-23）",
   "excluded": false,
   "exclude_reason": "",
-  "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏",
-  "total_score": 1,
+  "partial_missing": "",
+  "total_score": 9,
   "max_score": 30,
   "badge": "中性觀望",
-  "trading_note": "部分欄位暫缺（估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
+  "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
-    "fundamental": 0,
-    "technical": 1,
+    "fundamental": 9,
+    "technical": 0,
     "chip": 0
   },
   "metrics_6": {
@@ -25,54 +25,54 @@
   "checks": {
     "fundamental": [
       {
-        "label": "本益比大於等於 10",
+        "label": "本益比合理",
+        "passed": true,
+        "value": "10.28"
+      },
+      {
+        "label": "股價淨值比合理",
+        "passed": true,
+        "value": "3.00"
+      },
+      {
+        "label": "殖利率具吸引力",
+        "passed": true,
+        "value": "6.19%"
+      },
+      {
+        "label": "月營收月增",
+        "passed": true,
+        "value": "+8.59%"
+      },
+      {
+        "label": "月營收年增",
         "passed": false,
         "value": "缺漏"
       },
       {
-        "label": "股價淨值比大於等於 0.5",
-        "passed": false,
-        "value": "缺漏"
+        "label": "營業利益為正",
+        "passed": true,
+        "value": "32,203,723,000"
       },
       {
-        "label": "現金股利殖利率大於 3%",
-        "passed": false,
-        "value": "缺漏"
+        "label": "本期淨利為正",
+        "passed": true,
+        "value": "28,634,236,000"
       },
       {
-        "label": "月營收創 10 個月以上新高",
-        "passed": false,
-        "value": "缺漏"
+        "label": "每股盈餘為正",
+        "passed": true,
+        "value": "7.08"
       },
       {
-        "label": "月營收 MoM 大於 0",
-        "passed": false,
-        "value": "缺漏"
+        "label": "ROA 表現穩健",
+        "passed": true,
+        "value": "1.24%"
       },
       {
-        "label": "最近一季營業淨利大於 0",
-        "passed": false,
-        "value": "缺漏"
-      },
-      {
-        "label": "最近一季稅後淨利大於 0",
-        "passed": false,
-        "value": "缺漏"
-      },
-      {
-        "label": "最近一季每股盈餘大於 1",
-        "passed": false,
-        "value": "缺漏"
-      },
-      {
-        "label": "最新年度 ROA 大於等於 5",
-        "passed": false,
-        "value": "缺漏"
-      },
-      {
-        "label": "最新年度 ROE 大於等於 8",
-        "passed": false,
-        "value": "缺漏"
+        "label": "ROE 表現穩健",
+        "passed": true,
+        "value": "8.03%"
       }
     ],
     "technical": [
@@ -84,42 +84,42 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-4.00%"
+        "value": "-4.34%"
       },
       {
         "label": "連 3 日打敗大盤",
-        "passed": true,
-        "value": "符合"
+        "passed": false,
+        "value": "未連3日勝出"
       },
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:15.1 / D:18.5"
+        "value": "K:13.9 / D:17.0"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:12.1"
+        "value": "RSI14:14.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-17.21"
+        "value": "DIF:-17.79"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:261.30"
+        "value": "5MA:259.10"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:294.62"
+        "value": "20MA:291.20"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:294.6/320.3"
+        "value": "20MA/60MA:291.2/319.1"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
@@ -181,23 +181,23 @@
     ]
   },
   "fundamental_data": {
-    "complete": false,
+    "complete": true,
     "missing_reasons": [
       "估值資料(PE/PB/殖利率)部分缺漏",
       "月營收資料缺漏或尚未公布",
       "財報/ROA/ROE欄位尚未公布或缺漏"
     ],
     "metrics": {
-      "pe": null,
-      "pb": null,
-      "dividend_yield": null,
+      "pe": 10.28,
+      "pb": 3.0,
+      "dividend_yield": 6.19,
       "rev_new_10m": null,
-      "rev_mom_pct": null,
-      "op_income": null,
-      "net_income": null,
-      "eps": null,
-      "roa_pct": null,
-      "roe_pct": null
+      "rev_mom_pct": 8.59,
+      "op_income": 32203723000.0,
+      "net_income": 28634236000.0,
+      "eps": 7.08,
+      "roa_pct": 1.24,
+      "roe_pct": 8.03
     }
   },
   "chip_data": {
@@ -208,5 +208,6 @@
     "chip_concentration_5d": 0.0,
     "major_holder_pct": 87.24,
     "retail_holder_pct": 11.13
-  }
+  },
+  "missing_reasons": []
 }

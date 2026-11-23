@@ -1,7 +1,9 @@
 import datetime as dt
+import math
 import os
 import re
 import time
+from typing import Optional
 import pandas as pd
 import requests
 
@@ -27,7 +29,30 @@ CHIP_LABELS = [
 ]
 
 
-def _finmind_get(dataset: str, stock_id: str, start_date: str, retries: int = 3) -> pd.DataFrame:
+def _to_finite_float(val) -> Optional[float]:
+    if val is None or isinstance(val, bool):
+        return None
+    try:
+        num = float(val)
+    except (ValueError, TypeError):
+        return None
+    if math.isnan(num) or math.isinf(num):
+        return None
+    return num
+
+
+def _finmind_get(
+    dataset: str,
+    stock_id: str,
+    start_date: str,
+    retries: int = 3,
+    quota_guard=None,
+) -> pd.DataFrame:
+    if quota_guard is not None:
+        allowed, _ = quota_guard.can_call()
+        if not allowed:
+            return pd.DataFrame()
+
     url = "https://api.finmindtrade.com/api/v4/data"
     params = {
         "dataset": dataset,
@@ -37,6 +62,21 @@ def _finmind_get(dataset: str, stock_id: str, start_date: str, retries: int = 3)
     token = os.getenv("FINMIND_TOKEN", "").strip()
     if token:
         params["token"] = token
+
+    if quota_guard is not None and hasattr(quota_guard, "execute_with_guard"):
+        def _do_req():
+            resp = requests.get(url, params=params, timeout=12)
+            try:
+                payload = resp.json()
+            except Exception:
+                payload = None
+            return resp.status_code, payload
+
+        ok, status_code, payload, _ = quota_guard.execute_with_guard(_do_req)
+        if not ok or not isinstance(payload, dict):
+            return pd.DataFrame()
+        rows = payload.get("data", [])
+        return pd.DataFrame(rows) if rows else pd.DataFrame()
 
     for attempt in range(retries + 1):
         try:
@@ -91,7 +131,11 @@ def _extract_min_shares(level_str: str) -> int | None:
     return int(m.group(1)) if m else None
 
 
-def fetch_chip_data(stock_id: str, stock_df: pd.DataFrame | None = None) -> dict:
+def fetch_chip_data(
+    stock_id: str,
+    stock_df: pd.DataFrame | None = None,
+    quota_guard=None,
+) -> dict:
     today = dt.date.today()
     chip_start = (today - dt.timedelta(days=90)).strftime("%Y-%m-%d")
     hold_start = (today - dt.timedelta(days=75)).strftime("%Y-%m-%d")
@@ -110,7 +154,12 @@ def fetch_chip_data(stock_id: str, stock_df: pd.DataFrame | None = None) -> dict
 
     # 1. 三大法人買賣超（單位：股 -> 轉張 / 1000）
     try:
-        df_inst = _finmind_get("TaiwanStockInstitutionalInvestorsBuySell", stock_id, chip_start)
+        df_inst = _finmind_get(
+            "TaiwanStockInstitutionalInvestorsBuySell",
+            stock_id,
+            chip_start,
+            quota_guard=quota_guard,
+        )
         if not df_inst.empty and {"date", "name", "buy", "sell"}.issubset(df_inst.columns):
             df_inst["net_lots"] = (
                 pd.to_numeric(df_inst["buy"], errors="coerce").fillna(0.0)
@@ -139,13 +188,19 @@ def fetch_chip_data(stock_id: str, stock_df: pd.DataFrame | None = None) -> dict
 
     # 2. 融資融券
     try:
-        df_margin = _finmind_get("TaiwanStockMarginPurchaseShortSale", stock_id, chip_start)
+        df_margin = _finmind_get(
+            "TaiwanStockMarginPurchaseShortSale",
+            stock_id,
+            chip_start,
+            quota_guard=quota_guard,
+        )
         if not df_margin.empty and {"date", "MarginPurchaseBuy", "MarginPurchaseSell"}.issubset(df_margin.columns):
             df_margin = df_margin.sort_values("date")
             last_m = df_margin.iloc[-1]
-            m_buy = float(pd.to_numeric(last_m.get("MarginPurchaseBuy"), errors="coerce") or 0.0)
-            m_sell = float(pd.to_numeric(last_m.get("MarginPurchaseSell"), errors="coerce") or 0.0)
-            margin_net_last = round(m_buy - m_sell, 1)
+            m_buy_raw = _to_finite_float(last_m.get("MarginPurchaseBuy"))
+            m_sell_raw = _to_finite_float(last_m.get("MarginPurchaseSell"))
+            if m_buy_raw is not None or m_sell_raw is not None:
+                margin_net_last = round((m_buy_raw or 0.0) - (m_sell_raw or 0.0), 1)
     except Exception:
         pass
 
@@ -157,23 +212,29 @@ def fetch_chip_data(stock_id: str, stock_df: pd.DataFrame | None = None) -> dict
         try:
             tdcc_res = fetch_tdcc_holding_shares(stock_id, force_refresh=False)
             if isinstance(tdcc_res, dict):
-                maj_val = tdcc_res.get("major_ratio")
-                ret_val = tdcc_res.get("retail_ratio")
-                maj_chg = tdcc_res.get("major_change_1w")
-                ret_chg = tdcc_res.get("retail_change_1w")
-                if maj_val is not None or ret_val is not None:
-                    major_holder_pct = round(float(maj_val or 0.0), 2)
-                    retail_holder_pct = round(float(ret_val or 0.0), 2)
-                    if maj_chg is not None:
-                        major_increased_1w = bool(float(maj_chg) > 0)
-                    if ret_chg is not None:
-                        retail_decreased_1w = bool(float(ret_chg) < 0)
+                maj_val = _to_finite_float(tdcc_res.get("major_ratio"))
+                ret_val = _to_finite_float(tdcc_res.get("retail_ratio"))
+                maj_chg = _to_finite_float(tdcc_res.get("major_change_1w"))
+                ret_chg = _to_finite_float(tdcc_res.get("retail_change_1w"))
+                if maj_val is not None:
+                    major_holder_pct = round(maj_val, 2)
+                if ret_val is not None:
+                    retail_holder_pct = round(ret_val, 2)
+                if maj_chg is not None:
+                    major_increased_1w = bool(maj_chg > 0)
+                if ret_chg is not None:
+                    retail_decreased_1w = bool(ret_chg < 0)
         except Exception:
             pass
 
-    if major_holder_pct is None and retail_holder_pct is None:
+    if major_holder_pct is None or retail_holder_pct is None:
         try:
-            df_hold = _finmind_get("TaiwanStockHoldingSharesPer", stock_id, hold_start)
+            df_hold = _finmind_get(
+                "TaiwanStockHoldingSharesPer",
+                stock_id,
+                hold_start,
+                quota_guard=quota_guard,
+            )
             if not df_hold.empty and {"date", "HoldingSharesLevel", "percent"}.issubset(df_hold.columns):
                 df_hold["pct"] = pd.to_numeric(df_hold["percent"], errors="coerce")
                 df_hold["min_shares"] = df_hold["HoldingSharesLevel"].apply(_extract_min_shares)
@@ -190,10 +251,13 @@ def fetch_chip_data(stock_id: str, stock_df: pd.DataFrame | None = None) -> dict
                     retail_curr = float(curr_sub[curr_sub["min_shares"] <= 10_000]["pct"].sum())
                     retail_prev = float(prev_sub[prev_sub["min_shares"] <= 10_000]["pct"].sum())
 
-                    if major_curr > 0 or retail_curr > 0:
+                    if major_holder_pct is None:
                         major_holder_pct = round(major_curr, 2)
+                    if retail_holder_pct is None:
                         retail_holder_pct = round(retail_curr, 2)
+                    if major_increased_1w is None:
                         major_increased_1w = bool(major_curr > major_prev)
+                    if retail_decreased_1w is None:
                         retail_decreased_1w = bool(retail_curr < retail_prev)
         except Exception:
             pass
@@ -210,12 +274,12 @@ def fetch_chip_data(stock_id: str, stock_df: pd.DataFrame | None = None) -> dict
         if vol_5d_lots > 0:
             conc_5d_pct = round((inst_5d_lots / vol_5d_lots) * 100.0, 2)
 
-    main_force_last = round(float(inst_total_daily.iloc[-1]), 1) if not inst_total_daily.empty else 0
+    main_force_last = round(float(inst_total_daily.iloc[-1]), 1) if not inst_total_daily.empty else 0.0
 
     metrics_6 = {
         "main_force_net": main_force_last,
         "retail_net": 0,
-        "margin_net": margin_net_last if margin_net_last is not None else 0,
+        "margin_net": margin_net_last if margin_net_last is not None else 0.0,
         "chip_concentration_5d": conc_5d_pct,
         "major_holder_pct": major_holder_pct if major_holder_pct is not None else 0.0,
         "retail_holder_pct": retail_holder_pct if retail_holder_pct is not None else 0.0,

@@ -16,13 +16,13 @@
 
       <nav class="page-tabs" aria-label="主功能分頁">
         <button type="button" class="tab-btn active" data-page="overview">1. 大盤總覽</button>
-        <button type="button" class="tab-btn" data-page="screener">2. 強勢高分榜</button>
-        <button type="button" class="tab-btn" data-page="etf">3. ETF 專區</button>
-        <button type="button" class="tab-btn" data-page="detail">4. 2330 / 30指標</button>
+        <button type="button" class="tab-btn" data-page="detail" id="tab-btn-detail">2. 2330 / 30指標</button>
+        <button type="button" class="tab-btn" data-page="screener">3. 強勢高分榜</button>
+        <button type="button" class="tab-btn" data-page="etf">4. ETF 專區</button>
       </nav>
 
       <div class="quick-jump">
-        <input type="text" id="quick-symbol-input" placeholder="輸入代號或股名（如 2330）..." />
+        <input type="text" id="quick-symbol-input" placeholder="輸入代號或股名（如 2330、00929）..." />
         <button type="button" id="quick-symbol-btn" class="primary-btn">查詢</button>
       </div>
     </div>
@@ -59,7 +59,27 @@
       </div>
     </section>
 
-    <!-- 第 2 頁：強勢高分榜（現有篩選與列表模式） -->
+    <!-- 第 2 頁：預設 2330 顯示 30 個指標，並可輸入其他股票或 ETF 查詢 -->
+    <section id="page-detail" class="page-panel hidden">
+      <div class="detail-switch-bar">
+        <div class="switch-left">
+          <label for="detail-symbol-input">切換查詢股票 / ETF：</label>
+          <input type="text" id="detail-symbol-input" value="2330" placeholder="輸入代號或股名，例如 2330、00929、6285" />
+          <button type="button" id="detail-symbol-btn" class="primary-btn">載入 30 指標</button>
+          <button type="button" id="detail-reset-2330" class="ghost-btn">回到 2330</button>
+        </div>
+        <div class="switch-right" id="detail-quick-chips">
+          <button type="button" class="chip-btn" data-sym="2330">2330 台積電</button>
+          <button type="button" class="chip-btn" data-sym="2454">2454 聯發科</button>
+          <button type="button" class="chip-btn" data-sym="2382">2382 廣達</button>
+          <button type="button" class="chip-btn" data-sym="6285">6285 啟碁</button>
+        </div>
+      </div>
+
+      <div id="detail-page-content"></div>
+    </section>
+
+    <!-- 第 3 頁：強勢高分榜（現有篩選與列表模式） -->
     <section id="page-screener" class="page-panel hidden">
       <div class="toolbar">
         <input type="text" id="stock-search" placeholder="篩選代號或中文股名（如 2330、台積電）..." />
@@ -101,7 +121,7 @@
       <div class="rule-banner" id="exclude-rule-banner"></div>
     </section>
 
-    <!-- 第 3 頁：ETF 專區（沿用現有 etf_summary.json 模式） -->
+    <!-- 第 4 頁：ETF 專區（沿用現有 etf_summary.json 模式） -->
     <section id="page-etf" class="page-panel hidden">
       <div class="notice-banner">
         <strong>ETF 獨立追蹤專區：</strong>沿用現有 <code>etf_summary.json</code> 模式，檢視均線多空架構、短中期動能與 RSI(14)。
@@ -142,26 +162,6 @@
           <tbody id="etf-tbody"></tbody>
         </table>
       </div>
-    </section>
-
-    <!-- 第 4 頁：預設 2330 顯示 30 個指標，並可輸入其他股票查詢 -->
-    <section id="page-detail" class="page-panel hidden">
-      <div class="detail-switch-bar">
-        <div class="switch-left">
-          <label for="detail-symbol-input">切換查詢股票：</label>
-          <input type="text" id="detail-symbol-input" value="2330" placeholder="輸入代號或股名，例如 2330、2454、6285" />
-          <button type="button" id="detail-symbol-btn" class="primary-btn">載入 30 指標</button>
-          <button type="button" id="detail-reset-2330" class="ghost-btn">回到 2330</button>
-        </div>
-        <div class="switch-right" id="detail-quick-chips">
-          <button type="button" class="chip-btn" data-sym="2330">2330 台積電</button>
-          <button type="button" class="chip-btn" data-sym="2454">2454 聯發科</button>
-          <button type="button" class="chip-btn" data-sym="2382">2382 廣達</button>
-          <button type="button" class="chip-btn" data-sym="6285">6285 啟碁</button>
-        </div>
-      </div>
-
-      <div id="detail-page-content"></div>
     </section>
   </main>
 

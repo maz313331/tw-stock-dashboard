@@ -1,6 +1,7 @@
 import argparse
 import datetime as dt
 import json
+import os
 from pathlib import Path
 import random
 import subprocess
@@ -27,6 +28,9 @@ def run_single_batch(
     offset: int,
     limit: int,
     sleep_sec: float,
+    phase: str = "auto",
+    only_missing: bool = False,
+    force_check: bool = False,
 ) -> int:
     jittered_sleep = max(0.05, round(sleep_sec + random.uniform(-0.05, 0.15), 3))
     cmd = [
@@ -39,18 +43,47 @@ def run_single_batch(
         str(limit),
         "--sleep",
         str(jittered_sleep),
+        "--phase",
+        phase,
     ]
-    proc = subprocess.run(cmd, cwd=str(root), check=False)
+    if only_missing:
+        cmd.append("--only-missing")
+    if force_check:
+        cmd.append("--force-check")
+
+    env = os.environ.copy()
+    scripts_dir = str(batch_script.parent)
+    prev_pp = env.get("PYTHONPATH", "").strip()
+    env["PYTHONPATH"] = f"{scripts_dir}{os.pathsep}{prev_pp}" if prev_pp else scripts_dir
+
+    proc = subprocess.run(cmd, cwd=str(root), env=env, check=False)
     return proc.returncode
 
 
 def main():
-    parser = argparse.ArgumentParser(description="全市場普通股自動分批排程器（短延遲版）")
+    parser = argparse.ArgumentParser(description="全市場普通股自動分批排程器")
     parser.add_argument("--start-offset", type=int, default=0, help="起始偏移量（預設 0，從第一筆開始）")
     parser.add_argument("--batch-size", type=int, default=250, help="每批處理檔數（預設 250）")
-    parser.add_argument("--min-wait", type=int, default=10, help="批間最短等待秒數（預設 10 秒）")
-    parser.add_argument("--max-wait", type=int, default=25, help="批間最長等待秒數（預設 25 秒，5 分鐘內）")
-    parser.add_argument("--sleep", type=float, default=0.15, help="單批內每檔基礎間隔秒數（預設 0.15）")
+    parser.add_argument("--min-wait", type=int, default=30, help="批間最短等待秒數（預設 30 秒）")
+    parser.add_argument("--max-wait", type=int, default=90, help="批間最長等待秒數（預設 90 秒，5 分鐘內）")
+    parser.add_argument("--sleep", type=float, default=0.25, help="單批內每檔基礎間隔秒數（預設 0.25）")
+    parser.add_argument(
+        "--phase",
+        type=str,
+        default="auto",
+        choices=["auto", "close_tech", "chips", "fundamental"],
+        help="傳遞給批次腳本的分段參數（預設 auto）",
+    )
+    parser.add_argument(
+        "--only-missing",
+        action="store_true",
+        help="僅針對缺漏標的補抓",
+    )
+    parser.add_argument(
+        "--force-check",
+        action="store_true",
+        help="強制重抓並檢查",
+    )
     args = parser.parse_args()
 
     if args.max_wait > 300:
@@ -71,7 +104,8 @@ def main():
 
     print(
         f"[排程啟動] 普通股總數={total_stocks} | 起始offset={args.start_offset} | "
-        f"每批={args.batch_size} | 共 {len(offsets)} 批 | 批間休息={low_w}~{high_w}秒（5分鐘內）"
+        f"每批={args.batch_size} | 共 {len(offsets)} 批 | 分段={args.phase} | "
+        f"批間休息={low_w}~{high_w}秒"
     )
 
     for idx, offset in enumerate(offsets):
@@ -84,13 +118,29 @@ def main():
 
         try:
             rc = run_single_batch(
-                sys.executable, batch_script, root, offset, args.batch_size, args.sleep
+                sys.executable,
+                batch_script,
+                root,
+                offset,
+                args.batch_size,
+                args.sleep,
+                phase=args.phase,
+                only_missing=args.only_missing,
+                force_check=args.force_check,
             )
             if rc != 0:
                 print(f"[警告] 第 {idx + 1} 批回傳碼={rc}，休息 8 秒後重試 1 次...")
                 time.sleep(8)
                 rc2 = run_single_batch(
-                    sys.executable, batch_script, root, offset, args.batch_size, args.sleep + 0.1
+                    sys.executable,
+                    batch_script,
+                    root,
+                    offset,
+                    args.batch_size,
+                    args.sleep + 0.1,
+                    phase=args.phase,
+                    only_missing=args.only_missing,
+                    force_check=args.force_check,
                 )
                 if rc2 != 0:
                     print(f"[警告] 第 {idx + 1} 批重試仍回傳={rc2}，先繼續下一批。")

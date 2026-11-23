@@ -1,31 +1,33 @@
 {
-  "updated_at": "2026-11-22 14:19（行情日 2026-11-20）",
+  "updated_at": "2026-11-23 11:28（行情日 2026-11-23）",
   "stocks": [
     {
       "symbol": "1101",
       "name": "台泥",
-      "close": 24.35,
-      "change_pct": -5.07,
+      "close": 24.25,
+      "change_pct": -0.41,
       "total_score": 8,
       "fundamental_score": 7,
       "technical_score": 1,
       "chip_score": 0,
       "badge": "中性觀望",
       "excluded": false,
-      "exclude_reason": ""
+      "exclude_reason": "",
+      "partial_missing": ""
     },
     {
       "symbol": "1102",
       "name": "亞泥",
       "close": 32.35,
-      "change_pct": -3.58,
-      "total_score": 7,
-      "fundamental_score": 5,
-      "technical_score": 2,
+      "change_pct": 0.0,
+      "total_score": 9,
+      "fundamental_score": 8,
+      "technical_score": 1,
       "chip_score": 0,
       "badge": "中性觀望",
       "excluded": false,
-      "exclude_reason": ""
+      "exclude_reason": "",
+      "partial_missing": ""
     },
     {
       "symbol": "1103",
@@ -4632,15 +4634,16 @@
     {
       "symbol": "2382",
       "name": "廣達",
-      "close": 252.0,
-      "change_pct": -4.0,
-      "total_score": 1,
-      "fundamental_score": 0,
-      "technical_score": 1,
+      "close": 253.5,
+      "change_pct": 0.6,
+      "total_score": 9,
+      "fundamental_score": 9,
+      "technical_score": 0,
       "chip_score": 0,
       "badge": "中性觀望",
       "excluded": false,
-      "exclude_reason": ""
+      "exclude_reason": "",
+      "partial_missing": ""
     },
     {
       "symbol": "2383",
@@ -6010,15 +6013,16 @@
     {
       "symbol": "2543",
       "name": "皇昌",
-      "close": 23.25,
-      "change_pct": -6.81,
-      "total_score": 0,
-      "fundamental_score": 0,
+      "close": 22.65,
+      "change_pct": -2.58,
+      "total_score": 9,
+      "fundamental_score": 9,
       "technical_score": 0,
       "chip_score": 0,
       "badge": "中性觀望",
       "excluded": false,
-      "exclude_reason": ""
+      "exclude_reason": "",
+      "partial_missing": ""
     },
     {
       "symbol": "2545",

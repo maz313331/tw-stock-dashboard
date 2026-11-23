@@ -1,7 +1,9 @@
 import datetime as dt
 import io
 import json
+import math
 from pathlib import Path
+from typing import Optional
 import pandas as pd
 import requests
 
@@ -22,6 +24,34 @@ TDCC_COLUMNS = [
 # 同一次執行期間的記憶體快取，避免多檔查詢時重複下載整份 TDCC CSV
 _SESSION_RAW_DF: pd.DataFrame | None = None
 _SESSION_RAW_LOADED: bool = False
+
+
+def _to_finite_float(val) -> Optional[float]:
+    if val is None or isinstance(val, bool):
+        return None
+    try:
+        num = float(val)
+    except (ValueError, TypeError):
+        return None
+    if math.isnan(num) or math.isinf(num):
+        return None
+    return num
+
+
+def _normalize_tdcc_date(raw_val) -> str:
+    s = str(raw_val).strip()
+    if not s:
+        return ""
+    digits = "".join(ch for ch in s if ch.isdigit())
+    if len(digits) == 8:
+        return f"{digits[:4]}-{digits[4:6]}-{digits[6:8]}"
+    try:
+        parsed_dt = pd.to_datetime(s, errors="coerce")
+        if pd.notna(parsed_dt):
+            return parsed_dt.strftime("%Y-%m-%d")
+    except Exception:
+        pass
+    return s
 
 
 def _cache_path() -> Path:
@@ -45,7 +75,9 @@ def _load_cache() -> dict:
 def _save_cache(payload: dict) -> None:
     p = _cache_path()
     p.parent.mkdir(parents=True, exist_ok=True)
-    p.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    tmp_path = p.with_suffix(".json.tmp")
+    tmp_path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+    tmp_path.replace(p)
 
 
 def _is_cache_fresh(cache: dict, max_age_days: int = 7) -> bool:
@@ -145,13 +177,13 @@ def _parse_stock_holding(df: pd.DataFrame, stock_id: str) -> dict | None:
     if sub.empty:
         return None
 
-    sub["_date"] = sub[date_col].astype(str).str.strip()
+    sub["_date"] = sub[date_col].map(_normalize_tdcc_date)
     sub["_level"] = pd.to_numeric(sub[level_col], errors="coerce")
     sub["_pct"] = pd.to_numeric(
         sub[pct_col].astype(str).str.replace("%", "", regex=False).str.strip(),
         errors="coerce",
     )
-    sub = sub.dropna(subset=["_date", "_level", "_pct"])
+    sub = sub[sub["_date"] != ""].dropna(subset=["_level", "_pct"])
 
     dates = sorted(sub["_date"].unique())
     if not dates:
@@ -162,9 +194,11 @@ def _parse_stock_holding(df: pd.DataFrame, stock_id: str) -> dict | None:
 
     def _calc_for_date(d_str: str) -> tuple[float, float]:
         d_df = sub[sub["_date"] == d_str]
-        major_pct = float(d_df[d_df["_level"].isin(MAJOR_LEVELS)]["_pct"].sum())
-        retail_pct = float(d_df[d_df["_level"].isin(RETAIL_LEVELS)]["_pct"].sum())
-        return round(major_pct, 2), round(retail_pct, 2)
+        major_raw = _to_finite_float(d_df[d_df["_level"].isin(MAJOR_LEVELS)]["_pct"].sum())
+        retail_raw = _to_finite_float(d_df[d_df["_level"].isin(RETAIL_LEVELS)]["_pct"].sum())
+        return round(major_raw if major_raw is not None else 0.0, 2), round(
+            retail_raw if retail_raw is not None else 0.0, 2
+        )
 
     major_now, retail_now = _calc_for_date(latest_date)
     if prev_date:
@@ -191,38 +225,52 @@ def _update_stock_entry_with_history(prev_entry: dict | None, parsed: dict) -> d
     if isinstance(prev_entry, dict) and isinstance(prev_entry.get("history"), list):
         for item in prev_entry["history"]:
             if isinstance(item, dict) and item.get("date"):
-                hist_map[str(item["date"])] = {
-                    "date": str(item["date"]),
-                    "major_ratio": item.get("major_ratio"),
-                    "retail_ratio": item.get("retail_ratio"),
+                d_norm = _normalize_tdcc_date(item["date"])
+                if not d_norm:
+                    continue
+                maj_h = _to_finite_float(item.get("major_ratio"))
+                ret_h = _to_finite_float(item.get("retail_ratio"))
+                hist_map[d_norm] = {
+                    "date": d_norm,
+                    "major_ratio": round(maj_h, 2) if maj_h is not None else None,
+                    "retail_ratio": round(ret_h, 2) if ret_h is not None else None,
                 }
 
-    curr_d = str(parsed["date"])
+    curr_d = _normalize_tdcc_date(parsed["date"])
+    maj_curr = _to_finite_float(parsed.get("major_ratio"))
+    ret_curr = _to_finite_float(parsed.get("retail_ratio"))
     hist_map[curr_d] = {
         "date": curr_d,
-        "major_ratio": parsed["major_ratio"],
-        "retail_ratio": parsed["retail_ratio"],
+        "major_ratio": round(maj_curr, 2) if maj_curr is not None else None,
+        "retail_ratio": round(ret_curr, 2) if ret_curr is not None else None,
     }
 
     sorted_dates = sorted(hist_map.keys())
     history_list = [hist_map[d] for d in sorted_dates[-12:]]
 
     out = dict(parsed)
+    out["date"] = curr_d
+    out["major_ratio"] = round(maj_curr, 2) if maj_curr is not None else 0.0
+    out["retail_ratio"] = round(ret_curr, 2) if ret_curr is not None else 0.0
     out["history"] = history_list
 
     if out.get("major_change_1w") is None and len(sorted_dates) >= 2:
         p_date = sorted_dates[-2]
         p_rec = hist_map[p_date]
-        if p_rec.get("major_ratio") is not None and p_rec.get("retail_ratio") is not None:
+        p_maj = _to_finite_float(p_rec.get("major_ratio"))
+        p_ret = _to_finite_float(p_rec.get("retail_ratio"))
+        if p_maj is not None and p_ret is not None and maj_curr is not None and ret_curr is not None:
             out["prev_date"] = p_date
-            out["major_change_1w"] = round(float(parsed["major_ratio"]) - float(p_rec["major_ratio"]), 2)
-            out["retail_change_1w"] = round(float(parsed["retail_ratio"]) - float(p_rec["retail_ratio"]), 2)
+            out["major_change_1w"] = round(maj_curr - p_maj, 2)
+            out["retail_change_1w"] = round(ret_curr - p_ret, 2)
 
     if isinstance(prev_entry, dict):
-        if out.get("major_change_1w") is None and prev_entry.get("major_change_1w") is not None:
-            out["major_change_1w"] = prev_entry["major_change_1w"]
-        if out.get("retail_change_1w") is None and prev_entry.get("retail_change_1w") is not None:
-            out["retail_change_1w"] = prev_entry["retail_change_1w"]
+        prev_maj_chg = _to_finite_float(prev_entry.get("major_change_1w"))
+        prev_ret_chg = _to_finite_float(prev_entry.get("retail_change_1w"))
+        if out.get("major_change_1w") is None and prev_maj_chg is not None:
+            out["major_change_1w"] = round(prev_maj_chg, 2)
+        if out.get("retail_change_1w") is None and prev_ret_chg is not None:
+            out["retail_change_1w"] = round(prev_ret_chg, 2)
 
     return out
 

@@ -1,6 +1,7 @@
 import argparse
 import datetime as dt
 import json
+import math
 from pathlib import Path
 import time
 import pandas as pd
@@ -13,8 +14,18 @@ DEFAULT_TIMEOUT = 10
 MAX_HISTORY_ROWS = 120
 
 
+def _safe_num(val, default: float = 0.0) -> float:
+    try:
+        num = float(val)
+    except (ValueError, TypeError):
+        return default
+    if math.isnan(num) or math.isinf(num):
+        return default
+    return num
+
+
 def calc_rsi(series: pd.Series, period: int = 14) -> float:
-    clean = pd.to_numeric(series, errors="coerce").dropna()
+    clean = pd.to_numeric(series, errors="coerce").replace([float("inf"), float("-inf")], float("nan")).dropna()
     if len(clean) <= period:
         return 50.0
 
@@ -24,7 +35,7 @@ def calc_rsi(series: pd.Series, period: int = 14) -> float:
     rs = gain / loss.replace(0, pd.NA)
     rsi = 100 - (100 / (1 + rs))
     val = rsi.iloc[-1]
-    return round(float(val), 1) if pd.notna(val) else 50.0
+    return round(_safe_num(val, 50.0), 1) if pd.notna(val) else 50.0
 
 
 def classify_trend(last_close: float, ma5: float, ma20: float, ma60: float) -> str:
@@ -42,8 +53,8 @@ def classify_trend(last_close: float, ma5: float, ma20: float, ma60: float) -> s
 def calc_period_return(close_s: pd.Series, lookback: int) -> float:
     if len(close_s) <= lookback:
         return 0.0
-    base = float(close_s.iloc[-(lookback + 1)])
-    last = float(close_s.iloc[-1])
+    base = _safe_num(close_s.iloc[-(lookback + 1)], 0.0)
+    last = _safe_num(close_s.iloc[-1], 0.0)
     if not base:
         return 0.0
     return round(((last - base) / base) * 100.0, 2)
@@ -57,24 +68,24 @@ def evaluate_etf_metrics(
     chip_data: dict | None = None,
 ) -> tuple[dict, dict]:
     chip = chip_data or {}
-    close_s = pd.to_numeric(df["close"], errors="coerce").dropna()
+    close_s = pd.to_numeric(df["close"], errors="coerce").replace([float("inf"), float("-inf")], float("nan")).dropna()
     if len(close_s) < 2:
         raise ValueError(f"{sym} 有效收盤價資料不足（筆數={len(close_s)}）")
 
-    last_close = round(float(close_s.iloc[-1]), 2)
-    prev_close = round(float(close_s.iloc[-2]), 2)
+    last_close = round(_safe_num(close_s.iloc[-1]), 2)
+    prev_close = round(_safe_num(close_s.iloc[-2]), 2)
     chg_pct = round(((last_close - prev_close) / prev_close) * 100.0, 2) if prev_close else 0.0
     chg_5d = calc_period_return(close_s, 5)
     chg_20d = calc_period_return(close_s, 20)
 
-    ma5 = round(float(close_s.tail(5).mean()), 2)
-    ma20 = round(float(close_s.tail(20).mean()), 2)
-    ma60 = round(float(close_s.tail(60).mean()), 2) if len(close_s) >= 60 else ma20
+    ma5 = round(_safe_num(close_s.tail(5).mean()), 2)
+    ma20 = round(_safe_num(close_s.tail(20).mean()), 2)
+    ma60 = round(_safe_num(close_s.tail(60).mean()), 2) if len(close_s) >= 60 else ma20
     rsi14 = calc_rsi(close_s, 14)
     trend_status = classify_trend(last_close, ma5, ma20, ma60)
 
-    inst_5d_net = round(float(chip.get("inst_5d_net", 0.0) or 0.0), 1)
-    concentration_5d = round(float(chip.get("concentration_5d", 0.0) or 0.0), 2)
+    inst_5d_net = round(_safe_num(chip.get("inst_5d_net", 0.0)), 1)
+    concentration_5d = round(_safe_num(chip.get("concentration_5d", 0.0)), 2)
 
     row_obj = {
         "symbol": sym,
@@ -158,7 +169,10 @@ def _parse_twse_row(row: list) -> dict | None:
         close_str = str(row[6]).replace(",", "").strip()
         if not close_str or close_str in {"--", "-"}:
             return None
-        return {"date": iso_date, "close": float(close_str)}
+        val = float(close_str)
+        if math.isnan(val) or math.isinf(val):
+            return None
+        return {"date": iso_date, "close": val}
     except ValueError:
         return None
 

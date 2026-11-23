@@ -7,17 +7,37 @@ from fetch_chips import CHIP_LABELS, evaluate_chip_10
 from fetch_fundamental import FUNDAMENTAL_LABELS, evaluate_fundamental_10
 
 
+def _clean_series(s: pd.Series) -> pd.Series:
+    num = pd.to_numeric(s, errors="coerce")
+    return num.replace([np.inf, -np.inf], np.nan)
+
+
+def _safe_float(val, default: float = 0.0) -> float:
+    try:
+        f = float(val)
+    except (ValueError, TypeError):
+        return default
+    if np.isnan(f) or np.isinf(f):
+        return default
+    return f
+
+
 def calc_kd(df: pd.DataFrame, n: int = 9) -> tuple[pd.Series, pd.Series]:
-    low_n = df["low"].rolling(n, min_periods=n).min()
-    high_n = df["high"].rolling(n, min_periods=n).max()
+    low = _clean_series(df["low"])
+    high = _clean_series(df["high"])
+    close = _clean_series(df["close"])
+
+    low_n = low.rolling(n, min_periods=n).min()
+    high_n = high.rolling(n, min_periods=n).max()
     denom = (high_n - low_n).replace(0, np.nan)
-    rsv = ((df["close"] - low_n) / denom) * 100.0
-    rsv = rsv.fillna(50.0)
+    rsv = ((close - low_n) / denom) * 100.0
+    rsv = rsv.replace([np.inf, -np.inf], np.nan).fillna(50.0)
 
     k_vals, d_vals = [], []
     k_prev, d_prev = 50.0, 50.0
     for val in rsv:
-        k_curr = (2.0 / 3.0) * k_prev + (1.0 / 3.0) * float(val)
+        v = _safe_float(val, 50.0)
+        k_curr = (2.0 / 3.0) * k_prev + (1.0 / 3.0) * v
         d_curr = (2.0 / 3.0) * d_prev + (1.0 / 3.0) * k_curr
         k_vals.append(k_curr)
         d_vals.append(d_curr)
@@ -26,19 +46,21 @@ def calc_kd(df: pd.DataFrame, n: int = 9) -> tuple[pd.Series, pd.Series]:
 
 
 def calc_rsi(df: pd.DataFrame, period: int = 14) -> pd.Series:
-    delta = df["close"].diff()
+    close = _clean_series(df["close"])
+    delta = close.diff()
     gain = delta.clip(lower=0.0)
     loss = (-delta.clip(upper=0.0))
     avg_gain = gain.rolling(period, min_periods=period).mean()
     avg_loss = loss.rolling(period, min_periods=period).mean()
     rs = avg_gain / avg_loss.replace(0, np.nan)
     rsi = 100.0 - (100.0 / (1.0 + rs))
-    return rsi.fillna(50.0)
+    return rsi.replace([np.inf, -np.inf], np.nan).fillna(50.0)
 
 
 def calc_macd(df: pd.DataFrame, fast: int = 12, slow: int = 26, signal: int = 9) -> tuple[pd.Series, pd.Series]:
-    ema_fast = df["close"].ewm(span=fast, adjust=False).mean()
-    ema_slow = df["close"].ewm(span=slow, adjust=False).mean()
+    close = _clean_series(df["close"]).ffill().bfill().fillna(0.0)
+    ema_fast = close.ewm(span=fast, adjust=False).mean()
+    ema_slow = close.ewm(span=slow, adjust=False).mean()
     dif = ema_fast - ema_slow
     dea = dif.ewm(span=signal, adjust=False).mean()
     return dif, dea
@@ -46,7 +68,7 @@ def calc_macd(df: pd.DataFrame, fast: int = 12, slow: int = 26, signal: int = 9)
 
 def evaluate_technical_10(stock_df: pd.DataFrame, index_df: pd.DataFrame) -> tuple[list[dict], int]:
     s = stock_df.copy().reset_index(drop=True)
-    closes = s["close"].astype(float)
+    closes = _clean_series(s["close"]).ffill().bfill().fillna(0.0)
 
     ma5 = closes.rolling(5).mean()
     ma10 = closes.rolling(10).mean()
@@ -57,16 +79,22 @@ def evaluate_technical_10(stock_df: pd.DataFrame, index_df: pd.DataFrame) -> tup
     rsi14 = calc_rsi(s, 14)
     dif, dea = calc_macd(s, 12, 26, 9)
 
-    c0, c1, c2, c3 = float(closes.iloc[-1]), float(closes.iloc[-2]), float(closes.iloc[-3]), float(closes.iloc[-4])
+    c0 = _safe_float(closes.iloc[-1])
+    c1 = _safe_float(closes.iloc[-2])
+    c2 = _safe_float(closes.iloc[-3])
+    c3 = _safe_float(closes.iloc[-4])
+
     up_3d = bool(c0 > c1 > c2 > c3)
-    ret_3d_pct = ((c0 - c3) / c3) * 100.0 if c3 else 0.0
+    ret_3d_pct = ((c0 - c3) / c3) * 100.0 if c3 != 0 else 0.0
     ret_3d_over_5 = bool(ret_3d_pct > 5.0)
 
     beat_3d = False
-    if index_df is not None and not index_df.empty:
+    if index_df is not None and not index_df.empty and "date" in s.columns and "date" in index_df.columns:
+        idx_clean = index_df.copy()
+        idx_clean["close"] = _clean_series(idx_clean["close"])
         merged = pd.merge(
-            s[["date", "close"]].rename(columns={"close": "s_close"}),
-            index_df[["date", "close"]].rename(columns={"close": "m_close"}),
+            s[["date", "close"]].assign(close=closes).rename(columns={"close": "s_close"}),
+            idx_clean[["date", "close"]].rename(columns={"close": "m_close"}),
             on="date",
             how="inner",
         )
@@ -76,25 +104,38 @@ def evaluate_technical_10(stock_df: pd.DataFrame, index_df: pd.DataFrame) -> tup
             last3 = merged.tail(3)
             beat_3d = bool((last3["s_ret"] > last3["m_ret"]).all())
 
-    kd_cross = bool(k.iloc[-1] > d.iloc[-1] and k.iloc[-2] <= d.iloc[-2])
-    rsi_bull = bool(rsi14.iloc[-1] > 50.0 and rsi14.iloc[-1] > rsi14.iloc[-2])
-    macd_bull = bool(dif.iloc[-1] > dea.iloc[-1] and dif.iloc[-1] > 0.0)
+    k0, d0 = _safe_float(k.iloc[-1], 50.0), _safe_float(d.iloc[-1], 50.0)
+    k1, d1 = _safe_float(k.iloc[-2], 50.0), _safe_float(d.iloc[-2], 50.0)
+    kd_cross = bool(k0 > d0 and k1 <= d1)
 
-    above_5ma = bool(c0 >= float(ma5.iloc[-1]))
-    above_20ma = bool(c0 >= float(ma20.iloc[-1]))
-    ma20_gt_ma60 = bool(float(ma20.iloc[-1]) > float(ma60.iloc[-1]))
-    ma_bull_align = bool(float(ma5.iloc[-1]) > float(ma10.iloc[-1]) > float(ma20.iloc[-1]))
+    r0 = _safe_float(rsi14.iloc[-1], 50.0)
+    r1 = _safe_float(rsi14.iloc[-2], 50.0)
+    rsi_bull = bool(r0 > 50.0 and r0 > r1)
+
+    dif0 = _safe_float(dif.iloc[-1])
+    dea0 = _safe_float(dea.iloc[-1])
+    macd_bull = bool(dif0 > dea0 and dif0 > 0.0)
+
+    m5_0 = _safe_float(ma5.iloc[-1])
+    m10_0 = _safe_float(ma10.iloc[-1])
+    m20_0 = _safe_float(ma20.iloc[-1])
+    m60_0 = _safe_float(ma60.iloc[-1])
+
+    above_5ma = bool(c0 >= m5_0)
+    above_20ma = bool(c0 >= m20_0)
+    ma20_gt_ma60 = bool(m20_0 > m60_0)
+    ma_bull_align = bool(m5_0 > m10_0 > m20_0)
 
     checks = [
         {"label": "收盤價連 3 日漲", "passed": up_3d, "value": "符合" if up_3d else "未連3漲"},
         {"label": "3 日漲幅大於 5%", "passed": ret_3d_over_5, "value": f"{ret_3d_pct:+.2f}%"},
         {"label": "連 3 日打敗大盤", "passed": beat_3d, "value": "符合" if beat_3d else "未連3日勝出"},
-        {"label": "KD 黃金交叉", "passed": kd_cross, "value": f"K:{k.iloc[-1]:.1f} / D:{d.iloc[-1]:.1f}"},
-        {"label": "RSI 多頭趨勢", "passed": rsi_bull, "value": f"RSI14:{rsi14.iloc[-1]:.1f}"},
-        {"label": "MACD 多頭趨勢", "passed": macd_bull, "value": f"DIF:{dif.iloc[-1]:.2f}"},
-        {"label": "收盤價大於週線", "passed": above_5ma, "value": f"5MA:{ma5.iloc[-1]:.2f}"},
-        {"label": "收盤價大於月線", "passed": above_20ma, "value": f"20MA:{ma20.iloc[-1]:.2f}"},
-        {"label": "月線大於季線", "passed": ma20_gt_ma60, "value": f"20MA/60MA:{ma20.iloc[-1]:.1f}/{ma60.iloc[-1]:.1f}"},
+        {"label": "KD 黃金交叉", "passed": kd_cross, "value": f"K:{k0:.1f} / D:{d0:.1f}"},
+        {"label": "RSI 多頭趨勢", "passed": rsi_bull, "value": f"RSI14:{r0:.1f}"},
+        {"label": "MACD 多頭趨勢", "passed": macd_bull, "value": f"DIF:{dif0:.2f}"},
+        {"label": "收盤價大於週線", "passed": above_5ma, "value": f"5MA:{m5_0:.2f}"},
+        {"label": "收盤價大於月線", "passed": above_20ma, "value": f"20MA:{m20_0:.2f}"},
+        {"label": "月線大於季線", "passed": ma20_gt_ma60, "value": f"20MA/60MA:{m20_0:.1f}/{m60_0:.1f}"},
         {"label": "均線多頭排列 (5>10>20)", "passed": ma_bull_align, "value": "多頭排列" if ma_bull_align else "非多頭排列"},
     ]
     score = sum(1 for item in checks if item["passed"])
@@ -165,9 +206,16 @@ def build_stock_detail(
     all_notes = list(dict.fromkeys(critical_reasons + partial_notes))
     note_text = "；".join(all_notes)
 
-    last_c = round(float(stock_df.iloc[-1]["close"]), 2)
-    prev_c = round(float(stock_df.iloc[-2]["close"]), 2)
-    chg_pct = round(((last_c - prev_c) / prev_c) * 100.0, 2) if prev_c else 0.0
+    if stock_df is not None and len(stock_df) >= 2:
+        last_c = round(_safe_float(stock_df.iloc[-1]["close"]), 2)
+        prev_c = round(_safe_float(stock_df.iloc[-2]["close"]), 2)
+        chg_pct = round(((last_c - prev_c) / prev_c) * 100.0, 2) if prev_c else 0.0
+    elif stock_df is not None and len(stock_df) == 1:
+        last_c = round(_safe_float(stock_df.iloc[-1]["close"]), 2)
+        chg_pct = 0.0
+    else:
+        last_c = 0.0
+        chg_pct = 0.0
 
     total_score = fund_score + tech_score + chip_score
     if excluded:
@@ -195,13 +243,15 @@ def build_stock_detail(
             else "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。"
         )
 
+    partial_missing_str = note_text if not excluded else ""
+
     detail = {
         "symbol": symbol,
         "name": name,
         "updated_at": updated_at,
         "excluded": excluded,
         "exclude_reason": note_text if excluded else "",
-        "partial_missing": note_text if not excluded else "",
+        "partial_missing": partial_missing_str,
         "total_score": total_score,
         "max_score": 30,
         "badge": badge,
@@ -231,6 +281,7 @@ def build_stock_detail(
         "badge": badge,
         "excluded": excluded,
         "exclude_reason": note_text if excluded else "",
+        "partial_missing": partial_missing_str,
     }
     return detail, summary_row
 

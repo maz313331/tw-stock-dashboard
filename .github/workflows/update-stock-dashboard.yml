@@ -13,13 +13,13 @@ on:
       run_mode:
         description: "執行模式：single_batch（單批/排程同款）或 full_auto_all（手動全自動分批跑完）"
         required: true
-        default: "full_auto_all"
+        default: "single_batch"
         type: choice
         options:
-          - full_auto_all
           - single_batch
+          - full_auto_all
       phase:
-        description: "更新分段：auto（依時間自動分流）、close_tech（收盤/技術面）、chips（籌碼面）、fundamental（基本面/清單）"
+        description: "更新分段：auto（依台灣時間自動分流）、close_tech（收盤/技術面）、chips（籌碼面）、fundamental（基本面/清單）"
         required: true
         default: "auto"
         type: choice
@@ -34,14 +34,14 @@ on:
         default: "0"
         type: string
       limit:
-        description: "單批處理檔數 (limit)；full_auto_all 模式下建議 100~200"
+        description: "單批處理檔數 (limit)；建議 100~150 以控管每小時 600 次額度"
         required: true
-        default: "150"
+        default: "100"
         type: string
       sleep:
-        description: "每檔間隔秒數 (sleep)，建議 0.3~0.6 降低限流風險"
+        description: "每檔間隔秒數 (sleep)，建議 0.4~0.6 降低限流風險"
         required: true
-        default: "0.4"
+        default: "0.5"
         type: string
       only_missing:
         description: "是否僅補抓尚未入庫或缺漏標的 (true/false)"
@@ -88,9 +88,10 @@ jobs:
           RUN_MODE: ${{ github.event.inputs.run_mode || 'single_batch' }}
           PHASE_INPUT: ${{ github.event.inputs.phase || 'auto' }}
           START_OFFSET: ${{ github.event.inputs.offset || '0' }}
-          BATCH_LIMIT: ${{ github.event.inputs.limit || '250' }}
-          SLEEP_SEC: ${{ github.event.inputs.sleep || '0.25' }}
+          BATCH_LIMIT: ${{ github.event.inputs.limit || '100' }}
+          SLEEP_SEC: ${{ github.event.inputs.sleep || '0.5' }}
           ONLY_MISSING: ${{ github.event.inputs.only_missing || 'false' }}
+          MAX_HOURLY_CALLS: "580"
         run: |
           python - << 'EOF'
           import datetime as dt
@@ -106,19 +107,17 @@ jobs:
           batch_limit = int(os.environ["BATCH_LIMIT"])
           sleep_sec = float(os.environ["SLEEP_SEC"])
           only_missing = os.environ["ONLY_MISSING"].lower() == "true"
+          max_hourly_calls = int(os.environ.get("MAX_HOURLY_CALLS", "580"))
 
-          # 依台灣時間 (UTC+8) 決定排程分段
+          # 依台灣時間 (UTC+8) 決定排程分段（schedule 與 workflow_dispatch 的 auto 皆共用）
           cst_now = dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=8)
           if phase_input != "auto":
               phase = phase_input
-          elif event_name == "schedule":
-              if cst_now.weekday() == 5:  # 週六低頻基本面/清單
-                  phase = "fundamental"
-              elif cst_now.hour >= 16:      # 16:00 籌碼補齊段
-                  phase = "chips"
-              else:                       # 15:00 盤後收盤與技術面
-                  phase = "close_tech"
-          else:
+          elif cst_now.weekday() == 5:  # 週六低頻基本面/清單
+              phase = "fundamental"
+          elif cst_now.hour >= 16:      # 16:00 籌碼補齊段
+              phase = "chips"
+          else:                       # 15:00 盤後收盤與技術面
               phase = "close_tech"
 
           total_symbols = None
@@ -139,6 +138,7 @@ jobs:
                   "--offset", str(cur_offset),
                   "--limit", str(cur_limit),
                   "--sleep", str(cur_sleep),
+                  "--max-hourly-calls", str(max_hourly_calls),
               ]
               if only_missing:
                   cmd.append("--only-missing")
@@ -162,7 +162,7 @@ jobs:
           if event_name != "workflow_dispatch" or run_mode == "single_batch":
               run_one_batch(start_offset, batch_limit, sleep_sec, event_name, force_check=False)
           else:
-              step_size = batch_limit if batch_limit > 0 else 150
+              step_size = batch_limit if batch_limit > 0 else 100
               cur = start_offset
               batch_idx = 1
 
@@ -171,7 +171,7 @@ jobs:
                       print(f"已達清單結尾 (total={total_symbols})，full_auto_all 完成。")
                       break
 
-                  run_one_batch(cur, step_size, sleep_sec, f"full_auto_all #{batch_idx}", force_check=True)
+                  run_one_batch(cur, step_size, sleep_sec, f"full_auto_all #{batch_idx}", force_check=False)
                   cur += step_size
                   batch_idx += 1
 
@@ -179,5 +179,5 @@ jobs:
                       print("已達安全上限 25 批，結束迴圈。")
                       break
 
-                  time.sleep(3)
+                  time.sleep(8)
           EOF

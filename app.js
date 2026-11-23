@@ -5,7 +5,19 @@ const appState = {
   stocks: [],
   etfs: [],
   currentDetailSymbol: "2330",
+  currentDetailIsEtf: false,
 };
+
+// ===== 本機偽即時設定（尚未部署 Worker 前維持 enabled: false，部署後填入網址並改為 true）=====
+const RT_CONFIG = {
+  enabled: false,
+  workerBaseUrl: "https://your-worker.workers.dev",
+  pollIntervalMs: 20000,
+};
+
+let rtMarketTimer = null;
+let rtQuoteTimer = null;
+let latestRtQuoteData = null;
 
 function fmtPct(val) {
   if (val === null || val === undefined || Number.isNaN(Number(val))) return "--";
@@ -50,6 +62,12 @@ function getMaPositionText(closeVal, maVal, label) {
   return `${label} ${fmtNum(m, 2)}（${side} ${fmtPct(diffPct)}）`;
 }
 
+function syncDetailTabLabel(symbol = "2330", isEtf = false) {
+  const tabBtn = document.getElementById("tab-btn-detail");
+  if (!tabBtn) return;
+  tabBtn.textContent = isEtf ? `2. ${symbol} / ETF追蹤` : `2. ${symbol} / 30指標`;
+}
+
 function switchPage(pageName) {
   appState.activePage = pageName;
   const tooltip = document.getElementById("chart-tooltip");
@@ -66,6 +84,7 @@ function switchPage(pageName) {
 
   if (pageName === "overview") {
     drawMarketTrendChart();
+    refreshMarketRealtime();
   } else if (pageName === "screener") {
     renderStocks();
   } else if (pageName === "etf") {
@@ -120,9 +139,9 @@ function renderOverview() {
       <div class="kpi-sub">${m.market_note || `有效評分 ${validCount} 檔｜缺漏排除 ${excludedCount} 檔`}</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-top"><span>加權 / 櫃買指數</span><span class="kpi-muted">大盤水位</span></div>
-      <div class="kpi-main ${pctClass(tw.change_pct)}">${tw.close ?? "--"} <small>(${fmtPct(tw.change_pct)})</small></div>
-      <div class="kpi-sub">櫃買：${otc.close ?? "--"} (${fmtPct(otc.change_pct)})</div>
+      <div class="kpi-top"><span>加權 / 櫃買指數</span><span class="kpi-muted" id="rt-index-badge">大盤水位</span></div>
+      <div class="kpi-main ${pctClass(tw.change_pct)}" id="rt-tw-main">${tw.close ?? "--"} <small>(${fmtPct(tw.change_pct)})</small></div>
+      <div class="kpi-sub" id="rt-otc-sub">櫃買：${otc.close ?? "--"} (${fmtPct(otc.change_pct)})</div>
     </div>
     <div class="kpi-card">
       <div class="kpi-top"><span>三大法人買賣超 (億元)</span><span class="kpi-muted">合計</span></div>
@@ -130,8 +149,8 @@ function renderOverview() {
       <div class="kpi-sub">外資 ${fmtSignedNum(foreignVal)}・投信 ${fmtSignedNum(trustVal)}・自營 ${fmtSignedNum(dealerVal)}</div>
     </div>
     <div class="kpi-card">
-      <div class="kpi-top"><span>市場 breadth 與高分家數</span><span class="kpi-muted">≥22分強勢</span></div>
-      <div class="kpi-main">
+      <div class="kpi-top"><span>市場 breadth 與高分家數</span><span class="kpi-muted" id="rt-breadth-badge">≥22分強勢</span></div>
+      <div class="kpi-main" id="rt-breadth-main">
         <span class="up">漲 ${upVal}</span> / <span class="down">跌 ${downVal}</span>
       </div>
       <div class="kpi-sub">高分 ≥22 分：${breadth.high_score_count ?? highCount} 檔・排除：${breadth.excluded_count ?? excludedCount} 檔</div>
@@ -164,6 +183,7 @@ function renderOverview() {
     .join("");
 
   drawMarketTrendChart();
+  refreshMarketRealtime();
 }
 
 function getTrendSeries() {
@@ -319,105 +339,7 @@ function drawMarketTrendChart() {
   };
 }
 
-/* ================= 第 2 頁：強勢高分榜 ================= */
-function renderStocks() {
-  const kw = (document.getElementById("stock-search")?.value || "").trim().toLowerCase();
-  const filter = document.getElementById("stock-filter")?.value || "high";
-  const sort = document.getElementById("stock-sort")?.value || "score_desc";
-
-  let list = appState.stocks.filter((r) => {
-    if (kw && !`${r.symbol} ${r.name}`.toLowerCase().includes(kw)) return false;
-    if (filter === "valid" && r.excluded) return false;
-    if (filter === "high" && (r.excluded || (r.total_score || 0) < 22)) return false;
-    if (filter === "excluded" && !r.excluded) return false;
-    return true;
-  });
-
-  list.sort((a, b) => {
-    if (sort === "symbol_asc") return String(a.symbol).localeCompare(String(b.symbol));
-    if (sort === "chg_desc") return (b.change_pct || -999) - (a.change_pct || -999);
-    const sa = a.excluded ? -1 : (a.total_score || 0);
-    const sb = b.excluded ? -1 : (b.total_score || 0);
-    return sb - sa;
-  });
-
-  const shown = list.slice(0, 200);
-  const excludedTotal = appState.stocks.filter((s) => s.excluded).length;
-
-  document.getElementById("stock-stats-bar").textContent =
-    `符合條件共 ${list.length} 檔（顯示前 ${shown.length} 筆｜全市場普通股 ${appState.stocks.length} 檔，目前缺漏排除 ${excludedTotal} 檔）`;
-
-  document.getElementById("stock-tbody").innerHTML = shown
-    .map(
-      (r) => `
-      <tr onclick="openStockInDetailPage('${r.symbol}')">
-        <td><strong>${r.symbol}</strong></td>
-        <td>${r.name}</td>
-        <td class="num">${r.close ?? "--"}</td>
-        <td class="num ${pctClass(r.change_pct)}">${fmtPct(r.change_pct)}</td>
-        <td class="num"><strong>${r.excluded ? "排除" : `${r.total_score ?? 0} / 30`}</strong></td>
-        <td class="num">${r.fundamental_score ?? 0} / 10</td>
-        <td class="num">${r.technical_score ?? 0} / 10</td>
-        <td class="num">${r.chip_score ?? 0} / 10</td>
-        <td><span class="status-tag ${r.excluded ? "tag-warn" : "tag-ok"}">${r.excluded ? "資料缺漏排除" : (r.badge || "多維度評分")}</span></td>
-        <td><button type="button" class="link-mini" onclick="event.stopPropagation(); openStockInDetailPage('${r.symbol}')">查看明細</button></td>
-      </tr>
-    `
-    )
-    .join("");
-
-  document.getElementById("exclude-rule-banner").innerHTML =
-    `<strong>缺漏值排除規則說明：</strong>資料尚未公布或欄位不齊全者會直接排除評分排行（目前缺漏排除 ${excludedTotal} 檔；點選任一列可跳至第 4 頁查看 30 項指標實際值與缺漏狀態）。`;
-}
-
-function openStockInDetailPage(symbol) {
-  appState.currentDetailSymbol = symbol;
-  document.getElementById("detail-symbol-input").value = symbol;
-  switchPage("detail");
-}
-
-/* ================= 第 3 頁：ETF 專區 ================= */
-function renderEtfs() {
-  const kw = (document.getElementById("etf-search")?.value || "").trim().toLowerCase();
-  const trendFilter = document.getElementById("etf-trend-filter")?.value || "all";
-  const sort = document.getElementById("etf-sort")?.value || "symbol_asc";
-
-  let list = appState.etfs.filter((r) => {
-    if (kw && !`${r.symbol} ${r.name}`.toLowerCase().includes(kw)) return false;
-    if (trendFilter !== "all" && r.trend_status !== trendFilter) return false;
-    return true;
-  });
-
-  list.sort((a, b) => {
-    if (sort === "chg_desc") return (b.change_pct || -999) - (a.change_pct || -999);
-    if (sort === "chg20_desc") return (b.change_20d_pct || -999) - (a.change_20d_pct || -999);
-    if (sort === "rsi_desc") return (b.rsi14 || 0) - (a.rsi14 || 0);
-    return String(a.symbol).localeCompare(String(b.symbol));
-  });
-
-  document.getElementById("etf-stats-bar").textContent =
-    `ETF 清單共 ${list.length} 檔（全市場收錄 ${appState.etfs.length} 檔）`;
-
-  document.getElementById("etf-tbody").innerHTML = list
-    .map(
-      (r) => `
-      <tr onclick="openStockInDetailPage('${r.symbol}')">
-        <td><strong>${r.symbol}</strong></td>
-        <td>${r.name}</td>
-        <td class="num">${r.close ?? "--"}</td>
-        <td class="num ${pctClass(r.change_pct)}">${fmtPct(r.change_pct)}</td>
-        <td class="num ${pctClass(r.change_5d_pct)}">${fmtPct(r.change_5d_pct)}</td>
-        <td class="num ${pctClass(r.change_20d_pct)}">${fmtPct(r.change_20d_pct)}</td>
-        <td class="num muted-cell">${r.ma5 ?? "--"} / ${r.ma20 ?? "--"} / ${r.ma60 ?? "--"}</td>
-        <td class="num">${r.rsi14 ?? "--"}</td>
-        <td><span class="status-tag tag-ok">${r.trend_status || "--"}</span></td>
-      </tr>
-    `
-    )
-    .join("");
-}
-
-/* ================= 第 4 頁：個股 30 指標 / ETF 獨立追蹤面板 ================= */
+/* ================= 第 2 頁：個股 30 指標 / ETF 獨立追蹤面板 ================= */
 function isMissingVal(v) {
   if (v === null || v === undefined) return true;
   if (typeof v === "string") {
@@ -426,6 +348,26 @@ function isMissingVal(v) {
   }
   if (typeof v === "number") return Number.isNaN(v);
   return false;
+}
+
+function renderRtQuoteInlineHtml(symbol) {
+  const q = latestRtQuoteData?.quotes?.[symbol];
+  if (!RT_CONFIG.enabled || !q || q.price === null || q.price === undefined) {
+    return `<span id="rt-stock-quote" style="display:none;"></span><span id="rt-stock-status"></span>`;
+  }
+  const color = q.diff > 0 ? "#ef4444" : q.diff < 0 ? "#22c55e" : "#94a3b8";
+  const signDiff = q.diff > 0 ? `▲ +${q.diff.toFixed(2)}` : q.diff < 0 ? `▼ ${q.diff.toFixed(2)}` : "0.00";
+  const signPct = q.diffPct > 0 ? `+${q.diffPct.toFixed(2)}%` : `${q.diffPct?.toFixed(2) ?? "--"}%`;
+  const statusTxt = latestRtQuoteData.isTradingHours
+    ? `● 盤中 ${q.time || latestRtQuoteData.updatedAt || ""}`
+    : `即時/最新 ${q.time || ""}`;
+
+  return `
+    <span id="rt-stock-quote" style="display:inline-flex;align-items:center;gap:6px;padding:2px 8px;border-radius:6px;font-size:15px;font-weight:700;background:rgba(255,255,255,0.06);color:${color};">
+      ${fmtNum(q.price, 2)} <span>${signDiff} (${signPct})</span>
+    </span>
+    <span id="rt-stock-status" style="font-size:12px;color:${latestRtQuoteData.isTradingHours ? "#4ade80" : "#94a3b8"};">${statusTxt}</span>
+  `;
 }
 
 function renderEtfDetailPanel(symbol, detail, etfSummaryRow) {
@@ -451,7 +393,10 @@ function renderEtfDetailPanel(symbol, detail, etfSummaryRow) {
     <div class="stock-hero-card">
       <div class="hero-top">
         <div>
-          <h2>${symbol} ${name} <span class="mini-pill">ETF 獨立追蹤</span></h2>
+          <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+            <h2 style="margin:0;">${symbol} ${name} <span class="mini-pill">ETF 獨立追蹤</span></h2>
+            ${renderRtQuoteInlineHtml(symbol)}
+          </div>
           <p class="hero-note">${noticeText}</p>
           <p class="hero-note">資料時間：${updatedAt}</p>
         </div>
@@ -626,9 +571,15 @@ async function loadStock30Page(symbolInput) {
     const detail = await fetchDetailJson(symbol);
 
     if (detail?.asset_type === "ETF" || detail?.quote || etfRow) {
+      appState.currentDetailIsEtf = true;
+      syncDetailTabLabel(symbol, true);
       container.innerHTML = renderEtfDetailPanel(symbol, detail, etfRow);
+      refreshQuoteRealtime(symbol);
       return;
     }
+
+    appState.currentDetailIsEtf = false;
+    syncDetailTabLabel(symbol, false);
 
     const { fundamental, technical, chip } = normalize30FromDetail(detail);
     const sc = detail.scores || {};
@@ -644,7 +595,10 @@ async function loadStock30Page(symbolInput) {
       <div class="stock-hero-card">
         <div class="hero-top">
           <div>
-            <h2>${detail.symbol || symbol} ${detail.name || sumRow.name || ""}</h2>
+            <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+              <h2 style="margin:0;">${detail.symbol || symbol} ${detail.name || sumRow.name || ""}</h2>
+              ${renderRtQuoteInlineHtml(symbol)}
+            </div>
             <p class="hero-note">${detail.trading_note || detail.exclude_reason || "30 項多維度因子檢視（基本面 10 + 技術面 10 + 籌碼面 10）"}</p>
           </div>
           <div class="hero-total ${detail.excluded ? "is-excl" : ""}">
@@ -667,11 +621,17 @@ async function loadStock30Page(symbolInput) {
         ${render30ColumnHtml("籌碼面", cScore, chip)}
       </div>
     `;
+    refreshQuoteRealtime(symbol);
   } catch (err) {
     if (etfRow) {
+      appState.currentDetailIsEtf = true;
+      syncDetailTabLabel(symbol, true);
       container.innerHTML = renderEtfDetailPanel(symbol, null, etfRow);
+      refreshQuoteRealtime(symbol);
       return;
     }
+    appState.currentDetailIsEtf = false;
+    syncDetailTabLabel(symbol, false);
     const reason = err && err.message ? err.message : "暫時無法取得此代號資料";
     container.innerHTML = `
       <div class="warn-banner">
@@ -679,6 +639,218 @@ async function loadStock30Page(symbolInput) {
       </div>
     `;
   }
+}
+
+function openStockInDetailPage(symbol) {
+  appState.currentDetailSymbol = symbol;
+  document.getElementById("detail-symbol-input").value = symbol;
+  switchPage("detail");
+}
+
+/* ================= 第 3 頁：強勢高分榜 ================= */
+function renderStocks() {
+  const kw = (document.getElementById("stock-search")?.value || "").trim().toLowerCase();
+  const filter = document.getElementById("stock-filter")?.value || "high";
+  const sort = document.getElementById("stock-sort")?.value || "score_desc";
+
+  let list = appState.stocks.filter((r) => {
+    if (kw && !`${r.symbol} ${r.name}`.toLowerCase().includes(kw)) return false;
+    if (filter === "valid" && r.excluded) return false;
+    if (filter === "high" && (r.excluded || (r.total_score || 0) < 22)) return false;
+    if (filter === "excluded" && !r.excluded) return false;
+    return true;
+  });
+
+  list.sort((a, b) => {
+    if (sort === "symbol_asc") return String(a.symbol).localeCompare(String(b.symbol));
+    if (sort === "chg_desc") return (b.change_pct || -999) - (a.change_pct || -999);
+    const sa = a.excluded ? -1 : (a.total_score || 0);
+    const sb = b.excluded ? -1 : (b.total_score || 0);
+    return sb - sa;
+  });
+
+  const shown = list.slice(0, 200);
+  const excludedTotal = appState.stocks.filter((s) => s.excluded).length;
+
+  document.getElementById("stock-stats-bar").textContent =
+    `符合條件共 ${list.length} 檔（顯示前 ${shown.length} 筆｜全市場普通股 ${appState.stocks.length} 檔，目前缺漏排除 ${excludedTotal} 檔）`;
+
+  document.getElementById("stock-tbody").innerHTML = shown
+    .map(
+      (r) => `
+      <tr onclick="openStockInDetailPage('${r.symbol}')">
+        <td><strong>${r.symbol}</strong></td>
+        <td>${r.name}</td>
+        <td class="num">${r.close ?? "--"}</td>
+        <td class="num ${pctClass(r.change_pct)}">${fmtPct(r.change_pct)}</td>
+        <td class="num"><strong>${r.excluded ? "排除" : `${r.total_score ?? 0} / 30`}</strong></td>
+        <td class="num">${r.fundamental_score ?? 0} / 10</td>
+        <td class="num">${r.technical_score ?? 0} / 10</td>
+        <td class="num">${r.chip_score ?? 0} / 10</td>
+        <td><span class="status-tag ${r.excluded ? "tag-warn" : "tag-ok"}">${r.excluded ? "資料缺漏排除" : (r.badge || "多維度評分")}</span></td>
+        <td><button type="button" class="link-mini" onclick="event.stopPropagation(); openStockInDetailPage('${r.symbol}')">查看明細</button></td>
+      </tr>
+    `
+    )
+    .join("");
+
+  document.getElementById("exclude-rule-banner").innerHTML =
+    `<strong>缺漏值排除規則說明：</strong>資料尚未公布或欄位不齊全者會直接排除評分排行（目前缺漏排除 ${excludedTotal} 檔；點選任一列可跳至第 2 頁查看 30 項指標實際值與缺漏狀態）。`;
+}
+
+/* ================= 第 4 頁：ETF 專區 ================= */
+function renderEtfs() {
+  const kw = (document.getElementById("etf-search")?.value || "").trim().toLowerCase();
+  const trendFilter = document.getElementById("etf-trend-filter")?.value || "all";
+  const sort = document.getElementById("etf-sort")?.value || "symbol_asc";
+
+  let list = appState.etfs.filter((r) => {
+    if (kw && !`${r.symbol} ${r.name}`.toLowerCase().includes(kw)) return false;
+    if (trendFilter !== "all" && r.trend_status !== trendFilter) return false;
+    return true;
+  });
+
+  list.sort((a, b) => {
+    if (sort === "chg_desc") return (b.change_pct || -999) - (a.change_pct || -999);
+    if (sort === "chg20_desc") return (b.change_20d_pct || -999) - (a.change_20d_pct || -999);
+    if (sort === "rsi_desc") return (b.rsi14 || 0) - (a.rsi14 || 0);
+    return String(a.symbol).localeCompare(String(b.symbol));
+  });
+
+  document.getElementById("etf-stats-bar").textContent =
+    `ETF 清單共 ${list.length} 檔（全市場收錄 ${appState.etfs.length} 檔）`;
+
+  document.getElementById("etf-tbody").innerHTML = list
+    .map(
+      (r) => `
+      <tr onclick="openStockInDetailPage('${r.symbol}')">
+        <td><strong>${r.symbol}</strong></td>
+        <td>${r.name}</td>
+        <td class="num">${r.close ?? "--"}</td>
+        <td class="num ${pctClass(r.change_pct)}">${fmtPct(r.change_pct)}</td>
+        <td class="num ${pctClass(r.change_5d_pct)}">${fmtPct(r.change_5d_pct)}</td>
+        <td class="num ${pctClass(r.change_20d_pct)}">${fmtPct(r.change_20d_pct)}</td>
+        <td class="num muted-cell">${r.ma5 ?? "--"} / ${r.ma20 ?? "--"} / ${r.ma60 ?? "--"}</td>
+        <td class="num">${r.rsi14 ?? "--"}</td>
+        <td><span class="status-tag tag-ok">${r.trend_status || "--"}</span></td>
+      </tr>
+    `
+    )
+    .join("");
+}
+
+/* ================= Worker 偽即時輪詢（預設關閉，部署後開啟） ================= */
+async function refreshMarketRealtime() {
+  const indexBadge = document.getElementById("rt-index-badge");
+  const breadthBadge = document.getElementById("rt-breadth-badge");
+  if (!indexBadge) return;
+
+  if (!RT_CONFIG.enabled || !RT_CONFIG.workerBaseUrl || RT_CONFIG.workerBaseUrl.includes("your-worker")) {
+    indexBadge.textContent = "盤後/靜態資料";
+    return;
+  }
+
+  try {
+    const resp = await fetch(`${RT_CONFIG.workerBaseUrl}/api/market-rt`, { cache: "no-store" });
+    if (!resp.ok) return;
+    const data = await resp.json();
+
+    const modeTag = data.isTradingHours
+      ? `● 盤中即時 ${data.updatedAt || ""}`
+      : `非盤中 · ${data.updatedAt || "最新"}`;
+    indexBadge.textContent = modeTag;
+    indexBadge.style.color = data.isTradingHours ? "#4ade80" : "";
+
+    if (data.tse && data.tse.price !== null && data.tse.price !== undefined) {
+      const twMain = document.getElementById("rt-tw-main");
+      if (twMain) {
+        twMain.className = `kpi-main ${pctClass(data.tse.diffPct)}`;
+        twMain.innerHTML = `${fmtNum(data.tse.price, 2)} <small>(${fmtPct(data.tse.diffPct)})</small>`;
+      }
+    }
+    if (data.otc && data.otc.price !== null && data.otc.price !== undefined) {
+      const otcSub = document.getElementById("rt-otc-sub");
+      if (otcSub) {
+        otcSub.textContent = `櫃買：${fmtNum(data.otc.price, 2)} (${fmtPct(data.otc.diffPct)})`;
+      }
+    }
+    if (data.breadth && data.breadth.up != null && data.breadth.down != null) {
+      const bMain = document.getElementById("rt-breadth-main");
+      if (bMain) {
+        bMain.innerHTML = `<span class="up">漲 ${data.breadth.up}</span> / <span class="down">跌 ${data.breadth.down}</span>`;
+      }
+      if (breadthBadge) {
+        breadthBadge.textContent = data.isTradingHours ? `● 盤中 ${data.updatedAt || ""}` : "≥22分強勢";
+        breadthBadge.style.color = data.isTradingHours ? "#4ade80" : "";
+      }
+    }
+  } catch (_) {
+    // 靜默降級
+  }
+}
+
+async function refreshQuoteRealtime(symbol = appState.currentDetailSymbol) {
+  if (!symbol || !RT_CONFIG.enabled || !RT_CONFIG.workerBaseUrl || RT_CONFIG.workerBaseUrl.includes("your-worker")) {
+    return;
+  }
+
+  try {
+    const resp = await fetch(
+      `${RT_CONFIG.workerBaseUrl}/api/quote-rt?codes=${encodeURIComponent(symbol)}`,
+      { cache: "no-store" }
+    );
+    if (!resp.ok) return;
+    const payload = await resp.json();
+    latestRtQuoteData = payload;
+
+    const quoteEl = document.getElementById("rt-stock-quote");
+    const statusEl = document.getElementById("rt-stock-status");
+    const q = payload?.quotes?.[symbol];
+    if (!quoteEl || !q || q.price === null || q.price === undefined) return;
+
+    const color = q.diff > 0 ? "#ef4444" : q.diff < 0 ? "#22c55e" : "#94a3b8";
+    const signDiff = q.diff > 0 ? `▲ +${q.diff.toFixed(2)}` : q.diff < 0 ? `▼ ${q.diff.toFixed(2)}` : "0.00";
+    const signPct = q.diffPct > 0 ? `+${q.diffPct.toFixed(2)}%` : `${q.diffPct?.toFixed(2) ?? "--"}%`;
+
+    quoteEl.style.display = "inline-flex";
+    quoteEl.style.alignItems = "center";
+    quoteEl.style.gap = "6px";
+    quoteEl.style.padding = "2px 8px";
+    quoteEl.style.borderRadius = "6px";
+    quoteEl.style.fontSize = "15px";
+    quoteEl.style.fontWeight = "700";
+    quoteEl.style.background = "rgba(255,255,255,0.06)";
+    quoteEl.style.color = color;
+    quoteEl.innerHTML = `${fmtNum(q.price, 2)} <span>${signDiff} (${signPct})</span>`;
+
+    if (statusEl) {
+      statusEl.textContent = payload.isTradingHours
+        ? `● 盤中 ${q.time || payload.updatedAt || ""}`
+        : `即時/最新 ${q.time || ""}`;
+      statusEl.style.fontSize = "12px";
+      statusEl.style.color = payload.isTradingHours ? "#4ade80" : "#94a3b8";
+    }
+  } catch (_) {
+    // 靜默失敗
+  }
+}
+
+function startRealtimeLoops() {
+  if (rtMarketTimer) clearInterval(rtMarketTimer);
+  if (rtQuoteTimer) clearInterval(rtQuoteTimer);
+
+  refreshMarketRealtime();
+  refreshQuoteRealtime(appState.currentDetailSymbol);
+
+  if (!RT_CONFIG.enabled) return;
+
+  rtMarketTimer = setInterval(() => {
+    if (appState.activePage === "overview") refreshMarketRealtime();
+  }, RT_CONFIG.pollIntervalMs);
+
+  rtQuoteTimer = setInterval(() => {
+    if (appState.activePage === "detail") refreshQuoteRealtime(appState.currentDetailSymbol);
+  }, RT_CONFIG.pollIntervalMs);
 }
 
 /* ================= 初始化與事件綁定 ================= */
@@ -768,6 +940,7 @@ async function initDashboard() {
   renderStocks();
   renderEtfs();
   loadStock30Page("2330");
+  startRealtimeLoops();
 }
 
 initDashboard();

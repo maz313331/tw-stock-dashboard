@@ -6,10 +6,34 @@ from pathlib import Path
 import re
 import time
 import requests
+
 from calc_scores import build_stock_detail, write_json
 from fetch_chips import fetch_chip_data
-from fetch_fundamental import fetch_fundamental_data
+from fetch_fundamental import (
+    ApiQuotaGuard,
+    DataHealthTracker,
+    clean_numeric_or_none,
+    evaluate_and_attach_missing,
+    is_missing_value,
+)
 from fetch_sources import fetch_yf_history
+
+try:
+    from fetch_fundamental import fetch_fundamental_data as _impl_fetch_fundamental_data
+except ImportError:
+    _impl_fetch_fundamental_data = None
+
+
+def fetch_fundamental_data(symbol: str) -> dict:
+    """安全包裝基本面抓取函式：尚未實作或發生例外時回傳安全預設值，避免中斷批次。"""
+    if callable(_impl_fetch_fundamental_data):
+        try:
+            res = _impl_fetch_fundamental_data(symbol)
+            if isinstance(res, dict):
+                return res
+        except Exception as exc:
+            print(f"[基本面提示] {symbol} 抓取發生例外，改採安全預設: {exc}")
+    return {"complete": False, "metrics": {}}
 
 
 DEFAULT_WATCHLIST = [
@@ -48,7 +72,12 @@ def merge_without_overwrite(old_data: dict, new_data: dict) -> dict:
     merged = dict(old_data)
     for k, new_val in new_data.items():
         if k in {"updated_at", "partial_missing", "missing_reasons", "excluded", "exclude_reason"}:
-            merged[k] = new_val
+            if _is_valid_value(new_val):
+                merged[k] = new_val
+            elif _is_valid_value(old_data.get(k)) and k != "updated_at":
+                merged[k] = old_data.get(k)
+            else:
+                merged[k] = new_val
             continue
 
         old_val = old_data.get(k)
@@ -108,7 +137,7 @@ def _clean_change_sign(raw_val) -> str:
     return s
 
 
-def fetch_twse_market_stats() -> dict:
+def fetch_twse_market_stats(quota_guard: ApiQuotaGuard | None = None, tracker: DataHealthTracker | None = None) -> dict:
     """
     嘗試從 TWSE 公開資料取得當日三大法人買賣超（億元）與上市漲跌家數。
     抓不到時回傳空字典，由呼叫端安全沿用既有數值。
@@ -116,76 +145,86 @@ def fetch_twse_market_stats() -> dict:
     result = {}
     headers = {"User-Agent": "Mozilla/5.0"}
 
-    # 1. 三大法人買賣超日報
+    def _get_json(url: str, timeout: int):
+        if quota_guard is not None:
+            def _do_req():
+                r = requests.get(url, headers=headers, timeout=timeout)
+                try:
+                    body = r.json()
+                except Exception:
+                    body = None
+                return r.status_code, body
+
+            ok, status_code, body, stop_reason = quota_guard.execute_with_guard(_do_req)
+            if tracker is not None:
+                healthy, _ = tracker.check_response_health("twse_openapi", status_code, body, rows_key="data", min_rows=1)
+                if not healthy and stop_reason:
+                    print(f"[配額提示] {stop_reason}")
+            return body if ok else None
+
+        r = requests.get(url, headers=headers, timeout=timeout)
+        return r.json() if r.ok else None
+
     try:
-        url_inst = "https://openapi.twse.com.tw/v1/fund/BFI82U"
-        resp_inst = requests.get(url_inst, headers=headers, timeout=15)
-        if resp_inst.ok:
-            rows = resp_inst.json()
-            if isinstance(rows, list) and rows:
-                foreign_yi = 0.0
-                trust_yi = 0.0
-                dealer_yi = 0.0
-                matched_any = False
-                for r in rows:
-                    name = str(r.get("單位名稱") or r.get("Name") or "")
-                    diff_raw = (
-                        r.get("買賣差額")
-                        or r.get("Difference")
-                        or r.get("NetBuySell")
-                        or 0
-                    )
-                    cleaned = _clean_change_sign(diff_raw).replace(",", "")
-                    val_yi = float(cleaned or 0) / 1e8
-                    if "外資" in name or "Foreign" in name:
-                        foreign_yi += val_yi
-                        matched_any = True
-                    elif "投信" in name or "Trust" in name:
-                        trust_yi += val_yi
-                        matched_any = True
-                    elif "自營" in name or "Dealer" in name:
-                        dealer_yi += val_yi
-                        matched_any = True
-                if matched_any:
-                    total_yi = round(foreign_yi + trust_yi + dealer_yi, 1)
-                    result["institutional_flow"] = {
-                        "foreign_net": round(foreign_yi, 1),
-                        "trust_net": round(trust_yi, 1),
-                        "dealer_net": round(dealer_yi, 1),
-                        "total_net": total_yi,
-                    }
+        rows = _get_json("https://openapi.twse.com.tw/v1/fund/BFI82U", timeout=15)
+        if isinstance(rows, list) and rows:
+            foreign_yi = 0.0
+            trust_yi = 0.0
+            dealer_yi = 0.0
+            matched_any = False
+            for r in rows:
+                name = str(r.get("單位名稱") or r.get("Name") or "")
+                diff_raw = (
+                    r.get("買賣差額")
+                    or r.get("Difference")
+                    or r.get("NetBuySell")
+                    or 0
+                )
+                cleaned = _clean_change_sign(diff_raw).replace(",", "")
+                val_yi = (clean_numeric_or_none(cleaned) or 0.0) / 1e8
+                if "外資" in name or "Foreign" in name:
+                    foreign_yi += val_yi
+                    matched_any = True
+                elif "投信" in name or "Trust" in name:
+                    trust_yi += val_yi
+                    matched_any = True
+                elif "自營" in name or "Dealer" in name:
+                    dealer_yi += val_yi
+                    matched_any = True
+            if matched_any:
+                total_yi = round(foreign_yi + trust_yi + dealer_yi, 1)
+                result["institutional_flow"] = {
+                    "foreign_net": round(foreign_yi, 1),
+                    "trust_net": round(trust_yi, 1),
+                    "dealer_net": round(dealer_yi, 1),
+                    "total_net": total_yi,
+                }
     except Exception:
         pass
 
-    # 2. 上市每日收盤行情漲跌家數統計
     try:
-        url_stock = "https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL"
-        resp_stock = requests.get(url_stock, headers=headers, timeout=20)
-        if resp_stock.ok:
-            rows = resp_stock.json()
-            if isinstance(rows, list) and rows:
-                adv = 0
-                dec = 0
-                for r in rows:
-                    chg_str = _clean_change_sign(r.get("Change") or r.get("漲跌") or "")
-                    if not chg_str:
-                        continue
-                    if chg_str.startswith("+") or "漲" in chg_str:
-                        adv += 1
-                    elif chg_str.startswith("-") or "跌" in chg_str:
-                        dec += 1
-                    else:
-                        try:
-                            val = float(chg_str.replace(",", ""))
-                            if val > 0:
-                                adv += 1
-                            elif val < 0:
-                                dec += 1
-                        except Exception:
-                            pass
-                if adv > 0 or dec > 0:
-                    result["advancing"] = adv
-                    result["declining"] = dec
+        rows = _get_json("https://openapi.twse.com.tw/v1/exchangeReport/STOCK_DAY_ALL", timeout=20)
+        if isinstance(rows, list) and rows:
+            adv = 0
+            dec = 0
+            for r in rows:
+                chg_str = _clean_change_sign(r.get("Change") or r.get("漲跌") or "")
+                if not chg_str:
+                    continue
+                if chg_str.startswith("+") or "漲" in chg_str:
+                    adv += 1
+                elif chg_str.startswith("-") or "跌" in chg_str:
+                    dec += 1
+                else:
+                    val = clean_numeric_or_none(chg_str)
+                    if val is not None:
+                        if val > 0:
+                            adv += 1
+                        elif val < 0:
+                            dec += 1
+            if adv > 0 or dec > 0:
+                result["advancing"] = adv
+                result["declining"] = dec
     except Exception:
         pass
 
@@ -244,9 +283,9 @@ def resolve_effective_phase(phase_arg: str) -> str:
         return normalized
 
     cst_now = dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=8)
-    if cst_now.weekday() == 5:  # 週六低頻基本面
+    if cst_now.weekday() == 5:
         return "fundamental"
-    if cst_now.hour >= 16:  # 16:00 以後三大法人與籌碼補齊
+    if cst_now.hour >= 16:
         return "chips"
     return "close_tech"
 
@@ -320,12 +359,14 @@ def load_target_symbols(root: Path, offset: int = 0, limit: int = 250) -> list[t
 
 
 def filter_missing_symbols(
-    root: Path, pool: list[tuple[str, str, str]], batch_state: dict
+    root: Path, pool: list[tuple[str, str, str]], batch_state: dict, latest_trade_date: str
 ) -> list[tuple[str, str, str]]:
-    """保留尚未存在於 summary.json，或先前抓取標記為缺漏 (complete=False) 的標的。"""
+    """
+    僅保留「尚未入庫」或「今日尚未嘗試補抓且先前有缺漏」的標的，
+    避免同一行情日內重複對已知缺漏標的狂打 API 消耗額度。
+    """
     summary_path = root / "data" / "summary.json"
     existing_syms: set[str] = set()
-    incomplete_syms: set[str] = set()
 
     if summary_path.exists():
         try:
@@ -335,30 +376,46 @@ def filter_missing_symbols(
                     s = str(r.get("symbol") or "").strip()
                     if s:
                         existing_syms.add(s)
-                        if r.get("partial_missing"):
-                            incomplete_syms.add(s)
         except Exception:
             pass
 
-    for sym, st in batch_state.items():
-        if isinstance(st, dict) and not st.get("complete", False):
-            incomplete_syms.add(sym)
+    selected: list[tuple[str, str, str]] = []
+    for sym, name, mkt in pool:
+        if sym not in existing_syms:
+            selected.append((sym, name, mkt))
+            continue
 
-    return [
-        (sym, name, mkt)
-        for (sym, name, mkt) in pool
-        if (sym not in existing_syms) or (sym in incomplete_syms)
-    ]
+        st = batch_state.get(sym) if isinstance(batch_state.get(sym), dict) else {}
+        already_tried_today = st.get("last_missing_retry_date") == latest_trade_date
+        if not st.get("complete", False) and not already_tried_today:
+            selected.append((sym, name, mkt))
+
+    return selected
 
 
-def fetch_stock_history_with_market(sym: str, mkt: str, s2330_df):
-    """依市場別嘗試抓取日線，上市優先 .TW，上櫃優先 .TWO 再退回 .TW"""
+def fetch_stock_history_with_market(sym: str, mkt: str, s2330_df, quota_guard: ApiQuotaGuard | None = None):
+    """依市場別嘗試抓取日線，上市優先 .TW，上櫃優先 .TWO 再退回 .TW；若配額熔斷則停止新請求"""
     if sym == "2330" and s2330_df is not None and not s2330_df.empty:
         return s2330_df
 
+    if quota_guard is not None:
+        allowed, _ = quota_guard.can_call()
+        if not allowed:
+            return None
+
     suffixes = [".TWO", ".TW"] if mkt.upper() == "TWO" else [".TW", ".TWO"]
     for sfx in suffixes:
-        df = fetch_yf_history(f"{sym}{sfx}", period="6mo", limit=120, retries=2, retry_delay=1.0)
+        if quota_guard is not None:
+            allowed, _ = quota_guard.can_call()
+            if not allowed:
+                break
+            quota_guard.wait_before_call()
+            now = time.monotonic()
+            quota_guard.last_request_at = now
+            quota_guard.call_timestamps.append(now)
+            quota_guard.total_calls += 1
+
+        df = fetch_yf_history(f"{sym}{sfx}", period="6mo", limit=120, retries=1, retry_delay=1.0)
         if df is not None and not df.empty and len(df) >= 2:
             return df
     return None
@@ -401,7 +458,13 @@ def main():
     parser = argparse.ArgumentParser(description="台股盤勢與多維度評分批次更新")
     parser.add_argument("--offset", type=int, default=0, help="從清單第幾筆開始處理（預設 0）")
     parser.add_argument("--limit", type=int, default=250, help="單次最多處理幾檔（預設 250；設 0 代表全量）")
-    parser.add_argument("--sleep", type=float, default=0.1, help="每檔處理間隔秒數，降低限流風險")
+    parser.add_argument("--sleep", type=float, default=0.25, help="每檔處理間隔秒數，降低限流風險")
+    parser.add_argument(
+        "--max-hourly-calls",
+        type=int,
+        default=580,
+        help="每小時請求安全上限（預設 580，低於 600/hr 會員上限留出緩衝）",
+    )
     parser.add_argument(
         "--phase",
         type=str,
@@ -412,7 +475,7 @@ def main():
     parser.add_argument(
         "--only-missing",
         action="store_true",
-        help="僅針對尚未入庫或缺漏的標的補抓",
+        help="僅針對尚未入庫或今日尚未補抓的缺漏標的補抓",
     )
     parser.add_argument(
         "--force-check",
@@ -428,6 +491,14 @@ def main():
 
     effective_phase = resolve_effective_phase(args.phase)
     print(f"[分段設定] 指定={args.phase} -> 實際執行分段={effective_phase}")
+
+    quota_guard = ApiQuotaGuard(
+        max_calls_per_hour=max(50, int(args.max_hourly_calls)),
+        min_interval_sec=max(0.2, float(args.sleep)),
+        max_retries_on_429=2,
+        base_backoff_sec=5.0,
+    )
+    tracker = DataHealthTracker(quota_guard=quota_guard)
 
     root = Path(__file__).resolve().parent.parent
     market_path = root / "data" / "market.json"
@@ -455,9 +526,8 @@ def main():
     if s2330_df.empty or len(s2330_df) < 2:
         raise RuntimeError("無法取得 2330.TW 歷史日線")
 
-    # 籌碼或自動分段時抓 TWSE 法人與漲跌統計；純基本面段優先沿用既有統計
     if effective_phase in {"chips", "close_tech"}:
-        market_stats = fetch_twse_market_stats()
+        market_stats = fetch_twse_market_stats(quota_guard=quota_guard, tracker=tracker)
     else:
         market_stats = {}
 
@@ -514,12 +584,12 @@ def main():
 
     if args.only_missing:
         all_pool = load_target_symbols(root, offset=0, limit=0)
-        targets = filter_missing_symbols(root, all_pool, batch_state)
+        targets = filter_missing_symbols(root, all_pool, batch_state, latest_trade_date)
         if args.offset > 0:
             targets = targets[args.offset :]
         if args.limit and args.limit > 0:
             targets = targets[: args.limit]
-        print(f"[補抓模式] 偵測到尚未入庫或缺漏標的共 {len(targets)} 檔")
+        print(f"[補抓模式] 偵測到待補抓標的共 {len(targets)} 檔")
     else:
         targets = load_target_symbols(root, offset=args.offset, limit=args.limit)
 
@@ -528,11 +598,18 @@ def main():
     batch_high_score_cnt = 0
     skipped_cnt = 0
     already_complete_cnt = 0
+    quota_stopped_cnt = 0
 
     now_str = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
     updated_label = f"{now_str}（行情日 {latest_trade_date}）"
 
     for idx, (sym, name, mkt) in enumerate(targets):
+        allowed, stop_reason = quota_guard.can_call()
+        if not allowed:
+            quota_stopped_cnt = len(targets) - idx
+            print(f"[配額熔斷] {stop_reason}，剩餘 {quota_stopped_cnt} 檔保留既有資料並結束本批。")
+            break
+
         detail_path = root / "data" / "details" / f"{sym}.json"
         st_entry = batch_state.get(sym, {})
         phase_key = f"complete_{effective_phase}"
@@ -550,22 +627,49 @@ def main():
         if args.only_missing or (idx + 1) % 25 == 0 or idx == 0:
             print(f"[進度:{effective_phase}] {idx + 1}/{len(targets)} -> {sym} {name} ({mkt})")
 
-        s_df = fetch_stock_history_with_market(sym, mkt, s2330_df)
+        s_df = fetch_stock_history_with_market(sym, mkt, s2330_df, quota_guard=quota_guard)
         if s_df is None or s_df.empty or len(s_df) < 2:
             skipped_cnt += 1
+            tracker.record_stock_missing(sym, "price_history", "日線行情暫時無法取得")
             print(f"[略過] {sym} {name} ({mkt}) 暫時無法取得日線行情（保留既有資料）")
             continue
 
-        # 依分段決定重抓或沿用既有基本面／籌碼
         if effective_phase == "fundamental":
             fund_data = fetch_fundamental_data(sym)
             chip_data = _extract_cached_fund_or_chip(detail_path, "chip") or fetch_chip_data(sym, stock_df=s_df)
         elif effective_phase == "chips":
             fund_data = _extract_cached_fund_or_chip(detail_path, "fund") or {"complete": str(sym).startswith("00")}
             chip_data = fetch_chip_data(sym, stock_df=s_df)
-        else:  # close_tech
+        else:
             fund_data = _extract_cached_fund_or_chip(detail_path, "fund") or fetch_fundamental_data(sym)
             chip_data = _extract_cached_fund_or_chip(detail_path, "chip") or fetch_chip_data(sym, stock_df=s_df)
+
+        fund_metrics = fund_data.get("metrics") if isinstance(fund_data, dict) and isinstance(fund_data.get("metrics"), dict) else {}
+        val_metrics = {
+            "pe": fund_metrics.get("pe"),
+            "pb": fund_metrics.get("pb"),
+            "dividend_yield": fund_metrics.get("dividend_yield"),
+        }
+        rev_metrics = {
+            "rev_mom_pct": fund_metrics.get("rev_mom_pct"),
+        }
+        fin_metrics = {
+            "op_income": fund_metrics.get("op_income"),
+            "net_income": fund_metrics.get("net_income"),
+            "eps": fund_metrics.get("eps"),
+            "roa_pct": fund_metrics.get("roa_pct"),
+            "roe_pct": fund_metrics.get("roe_pct"),
+        }
+        chip_metrics = chip_data if isinstance(chip_data, dict) else {}
+
+        missing_summary = evaluate_and_attach_missing(
+            tracker=tracker,
+            symbol=sym,
+            val_metrics=val_metrics,
+            rev_metrics=rev_metrics,
+            fin_metrics=fin_metrics,
+            chip_metrics=chip_metrics,
+        )
 
         detail_obj, row_obj = build_stock_detail(
             symbol=sym,
@@ -578,15 +682,25 @@ def main():
         )
         detail_obj, row_obj = refine_etf_exclusion_message(sym, detail_obj, row_obj)
 
-        if isinstance(fund_data, dict):
+        if not str(sym).startswith("00"):
+            detail_obj["partial_missing"] = missing_summary.get("partial_missing", "")
+            detail_obj["missing_reasons"] = missing_summary.get("missing_reasons", [])
+            row_obj["partial_missing"] = missing_summary.get("partial_missing", "")
+
+        if isinstance(fund_data, dict) and fund_data:
             detail_obj["fundamental_data"] = merge_without_overwrite(detail_obj.get("fundamental_data") or {}, fund_data)
-        if isinstance(chip_data, dict):
+        if isinstance(chip_data, dict) and chip_data:
             detail_obj["chip_data"] = merge_without_overwrite(detail_obj.get("chip_data") or {}, chip_data)
 
         if detail_path.exists():
             try:
                 old_detail = json.loads(detail_path.read_text(encoding="utf-8"))
+                clean_missing_override = (not str(sym).startswith("00")) and (not missing_summary.get("partial_missing"))
                 detail_obj = merge_without_overwrite(old_detail, detail_obj)
+                if clean_missing_override:
+                    detail_obj["partial_missing"] = ""
+                    detail_obj["missing_reasons"] = []
+                    row_obj["partial_missing"] = ""
             except Exception:
                 pass
 
@@ -595,14 +709,20 @@ def main():
 
         is_fund_ok = bool(fund_data.get("complete", False)) or str(sym).startswith("00")
         is_chip_ok = bool(chip_data.get("complete", True))
-        has_missing_msg = bool(detail_obj.get("partial_missing"))
-        batch_state[sym] = {
+        has_missing_msg = bool(detail_obj.get("partial_missing")) and not str(sym).startswith("00")
+        is_complete = bool(is_fund_ok and is_chip_ok and not has_missing_msg)
+
+        next_state = {
             **st_entry,
             "trade_date": latest_trade_date,
             "updated_at": now_str,
             phase_key: True,
-            "complete": bool(is_fund_ok and is_chip_ok and not has_missing_msg),
+            "complete": is_complete,
         }
+        if args.only_missing and not is_complete:
+            next_state["last_missing_retry_date"] = latest_trade_date
+
+        batch_state[sym] = next_state
 
         if row_obj.get("excluded"):
             batch_excluded_cnt += 1
@@ -651,9 +771,11 @@ def main():
     market_out["history"] = history_out
     write_json(market_path, market_out)
 
+    tracker.print_batch_report(len(targets))
+
     print(
         f"[完成:{effective_phase}] 批次更新 ({latest_trade_date}) | 本批更新={len(batch_rows)} "
-        f"(同日已齊全跳過={already_complete_cnt}, 略過={skipped_cnt}, "
+        f"(同日已齊全跳過={already_complete_cnt}, 略過={skipped_cnt}, 配額熔斷未跑={quota_stopped_cnt}, "
         f"本批高分={batch_high_score_cnt}, 本批排除={batch_excluded_cnt}) | "
         f"累計總檔數={len(merged_rows)} (累計高分={total_high_score_cnt}, 累計排除={total_excluded_cnt})"
     )
