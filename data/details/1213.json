@@ -1,78 +1,78 @@
 {
   "symbol": "1213",
   "name": "大飲",
-  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
+  "updated_at": "2026-11-23 08:53（行情日 2026-11-23）",
   "excluded": false,
   "exclude_reason": "",
-  "partial_missing": "",
-  "total_score": 1,
+  "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
+  "total_score": 2,
   "max_score": 30,
   "badge": "中性觀望",
-  "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
+  "trading_note": "部分欄位暫缺（三大法人買賣超缺漏或天數不足），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 1,
-    "technical": 0,
+    "technical": 1,
     "chip": 0
   },
   "metrics_6": {
-    "main_force_net": 0,
+    "main_force_net": 3.0,
     "retail_net": 0,
-    "margin_net": 0,
+    "margin_net": 0.0,
     "chip_concentration_5d": 0.0,
-    "major_holder_pct": 0.0,
-    "retail_holder_pct": 0.0
+    "major_holder_pct": 85.59,
+    "retail_holder_pct": 11.97
   },
   "checks": {
     "fundamental": [
       {
-        "label": "本益比大於等於 10",
+        "label": "本益比合理",
         "passed": false,
-        "value": "0.0"
+        "value": "0.00"
       },
       {
-        "label": "股價淨值比大於等於 0.5",
+        "label": "股價淨值比合理",
         "passed": true,
         "value": "0.50"
       },
       {
-        "label": "現金股利殖利率大於 3%",
+        "label": "殖利率具吸引力",
         "passed": false,
         "value": "0.00%"
       },
       {
-        "label": "月營收創 10 個月以上新高",
-        "passed": false,
-        "value": "未創高"
-      },
-      {
-        "label": "月營收 MoM 大於 0",
+        "label": "月營收月增",
         "passed": false,
         "value": "-18.00%"
       },
       {
-        "label": "最近一季營業淨利大於 0",
+        "label": "月營收年增",
         "passed": false,
-        "value": "非正值"
+        "value": "-18.00%"
       },
       {
-        "label": "最近一季稅後淨利大於 0",
+        "label": "營業利益為正",
         "passed": false,
-        "value": "非正值"
+        "value": "-14,061,000"
       },
       {
-        "label": "最近一季每股盈餘大於 1",
+        "label": "本期淨利為正",
         "passed": false,
-        "value": "-0.31 元"
+        "value": "-17,304,000"
       },
       {
-        "label": "最新年度 ROA 大於等於 5",
+        "label": "每股盈餘為正",
         "passed": false,
-        "value": "-8.4%"
+        "value": "-0.31"
       },
       {
-        "label": "最新年度 ROE 大於等於 8",
+        "label": "ROA 表現穩健",
         "passed": false,
-        "value": "-10.0%"
+        "value": "-8.36%"
+      },
+      {
+        "label": "ROE 表現穩健",
+        "passed": false,
+        "value": "-9.99%"
       }
     ],
     "technical": [
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-13.05%"
+        "value": "-5.48%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:9.7 / D:18.0"
+        "value": "K:15.5 / D:17.1"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:18.9"
+        "value": "RSI14:32.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.38"
+        "value": "DIF:-0.39"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:5.98"
+        "passed": true,
+        "value": "5MA:5.86"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:6.85"
+        "value": "20MA:6.78"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:6.9/7.2"
+        "value": "20MA/60MA:6.8/7.2"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
@@ -197,12 +197,26 @@
     }
   },
   "chip_data": {
-    "complete": true,
+    "complete": false,
     "main_force_net": -1.1,
     "retail_net": 0,
     "margin_net": 0.0,
     "chip_concentration_5d": 0.0,
     "major_holder_pct": 85.59,
-    "retail_holder_pct": 11.97
-  }
+    "retail_holder_pct": 11.97,
+    "missing_reasons": [
+      "三大法人買賣超缺漏或天數不足"
+    ],
+    "metrics_6": {
+      "main_force_net": 3.0,
+      "retail_net": 0,
+      "margin_net": 0.0,
+      "chip_concentration_5d": 0.0,
+      "major_holder_pct": 85.59,
+      "retail_holder_pct": 11.97
+    }
+  },
+  "missing_reasons": [
+    "籌碼/集保欄位尚未更新或缺漏"
+  ]
 }

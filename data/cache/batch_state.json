@@ -1,603 +1,703 @@
 {
   "1101": {
     "trade_date": "2026-11-23",
-    "updated_at": "2026-11-23 11:26",
+    "updated_at": "2026-11-23 08:53",
     "complete": true,
-    "complete_close_tech": true
+    "complete_close_tech": true,
+    "complete_chips": true
   },
   "1102": {
     "trade_date": "2026-11-23",
-    "updated_at": "2026-11-23 11:26",
+    "updated_at": "2026-11-23 08:53",
     "complete": true,
-    "complete_close_tech": true
+    "complete_close_tech": true,
+    "complete_chips": true
   },
   "1103": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete": true,
-    "complete_close_tech": true
+    "complete_close_tech": true,
+    "complete_chips": true
   },
   "1104": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete": true,
-    "complete_close_tech": true
+    "complete_close_tech": true,
+    "complete_chips": true
   },
   "1108": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete": true,
-    "complete_close_tech": true
+    "complete_close_tech": true,
+    "complete_chips": true
   },
   "1109": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1110": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1201": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1203": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1210": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1213": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": false,
+    "complete_chips": true
   },
   "1215": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1216": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1217": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1218": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1219": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1220": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1225": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1227": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1229": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1231": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1232": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1233": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1234": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1235": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1236": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1240": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1256": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1259": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1264": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1268": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1294": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1295": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1301": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1303": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1304": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1305": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1307": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1308": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1309": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1310": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1312": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1313": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1314": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1315": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1316": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1319": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1321": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1323": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1324": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1325": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1326": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1336": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1337": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1338": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1339": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1340": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1341": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": false,
+    "complete_chips": true
   },
   "1342": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1402": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1409": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": false
+    "complete": false,
+    "complete_chips": true
   },
   "1410": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1413": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1414": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1416": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1417": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1418": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1419": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1423": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1432": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1434": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1435": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1436": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1437": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1438": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1439": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1440": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1441": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1442": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1443": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1444": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1445": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1446": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1447": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1449": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1451": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1452": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1453": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1454": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1455": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1456": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1457": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1459": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1460": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1463": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1464": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1465": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1466": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1467": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1468": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-22 13:53",
+    "trade_date": "2026-11-23",
+    "updated_at": "2026-11-23 08:53",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "1470": {
     "trade_date": "2026-11-20",
