@@ -109,15 +109,14 @@ jobs:
           only_missing = os.environ["ONLY_MISSING"].lower() == "true"
           max_hourly_calls = int(os.environ.get("MAX_HOURLY_CALLS", "580"))
 
-          # 依台灣時間 (UTC+8) 決定排程分段（schedule 與 workflow_dispatch 的 auto 皆共用）
           cst_now = dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=8)
           if phase_input != "auto":
               phase = phase_input
-          elif cst_now.weekday() == 5:  # 週六低頻基本面/清單
+          elif cst_now.weekday() == 5:
               phase = "fundamental"
-          elif cst_now.hour >= 16:      # 16:00 籌碼補齊段
+          elif cst_now.hour >= 16:
               phase = "chips"
-          else:                       # 15:00 盤後收盤與技術面
+          else:
               phase = "close_tech"
 
           total_symbols = None
@@ -130,6 +129,40 @@ jobs:
                       elif isinstance(data, dict) and "items" in data:
                           total_symbols = len(data["items"])
                   break
+
+          def push_data_safely(msg: str):
+              subprocess.run(["git", "add", "data/"], check=True)
+              status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
+              if not status.stdout.strip():
+                  print("本批無資料檔案變更，略過 commit。")
+                  return
+
+              subprocess.run(["git", "commit", "-m", msg], check=True)
+              for attempt in range(3):
+                  subprocess.run(["git", "fetch", "origin", "main"], check=True)
+                  res = subprocess.run(["git", "pull", "--rebase", "origin", "main"], capture_output=True, text=True)
+                  if res.returncode == 0:
+                      push_res = subprocess.run(["git", "push", "origin", "main"], capture_output=True, text=True)
+                      if push_res.returncode == 0:
+                          print(f"已推送批次提交: {msg}")
+                          return
+                  # 若 rebase 發生衝突，放棄 rebase 並以遠端最新為基底重套本次 data 變更
+                  subprocess.run(["git", "rebase", "--abort"], capture_output=True, text=True)
+                  subprocess.run(["git", "checkout", "HEAD~1", "--", "data/"], check=True)
+                  subprocess.run(["git", "reset", "--soft", "HEAD~1"], check=True)
+                  subprocess.run(["git", "fetch", "origin", "main"], check=True)
+                  subprocess.run(["git", "reset", "--hard", "origin/main"], check=True)
+                  subprocess.run(["git", "checkout", "HEAD@{1}", "--", "data/"], check=False)
+                  subprocess.run(["git", "add", "data/"], check=True)
+                  st2 = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
+                  if st2.stdout.strip():
+                      subprocess.run(["git", "commit", "-m", msg], check=True)
+                      p2 = subprocess.run(["git", "push", "origin", "main"], capture_output=True, text=True)
+                      if p2.returncode == 0:
+                          print(f"已於衝突恢復後推送批次提交: {msg}")
+                          return
+                  time.sleep(2)
+              raise RuntimeError(f"推送資料失敗: {msg}")
 
           def run_one_batch(cur_offset: int, cur_limit: int, cur_sleep: float, desc_tag: str, force_check: bool = False):
               cmd = [
@@ -147,17 +180,8 @@ jobs:
 
               print(f"=== 執行批次 ({desc_tag} | phase={phase}): {' '.join(cmd)} ===")
               subprocess.run(cmd, check=True)
-
-              subprocess.run(["git", "add", "data/"], check=True)
-              status = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
-              if status.stdout.strip():
-                  msg = f"chore(data): update stock dashboard [{phase}] ({desc_tag} --offset {cur_offset} --limit {cur_limit})"
-                  subprocess.run(["git", "commit", "-m", msg], check=True)
-                  subprocess.run(["git", "pull", "--rebase", "origin", "main"], check=True)
-                  subprocess.run(["git", "push", "origin", "main"], check=True)
-                  print(f"已推送批次提交: {msg}")
-              else:
-                  print("本批無資料檔案變更，略過 commit。")
+              msg = f"chore(data): update stock dashboard [{phase}] ({desc_tag} --offset {cur_offset} --limit {cur_limit})"
+              push_data_safely(msg)
 
           if event_name != "workflow_dispatch" or run_mode == "single_batch":
               run_one_batch(start_offset, batch_limit, sleep_sec, event_name, force_check=False)
