@@ -1,78 +1,78 @@
 {
   "symbol": "1560",
   "name": "中砂",
-  "updated_at": "2026-11-22 13:53（行情日 2026-11-20）",
+  "updated_at": "2026-11-23 09:01（行情日 2026-11-23）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 9,
+  "total_score": 7,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
-    "fundamental": 9,
+    "fundamental": 6,
     "technical": 0,
-    "chip": 0
+    "chip": 1
   },
   "metrics_6": {
-    "main_force_net": 0,
+    "main_force_net": -503.4,
     "retail_net": 0,
-    "margin_net": 0,
-    "chip_concentration_5d": 0.0,
-    "major_holder_pct": 0.0,
-    "retail_holder_pct": 0.0
+    "margin_net": -42.0,
+    "chip_concentration_5d": -2.13,
+    "major_holder_pct": 78.44,
+    "retail_holder_pct": 16.29
   },
   "checks": {
     "fundamental": [
       {
-        "label": "本益比大於等於 10",
-        "passed": true,
-        "value": "39.1"
+        "label": "本益比合理",
+        "passed": false,
+        "value": "39.15"
       },
       {
-        "label": "股價淨值比大於等於 0.5",
-        "passed": true,
+        "label": "股價淨值比合理",
+        "passed": false,
         "value": "7.62"
       },
       {
-        "label": "現金股利殖利率大於 3%",
+        "label": "殖利率具吸引力",
         "passed": false,
         "value": "0.94%"
       },
       {
-        "label": "月營收創 10 個月以上新高",
-        "passed": true,
-        "value": "創10月新高"
-      },
-      {
-        "label": "月營收 MoM 大於 0",
+        "label": "月營收月增",
         "passed": true,
         "value": "+2.09%"
       },
       {
-        "label": "最近一季營業淨利大於 0",
-        "passed": true,
-        "value": "正值"
+        "label": "月營收年增",
+        "passed": false,
+        "value": "+2.09%"
       },
       {
-        "label": "最近一季稅後淨利大於 0",
+        "label": "營業利益為正",
         "passed": true,
-        "value": "正值"
+        "value": "726,235,000"
       },
       {
-        "label": "最近一季每股盈餘大於 1",
+        "label": "本期淨利為正",
         "passed": true,
-        "value": "3.91 元"
+        "value": "595,293,000"
       },
       {
-        "label": "最新年度 ROA 大於等於 5",
+        "label": "每股盈餘為正",
         "passed": true,
-        "value": "13.0%"
+        "value": "3.91"
       },
       {
-        "label": "最新年度 ROE 大於等於 8",
+        "label": "ROA 表現穩健",
         "passed": true,
-        "value": "19.2%"
+        "value": "12.98%"
+      },
+      {
+        "label": "ROE 表現穩健",
+        "passed": true,
+        "value": "19.24%"
       }
     ],
     "technical": [
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-14.96%"
+        "value": "-12.22%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:8.5 / D:15.8"
+        "value": "K:13.7 / D:15.1"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:22.2"
+        "value": "RSI14:29.8"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-74.77"
+        "value": "DIF:-78.18"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:600.60"
+        "value": "5MA:580.40"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:740.65"
+        "value": "20MA:726.00"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:740.6/811.4"
+        "value": "20MA/60MA:726.0/809.3"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
@@ -131,47 +131,47 @@
       {
         "label": "近 3 日主力單日買超 > 1,000 張",
         "passed": false,
-        "value": "缺漏"
+        "value": "最大:+443張"
       },
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": false,
-        "value": "缺漏"
+        "value": "5日集中度:-2.13%"
       },
       {
         "label": "外資、投信同時連買 2 天",
         "passed": false,
-        "value": "缺漏"
+        "value": "未連買2日"
       },
       {
         "label": "近 2 日中長線買盤連續買超",
         "passed": false,
-        "value": "缺漏"
+        "value": "未連2日"
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
         "passed": false,
-        "value": "缺漏"
+        "value": "最長2日"
       },
       {
         "label": "近 20 日波段買盤曾連買",
         "passed": false,
-        "value": "缺漏"
+        "value": "最長2日"
       },
       {
         "label": "近 1 日法人或主力買超力道放大",
         "passed": false,
-        "value": "缺漏"
+        "value": "-503 (5日均-46)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
         "passed": false,
-        "value": "缺漏"
+        "value": "-3223張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": false,
-        "value": "缺漏"
+        "passed": true,
+        "value": "符合"
       },
       {
         "label": "近 1 週大戶加碼且散戶減碼",
@@ -203,6 +203,16 @@
     "margin_net": 0,
     "chip_concentration_5d": 0.0,
     "major_holder_pct": 78.44,
-    "retail_holder_pct": 16.29
-  }
+    "retail_holder_pct": 16.29,
+    "missing_reasons": [],
+    "metrics_6": {
+      "main_force_net": -503.4,
+      "retail_net": 0,
+      "margin_net": -42.0,
+      "chip_concentration_5d": -2.13,
+      "major_holder_pct": 78.44,
+      "retail_holder_pct": 16.29
+    }
+  },
+  "missing_reasons": []
 }
