@@ -100,7 +100,6 @@ FIXED_CORE_ITEMS: list[dict[str, Any]] = [
     {"symbol": "2885", "ticker": "2885.TW", "name": "元大金", "market": "TWSE", "category": "ALL_USERS_CORE", "tags": ["core"]},
     {"symbol": "2887", "ticker": "2887.TW", "name": "台新金", "market": "TWSE", "category": "ALL_USERS_CORE", "tags": ["core"]},
     {"symbol": "3380", "ticker": "3380.TW", "name": "明泰", "market": "TWSE", "category": "ALL_USERS_CORE", "tags": ["core"]},
-    {"symbol": "4136", "ticker": "4136.TWO", "name": "泰宗", "market": "TPEx", "category": "ALL_USERS_CORE", "tags": ["core"]},
     {"symbol": "4906", "ticker": "4906.TW", "name": "正文", "market": "TWSE", "category": "ALL_USERS_CORE", "tags": ["core"]},
     {"symbol": "4919", "ticker": "4919.TW", "name": "新唐", "market": "TWSE", "category": "ALL_USERS_CORE", "tags": ["core"]},
     {"symbol": "7769", "ticker": "7769.TW", "name": "鴻勁", "market": "TWSE", "category": "ALL_USERS_CORE", "tags": ["core"]},
@@ -137,7 +136,7 @@ FIXED_CORE_ITEMS: list[dict[str, Any]] = [
     {"symbol": "1303", "ticker": "1303.TW", "name": "南亞", "market": "TWSE", "category": "TRAD_SECURITY", "tags": ["core"]},
     {"symbol": "1326", "ticker": "1326.TW", "name": "台化", "market": "TWSE", "category": "TRAD_SECURITY", "tags": ["core"]},
     {"symbol": "9925", "ticker": "9925.TW", "name": "新保", "market": "TWSE", "category": "TRAD_SECURITY", "tags": ["core"]},
-    {"symbol": "2325", "ticker": "2325.TW", "name": "2325", "market": "TWSE", "category": "EXTRA", "tags": ["core"]},
+    {"symbol": "3711", "ticker": "3711.TW", "name": "日月光", "market": "TWSE", "category": "EXTRA", "tags": ["core"]},
     {"symbol": "2498", "ticker": "2498.TW", "name": "宏達電", "market": "TWSE", "category": "EXTRA", "tags": ["core"]},
     {"symbol": "6788", "ticker": "6788.TW", "name": "6788", "market": "TWSE", "category": "EXTRA", "tags": ["core"]},
 ]
