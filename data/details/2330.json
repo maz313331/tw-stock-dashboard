@@ -1,24 +1,24 @@
 {
   "symbol": "2330",
   "name": "台積電",
-  "updated_at": "2026-11-23 09:44（行情日 2026-11-23）",
+  "updated_at": "2026-11-24 14:02（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
-  "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；籌碼/集保欄位尚未更新或缺漏",
-  "total_score": 6,
+  "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏",
+  "total_score": 8,
   "max_score": 30,
   "badge": "中性觀望",
-  "trading_note": "部分欄位暫缺（估值資料(PE/PB/殖利率)部分缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
+  "trading_note": "部分欄位暫缺（估值資料(PE/PB/殖利率)部分缺漏），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 6,
-    "technical": 0,
+    "technical": 2,
     "chip": 0
   },
   "metrics_6": {
-    "main_force_net": 0.0,
+    "main_force_net": -7079.6,
     "retail_net": 0,
-    "margin_net": 0.0,
-    "chip_concentration_5d": 0.0,
+    "margin_net": 1327.0,
+    "chip_concentration_5d": -13.51,
     "major_holder_pct": 89.5,
     "retail_holder_pct": 8.94
   },
@@ -83,8 +83,8 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": false,
-        "value": "-6.67%"
+        "passed": true,
+        "value": "+6.19%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:22.6 / D:36.0"
+        "value": "K:35.5 / D:35.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:34.9"
+        "value": "RSI14:48.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-87.61"
+        "value": "DIF:-77.02"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:2095.00"
+        "passed": true,
+        "value": "5MA:2107.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:2258.25"
+        "value": "20MA:2249.75"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:2258.2/2388.2"
+        "value": "20MA/60MA:2249.8/2385.2"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
@@ -136,7 +136,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": false,
-        "value": "5日集中度:+0.00%"
+        "value": "5日集中度:-13.51%"
       },
       {
         "label": "外資、投信同時連買 2 天",
@@ -161,12 +161,12 @@
       {
         "label": "近 1 日法人或主力買超力道放大",
         "passed": false,
-        "value": "-10901 (5日均-6696)"
+        "value": "-7080 (5日均-6575)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
         "passed": false,
-        "value": "-92479張"
+        "value": "-89409張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
@@ -199,28 +199,29 @@
     }
   },
   "chip_data": {
-    "complete": false,
+    "complete": true,
     "main_force_net": -10901.2,
     "retail_net": 0,
     "margin_net": -2934.0,
     "chip_concentration_5d": 0.0,
     "major_holder_pct": 89.5,
     "retail_holder_pct": 8.94,
-    "missing_reasons": [
-      "三大法人買賣超缺漏或天數不足",
-      "融資增減資料缺漏"
-    ],
+    "missing_reasons": [],
     "metrics_6": {
-      "main_force_net": 0.0,
+      "main_force_net": -7079.6,
       "retail_net": 0,
-      "margin_net": 0.0,
-      "chip_concentration_5d": 0.0,
+      "margin_net": 1327.0,
+      "chip_concentration_5d": -13.51,
       "major_holder_pct": 89.5,
       "retail_holder_pct": 8.94
-    }
+    },
+    "sources_used": [
+      "finmind_inst",
+      "twse_margin",
+      "tdcc"
+    ]
   },
   "missing_reasons": [
-    "估值資料(PE/PB/殖利率)部分缺漏",
-    "籌碼/集保欄位尚未更新或缺漏"
+    "估值資料(PE/PB/殖利率)部分缺漏"
   ]
 }

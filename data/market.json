@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-11-23 14:13（行情日 2026-11-23）",
+  "updated_at": "2026-11-24 14:02（行情日 2026-11-24）",
   "regime": {
     "signal": "保守防禦",
     "suggested_exposure": "30% ~ 45%",
     "summary": "大盤跌破關鍵均線或波動放大，宜降低持股水位、重防守與嚴設停損。"
   },
   "tw_index": {
-    "close": 40160.12,
-    "change_pct": 11.45,
+    "close": 40122.35,
+    "change_pct": 8.99,
     "ma_status": "均線下方震盪"
   },
   "otc_index": {
@@ -21,8 +21,8 @@
     "total_net": 169.8
   },
   "market_breadth": {
-    "advancing": 39,
-    "declining": 1314,
+    "advancing": 811,
+    "declining": 478,
     "high_score_count": 0,
     "excluded_count": 4
   },
@@ -69,11 +69,6 @@
     }
   ],
   "history": [
-    {
-      "date": "2026-05-29",
-      "close": 44732.94,
-      "institutional_net": 0.0
-    },
     {
       "date": "2026-06-01",
       "close": 45337.91,
@@ -665,8 +660,13 @@
       "institutional_net": 0.0
     },
     {
+      "date": "2026-11-23",
+      "close": 36811.89,
+      "institutional_net": 0.0
+    },
+    {
       "date": "2026-11-24",
-      "close": 40160.12,
+      "close": 40122.35,
       "institutional_net": 0.0
     }
   ]

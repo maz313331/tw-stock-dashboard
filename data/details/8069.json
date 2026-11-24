@@ -1,7 +1,7 @@
 {
   "symbol": "8069",
   "name": "元太",
-  "updated_at": "2026-11-23 12:13（行情日 2026-11-23）",
+  "updated_at": "2026-11-24 14:02（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏",
@@ -17,8 +17,8 @@
   "metrics_6": {
     "main_force_net": 771.7,
     "retail_net": 0,
-    "margin_net": -772.0,
-    "chip_concentration_5d": 2.61,
+    "margin_net": 0.0,
+    "chip_concentration_5d": 1.62,
     "major_holder_pct": 81.24,
     "retail_holder_pct": 15.01
   },
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-13.88%"
+        "value": "-2.64%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:19.6 / D:32.3"
+        "value": "K:23.5 / D:29.3"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:29.4"
+        "value": "RSI14:37.4"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-5.66"
+        "value": "DIF:-5.80"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:131.50"
+        "value": "5MA:129.50"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:142.55"
+        "value": "20MA:141.15"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:142.6/147.2"
+        "value": "20MA/60MA:141.2/146.6"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
@@ -136,7 +136,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": true,
-        "value": "5日集中度:+2.61%"
+        "value": "5日集中度:+1.62%"
       },
       {
         "label": "外資、投信同時連買 2 天",
@@ -212,11 +212,16 @@
     "metrics_6": {
       "main_force_net": 771.7,
       "retail_net": 0,
-      "margin_net": -772.0,
-      "chip_concentration_5d": 2.61,
+      "margin_net": 0.0,
+      "chip_concentration_5d": 1.62,
       "major_holder_pct": 81.24,
       "retail_holder_pct": 15.01
-    }
+    },
+    "sources_used": [
+      "finmind_inst",
+      "tpex_margin",
+      "tdcc"
+    ]
   },
   "missing_reasons": [
     "估值資料(PE/PB/殖利率)部分缺漏",

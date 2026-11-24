@@ -1,0 +1,673 @@
+{
+  "updated_at": "2026-11-24T13:59:05.583224+08:00",
+  "mode": "direct_fixed_core_pool",
+  "total_count": 66,
+  "excluded_non_tw_or_options": [
+    "VOO",
+    "QQQ",
+    "SCHD",
+    "NDXP*"
+  ],
+  "items": [
+    {
+      "symbol": "0050",
+      "ticker": "0050.TW",
+      "name": "元大台灣50",
+      "market": "TWSE",
+      "category": "ETF",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "0056",
+      "ticker": "0056.TW",
+      "name": "元大高股息",
+      "market": "TWSE",
+      "category": "ETF",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "00878",
+      "ticker": "00878.TW",
+      "name": "國泰永續高股息",
+      "market": "TWSE",
+      "category": "ETF",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "00919",
+      "ticker": "00919.TW",
+      "name": "群益台灣精選高息",
+      "market": "TWSE",
+      "category": "ETF",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "006208",
+      "ticker": "006208.TW",
+      "name": "富邦台50",
+      "market": "TWSE",
+      "category": "ETF",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "00713",
+      "ticker": "00713.TW",
+      "name": "元大台灣高息低波",
+      "market": "TWSE",
+      "category": "ETF",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "00929",
+      "ticker": "00929.TW",
+      "name": "復華台灣科技優息",
+      "market": "TWSE",
+      "category": "ETF",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "00631L",
+      "ticker": "00631L.TW",
+      "name": "元大台灣50正2",
+      "market": "TWSE",
+      "category": "ETF",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "00981A",
+      "ticker": "00981A.TW",
+      "name": "主動統一台股增長",
+      "market": "TWSE",
+      "category": "ETF",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "00406A",
+      "ticker": "00406A.TW",
+      "name": "主動中信台灣收益",
+      "market": "TWSE",
+      "category": "ETF",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "1216",
+      "ticker": "1216.TW",
+      "name": "統一",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "1229",
+      "ticker": "1229.TW",
+      "name": "聯華",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "1477",
+      "ticker": "1477.TW",
+      "name": "儒鴻",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "1711",
+      "ticker": "1711.TW",
+      "name": "永光",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2312",
+      "ticker": "2312.TW",
+      "name": "金寶",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2337",
+      "ticker": "2337.TW",
+      "name": "旺宏",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2377",
+      "ticker": "2377.TW",
+      "name": "華碩",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2379",
+      "ticker": "2379.TW",
+      "name": "瑞昱",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2395",
+      "ticker": "2395.TW",
+      "name": "研華",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2492",
+      "ticker": "2492.TW",
+      "name": "華新科",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2539",
+      "ticker": "2539.TW",
+      "name": "櫻花建",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2618",
+      "ticker": "2618.TW",
+      "name": "長榮航",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2646",
+      "ticker": "2646.TW",
+      "name": "寶成",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2885",
+      "ticker": "2885.TW",
+      "name": "元大金",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2887",
+      "ticker": "2887.TW",
+      "name": "台新金",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "3380",
+      "ticker": "3380.TW",
+      "name": "明泰",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "4136",
+      "ticker": "4136.TWO",
+      "name": "泰宗",
+      "market": "TPEx",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "4906",
+      "ticker": "4906.TW",
+      "name": "正文",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "4919",
+      "ticker": "4919.TW",
+      "name": "新唐",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "7769",
+      "ticker": "7769.TW",
+      "name": "鴻勁",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "8046",
+      "ticker": "8046.TW",
+      "name": "南電",
+      "market": "TWSE",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2330",
+      "ticker": "2330.TW",
+      "name": "台積電",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2303",
+      "ticker": "2303.TW",
+      "name": "聯電",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "6285",
+      "ticker": "6285.TW",
+      "name": "啟碁",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2317",
+      "ticker": "2317.TW",
+      "name": "鴻海",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2454",
+      "ticker": "2454.TW",
+      "name": "聯發科",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2383",
+      "ticker": "2383.TW",
+      "name": "台光電",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2382",
+      "ticker": "2382.TW",
+      "name": "廣達",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "3231",
+      "ticker": "3231.TW",
+      "name": "緯創",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "6669",
+      "ticker": "6669.TW",
+      "name": "緯穎",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2353",
+      "ticker": "2353.TW",
+      "name": "宏碁",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2356",
+      "ticker": "2356.TW",
+      "name": "英業達",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "3017",
+      "ticker": "3017.TW",
+      "name": "奇鋐",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2368",
+      "ticker": "2368.TW",
+      "name": "金像電",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2327",
+      "ticker": "2327.TW",
+      "name": "國巨",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "6415",
+      "ticker": "6415.TW",
+      "name": "矽力",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "8069",
+      "ticker": "8069.TWO",
+      "name": "元太",
+      "market": "TPEx",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "8096",
+      "ticker": "8096.TWO",
+      "name": "擎亞",
+      "market": "TPEx",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "3406",
+      "ticker": "3406.TW",
+      "name": "玉晶光",
+      "market": "TWSE",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2881",
+      "ticker": "2881.TW",
+      "name": "富邦金",
+      "market": "TWSE",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2882",
+      "ticker": "2882.TW",
+      "name": "國泰金",
+      "market": "TWSE",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2886",
+      "ticker": "2886.TW",
+      "name": "兆豐金",
+      "market": "TWSE",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2891",
+      "ticker": "2891.TW",
+      "name": "中信金",
+      "market": "TWSE",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2883",
+      "ticker": "2883.TW",
+      "name": "凱基金",
+      "market": "TWSE",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2834",
+      "ticker": "2834.TW",
+      "name": "臺企銀",
+      "market": "TWSE",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2812",
+      "ticker": "2812.TW",
+      "name": "台中銀",
+      "market": "TWSE",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2851",
+      "ticker": "2851.TW",
+      "name": "中再保",
+      "market": "TWSE",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "5880",
+      "ticker": "5880.TW",
+      "name": "合庫金",
+      "market": "TWSE",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "5876",
+      "ticker": "5876.TW",
+      "name": "上海商銀",
+      "market": "TWSE",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "1301",
+      "ticker": "1301.TW",
+      "name": "台塑",
+      "market": "TWSE",
+      "category": "TRAD_SECURITY",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "1303",
+      "ticker": "1303.TW",
+      "name": "南亞",
+      "market": "TWSE",
+      "category": "TRAD_SECURITY",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "1326",
+      "ticker": "1326.TW",
+      "name": "台化",
+      "market": "TWSE",
+      "category": "TRAD_SECURITY",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "9925",
+      "ticker": "9925.TW",
+      "name": "新保",
+      "market": "TWSE",
+      "category": "TRAD_SECURITY",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2325",
+      "ticker": "2325.TW",
+      "name": "2325",
+      "market": "TWSE",
+      "category": "EXTRA",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "2498",
+      "ticker": "2498.TW",
+      "name": "宏達電",
+      "market": "TWSE",
+      "category": "EXTRA",
+      "tags": [
+        "core"
+      ]
+    },
+    {
+      "symbol": "6788",
+      "ticker": "6788.TW",
+      "name": "6788",
+      "market": "TWSE",
+      "category": "EXTRA",
+      "tags": [
+        "core"
+      ]
+    }
+  ]
+}

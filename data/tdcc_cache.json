@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-22T15:14:32",
+  "updated_at": "2026-11-24T14:00:15",
   "stocks": {
     "2330": {
       "date": "20261113",
@@ -33508,6 +33508,36 @@
           "date": "20261120",
           "major_ratio": 49.79,
           "retail_ratio": 28.62
+        }
+      ]
+    },
+    "0056": {
+      "date": "2026-11-20",
+      "prev_date": null,
+      "major_ratio": 23.67,
+      "retail_ratio": 58.03,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "2026-11-20",
+          "major_ratio": 23.67,
+          "retail_ratio": 58.03
+        }
+      ]
+    },
+    "00937B": {
+      "date": "2026-11-20",
+      "prev_date": null,
+      "major_ratio": 80.18,
+      "retail_ratio": 9.62,
+      "major_change_1w": null,
+      "retail_change_1w": null,
+      "history": [
+        {
+          "date": "2026-11-20",
+          "major_ratio": 80.18,
+          "retail_ratio": 9.62
         }
       ]
     }

@@ -348,26 +348,69 @@ def _extract_cached_fund_or_chip(detail_path: Path, kind: str) -> dict | None:
     return None
 
 
-def load_target_symbols(root: Path, offset: int = 0, limit: int = 250) -> list[tuple[str, str, str]]:
-    """
-    優先讀取 data/stock_list_common.json（全市場普通股清單），
-    若檔案不存在則退回預設觀察清單。
-    """
-    common_path = root / "data" / "stock_list_common.json"
-    full_pool: list[tuple[str, str, str]] = []
+def _normalize_market_code(raw_market: str | None, ticker: str | None = None) -> str:
+    """將 'TWSE'/'TPEx'/'TW'/'TWO' 統一正規化為 'TW' 或 'TWO'，供日線後綴判斷使用。"""
+    m = str(raw_market or "").strip().upper()
+    t = str(ticker or "").strip().upper()
+    if m in {"TWO", "TPEX", "OTC", "上櫃"} or t.endswith(".TWO"):
+        return "TWO"
+    return "TW"
 
-    if common_path.exists():
-        try:
-            raw = json.loads(common_path.read_text(encoding="utf-8"))
-            if isinstance(raw, list) and raw:
-                for item in raw:
-                    sym = str(item.get("symbol") or "").strip()
-                    name = str(item.get("name") or sym).strip()
-                    mkt = str(item.get("market") or "TW").strip()
-                    if sym:
+
+def load_target_symbols(
+    root: Path,
+    offset: int = 0,
+    limit: int = 250,
+    priority_file: str | None = "data/priority_stocks.json",
+    use_priority: bool = True,
+) -> list[tuple[str, str, str]]:
+    """
+    優先讀取 data/priority_stocks.json（若啟用且存在）；
+    若未啟用或檔案不存在，則讀取 data/stock_list_common.json，最後退回預設觀察清單。
+    回傳格式：(symbol, name, market) 其中 market 為 'TW' 或 'TWO'。
+    """
+    full_pool: list[tuple[str, str, str]] = []
+    seen_syms: set[str] = set()
+
+    if use_priority and priority_file:
+        p_path = Path(priority_file)
+        if not p_path.is_absolute():
+            p_path = root / p_path
+        if p_path.exists():
+            try:
+                raw = json.loads(p_path.read_text(encoding="utf-8"))
+                items = raw.get("items") if isinstance(raw, dict) else raw
+                if isinstance(items, list) and items:
+                    for item in items:
+                        if not isinstance(item, dict):
+                            continue
+                        sym = str(item.get("symbol") or "").strip().upper()
+                        if not sym or sym in seen_syms:
+                            continue
+                        seen_syms.add(sym)
+                        name = str(item.get("name") or sym).strip()
+                        mkt = _normalize_market_code(item.get("market"), item.get("ticker"))
                         full_pool.append((sym, name, mkt))
-        except Exception as exc:
-            print(f"[警告] 讀取 stock_list_common.json 失敗，改用預設清單: {exc}")
+                    if full_pool:
+                        print(f"[優先清單] 已載入 {p_path.name} 共 {len(full_pool)} 檔標的")
+            except Exception as exc:
+                print(f"[警告] 讀取 {p_path} 失敗，改用 stock_list_common.json: {exc}")
+
+    if not full_pool:
+        common_path = root / "data" / "stock_list_common.json"
+        if common_path.exists():
+            try:
+                raw = json.loads(common_path.read_text(encoding="utf-8"))
+                if isinstance(raw, list) and raw:
+                    for item in raw:
+                        sym = str(item.get("symbol") or "").strip().upper()
+                        name = str(item.get("name") or sym).strip()
+                        mkt = _normalize_market_code(item.get("market"), item.get("ticker"))
+                        if sym and sym not in seen_syms:
+                            seen_syms.add(sym)
+                            full_pool.append((sym, name, mkt))
+            except Exception as exc:
+                print(f"[警告] 讀取 stock_list_common.json 失敗，改用預設清單: {exc}")
 
     if not full_pool:
         full_pool = DEFAULT_WATCHLIST
@@ -507,6 +550,17 @@ def main():
         action="store_true",
         help="不合併既有 summary.json，改以本批次結果直接覆蓋",
     )
+    parser.add_argument(
+        "--priority-file",
+        type=str,
+        default="data/priority_stocks.json",
+        help="優先抓取清單 JSON 路徑（預設 data/priority_stocks.json）",
+    )
+    parser.add_argument(
+        "--full-market",
+        action="store_true",
+        help="忽略 priority_stocks.json，改以 stock_list_common.json 全市場清單執行",
+    )
     args = parser.parse_args()
 
     reset_chip_session_cache()
@@ -606,8 +660,15 @@ def main():
 
     otc_index_obj = fetch_otc_index_quote(prev_market.get("otc_index"))
 
+    use_priority = not args.full_market
     if args.only_missing:
-        all_pool = load_target_symbols(root, offset=0, limit=0)
+        all_pool = load_target_symbols(
+            root,
+            offset=0,
+            limit=0,
+            priority_file=args.priority_file,
+            use_priority=use_priority,
+        )
         targets = filter_missing_symbols(root, all_pool, batch_state, latest_trade_date)
         if args.offset > 0:
             targets = targets[args.offset :]
@@ -615,7 +676,13 @@ def main():
             targets = targets[: args.limit]
         print(f"[補抓模式] 偵測到待補抓標的共 {len(targets)} 檔")
     else:
-        targets = load_target_symbols(root, offset=args.offset, limit=args.limit)
+        targets = load_target_symbols(
+            root,
+            offset=args.offset,
+            limit=args.limit,
+            priority_file=args.priority_file,
+            use_priority=use_priority,
+        )
 
     batch_rows = []
     batch_excluded_cnt = 0

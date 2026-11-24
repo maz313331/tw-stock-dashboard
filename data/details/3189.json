@@ -1,7 +1,7 @@
 {
   "symbol": "3189",
   "name": "景碩",
-  "updated_at": "2026-11-23 10:12（行情日 2026-11-23）",
+  "updated_at": "2026-11-24 14:02（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏",
@@ -15,10 +15,10 @@
     "chip": 1
   },
   "metrics_6": {
-    "main_force_net": -4744.4,
+    "main_force_net": -5309.4,
     "retail_net": 0,
-    "margin_net": -61.0,
-    "chip_concentration_5d": -8.6,
+    "margin_net": 512.0,
+    "chip_concentration_5d": -9.71,
     "major_holder_pct": 78.82,
     "retail_holder_pct": 18.48
   },
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-19.26%"
+        "value": "-1.53%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -93,33 +93,33 @@
       },
       {
         "label": "KD 黃金交叉",
-        "passed": true,
-        "value": "K:7.7 / D:7.5"
+        "passed": false,
+        "value": "K:14.5 / D:9.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:19.8"
+        "value": "RSI14:25.4"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-115.07"
+        "value": "DIF:-114.20"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:516.10"
+        "passed": true,
+        "value": "5MA:510.50"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:726.12"
+        "value": "20MA:704.77"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:726.1/857.4"
+        "value": "20MA/60MA:704.8/851.2"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
@@ -136,7 +136,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": false,
-        "value": "5日集中度:-8.60%"
+        "value": "5日集中度:-9.71%"
       },
       {
         "label": "外資、投信同時連買 2 天",
@@ -161,12 +161,12 @@
       {
         "label": "近 1 日法人或主力買超力道放大",
         "passed": false,
-        "value": "-4744 (5日均-2744)"
+        "value": "-5309 (5日均-2857)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
         "passed": false,
-        "value": "-42839張"
+        "value": "-43404張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
@@ -210,13 +210,18 @@
     "retail_holder_pct": 18.48,
     "missing_reasons": [],
     "metrics_6": {
-      "main_force_net": -4744.4,
+      "main_force_net": -5309.4,
       "retail_net": 0,
-      "margin_net": -61.0,
-      "chip_concentration_5d": -8.6,
+      "margin_net": 512.0,
+      "chip_concentration_5d": -9.71,
       "major_holder_pct": 78.82,
       "retail_holder_pct": 18.48
-    }
+    },
+    "sources_used": [
+      "finmind_inst",
+      "twse_margin",
+      "tdcc"
+    ]
   },
   "missing_reasons": [
     "估值資料(PE/PB/殖利率)部分缺漏",

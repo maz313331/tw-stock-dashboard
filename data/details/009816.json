@@ -2,8 +2,8 @@
   "symbol": "009816",
   "name": "凱基台灣TOP50",
   "asset_type": "ETF",
-  "updated_at": "2026-11-22 15:33（行情日 2026-11-20）",
-  "excluded": true,
+  "updated_at": "2026-11-24 13:59（行情日 2026-11-24）",
+  "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=26.4，近 20 日報酬 -20.90%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
   "quote": {
@@ -22,5 +22,213 @@
     "inst_5d_net": 0.0,
     "concentration_5d": 0.0,
     "updated_at": "2026-11-22 15:33（行情日 2026-11-20）"
+  },
+  "partial_missing": "",
+  "total_score": 1,
+  "max_score": 30,
+  "badge": "中性觀望",
+  "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
+  "scores": {
+    "fundamental": 0,
+    "technical": 1,
+    "chip": 0
+  },
+  "metrics_6": {
+    "main_force_net": -57588.9,
+    "retail_net": 0,
+    "margin_net": -597.0,
+    "chip_concentration_5d": -44.48,
+    "major_holder_pct": 40.25,
+    "retail_holder_pct": 40.61
+  },
+  "checks": {
+    "fundamental": [
+      {
+        "label": "本益比合理",
+        "passed": false,
+        "value": "缺漏"
+      },
+      {
+        "label": "股價淨值比合理",
+        "passed": false,
+        "value": "缺漏"
+      },
+      {
+        "label": "殖利率具吸引力",
+        "passed": false,
+        "value": "缺漏"
+      },
+      {
+        "label": "月營收月增",
+        "passed": false,
+        "value": "缺漏"
+      },
+      {
+        "label": "月營收年增",
+        "passed": false,
+        "value": "缺漏"
+      },
+      {
+        "label": "營業利益為正",
+        "passed": false,
+        "value": "缺漏"
+      },
+      {
+        "label": "本期淨利為正",
+        "passed": false,
+        "value": "缺漏"
+      },
+      {
+        "label": "每股盈餘為正",
+        "passed": false,
+        "value": "缺漏"
+      },
+      {
+        "label": "ROA 表現穩健",
+        "passed": false,
+        "value": "缺漏"
+      },
+      {
+        "label": "ROE 表現穩健",
+        "passed": false,
+        "value": "缺漏"
+      }
+    ],
+    "technical": [
+      {
+        "label": "收盤價連 3 日漲",
+        "passed": false,
+        "value": "未連3漲"
+      },
+      {
+        "label": "3 日漲幅大於 5%",
+        "passed": false,
+        "value": "+4.89%"
+      },
+      {
+        "label": "連 3 日打敗大盤",
+        "passed": false,
+        "value": "未連3日勝出"
+      },
+      {
+        "label": "KD 黃金交叉",
+        "passed": false,
+        "value": "K:31.9 / D:32.0"
+      },
+      {
+        "label": "RSI 多頭趨勢",
+        "passed": false,
+        "value": "RSI14:44.8"
+      },
+      {
+        "label": "MACD 多頭趨勢",
+        "passed": false,
+        "value": "DIF:-0.64"
+      },
+      {
+        "label": "收盤價大於週線",
+        "passed": true,
+        "value": "5MA:13.44"
+      },
+      {
+        "label": "收盤價大於月線",
+        "passed": false,
+        "value": "20MA:14.62"
+      },
+      {
+        "label": "月線大於季線",
+        "passed": false,
+        "value": "20MA/60MA:14.6/15.7"
+      },
+      {
+        "label": "均線多頭排列 (5>10>20)",
+        "passed": false,
+        "value": "非多頭排列"
+      }
+    ],
+    "chip": [
+      {
+        "label": "近 3 日主力單日買超 > 1,000 張",
+        "passed": false,
+        "value": "最大:-57589張"
+      },
+      {
+        "label": "近 1 日、5 日籌碼集中度為正",
+        "passed": false,
+        "value": "5日集中度:-44.48%"
+      },
+      {
+        "label": "外資、投信同時連買 2 天",
+        "passed": false,
+        "value": "未連買2日"
+      },
+      {
+        "label": "近 2 日中長線買盤連續買超",
+        "passed": false,
+        "value": "未連2日"
+      },
+      {
+        "label": "近 20 日短線強勢買盤曾連買",
+        "passed": false,
+        "value": "最長0日"
+      },
+      {
+        "label": "近 20 日波段買盤曾連買",
+        "passed": false,
+        "value": "最長0日"
+      },
+      {
+        "label": "近 1 日法人或主力買超力道放大",
+        "passed": false,
+        "value": "-57589 (5日均-111628)"
+      },
+      {
+        "label": "近 20 日前十大買盤淨額為正",
+        "passed": false,
+        "value": "-2126179張"
+      },
+      {
+        "label": "近 20 日前十大買盤曾連日買超",
+        "passed": false,
+        "value": "未達標"
+      },
+      {
+        "label": "近 1 週大戶加碼且散戶減碼",
+        "passed": false,
+        "value": "缺漏"
+      }
+    ]
+  },
+  "fundamental_data": {
+    "complete": true,
+    "metrics": {
+      "pe": null,
+      "pb": null,
+      "dividend_yield": null,
+      "rev_mom_pct": null,
+      "rev_yoy_pct": null,
+      "op_income": null,
+      "net_income": null,
+      "eps": null,
+      "roa_pct": null,
+      "roe_pct": null
+    }
+  },
+  "chip_data": {
+    "complete": true,
+    "missing_reasons": [],
+    "sources_used": [
+      "finmind_inst",
+      "twse_margin",
+      "tdcc"
+    ],
+    "metrics_6": {
+      "main_force_net": -57588.9,
+      "retail_net": 0,
+      "margin_net": -597.0,
+      "chip_concentration_5d": -44.48,
+      "major_holder_pct": 40.25,
+      "retail_holder_pct": 40.61
+    }
   }
 }

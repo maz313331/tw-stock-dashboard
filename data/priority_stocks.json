@@ -1,0 +1,1483 @@
+{
+  "generated_at": "2026-11-24T13:59:06.776140+08:00",
+  "as_of_date": "2026-11-24",
+  "market_stats_source": "twse_tpex_openapi",
+  "rules": {
+    "top_amount_n": 60,
+    "top_volume_n": 40,
+    "min_volume_amount": 50000000.0,
+    "max_total": 150
+  },
+  "fixed_core_count": 66,
+  "dynamic_amount_added": 38,
+  "dynamic_volume_added": 14,
+  "dynamic_added_count": 52,
+  "total_count": 118,
+  "trimmed_by_max_total": false,
+  "items": [
+    {
+      "symbol": "0050",
+      "ticker": "0050.TW",
+      "market": "TWSE",
+      "name": "元大台灣50",
+      "category": "ETF",
+      "tags": [
+        "core",
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 43682559479.0,
+      "trade_volume_lots": 510651.85
+    },
+    {
+      "symbol": "0056",
+      "ticker": "0056.TW",
+      "market": "TWSE",
+      "name": "元大高股息",
+      "category": "ETF",
+      "tags": [
+        "core",
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 4774034497.0,
+      "trade_volume_lots": 106880.01
+    },
+    {
+      "symbol": "00878",
+      "ticker": "00878.TW",
+      "market": "TWSE",
+      "name": "國泰永續高股息",
+      "category": "ETF",
+      "tags": [
+        "core",
+        "top_volume"
+      ],
+      "trade_amount": 3018953404.0,
+      "trade_volume_lots": 107900.12
+    },
+    {
+      "symbol": "00919",
+      "ticker": "00919.TW",
+      "market": "TWSE",
+      "name": "群益台灣精選高息",
+      "category": "ETF",
+      "tags": [
+        "core",
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 4989580473.0,
+      "trade_volume_lots": 184735.01
+    },
+    {
+      "symbol": "006208",
+      "ticker": "006208.TW",
+      "market": "TWSE",
+      "name": "富邦台50",
+      "category": "ETF",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 1984958859.0,
+      "trade_volume_lots": 10310.96
+    },
+    {
+      "symbol": "00713",
+      "ticker": "00713.TW",
+      "market": "TWSE",
+      "name": "元大台灣高息低波",
+      "category": "ETF",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 679437199.0,
+      "trade_volume_lots": 11698.93
+    },
+    {
+      "symbol": "00929",
+      "ticker": "00929.TW",
+      "market": "TWSE",
+      "name": "復華台灣科技優息",
+      "category": "ETF",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 1102839818.0,
+      "trade_volume_lots": 51548.81
+    },
+    {
+      "symbol": "00631L",
+      "ticker": "00631L.TW",
+      "market": "TWSE",
+      "name": "元大台灣50正2",
+      "category": "ETF",
+      "tags": [
+        "core",
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 25672990442.0,
+      "trade_volume_lots": 1170375.22
+    },
+    {
+      "symbol": "00981A",
+      "ticker": "00981A.TW",
+      "market": "TWSE",
+      "name": "主動統一台股增長",
+      "category": "ETF",
+      "tags": [
+        "core",
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 9818836707.0,
+      "trade_volume_lots": 510555.52
+    },
+    {
+      "symbol": "00406A",
+      "ticker": "00406A.TW",
+      "market": "TWSE",
+      "name": "主動中信台灣收益",
+      "category": "ETF",
+      "tags": [
+        "core",
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 7273182926.0,
+      "trade_volume_lots": 1224087.56
+    },
+    {
+      "symbol": "1216",
+      "ticker": "1216.TW",
+      "market": "TWSE",
+      "name": "統一",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 1571106155.0,
+      "trade_volume_lots": 20572.59
+    },
+    {
+      "symbol": "1229",
+      "ticker": "1229.TW",
+      "market": "TWSE",
+      "name": "聯華",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 106535501.0,
+      "trade_volume_lots": 2753.89
+    },
+    {
+      "symbol": "1477",
+      "ticker": "1477.TW",
+      "market": "TWSE",
+      "name": "儒鴻",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 411184178.0,
+      "trade_volume_lots": 1869.15
+    },
+    {
+      "symbol": "1711",
+      "ticker": "1711.TW",
+      "market": "TWSE",
+      "name": "永光",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 156653907.0,
+      "trade_volume_lots": 6106.72
+    },
+    {
+      "symbol": "2312",
+      "ticker": "2312.TW",
+      "market": "TWSE",
+      "name": "金寶",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 262043050.0,
+      "trade_volume_lots": 12638.19
+    },
+    {
+      "symbol": "2337",
+      "ticker": "2337.TW",
+      "market": "TWSE",
+      "name": "旺宏",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core",
+        "top_volume"
+      ],
+      "trade_amount": 4247366279.0,
+      "trade_volume_lots": 70306.53
+    },
+    {
+      "symbol": "2377",
+      "ticker": "2377.TW",
+      "market": "TWSE",
+      "name": "華碩",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 837668991.0,
+      "trade_volume_lots": 7030.17
+    },
+    {
+      "symbol": "2379",
+      "ticker": "2379.TW",
+      "market": "TWSE",
+      "name": "瑞昱",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 1923350496.0,
+      "trade_volume_lots": 2856.82
+    },
+    {
+      "symbol": "2395",
+      "ticker": "2395.TW",
+      "market": "TWSE",
+      "name": "研華",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 1717892064.0,
+      "trade_volume_lots": 3233.11
+    },
+    {
+      "symbol": "2492",
+      "ticker": "2492.TW",
+      "market": "TWSE",
+      "name": "華新科",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core",
+        "top_amount"
+      ],
+      "trade_amount": 5593748702.0,
+      "trade_volume_lots": 30283.82
+    },
+    {
+      "symbol": "2539",
+      "ticker": "2539.TW",
+      "market": "TWSE",
+      "name": "櫻花建",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 33267111.0,
+      "trade_volume_lots": 1187.39
+    },
+    {
+      "symbol": "2618",
+      "ticker": "2618.TW",
+      "market": "TWSE",
+      "name": "長榮航",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 1233816812.0,
+      "trade_volume_lots": 27905.39
+    },
+    {
+      "symbol": "2646",
+      "ticker": "2646.TW",
+      "market": "TWSE",
+      "name": "寶成",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 91604190.0,
+      "trade_volume_lots": 4968.22
+    },
+    {
+      "symbol": "2885",
+      "ticker": "2885.TW",
+      "market": "TWSE",
+      "name": "元大金",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 2035275279.0,
+      "trade_volume_lots": 34940.13
+    },
+    {
+      "symbol": "2887",
+      "ticker": "2887.TW",
+      "market": "TWSE",
+      "name": "台新金",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core",
+        "top_volume"
+      ],
+      "trade_amount": 4655000198.0,
+      "trade_volume_lots": 143328.11
+    },
+    {
+      "symbol": "3380",
+      "ticker": "3380.TW",
+      "market": "TWSE",
+      "name": "明泰",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 44488133.0,
+      "trade_volume_lots": 1833.6
+    },
+    {
+      "symbol": "4136",
+      "ticker": "4136.TWO",
+      "market": "TPEx",
+      "name": "泰宗",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 0.0,
+      "trade_volume_lots": 0.0
+    },
+    {
+      "symbol": "4906",
+      "ticker": "4906.TW",
+      "market": "TWSE",
+      "name": "正文",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 133462192.0,
+      "trade_volume_lots": 5048.04
+    },
+    {
+      "symbol": "4919",
+      "ticker": "4919.TW",
+      "market": "TWSE",
+      "name": "新唐",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 534996857.0,
+      "trade_volume_lots": 6882.61
+    },
+    {
+      "symbol": "7769",
+      "ticker": "7769.TW",
+      "market": "TWSE",
+      "name": "鴻勁",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core",
+        "top_amount"
+      ],
+      "trade_amount": 6155354745.0,
+      "trade_volume_lots": 2184.93
+    },
+    {
+      "symbol": "8046",
+      "ticker": "8046.TW",
+      "market": "TWSE",
+      "name": "南電",
+      "category": "ALL_USERS_CORE",
+      "tags": [
+        "core",
+        "top_amount"
+      ],
+      "trade_amount": 13700918790.0,
+      "trade_volume_lots": 21787.67
+    },
+    {
+      "symbol": "2330",
+      "ticker": "2330.TW",
+      "market": "TWSE",
+      "name": "台積電",
+      "category": "TECH_AI",
+      "tags": [
+        "core",
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 139706022879.0,
+      "trade_volume_lots": 69364.11
+    },
+    {
+      "symbol": "2303",
+      "ticker": "2303.TW",
+      "market": "TWSE",
+      "name": "聯電",
+      "category": "TECH_AI",
+      "tags": [
+        "core",
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 26277248369.0,
+      "trade_volume_lots": 300769.46
+    },
+    {
+      "symbol": "6285",
+      "ticker": "6285.TW",
+      "market": "TWSE",
+      "name": "啟碁",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 3364436474.0,
+      "trade_volume_lots": 19913.24
+    },
+    {
+      "symbol": "2317",
+      "ticker": "2317.TW",
+      "market": "TWSE",
+      "name": "鴻海",
+      "category": "TECH_AI",
+      "tags": [
+        "core",
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 16679078973.0,
+      "trade_volume_lots": 80161.59
+    },
+    {
+      "symbol": "2454",
+      "ticker": "2454.TW",
+      "market": "TWSE",
+      "name": "聯發科",
+      "category": "TECH_AI",
+      "tags": [
+        "core",
+        "top_amount"
+      ],
+      "trade_amount": 66007271380.0,
+      "trade_volume_lots": 18691.13
+    },
+    {
+      "symbol": "2383",
+      "ticker": "2383.TW",
+      "market": "TWSE",
+      "name": "台光電",
+      "category": "TECH_AI",
+      "tags": [
+        "core",
+        "top_amount"
+      ],
+      "trade_amount": 24841649975.0,
+      "trade_volume_lots": 8686.51
+    },
+    {
+      "symbol": "2382",
+      "ticker": "2382.TW",
+      "market": "TWSE",
+      "name": "廣達",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 3820955022.0,
+      "trade_volume_lots": 14940.61
+    },
+    {
+      "symbol": "3231",
+      "ticker": "3231.TW",
+      "market": "TWSE",
+      "name": "緯創",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 4706329817.0,
+      "trade_volume_lots": 31602.38
+    },
+    {
+      "symbol": "6669",
+      "ticker": "6669.TW",
+      "market": "TWSE",
+      "name": "緯穎",
+      "category": "TECH_AI",
+      "tags": [
+        "core",
+        "top_amount"
+      ],
+      "trade_amount": 7276624640.0,
+      "trade_volume_lots": 5389.99
+    },
+    {
+      "symbol": "2353",
+      "ticker": "2353.TW",
+      "market": "TWSE",
+      "name": "宏碁",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 415197557.0,
+      "trade_volume_lots": 15432.16
+    },
+    {
+      "symbol": "2356",
+      "ticker": "2356.TW",
+      "market": "TWSE",
+      "name": "英業達",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 1029826824.0,
+      "trade_volume_lots": 26416.15
+    },
+    {
+      "symbol": "3017",
+      "ticker": "3017.TW",
+      "market": "TWSE",
+      "name": "奇鋐",
+      "category": "TECH_AI",
+      "tags": [
+        "core",
+        "top_amount"
+      ],
+      "trade_amount": 15467428020.0,
+      "trade_volume_lots": 6995.27
+    },
+    {
+      "symbol": "2368",
+      "ticker": "2368.TW",
+      "market": "TWSE",
+      "name": "金像電",
+      "category": "TECH_AI",
+      "tags": [
+        "core",
+        "top_amount"
+      ],
+      "trade_amount": 11077967024.0,
+      "trade_volume_lots": 15044.82
+    },
+    {
+      "symbol": "2327",
+      "ticker": "2327.TW",
+      "market": "TWSE",
+      "name": "國巨",
+      "category": "TECH_AI",
+      "tags": [
+        "core",
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 22205627834.0,
+      "trade_volume_lots": 73556.58
+    },
+    {
+      "symbol": "6415",
+      "ticker": "6415.TW",
+      "market": "TWSE",
+      "name": "矽力",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 2848100169.0,
+      "trade_volume_lots": 10036.29
+    },
+    {
+      "symbol": "8069",
+      "ticker": "8069.TWO",
+      "market": "TPEx",
+      "name": "元太",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 1162192500.0,
+      "trade_volume_lots": 9457.0
+    },
+    {
+      "symbol": "8096",
+      "ticker": "8096.TWO",
+      "market": "TPEx",
+      "name": "擎亞",
+      "category": "TECH_AI",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 168159700.0,
+      "trade_volume_lots": 3238.0
+    },
+    {
+      "symbol": "3406",
+      "ticker": "3406.TW",
+      "market": "TWSE",
+      "name": "玉晶光",
+      "category": "TECH_AI",
+      "tags": [
+        "core",
+        "top_amount"
+      ],
+      "trade_amount": 5995804486.0,
+      "trade_volume_lots": 9219.6
+    },
+    {
+      "symbol": "2881",
+      "ticker": "2881.TW",
+      "market": "TWSE",
+      "name": "富邦金",
+      "category": "FINANCE",
+      "tags": [
+        "core",
+        "top_amount"
+      ],
+      "trade_amount": 5796955847.0,
+      "trade_volume_lots": 44523.76
+    },
+    {
+      "symbol": "2882",
+      "ticker": "2882.TW",
+      "market": "TWSE",
+      "name": "國泰金",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 4600797742.0,
+      "trade_volume_lots": 48657.99
+    },
+    {
+      "symbol": "2886",
+      "ticker": "2886.TW",
+      "market": "TWSE",
+      "name": "兆豐金",
+      "category": "FINANCE",
+      "tags": [
+        "core",
+        "top_volume"
+      ],
+      "trade_amount": 3423927000.0,
+      "trade_volume_lots": 67652.4
+    },
+    {
+      "symbol": "2891",
+      "ticker": "2891.TW",
+      "market": "TWSE",
+      "name": "中信金",
+      "category": "FINANCE",
+      "tags": [
+        "core",
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 7399348832.0,
+      "trade_volume_lots": 116057.04
+    },
+    {
+      "symbol": "2883",
+      "ticker": "2883.TW",
+      "market": "TWSE",
+      "name": "凱基金",
+      "category": "FINANCE",
+      "tags": [
+        "core",
+        "top_volume"
+      ],
+      "trade_amount": 2334458666.0,
+      "trade_volume_lots": 79709.29
+    },
+    {
+      "symbol": "2834",
+      "ticker": "2834.TW",
+      "market": "TWSE",
+      "name": "臺企銀",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 756148262.0,
+      "trade_volume_lots": 47096.26
+    },
+    {
+      "symbol": "2812",
+      "ticker": "2812.TW",
+      "market": "TWSE",
+      "name": "台中銀",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 248547231.0,
+      "trade_volume_lots": 15875.06
+    },
+    {
+      "symbol": "2851",
+      "ticker": "2851.TW",
+      "market": "TWSE",
+      "name": "中再保",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 100097765.0,
+      "trade_volume_lots": 2526.31
+    },
+    {
+      "symbol": "5880",
+      "ticker": "5880.TW",
+      "market": "TWSE",
+      "name": "合庫金",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 648827122.0,
+      "trade_volume_lots": 24887.56
+    },
+    {
+      "symbol": "5876",
+      "ticker": "5876.TW",
+      "market": "TWSE",
+      "name": "上海商銀",
+      "category": "FINANCE",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 763341298.0,
+      "trade_volume_lots": 15337.67
+    },
+    {
+      "symbol": "1301",
+      "ticker": "1301.TW",
+      "market": "TWSE",
+      "name": "台塑",
+      "category": "TRAD_SECURITY",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 1883165612.0,
+      "trade_volume_lots": 33330.69
+    },
+    {
+      "symbol": "1303",
+      "ticker": "1303.TW",
+      "market": "TWSE",
+      "name": "南亞",
+      "category": "TRAD_SECURITY",
+      "tags": [
+        "core",
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 27300850167.0,
+      "trade_volume_lots": 128627.77
+    },
+    {
+      "symbol": "1326",
+      "ticker": "1326.TW",
+      "market": "TWSE",
+      "name": "台化",
+      "category": "TRAD_SECURITY",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 1368157954.0,
+      "trade_volume_lots": 23401.54
+    },
+    {
+      "symbol": "9925",
+      "ticker": "9925.TW",
+      "market": "TWSE",
+      "name": "新保",
+      "category": "TRAD_SECURITY",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 32484109.0,
+      "trade_volume_lots": 830.17
+    },
+    {
+      "symbol": "2325",
+      "ticker": "2325.TW",
+      "market": "TWSE",
+      "name": "2325",
+      "category": "EXTRA",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 0.0,
+      "trade_volume_lots": 0.0
+    },
+    {
+      "symbol": "2498",
+      "ticker": "2498.TW",
+      "market": "TWSE",
+      "name": "宏達電",
+      "category": "EXTRA",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 165474698.0,
+      "trade_volume_lots": 5492.42
+    },
+    {
+      "symbol": "6788",
+      "ticker": "6788.TW",
+      "market": "TPEx",
+      "name": "6788",
+      "category": "EXTRA",
+      "tags": [
+        "core"
+      ],
+      "trade_amount": 151347500.0,
+      "trade_volume_lots": 649.0
+    },
+    {
+      "symbol": "3443",
+      "ticker": "3443.TW",
+      "market": "TWSE",
+      "name": "創意",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 43202900480.0,
+      "trade_volume_lots": 8652.56
+    },
+    {
+      "symbol": "2308",
+      "ticker": "2308.TW",
+      "market": "TWSE",
+      "name": "台達電",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 29423858339.0,
+      "trade_volume_lots": 31464.4
+    },
+    {
+      "symbol": "3189",
+      "ticker": "3189.TW",
+      "market": "TWSE",
+      "name": "景碩",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 24562591629.0,
+      "trade_volume_lots": 54944.66
+    },
+    {
+      "symbol": "3037",
+      "ticker": "3037.TW",
+      "market": "TWSE",
+      "name": "欣興",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 24363152399.0,
+      "trade_volume_lots": 46555.49
+    },
+    {
+      "symbol": "2408",
+      "ticker": "2408.TW",
+      "market": "TWSE",
+      "name": "南亞科",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 19977803683.0,
+      "trade_volume_lots": 73336.04
+    },
+    {
+      "symbol": "3711",
+      "ticker": "3711.TW",
+      "market": "TWSE",
+      "name": "日月光投控",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 16286642179.0,
+      "trade_volume_lots": 34564.52
+    },
+    {
+      "symbol": "3653",
+      "ticker": "3653.TW",
+      "market": "TWSE",
+      "name": "健策",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 15704779975.0,
+      "trade_volume_lots": 4450.51
+    },
+    {
+      "symbol": "3008",
+      "ticker": "3008.TW",
+      "market": "TWSE",
+      "name": "大立光",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 14905838870.0,
+      "trade_volume_lots": 4148.86
+    },
+    {
+      "symbol": "3661",
+      "ticker": "3661.TW",
+      "market": "TWSE",
+      "name": "世芯-KY",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 14206852500.0,
+      "trade_volume_lots": 4108.95
+    },
+    {
+      "symbol": "3105",
+      "ticker": "3105.TWO",
+      "market": "TPEx",
+      "name": "穩懋",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 12713946500.0,
+      "trade_volume_lots": 33228.0
+    },
+    {
+      "symbol": "6274",
+      "ticker": "6274.TWO",
+      "market": "TPEx",
+      "name": "台燿",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 11354034000.0,
+      "trade_volume_lots": 17965.0
+    },
+    {
+      "symbol": "2344",
+      "ticker": "2344.TW",
+      "market": "TWSE",
+      "name": "華邦電",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 10951992653.0,
+      "trade_volume_lots": 117729.48
+    },
+    {
+      "symbol": "6213",
+      "ticker": "6213.TW",
+      "market": "TWSE",
+      "name": "聯茂",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 9985248044.0,
+      "trade_volume_lots": 27929.38
+    },
+    {
+      "symbol": "1802",
+      "ticker": "1802.TW",
+      "market": "TWSE",
+      "name": "台玻",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 9954943955.0,
+      "trade_volume_lots": 186776.67
+    },
+    {
+      "symbol": "2345",
+      "ticker": "2345.TW",
+      "market": "TWSE",
+      "name": "智邦",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 9307993370.0,
+      "trade_volume_lots": 7095.41
+    },
+    {
+      "symbol": "4958",
+      "ticker": "4958.TW",
+      "market": "TWSE",
+      "name": "臻鼎-KY",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 9176155667.0,
+      "trade_volume_lots": 29449.12
+    },
+    {
+      "symbol": "00632R",
+      "ticker": "00632R.TW",
+      "market": "TWSE",
+      "name": "元大台灣50反1",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 8776634657.0,
+      "trade_volume_lots": 711579.81
+    },
+    {
+      "symbol": "3081",
+      "ticker": "3081.TWO",
+      "market": "TPEx",
+      "name": "聯亞",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 8558075000.0,
+      "trade_volume_lots": 6509.0
+    },
+    {
+      "symbol": "8299",
+      "ticker": "8299.TWO",
+      "market": "TPEx",
+      "name": "群聯",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 8215505000.0,
+      "trade_volume_lots": 5853.0
+    },
+    {
+      "symbol": "1815",
+      "ticker": "1815.TWO",
+      "market": "TPEx",
+      "name": "富喬",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 7513842100.0,
+      "trade_volume_lots": 76438.0
+    },
+    {
+      "symbol": "00685L",
+      "ticker": "00685L.TW",
+      "market": "TWSE",
+      "name": "群益臺灣加權正2",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 7341319702.0,
+      "trade_volume_lots": 1044914.42
+    },
+    {
+      "symbol": "6223",
+      "ticker": "6223.TWO",
+      "market": "TPEx",
+      "name": "旺矽",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 6957960000.0,
+      "trade_volume_lots": 1917.0
+    },
+    {
+      "symbol": "2360",
+      "ticker": "2360.TW",
+      "market": "TWSE",
+      "name": "致茂",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 6283851135.0,
+      "trade_volume_lots": 7130.3
+    },
+    {
+      "symbol": "3374",
+      "ticker": "3374.TWO",
+      "market": "TPEx",
+      "name": "精材",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 6141974500.0,
+      "trade_volume_lots": 19498.0
+    },
+    {
+      "symbol": "3481",
+      "ticker": "3481.TW",
+      "market": "TWSE",
+      "name": "群創",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 6023995993.0,
+      "trade_volume_lots": 200637.6
+    },
+    {
+      "symbol": "2412",
+      "ticker": "2412.TW",
+      "market": "TWSE",
+      "name": "中華電",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 6021647241.0,
+      "trade_volume_lots": 36639.67
+    },
+    {
+      "symbol": "3665",
+      "ticker": "3665.TW",
+      "market": "TWSE",
+      "name": "貿聯-KY",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 5908512465.0,
+      "trade_volume_lots": 4327.82
+    },
+    {
+      "symbol": "2603",
+      "ticker": "2603.TW",
+      "market": "TWSE",
+      "name": "長榮",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 5701425756.0,
+      "trade_volume_lots": 24216.75
+    },
+    {
+      "symbol": "5274",
+      "ticker": "5274.TWO",
+      "market": "TPEx",
+      "name": "信驊",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 5499425000.0,
+      "trade_volume_lots": 683.0
+    },
+    {
+      "symbol": "2313",
+      "ticker": "2313.TW",
+      "market": "TWSE",
+      "name": "華通",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 5479226302.0,
+      "trade_volume_lots": 37155.3
+    },
+    {
+      "symbol": "2059",
+      "ticker": "2059.TW",
+      "market": "TWSE",
+      "name": "川湖",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 5372041310.0,
+      "trade_volume_lots": 1003.88
+    },
+    {
+      "symbol": "3324",
+      "ticker": "3324.TWO",
+      "market": "TPEx",
+      "name": "雙鴻",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 5320839000.0,
+      "trade_volume_lots": 7170.0
+    },
+    {
+      "symbol": "2449",
+      "ticker": "2449.TW",
+      "market": "TWSE",
+      "name": "京元電子",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 5260502549.0,
+      "trade_volume_lots": 34199.23
+    },
+    {
+      "symbol": "6488",
+      "ticker": "6488.TWO",
+      "market": "TPEx",
+      "name": "環球晶",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 5218083500.0,
+      "trade_volume_lots": 11812.0
+    },
+    {
+      "symbol": "2409",
+      "ticker": "2409.TW",
+      "market": "TWSE",
+      "name": "友達",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 5083838433.0,
+      "trade_volume_lots": 214206.52
+    },
+    {
+      "symbol": "8358",
+      "ticker": "8358.TWO",
+      "market": "TPEx",
+      "name": "金居",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 5015535500.0,
+      "trade_volume_lots": 21333.0
+    },
+    {
+      "symbol": "6770",
+      "ticker": "6770.TW",
+      "market": "TWSE",
+      "name": "力積電",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 4987384057.0,
+      "trade_volume_lots": 106711.35
+    },
+    {
+      "symbol": "8996",
+      "ticker": "8996.TW",
+      "market": "TWSE",
+      "name": "高力",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 4808007515.0,
+      "trade_volume_lots": 5680.37
+    },
+    {
+      "symbol": "009816",
+      "ticker": "009816.TW",
+      "market": "TWSE",
+      "name": "凱基台灣TOP50",
+      "category": "DYNAMIC_VOLUME",
+      "tags": [
+        "top_volume"
+      ],
+      "trade_amount": 3313377131.0,
+      "trade_volume_lots": 260599.22
+    },
+    {
+      "symbol": "00403A",
+      "ticker": "00403A.TW",
+      "market": "TWSE",
+      "name": "主動統一升級50",
+      "category": "DYNAMIC_VOLUME",
+      "tags": [
+        "top_volume"
+      ],
+      "trade_amount": 1431407961.0,
+      "trade_volume_lots": 202272.22
+    },
+    {
+      "symbol": "00991A",
+      "ticker": "00991A.TW",
+      "market": "TWSE",
+      "name": "主動復華未來50",
+      "category": "DYNAMIC_VOLUME",
+      "tags": [
+        "top_volume"
+      ],
+      "trade_amount": 1145801380.0,
+      "trade_volume_lots": 106779.44
+    },
+    {
+      "symbol": "00664R",
+      "ticker": "00664R.TW",
+      "market": "TWSE",
+      "name": "國泰臺灣加權反1",
+      "category": "DYNAMIC_VOLUME",
+      "tags": [
+        "top_volume"
+      ],
+      "trade_amount": 205915058.0,
+      "trade_volume_lots": 103784.64
+    },
+    {
+      "symbol": "00992A",
+      "ticker": "00992A.TW",
+      "market": "TWSE",
+      "name": "主動群益科技創新",
+      "category": "DYNAMIC_VOLUME",
+      "tags": [
+        "top_volume"
+      ],
+      "trade_amount": 1031957563.0,
+      "trade_volume_lots": 96047.71
+    },
+    {
+      "symbol": "2890",
+      "ticker": "2890.TW",
+      "market": "TWSE",
+      "name": "永豐金",
+      "category": "DYNAMIC_VOLUME",
+      "tags": [
+        "top_volume"
+      ],
+      "trade_amount": 3354833118.0,
+      "trade_volume_lots": 93242.58
+    },
+    {
+      "symbol": "00405A",
+      "ticker": "00405A.TW",
+      "market": "TWSE",
+      "name": "主動富邦台灣龍耀",
+      "category": "DYNAMIC_VOLUME",
+      "tags": [
+        "top_volume"
+      ],
+      "trade_amount": 429641179.0,
+      "trade_volume_lots": 76046.73
+    },
+    {
+      "symbol": "00686R",
+      "ticker": "00686R.TW",
+      "market": "TWSE",
+      "name": "群益臺灣加權反1",
+      "category": "DYNAMIC_VOLUME",
+      "tags": [
+        "top_volume"
+      ],
+      "trade_amount": 85622544.0,
+      "trade_volume_lots": 70473.02
+    },
+    {
+      "symbol": "00937B",
+      "ticker": "00937B.TWO",
+      "market": "TPEx",
+      "name": "群益ESG投等債20+",
+      "category": "DYNAMIC_VOLUME",
+      "tags": [
+        "top_volume"
+      ],
+      "trade_amount": 971035180.0,
+      "trade_volume_lots": 68402.0
+    },
+    {
+      "symbol": "00982A",
+      "ticker": "00982A.TW",
+      "market": "TWSE",
+      "name": "主動群益台灣強棒",
+      "category": "DYNAMIC_VOLUME",
+      "tags": [
+        "top_volume"
+      ],
+      "trade_amount": 870517918.0,
+      "trade_volume_lots": 62286.96
+    },
+    {
+      "symbol": "2468",
+      "ticker": "2468.TW",
+      "market": "TWSE",
+      "name": "華經",
+      "category": "DYNAMIC_VOLUME",
+      "tags": [
+        "top_volume"
+      ],
+      "trade_amount": 4157429287.0,
+      "trade_volume_lots": 60028.76
+    },
+    {
+      "symbol": "00400A",
+      "ticker": "00400A.TW",
+      "market": "TWSE",
+      "name": "主動國泰動能高息",
+      "category": "DYNAMIC_VOLUME",
+      "tags": [
+        "top_volume"
+      ],
+      "trade_amount": 586243640.0,
+      "trade_volume_lots": 58924.4
+    },
+    {
+      "symbol": "2884",
+      "ticker": "2884.TW",
+      "market": "TWSE",
+      "name": "玉山金",
+      "category": "DYNAMIC_VOLUME",
+      "tags": [
+        "top_volume"
+      ],
+      "trade_amount": 2237915983.0,
+      "trade_volume_lots": 58058.76
+    },
+    {
+      "symbol": "2892",
+      "ticker": "2892.TW",
+      "market": "TWSE",
+      "name": "第一金",
+      "category": "DYNAMIC_VOLUME",
+      "tags": [
+        "top_volume"
+      ],
+      "trade_amount": 2115982008.0,
+      "trade_volume_lots": 56501.79
+    }
+  ]
+}
