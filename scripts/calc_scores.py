@@ -106,7 +106,10 @@ def calc_macd(df: pd.DataFrame, fast: int = 12, slow: int = 26, signal: int = 9)
 
 
 def evaluate_technical_10(stock_df: pd.DataFrame, index_df: pd.DataFrame) -> tuple[list[dict], int]:
-    s = stock_df.copy().reset_index(drop=True)
+    s = stock_df.copy()
+    if "date" in s.columns:
+        s = s.sort_values("date")
+    s = s.reset_index(drop=True)
     closes = _clean_series(s["close"]).ffill().bfill().fillna(0.0)
 
     ma5 = closes.rolling(5).mean()
@@ -119,20 +122,20 @@ def evaluate_technical_10(stock_df: pd.DataFrame, index_df: pd.DataFrame) -> tup
     dif, dea = calc_macd(s, 12, 26, 9)
 
     c0 = _safe_float(closes.iloc[-1])
-    c1 = _safe_float(closes.iloc[-2])
-    c2 = _safe_float(closes.iloc[-3])
-    c3 = _safe_float(closes.iloc[-4])
+    c1 = _safe_float(closes.iloc[-2]) if len(closes) >= 2 else c0
+    c2 = _safe_float(closes.iloc[-3]) if len(closes) >= 3 else c1
+    c3 = _safe_float(closes.iloc[-4]) if len(closes) >= 4 else c2
 
-    up_3d = bool(c0 > c1 > c2 > c3)
-    ret_3d_pct = ((c0 - c3) / c3) * 100.0 if c3 != 0 else 0.0
+    up_3d = bool(len(closes) >= 4 and c0 > c1 > c2 > c3)
+    ret_3d_pct = ((c0 - c3) / c3) * 100.0 if (len(closes) >= 4 and c3 != 0) else 0.0
     ret_3d_over_5 = bool(ret_3d_pct > 5.0)
 
     beat_3d = False
     if index_df is not None and not index_df.empty and "date" in s.columns and "date" in index_df.columns:
-        idx_clean = index_df.copy()
+        idx_clean = index_df.copy().sort_values("date")
         idx_clean["close"] = _clean_series(idx_clean["close"])
         merged = pd.merge(
-            s[["date", "close"]].assign(close=closes).rename(columns={"close": "s_close"}),
+            s[["date"]].assign(s_close=closes),
             idx_clean[["date", "close"]].rename(columns={"close": "m_close"}),
             on="date",
             how="inner",
@@ -144,11 +147,11 @@ def evaluate_technical_10(stock_df: pd.DataFrame, index_df: pd.DataFrame) -> tup
             beat_3d = bool((last3["s_ret"] > last3["m_ret"]).all())
 
     k0, d0 = _safe_float(k.iloc[-1], 50.0), _safe_float(d.iloc[-1], 50.0)
-    k1, d1 = _safe_float(k.iloc[-2], 50.0), _safe_float(d.iloc[-2], 50.0)
+    k1, d1 = (_safe_float(k.iloc[-2], 50.0), _safe_float(d.iloc[-2], 50.0)) if len(k) >= 2 else (k0, d0)
     kd_cross = bool(k0 > d0 and k1 <= d1)
 
     r0 = _safe_float(rsi14.iloc[-1], 50.0)
-    r1 = _safe_float(rsi14.iloc[-2], 50.0)
+    r1 = _safe_float(rsi14.iloc[-2], 50.0) if len(rsi14) >= 2 else r0
     rsi_bull = bool(r0 > 50.0 and r0 > r1)
 
     dif0 = _safe_float(dif.iloc[-1])
@@ -160,10 +163,10 @@ def evaluate_technical_10(stock_df: pd.DataFrame, index_df: pd.DataFrame) -> tup
     m20_0 = _safe_float(ma20.iloc[-1])
     m60_0 = _safe_float(ma60.iloc[-1])
 
-    above_5ma = bool(c0 >= m5_0)
-    above_20ma = bool(c0 >= m20_0)
-    ma20_gt_ma60 = bool(m20_0 > m60_0)
-    ma_bull_align = bool(m5_0 > m10_0 > m20_0)
+    above_5ma = bool(c0 > 0 and c0 >= m5_0)
+    above_20ma = bool(c0 > 0 and c0 >= m20_0)
+    ma20_gt_ma60 = bool(m20_0 > 0 and m60_0 > 0 and m20_0 > m60_0)
+    ma_bull_align = bool(m5_0 > 0 and m10_0 > 0 and m20_0 > 0 and m5_0 > m10_0 > m20_0)
 
     checks = [
         {"label": "收盤價連 3 日漲", "passed": up_3d, "value": "符合" if up_3d else "未連3漲"},
@@ -259,22 +262,13 @@ def build_stock_detail(
     if excluded:
         badge = "資料未齊全（已排除）"
         trading_note = f"今日已依核心規則排除評分排行：{note_text}。請搭配大盤水位、量價結構與停損紀律綜合判斷。"
-    elif total_score >= 22:
-        badge = "面面領漲強勢主攻"
-        trading_note = (
-            f"部分欄位暫缺（{note_text}），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。"
-            if note_text
-            else "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。"
-        )
-    elif total_score >= 18:
-        badge = "多頭偏強觀察"
-        trading_note = (
-            f"部分欄位暫缺（{note_text}），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。"
-            if note_text
-            else "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。"
-        )
     else:
-        badge = "中性觀望"
+        if total_score >= 22:
+            badge = "面面領漲強勢主攻"
+        elif total_score >= 18:
+            badge = "多頭偏強觀察"
+        else:
+            badge = "中性觀望"
         trading_note = (
             f"部分欄位暫缺（{note_text}），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。"
             if note_text

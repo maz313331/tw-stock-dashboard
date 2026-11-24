@@ -7,6 +7,12 @@ import pandas as pd
 import requests
 import yfinance as yf
 
+TZ_CST = dt.timezone(dt.timedelta(hours=8))
+
+
+def _today_cst() -> dt.date:
+    return dt.datetime.now(TZ_CST).date()
+
 
 def _load_finmind_token() -> str:
     token = (os.environ.get("FINMIND_TOKEN") or os.environ.get("FINMIND_API_TOKEN") or "").strip()
@@ -29,34 +35,68 @@ def _load_finmind_token() -> str:
     return ""
 
 
+def _sanitize_split_jump(df: pd.DataFrame) -> pd.DataFrame:
+    """若收盤價出現單日 >35% 或 <-35% 的跳空（常見於未還原分割/反分割），保留最新連續區段。"""
+    if df is None or len(df) < 2 or "close" not in df.columns:
+        return df
+    work = df.copy().reset_index(drop=True)
+    closes = pd.to_numeric(work["close"], errors="coerce")
+    ratios = closes / closes.shift(1)
+    jump_idx = work.index[(ratios > 1.35) | (ratios < 0.65)].tolist()
+    if jump_idx:
+        work = work.iloc[jump_idx[-1]:].reset_index(drop=True)
+    return work
+
+
 def _normalize_ohlcv_df(df: pd.DataFrame, limit: int = 120) -> pd.DataFrame:
     if df is None or df.empty:
         return pd.DataFrame()
     work = df.copy()
+
+    if isinstance(work.columns, pd.MultiIndex):
+        work.columns = [
+            col[0] if isinstance(col, tuple) and len(col) > 0 else col
+            for col in work.columns
+        ]
+
+    rename_map = {
+        "Date": "date",
+        "Datetime": "date",
+        "Open": "open",
+        "High": "high",
+        "Low": "low",
+        "Close": "close",
+        "Volume": "volume",
+        "max": "high",
+        "min": "low",
+        "Trading_Volume": "volume",
+    }
+    work = work.rename(columns={k: v for k, v in rename_map.items() if k in work.columns})
+
     if "date" not in work.columns:
-        if "Date" in work.columns:
-            work["date"] = pd.to_datetime(work["Date"], errors="coerce").dt.strftime("%Y-%m-%d")
-        else:
-            work = work.reset_index()
-            first_col = work.columns[0]
-            work["date"] = pd.to_datetime(work[first_col], errors="coerce").dt.strftime("%Y-%m-%d")
+        work = work.reset_index()
+        first_col = work.columns[0]
+        work["date"] = pd.to_datetime(work[first_col], errors="coerce").dt.strftime("%Y-%m-%d")
+    else:
+        work["date"] = pd.to_datetime(work["date"], errors="coerce").dt.strftime("%Y-%m-%d")
 
     for col in ["open", "high", "low", "close", "volume"]:
         if col not in work.columns:
             work[col] = pd.NA
-
-    work = work.dropna(subset=["date", "close"]).copy()
-    for col in ["open", "high", "low", "close", "volume"]:
         work[col] = pd.to_numeric(work[col], errors="coerce")
 
     work = (
         work[["date", "open", "high", "low", "close", "volume"]]
-        .dropna(subset=["close"])
+        .dropna(subset=["date", "close"])
         .drop_duplicates(subset=["date"])
         .sort_values("date")
+        .reset_index(drop=True)
     )
+    work = work[work["close"] > 0].reset_index(drop=True)
     if work.empty:
         return pd.DataFrame()
+
+    work = _sanitize_split_jump(work)
     return work.tail(limit).reset_index(drop=True)
 
 
@@ -77,22 +117,9 @@ def fetch_yf_history(
                 progress=False,
                 threads=False,
             )
-            if df is not None and not df.empty:
-                if isinstance(df.columns, pd.MultiIndex):
-                    df.columns = df.columns.get_level_values(0)
-                df = df.reset_index()
-                date_col = "Date" if "Date" in df.columns else df.columns[0]
-                df["date"] = pd.to_datetime(df[date_col], errors="coerce").dt.strftime("%Y-%m-%d")
-                df = df.rename(columns={
-                    "Open": "open",
-                    "High": "high",
-                    "Low": "low",
-                    "Close": "close",
-                    "Volume": "volume",
-                })
-                out = _normalize_ohlcv_df(df, limit=limit)
-                if not out.empty:
-                    return out
+            out = _normalize_ohlcv_df(df, limit=limit)
+            if not out.empty and len(out) >= 2:
+                return out
         except Exception:
             pass
 
@@ -108,48 +135,42 @@ def fetch_stooq_us_history(stooq_symbol: str, limit: int = 120) -> pd.DataFrame:
         resp = requests.get(url, timeout=15)
         resp.raise_for_status()
         df = pd.read_csv(io.StringIO(resp.text))
-        if df.empty or "Close" not in df.columns:
-            return pd.DataFrame()
-        df["date"] = pd.to_datetime(df["Date"], errors="coerce").dt.strftime("%Y-%m-%d")
-        df = df.rename(columns={
-            "Open": "open",
-            "High": "high",
-            "Low": "low",
-            "Close": "close",
-            "Volume": "volume",
-        })
         return _normalize_ohlcv_df(df, limit=limit)
     except Exception:
         return pd.DataFrame()
 
 
 def fetch_finmind_tw_stock(stock_id: str, days_back: int = 210, limit: int = 120) -> pd.DataFrame:
-    try:
-        start_date = (dt.date.today() - dt.timedelta(days=days_back)).strftime("%Y-%m-%d")
-        url = "https://api.finmindtrade.com/api/v4/data"
-        params = {
-            "dataset": "TaiwanStockPrice",
-            "data_id": str(stock_id).strip(),
-            "start_date": start_date,
-        }
-        token = _load_finmind_token()
-        if token:
-            params["token"] = token
+    start_date = (_today_cst() - dt.timedelta(days=days_back)).strftime("%Y-%m-%d")
+    url = "https://api.finmindtrade.com/api/v4/data"
+    params = {
+        "dataset": "TaiwanStockPrice",
+        "data_id": str(stock_id).strip(),
+        "start_date": start_date,
+    }
+    token = _load_finmind_token()
+    if token:
+        params["token"] = token
 
-        resp = requests.get(url, params=params, timeout=15)
-        resp.raise_for_status()
-        payload = resp.json()
-        rows = payload.get("data", []) if isinstance(payload, dict) else []
-        if not rows:
-            return pd.DataFrame()
-        df = pd.DataFrame(rows).rename(columns={
-            "max": "high",
-            "min": "low",
-            "Trading_Volume": "volume",
-        })
-        return _normalize_ohlcv_df(df, limit=limit)
-    except Exception:
-        return pd.DataFrame()
+    for attempt in range(1, 3):
+        try:
+            resp = requests.get(url, params=params, timeout=15)
+            resp.raise_for_status()
+            payload = resp.json()
+            if isinstance(payload, dict) and payload.get("msg") not in (None, "", "success"):
+                if attempt < 2:
+                    time.sleep(1.0)
+                    continue
+            rows = payload.get("data", []) if isinstance(payload, dict) else []
+            if not rows:
+                return pd.DataFrame()
+            out = _normalize_ohlcv_df(pd.DataFrame(rows), limit=limit)
+            if not out.empty:
+                return out
+        except Exception:
+            if attempt < 2:
+                time.sleep(1.0)
+    return pd.DataFrame()
 
 
 def fetch_tw_history_with_fallback(

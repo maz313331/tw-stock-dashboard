@@ -12,6 +12,11 @@ from fetch_sources import fetch_yf_history
 DEFAULT_HEADERS = {"User-Agent": "Mozilla/5.0"}
 DEFAULT_TIMEOUT = 10
 MAX_HISTORY_ROWS = 120
+TZ_CST = dt.timezone(dt.timedelta(hours=8))
+
+
+def now_cst() -> dt.datetime:
+    return dt.datetime.now(TZ_CST)
 
 
 def _safe_num(val, default: float = 0.0) -> float:
@@ -22,6 +27,23 @@ def _safe_num(val, default: float = 0.0) -> float:
     if math.isnan(num) or math.isinf(num):
         return default
     return num
+
+
+def _sanitize_split_discontinuity(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    偵測未還原的 ETF 股票分割/反分割跳空（單日漲跌幅超過 ±35%，台股 ETF 無此單日幅度），
+    僅保留分割發生後的連續價格序列，避免出現如 00662 分割後 MA20/MA60 嚴重失真。
+    """
+    if df is None or len(df) < 2 or "close" not in df.columns:
+        return df
+    work = df.copy().reset_index(drop=True)
+    closes = pd.to_numeric(work["close"], errors="coerce")
+    ratios = closes / closes.shift(1)
+    jump_indices = work.index[(ratios > 1.35) | (ratios < 0.65)].tolist()
+    if jump_indices:
+        last_jump = jump_indices[-1]
+        work = work.iloc[last_jump:].reset_index(drop=True)
+    return work
 
 
 def calc_rsi(series: pd.Series, period: int = 14) -> float:
@@ -68,7 +90,8 @@ def evaluate_etf_metrics(
     chip_data: dict | None = None,
 ) -> tuple[dict, dict]:
     chip = chip_data or {}
-    close_s = pd.to_numeric(df["close"], errors="coerce").replace([float("inf"), float("-inf")], float("nan")).dropna()
+    clean_df = _sanitize_split_discontinuity(df)
+    close_s = pd.to_numeric(clean_df["close"], errors="coerce").replace([float("inf"), float("-inf")], float("nan")).dropna()
     if len(close_s) < 2:
         raise ValueError(f"{sym} 有效收盤價資料不足（筆數={len(close_s)}）")
 
@@ -130,7 +153,7 @@ def load_etf_targets(root: Path, offset: int = 0, limit: int = 100) -> list[tupl
         for item in raw:
             sym = str(item.get("symbol") or "").strip()
             name = str(item.get("name") or sym).strip()
-            mkt = str(item.get("market") or "TW").strip()
+            mkt = str(item.get("market") or ("TWO" if sym.endswith("B") else "TW")).strip()
             if sym:
                 pool.append((sym, name, mkt))
 
@@ -138,11 +161,19 @@ def load_etf_targets(root: Path, offset: int = 0, limit: int = 100) -> list[tupl
     return pool[start : start + limit] if (limit and limit > 0) else pool[start:]
 
 
-def merge_etf_summary(etf_summary_path: Path, new_rows: list[dict]) -> list[dict]:
+def _extract_market_date(label: str) -> str:
+    if "行情日 " in label:
+        return label.split("行情日 ", 1)[1].rstrip("）)").strip()
+    return ""
+
+
+def merge_etf_summary(etf_summary_path: Path, new_rows: list[dict]) -> tuple[list[dict], str]:
     by_sym: dict[str, dict] = {}
+    prev_latest_market_date = ""
     if etf_summary_path.exists():
         try:
             prev = json.loads(etf_summary_path.read_text(encoding="utf-8"))
+            prev_latest_market_date = _extract_market_date(str(prev.get("updated_at") or ""))
             for r in prev.get("etfs", []):
                 s = str(r.get("symbol") or "").strip()
                 if s:
@@ -152,11 +183,21 @@ def merge_etf_summary(etf_summary_path: Path, new_rows: list[dict]) -> list[dict
 
     for r in new_rows:
         by_sym[r["symbol"]] = r
-    return sorted(by_sym.values(), key=lambda x: x["symbol"])
+
+    merged = sorted(by_sym.values(), key=lambda x: x["symbol"])
+    all_dates = [
+        _extract_market_date(str(r.get("updated_at") or ""))
+        for r in merged
+        if _extract_market_date(str(r.get("updated_at") or ""))
+    ]
+    if prev_latest_market_date:
+        all_dates.append(prev_latest_market_date)
+    best_market_date = max(all_dates) if all_dates else ""
+    return merged, best_market_date
 
 
-def _parse_twse_row(row: list) -> dict | None:
-    if len(row) < 7:
+def _parse_roc_row(row: list, close_idx: int) -> dict | None:
+    if len(row) <= close_idx:
         return None
     parts = str(row[0]).strip().split("/")
     if len(parts) != 3:
@@ -166,11 +207,11 @@ def _parse_twse_row(row: list) -> dict | None:
         month = int(parts[1])
         day = int(parts[2])
         iso_date = f"{roc_year + 1911:04d}-{month:02d}-{day:02d}"
-        close_str = str(row[6]).replace(",", "").strip()
+        close_str = str(row[close_idx]).replace(",", "").strip()
         if not close_str or close_str in {"--", "-"}:
             return None
         val = float(close_str)
-        if math.isnan(val) or math.isinf(val):
+        if math.isnan(val) or math.isinf(val) or val <= 0:
             return None
         return {"date": iso_date, "close": val}
     except ValueError:
@@ -183,7 +224,7 @@ def fetch_twse_stock_day_fallback(
     session: requests.Session | None = None,
 ) -> pd.DataFrame | None:
     """當 Yahoo Finance 查無資料時，從證交所 STOCK_DAY 逐月抓近幾個月日線。"""
-    today = dt.date.today()
+    today = now_cst().date()
     frames: list[dict] = []
     client = session or requests.Session()
 
@@ -204,9 +245,58 @@ def fetch_twse_stock_day_fallback(
             data = resp.json()
             if data.get("stat") == "OK" and data.get("data"):
                 for row in data["data"]:
-                    parsed = _parse_twse_row(row)
+                    parsed = _parse_roc_row(row, close_idx=6)
                     if parsed:
                         frames.append(parsed)
+            time.sleep(0.25)
+        except Exception:
+            continue
+
+    if not frames:
+        return None
+
+    df = (
+        pd.DataFrame(frames)
+        .drop_duplicates(subset=["date"])
+        .sort_values("date")
+        .reset_index(drop=True)
+    )
+    return df.tail(MAX_HISTORY_ROWS).reset_index(drop=True) if len(df) >= 2 else None
+
+
+def fetch_tpex_stock_day_fallback(
+    sym: str,
+    months: int = 6,
+    session: requests.Session | None = None,
+) -> pd.DataFrame | None:
+    """針對上櫃債券/股票 ETF（.TWO），從櫃買中心逐月抓近幾個月日線。"""
+    today = now_cst().date()
+    frames: list[dict] = []
+    client = session or requests.Session()
+
+    for m in range(months):
+        year = today.year
+        month = today.month - m
+        while month <= 0:
+            month += 12
+            year -= 1
+        roc_year = year - 1911
+        date_str = f"{roc_year}/{month:02d}"
+        url = (
+            "https://www.tpex.org.tw/web/stock/aftertrading/daily_trading_info/st43_result.php"
+            f"?l=zh-tw&d={date_str}&stkno={sym}&o=json"
+        )
+        try:
+            resp = client.get(url, headers=DEFAULT_HEADERS, timeout=DEFAULT_TIMEOUT)
+            resp.raise_for_status()
+            data = resp.json()
+            rows = data.get("aaData") or []
+            if not rows and isinstance(data.get("tables"), list) and data["tables"]:
+                rows = data["tables"][0].get("data") or []
+            for row in rows:
+                parsed = _parse_roc_row(row, close_idx=6)
+                if parsed:
+                    frames.append(parsed)
             time.sleep(0.25)
         except Exception:
             continue
@@ -228,7 +318,8 @@ def fetch_etf_history_with_fallback(
     mkt: str = "TW",
     session: requests.Session | None = None,
 ) -> pd.DataFrame | None:
-    suffixes = [".TWO", ".TW"] if str(mkt).upper() in {"TWO", "OTC", "TPEX"} else [".TW", ".TWO"]
+    is_otc = str(mkt).upper() in {"TWO", "OTC", "TPEX"} or sym.endswith("B")
+    suffixes = [".TWO", ".TW"] if is_otc else [".TW", ".TWO"]
     for sfx in suffixes:
         df = fetch_yf_history(
             f"{sym}{sfx}",
@@ -240,9 +331,20 @@ def fetch_etf_history_with_fallback(
         if df is not None and not df.empty and len(df) >= 2:
             return df
 
+    if is_otc:
+        tpex_df = fetch_tpex_stock_day_fallback(sym, months=6, session=session)
+        if tpex_df is not None and len(tpex_df) >= 2:
+            return tpex_df
+
     twse_df = fetch_twse_stock_day_fallback(sym, months=6, session=session)
     if twse_df is not None and len(twse_df) >= 2:
         return twse_df
+
+    if not is_otc:
+        tpex_df = fetch_tpex_stock_day_fallback(sym, months=6, session=session)
+        if tpex_df is not None and len(tpex_df) >= 2:
+            return tpex_df
+
     return None
 
 
@@ -261,7 +363,7 @@ def main() -> None:
         print("[提示] 找不到 data/stock_list_etf.json 或目標清單為空，請先執行 fetch_stock_list.py")
         return
 
-    now_str = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
+    now_str = now_cst().strftime("%Y-%m-%d %H:%M")
     batch_rows: list[dict] = []
     skipped_syms: list[str] = []
     latest_date = ""
@@ -278,8 +380,10 @@ def main() -> None:
                 print(f"[略過] {sym} {name} 暫時無法取得日線")
                 continue
 
-            latest_date = str(df.iloc[-1]["date"])
-            updated_label = f"{now_str}（行情日 {latest_date}）"
+            row_date = str(df.iloc[-1]["date"])
+            if row_date > latest_date:
+                latest_date = row_date
+            updated_label = f"{now_str}（行情日 {row_date}）"
 
             try:
                 detail_obj, row_obj = evaluate_etf_metrics(sym, name, updated_label, df, default_chip)
@@ -294,8 +398,9 @@ def main() -> None:
             if args.sleep > 0 and idx < len(targets) - 1:
                 time.sleep(args.sleep)
 
-    merged = merge_etf_summary(etf_summary_path, batch_rows)
-    final_label = f"{now_str}（行情日 {latest_date}）" if latest_date else now_str
+    merged, best_market_date = merge_etf_summary(etf_summary_path, batch_rows)
+    effective_date = max(latest_date, best_market_date)
+    final_label = f"{now_str}（行情日 {effective_date}）" if effective_date else now_str
     write_json(
         etf_summary_path,
         {

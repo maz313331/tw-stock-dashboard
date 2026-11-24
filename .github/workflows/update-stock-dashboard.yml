@@ -116,7 +116,9 @@ jobs:
           import datetime as dt
           import json
           import os
+          import shutil
           import subprocess
+          import tempfile
           import time
 
           event_name = os.environ["EVENT_NAME"]
@@ -131,12 +133,13 @@ jobs:
           max_total = int(os.environ.get("MAX_TOTAL", "150"))
           max_hourly_calls = int(os.environ.get("MAX_HOURLY_CALLS", "580"))
 
-          cst_now = dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=8)
-          is_evening_补齐 = cst_now.hour >= 20
+          tz_cst = dt.timezone(dt.timedelta(hours=8))
+          cst_now = dt.datetime.now(tz_cst)
+          is_evening_backfill = cst_now.hour >= 20
 
           if phase_input != "auto":
               phase = phase_input
-          elif is_evening_补齐:
+          elif is_evening_backfill:
               phase = "fundamental"
           elif cst_now.hour >= 16:
               phase = "chips"
@@ -148,8 +151,8 @@ jobs:
           elif only_missing_input == "false":
               only_missing = False
           else:
-              # 晚間 21:00 補齊時段預設開啟 --only-missing，日間盤後主更新預設關閉
-              only_missing = True if (event_name == "schedule" and is_evening_补齐) else False
+              # 晚間 20:00/21:00 補齊時段預設開啟 --only-missing，日間盤後主更新預設關閉
+              only_missing = True if (event_name == "schedule" and is_evening_backfill) else False
 
           priority_file = "data/priority_stocks.json"
 
@@ -199,11 +202,18 @@ jobs:
                           print(f"已推送批次提交: {msg}")
                           return
                   subprocess.run(["git", "rebase", "--abort"], capture_output=True, text=True)
-                  subprocess.run(["git", "checkout", "HEAD~1", "--", "data/"], check=True)
-                  subprocess.run(["git", "reset", "--soft", "HEAD~1"], check=True)
-                  subprocess.run(["git", "fetch", "origin", "main"], check=True)
-                  subprocess.run(["git", "reset", "--hard", "origin/main"], check=True)
-                  subprocess.run(["git", "checkout", "HEAD@{1}", "--", "data/"], check=False)
+                  backup_dir = tempfile.mkdtemp(prefix="data_backup_")
+                  try:
+                      if os.path.exists("data"):
+                          shutil.copytree("data", os.path.join(backup_dir, "data"), dirs_exist_ok=True)
+                      subprocess.run(["git", "reset", "--hard", "origin/main"], check=True)
+                      if os.path.exists("data"):
+                          shutil.rmtree("data")
+                      if os.path.exists(os.path.join(backup_dir, "data")):
+                          shutil.copytree(os.path.join(backup_dir, "data"), "data")
+                  finally:
+                      shutil.rmtree(backup_dir, ignore_errors=True)
+
                   subprocess.run(["git", "add", "data/"], check=True)
                   st2 = subprocess.run(["git", "status", "--porcelain"], capture_output=True, text=True, check=True)
                   if st2.stdout.strip():

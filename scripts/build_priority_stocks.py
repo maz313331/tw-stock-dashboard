@@ -7,7 +7,7 @@
   2. 整合多來源盤後量額資料（成交金額 trade_amount、成交張數 trade_volume_lots）：
      - 優先順序 1：本機 summary.json / market.json 快取內的量額欄位
      - 優先順序 2：TWSE 證交所盤後全市場日成交資訊（STOCK_DAY_ALL）與 TPEx 櫃買盤後行情 OpenAPI
-     - 優先順序 3：本機 data/details/<symbol>.json 最新日線收盤價與成交量估算兜底
+     - 優先順序 3：本機 data/details/<symbol>.json 最新日線或 quote 估算兜底
   3. 依據成交金額前 N 名（--top-amount）與成交張數前 N 名（--top-volume，且成交金額達 --min-volume-amount）
      動態挑出核心池以外的熱門標的，補入 data/priority_stocks.json，並受 --max-total 總量上限控管。
   4. 支援 --no-live-market 離線模式、--verbose 詳細診斷輸出、--dry-run 預覽統計。
@@ -24,6 +24,8 @@ from pathlib import Path
 from typing import Any, Iterable
 
 import requests
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 TW_SYMBOL_RE = re.compile(r"^[0-9]{4,6}[A-Za-z]?$")
 TZ_CST = dt.timezone(dt.timedelta(hours=8))
@@ -138,8 +140,14 @@ FIXED_CORE_ITEMS: list[dict[str, Any]] = [
     {"symbol": "9925", "ticker": "9925.TW", "name": "新保", "market": "TWSE", "category": "TRAD_SECURITY", "tags": ["core"]},
     {"symbol": "3711", "ticker": "3711.TW", "name": "日月光", "market": "TWSE", "category": "EXTRA", "tags": ["core"]},
     {"symbol": "2498", "ticker": "2498.TW", "name": "宏達電", "market": "TWSE", "category": "EXTRA", "tags": ["core"]},
-    {"symbol": "6788", "ticker": "6788.TW", "name": "6788", "market": "TWSE", "category": "EXTRA", "tags": ["core"]},
+    {"symbol": "6788", "ticker": "6788.TW", "name": "華景電", "market": "TWSE", "category": "EXTRA", "tags": ["core"]},
 ]
+
+
+def resolve_path(raw_path: str | Path) -> Path:
+    """將相對路徑解析為相對於專案根目錄（PROJECT_ROOT）的路徑。"""
+    p = Path(raw_path)
+    return p if p.is_absolute() else (PROJECT_ROOT / p)
 
 
 def now_cst_iso() -> str:
@@ -178,8 +186,8 @@ def infer_market(symbol: str, row: dict[str, Any] | None = None) -> str:
         return "TPEx"
     if ticker.endswith(".TW"):
         return "TWSE"
-    if symbol.startswith("00") and len(symbol) >= 5:
-        return "TWSE"
+    if symbol.startswith("00") and symbol.endswith("B"):
+        return "TPEx"
     return "TWSE"
 
 
@@ -245,12 +253,6 @@ def extract_amount_and_volume(row: dict[str, Any]) -> tuple[float, float]:
     從單筆行情或摘要列抽取：
       - trade_amount（成交金額，單位：元）
       - trade_volume_lots（成交張數，單位：張，1 張 = 1,000 股）
-
-    處理規則：
-      1. 先找明確的成交金額欄位（TradeValue、trade_amount、成交金額等）。
-      2. 再找明確的成交張數欄位（trade_volume_lots、成交張數等）。
-      3. 若只有成交股數/成交量欄位，自動換算為張數（1 張 = 1,000 股）。
-      4. 若有成交張數與收盤價但缺成交金額，可反推估算成交金額。
     """
     amount = 0.0
     for key in AMOUNT_FIELD_CANDIDATES:
@@ -289,7 +291,7 @@ def _extract_candidate_rows_from_json(payload: Any) -> list[dict[str, Any]]:
     if isinstance(payload, list):
         return [r for r in payload if isinstance(r, dict)]
     if isinstance(payload, dict):
-        for container_key in ("stocks", "items", "data", "rows", "quotes", "records"):
+        for container_key in ("stocks", "items", "data", "rows", "quotes", "records", "etfs"):
             sub = payload.get(container_key)
             if isinstance(sub, list):
                 return [r for r in sub if isinstance(r, dict)]
@@ -305,7 +307,7 @@ def load_local_market_rows(
     """
     優先順序 1 與 3：
       1. 檢查本機 summary.json / market.json 是否有有效成交金額或成交張數。
-      2. 若皆無，嘗試從本機 data/details/<symbol>.json 最新日線資料估算量額。
+      2. 若皆無，嘗試從本機 data/details/<symbol>.json 最新日線或 quote 估算量額。
     """
     for candidate_path in (summary_path, market_path):
         if not candidate_path.exists():
@@ -346,17 +348,22 @@ def load_local_market_rows(
                 continue
             if not isinstance(d_obj, dict):
                 continue
+
+            target_pt: dict[str, Any] | None = None
             history = d_obj.get("history") or d_obj.get("prices") or d_obj.get("candles") or []
-            if not isinstance(history, list) or not history:
+            if isinstance(history, list) and history and isinstance(history[-1], dict):
+                target_pt = history[-1]
+            elif isinstance(d_obj.get("quote"), dict):
+                target_pt = d_obj["quote"]
+
+            if not target_pt:
                 continue
-            last_pt = history[-1]
-            if not isinstance(last_pt, dict):
-                continue
-            amt, vol = extract_amount_and_volume(last_pt)
+
+            amt, vol = extract_amount_and_volume(target_pt)
             if amt > 0 or vol > 0:
                 detail_rows.append({
                     "symbol": sym,
-                    "name": str(d_obj.get("name") or sym).strip(),
+                    "name": str(d_obj.get("name") or target_pt.get("name") or sym).strip(),
                     "market": infer_market(sym, d_obj),
                     "trade_amount": amt,
                     "trade_volume_lots": vol,
@@ -544,9 +551,7 @@ def build_priority_stocks(
     max_total: int = 150,
     source_label: str = "none",
 ) -> dict[str, Any]:
-    """
-    以固定核心池為基準，疊加全市場成交金額前 N 名與成交張數前 N 名熱門標的。
-    """
+    """以固定核心池為基準，疊加全市場成交金額前 N 名與成交張數前 N 名熱門標的。"""
     stats_map, parsed_rows = _merge_market_stats(market_rows)
 
     by_amount = sorted(parsed_rows, key=lambda x: x["trade_amount"], reverse=True)[: max(0, top_amount_n)]
@@ -561,14 +566,13 @@ def build_priority_stocks(
 
     combined: dict[str, dict[str, Any]] = {}
 
-    # 1. 固定核心池（保留順序、分類與核心標籤，並附上今日量額排行資訊）
     for item in fixed_core:
         sym = normalize_symbol(item.get("symbol"))
         if not sym:
             continue
         st = stats_map.get(sym, {})
         mkt = st.get("market") or item.get("market") or infer_market(sym, item)
-        ticker = item.get("ticker") or build_ticker(sym, mkt)
+        ticker = build_ticker(sym, mkt)
         name = str(item.get("name") or st.get("name") or sym).strip()
         tags = list(dict.fromkeys(item.get("tags", ["core"])))
         if "core" not in tags:
@@ -589,8 +593,6 @@ def build_priority_stocks(
             "trade_volume_lots": st.get("trade_volume_lots", 0.0),
         }
 
-    # 2. 動態加入成交金額前 N 名（排除已在核心池者）
-    dynamic_amount_added = 0
     for x in by_amount:
         sym = x["symbol"]
         if x["trade_amount"] <= 0 or sym in combined:
@@ -606,10 +608,7 @@ def build_priority_stocks(
             "trade_amount": x["trade_amount"],
             "trade_volume_lots": x["trade_volume_lots"],
         }
-        dynamic_amount_added += 1
 
-    # 3. 動態加入成交張數前 N 名（排除已在核心池與成交額動態池者）
-    dynamic_volume_added = 0
     for x in by_volume:
         sym = x["symbol"]
         if x["trade_volume_lots"] <= 0 or sym in combined:
@@ -624,7 +623,6 @@ def build_priority_stocks(
             "trade_amount": x["trade_amount"],
             "trade_volume_lots": x["trade_volume_lots"],
         }
-        dynamic_volume_added += 1
 
     items_list = list(combined.values())
     trimmed = False
@@ -718,17 +716,19 @@ def parse_args() -> argparse.Namespace:
 
 def main() -> None:
     args = parse_args()
+    core_out_path = resolve_path(args.core_out)
+    priority_out_path = resolve_path(args.priority_out)
 
     core_payload = build_core_payload(FIXED_CORE_ITEMS)
     if not args.dry_run:
-        Path(args.core_out).parent.mkdir(parents=True, exist_ok=True)
-        with open(args.core_out, "w", encoding="utf-8") as f:
+        core_out_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(core_out_path, "w", encoding="utf-8") as f:
             json.dump(core_payload, f, ensure_ascii=False, indent=2)
 
     market_rows, source_label = load_local_market_rows(
-        summary_path=Path(args.summary_file),
-        market_path=Path(args.market_file),
-        details_dir=Path(args.details_dir) if args.details_dir else None,
+        summary_path=resolve_path(args.summary_file),
+        market_path=resolve_path(args.market_file),
+        details_dir=resolve_path(args.details_dir) if args.details_dir else None,
         verbose=args.verbose,
     )
 
@@ -749,16 +749,16 @@ def main() -> None:
     )
 
     if not args.dry_run:
-        Path(args.priority_out).parent.mkdir(parents=True, exist_ok=True)
-        with open(args.priority_out, "w", encoding="utf-8") as f:
+        priority_out_path.parent.mkdir(parents=True, exist_ok=True)
+        with open(priority_out_path, "w", encoding="utf-8") as f:
             json.dump(priority_payload, f, ensure_ascii=False, indent=2)
 
-    print(f"[完成] 固定核心池: {len(FIXED_CORE_ITEMS)} 檔 -> {args.core_out}")
+    print(f"[完成] 固定核心池: {len(FIXED_CORE_ITEMS)} 檔 -> {core_out_path}")
     print(
         f"[完成] 盤後重點股: {priority_payload['total_count']} 檔 "
         f"(量額動態新增 {priority_payload['dynamic_added_count']} 檔："
         f"成交額+{priority_payload['dynamic_amount_added']}、成交張數+{priority_payload['dynamic_volume_added']}；"
-        f"量額來源={priority_payload['market_stats_source']}) -> {args.priority_out}"
+        f"量額來源={priority_payload['market_stats_source']}) -> {priority_out_path}"
     )
     if args.verbose:
         print_top_dynamic_preview(priority_payload, limit=10)
