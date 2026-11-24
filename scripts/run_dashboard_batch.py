@@ -691,7 +691,8 @@ def main():
     already_complete_cnt = 0
     quota_stopped_cnt = 0
 
-    now_str = dt.datetime.now().strftime("%Y-%m-%d %H:%M")
+    tz_cst = dt.timezone(dt.timedelta(hours=8))
+    now_str = dt.datetime.now(tz_cst).strftime("%Y-%m-%d %H:%M")
     updated_label = f"{now_str}（行情日 {latest_trade_date}）"
 
     for idx, (sym, name, mkt) in enumerate(targets):
