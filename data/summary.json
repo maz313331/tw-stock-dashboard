@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-25 03:11（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 06:50（行情日 2026-11-23）",
   "stocks": [
     {
       "symbol": "00400A",
@@ -128,6 +128,20 @@
       "partial_missing": ""
     },
     {
+      "symbol": "00662",
+      "name": "富邦NASDAQ",
+      "close": 21.84,
+      "change_pct": -1.4,
+      "total_score": 0,
+      "fundamental_score": 0,
+      "technical_score": 0,
+      "chip_score": 0,
+      "badge": "資料未齊全（已排除）",
+      "excluded": true,
+      "exclude_reason": "歷史日線不足 60 日",
+      "partial_missing": ""
+    },
+    {
       "symbol": "00664R",
       "name": "國泰臺灣加權反1",
       "close": 1.76,
@@ -184,6 +198,20 @@
       "partial_missing": ""
     },
     {
+      "symbol": "00830",
+      "name": "國泰費城半導體",
+      "close": 65.1,
+      "change_pct": -2.84,
+      "total_score": 2,
+      "fundamental_score": 0,
+      "technical_score": 0,
+      "chip_score": 2,
+      "badge": "中性觀望",
+      "excluded": false,
+      "exclude_reason": "",
+      "partial_missing": ""
+    },
+    {
       "symbol": "00878",
       "name": "國泰永續高股息",
       "close": 28.05,
@@ -192,6 +220,20 @@
       "fundamental_score": 0,
       "technical_score": 0,
       "chip_score": 0,
+      "badge": "中性觀望",
+      "excluded": false,
+      "exclude_reason": "",
+      "partial_missing": ""
+    },
+    {
+      "symbol": "00918",
+      "name": "大華優利高填息30",
+      "close": 28.87,
+      "change_pct": 0.21,
+      "total_score": 3,
+      "fundamental_score": 0,
+      "technical_score": 0,
+      "chip_score": 3,
       "badge": "中性觀望",
       "excluded": false,
       "exclude_reason": "",
@@ -262,6 +304,20 @@
       "fundamental_score": 0,
       "technical_score": 0,
       "chip_score": 0,
+      "badge": "中性觀望",
+      "excluded": false,
+      "exclude_reason": "",
+      "partial_missing": ""
+    },
+    {
+      "symbol": "009828",
+      "name": "中信台日韓PCB",
+      "close": 6.28,
+      "change_pct": 8.84,
+      "total_score": 1,
+      "fundamental_score": 0,
+      "technical_score": 0,
+      "chip_score": 1,
       "badge": "中性觀望",
       "excluded": false,
       "exclude_reason": "",
@@ -3756,11 +3812,11 @@
     {
       "symbol": "2027",
       "name": "大成鋼",
-      "close": 46.95,
-      "change_pct": 4.92,
-      "total_score": 12,
+      "close": 48.15,
+      "change_pct": 7.6,
+      "total_score": 14,
       "fundamental_score": 10,
-      "technical_score": 2,
+      "technical_score": 4,
       "chip_score": 0,
       "badge": "中性觀望",
       "excluded": false,
@@ -3896,11 +3952,11 @@
     {
       "symbol": "2049",
       "name": "上銀",
-      "close": 290.5,
-      "change_pct": 9.01,
-      "total_score": 10,
+      "close": 273.0,
+      "change_pct": 2.44,
+      "total_score": 8,
       "fundamental_score": 7,
-      "technical_score": 3,
+      "technical_score": 1,
       "chip_score": 0,
       "badge": "中性觀望",
       "excluded": false,
