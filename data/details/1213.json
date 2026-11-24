@@ -1,7 +1,7 @@
 {
   "symbol": "1213",
   "name": "大飲",
-  "updated_at": "2026-11-23 08:53（行情日 2026-11-23）",
+  "updated_at": "2026-11-24 09:26（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -47,7 +47,7 @@
       {
         "label": "月營收年增",
         "passed": false,
-        "value": "-18.00%"
+        "value": "-1.29%"
       },
       {
         "label": "營業利益為正",
@@ -188,12 +188,13 @@
       "pb": 0.5,
       "dividend_yield": 0.0,
       "rev_new_10m": false,
-      "rev_mom_pct": -18.003210272873194,
+      "rev_mom_pct": -18.0,
       "op_income": -14061000.0,
       "net_income": -17304000.0,
       "eps": -0.31,
       "roa_pct": -8.35654018070214,
-      "roe_pct": -9.98698822988673
+      "roe_pct": -9.98698822988673,
+      "rev_yoy_pct": -1.29
     }
   },
   "chip_data": {

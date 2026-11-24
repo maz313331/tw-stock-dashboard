@@ -6,6 +6,14 @@ import time
 from typing import Any, Callable, Optional
 import requests
 
+try:
+    from fetch_tpex import fetch_tpex_stock_valuation
+except Exception:
+    try:
+        from scripts.fetch_tpex import fetch_tpex_stock_valuation
+    except Exception:
+        fetch_tpex_stock_valuation = None
+
 FUNDAMENTAL_LABELS: list[str] = [
     "本益比合理",
     "股價淨值比合理",
@@ -43,10 +51,6 @@ def _load_finmind_token() -> str:
 
 
 def is_missing_value(val: Any) -> bool:
-    """
-    嚴格判斷是否為「缺漏值」。
-    數值 0 / 0.0 / False 屬於合法有效值，不可視為缺漏。
-    """
     if val is None:
         return True
     if isinstance(val, bool):
@@ -64,10 +68,6 @@ def is_missing_value(val: Any) -> bool:
 
 
 def clean_numeric_or_none(val: Any, allow_zero: bool = True) -> Optional[float]:
-    """
-    將原始值轉為 float；若為缺漏或無法解析則回傳 None。
-    當 allow_zero=True 時，0 與 0.0 會保留為 0.0。
-    """
     if is_missing_value(val):
         return None
     if isinstance(val, bool):
@@ -91,13 +91,6 @@ def clean_numeric_or_none(val: Any, allow_zero: bool = True) -> Optional[float]:
 
 
 class ApiQuotaGuard:
-    """
-    FinMind / 外部 API 請求配額與節流守門員：
-    1. 滑動 1 小時視窗控管請求數（預設安全上限 580/hr，低於 600/hr 會員上限）。
-    2. 每次請求前強制間隔至少 min_interval_sec 秒。
-    3. 遇到 429 / 限流關鍵字時退避重試，持續觸發則啟動熔斷。
-    """
-
     def __init__(
         self,
         max_calls_per_hour: int = 580,
@@ -220,10 +213,6 @@ class ApiQuotaGuard:
 
 
 class DataHealthTracker:
-    """
-    追蹤批次資料健康度與缺漏原因，區分「正常為 0」與「真正缺漏」。
-    """
-
     def __init__(self, quota_guard: Optional[ApiQuotaGuard] = None):
         self.quota_guard = quota_guard
         self.missing_by_category: dict[str, int] = {}
@@ -337,10 +326,6 @@ def evaluate_and_attach_missing(
     fin_metrics: dict[str, Any],
     chip_metrics: dict[str, Any],
 ) -> dict[str, Any]:
-    """
-    評估單檔個股各維度是否有真正缺漏（0 視為有效值），
-    回傳 partial_missing 字串與 missing_reasons 清單。
-    """
     sym = str(symbol).strip()
     if sym.startswith("00"):
         return {"partial_missing": "", "missing_reasons": []}
@@ -396,10 +381,6 @@ def evaluate_and_attach_missing(
 
 
 def evaluate_fundamental_10(fundamental_data: dict[str, Any] | None) -> tuple[list[dict[str, Any]], int]:
-    """
-    依據基本面指標產生 10 項檢核結果與分數（0~10 分）。
-    數值為 None 時視為缺漏（不通過、不誤判為 0）；數值為 0 時依規則正常比較。
-    """
     metrics = fundamental_data.get("metrics") if isinstance(fundamental_data, dict) else {}
     if not isinstance(metrics, dict):
         metrics = {}
@@ -423,56 +404,16 @@ def evaluate_fundamental_10(fundamental_data: dict[str, Any] | None) -> tuple[li
         }
 
     checks = [
-        _item(
-            FUNDAMENTAL_LABELS[0],
-            (0 < pe <= 25) if pe is not None else None,
-            f"{pe:.2f}" if pe is not None else "缺漏",
-        ),
-        _item(
-            FUNDAMENTAL_LABELS[1],
-            (0 < pb <= 4) if pb is not None else None,
-            f"{pb:.2f}" if pb is not None else "缺漏",
-        ),
-        _item(
-            FUNDAMENTAL_LABELS[2],
-            (dy >= 3.0) if dy is not None else None,
-            f"{dy:.2f}%" if dy is not None else "缺漏",
-        ),
-        _item(
-            FUNDAMENTAL_LABELS[3],
-            (mom > 0) if mom is not None else None,
-            f"{mom:+.2f}%" if mom is not None else "缺漏",
-        ),
-        _item(
-            FUNDAMENTAL_LABELS[4],
-            (yoy > 0) if yoy is not None else None,
-            f"{yoy:+.2f}%" if yoy is not None else "缺漏",
-        ),
-        _item(
-            FUNDAMENTAL_LABELS[5],
-            (op_inc > 0) if op_inc is not None else None,
-            f"{op_inc:,.0f}" if op_inc is not None else "缺漏",
-        ),
-        _item(
-            FUNDAMENTAL_LABELS[6],
-            (net_inc > 0) if net_inc is not None else None,
-            f"{net_inc:,.0f}" if net_inc is not None else "缺漏",
-        ),
-        _item(
-            FUNDAMENTAL_LABELS[7],
-            (eps > 0) if eps is not None else None,
-            f"{eps:.2f}" if eps is not None else "缺漏",
-        ),
-        _item(
-            FUNDAMENTAL_LABELS[8],
-            (roa >= 1.0) if roa is not None else None,
-            f"{roa:.2f}%" if roa is not None else "缺漏",
-        ),
-        _item(
-            FUNDAMENTAL_LABELS[9],
-            (roe >= 3.0) if roe is not None else None,
-            f"{roe:.2f}%" if roe is not None else "缺漏",
-        ),
+        _item(FUNDAMENTAL_LABELS[0], (0 < pe <= 25) if pe is not None else None, f"{pe:.2f}" if pe is not None else "缺漏"),
+        _item(FUNDAMENTAL_LABELS[1], (0 < pb <= 4) if pb is not None else None, f"{pb:.2f}" if pb is not None else "缺漏"),
+        _item(FUNDAMENTAL_LABELS[2], (dy >= 3.0) if dy is not None else None, f"{dy:.2f}%" if dy is not None else "缺漏"),
+        _item(FUNDAMENTAL_LABELS[3], (mom > 0) if mom is not None else None, f"{mom:+.2f}%" if mom is not None else "缺漏"),
+        _item(FUNDAMENTAL_LABELS[4], (yoy > 0) if yoy is not None else None, f"{yoy:+.2f}%" if yoy is not None else "缺漏"),
+        _item(FUNDAMENTAL_LABELS[5], (op_inc > 0) if op_inc is not None else None, f"{op_inc:,.0f}" if op_inc is not None else "缺漏"),
+        _item(FUNDAMENTAL_LABELS[6], (net_inc > 0) if net_inc is not None else None, f"{net_inc:,.0f}" if net_inc is not None else "缺漏"),
+        _item(FUNDAMENTAL_LABELS[7], (eps > 0) if eps is not None else None, f"{eps:.2f}" if eps is not None else "缺漏"),
+        _item(FUNDAMENTAL_LABELS[8], (roa >= 1.0) if roa is not None else None, f"{roa:.2f}%" if roa is not None else "缺漏"),
+        _item(FUNDAMENTAL_LABELS[9], (roe >= 3.0) if roe is not None else None, f"{roe:.2f}%" if roe is not None else "缺漏"),
     ]
 
     score = sum(1 for c in checks if c["passed"])
@@ -521,24 +462,32 @@ def _finmind_query(
     return rows if isinstance(rows, list) else []
 
 
-def fetch_fundamental_data(symbol: str, guard: Optional[ApiQuotaGuard] = None) -> dict[str, Any]:
+def fetch_fundamental_data(
+    symbol: str,
+    guard: Optional[ApiQuotaGuard] = None,
+    cached_metrics: Optional[dict[str, Any]] = None,
+) -> dict[str, Any]:
     """
-    抓取台股個股基本面指標（估值 PE/PB/殖利率、月營收月增率、財報營業利益/淨利/EPS/ROA/ROE）。
-    回傳結構相容於 run_dashboard_batch.py 與 calc_scores.py。
+    三層分流抓基本面：
+    1. 估值優先查 TPEx 全市場公開快取（命中則省下 FinMind TaiwanStockPER 請求）；
+    2. 已有 cached_metrics 的低頻欄位優先沿用，缺哪項才打 FinMind 補哪項；
+    3. 一併計算月營收 MoM 與 YoY，並共用同一個 quota_guard。
     """
     sym = str(symbol).strip()
     q_guard = guard or _DEFAULT_FUND_GUARD
+    prev_m = cached_metrics if isinstance(cached_metrics, dict) else {}
 
     metrics: dict[str, Optional[float]] = {
-        "pe": None,
-        "pb": None,
-        "dividend_yield": None,
-        "rev_mom_pct": None,
-        "op_income": None,
-        "net_income": None,
-        "eps": None,
-        "roa_pct": None,
-        "roe_pct": None,
+        "pe": clean_numeric_or_none(prev_m.get("pe")),
+        "pb": clean_numeric_or_none(prev_m.get("pb")),
+        "dividend_yield": clean_numeric_or_none(prev_m.get("dividend_yield")),
+        "rev_mom_pct": clean_numeric_or_none(prev_m.get("rev_mom_pct")),
+        "rev_yoy_pct": clean_numeric_or_none(prev_m.get("rev_yoy_pct")),
+        "op_income": clean_numeric_or_none(prev_m.get("op_income")),
+        "net_income": clean_numeric_or_none(prev_m.get("net_income")),
+        "eps": clean_numeric_or_none(prev_m.get("eps")),
+        "roa_pct": clean_numeric_or_none(prev_m.get("roa_pct")),
+        "roe_pct": clean_numeric_or_none(prev_m.get("roe_pct")),
     }
     sources_ok = 0
 
@@ -547,24 +496,42 @@ def fetch_fundamental_data(symbol: str, guard: Optional[ApiQuotaGuard] = None) -
 
     today = dt.date.today()
     per_start = (today - dt.timedelta(days=45)).isoformat()
-    rev_start = (today - dt.timedelta(days=150)).isoformat()
+    rev_start = (today - dt.timedelta(days=420)).isoformat()  # 拉長至 14 個月以便算 YoY
     fin_start = (today - dt.timedelta(days=420)).isoformat()
 
-    # 1. 估值 (PE / PB / 殖利率)
-    per_rows = _finmind_query("TaiwanStockPER", sym, per_start, q_guard)
-    if per_rows:
-        per_rows_sorted = sorted(per_rows, key=lambda r: str(r.get("date") or ""))
-        latest_per = per_rows_sorted[-1]
-        pe_val = clean_numeric_or_none(latest_per.get("PER"))
-        pb_val = clean_numeric_or_none(latest_per.get("PBR"))
-        dy_val = clean_numeric_or_none(latest_per.get("dividend_yield"))
-        if any(v is not None for v in (pe_val, pb_val, dy_val)):
-            sources_ok += 1
-        metrics["pe"] = pe_val
-        metrics["pb"] = pb_val
-        metrics["dividend_yield"] = dy_val
+    # 1. 估值 (PE / PB / 殖利率)：優先查 TPEx 公開快取
+    if fetch_tpex_stock_valuation is not None:
+        try:
+            tpex_val = fetch_tpex_stock_valuation(sym)
+            if isinstance(tpex_val, dict):
+                if tpex_val.get("pe") is not None:
+                    metrics["pe"] = clean_numeric_or_none(tpex_val.get("pe"))
+                if tpex_val.get("pb") is not None:
+                    metrics["pb"] = clean_numeric_or_none(tpex_val.get("pb"))
+                if tpex_val.get("dividend_yield") is not None:
+                    metrics["dividend_yield"] = clean_numeric_or_none(tpex_val.get("dividend_yield"))
+        except Exception:
+            pass
 
-    # 2. 月營收與月增率 (MoM %)
+    if any(metrics[k] is None for k in ("pe", "pb", "dividend_yield")):
+        per_rows = _finmind_query("TaiwanStockPER", sym, per_start, q_guard)
+        if per_rows:
+            per_rows_sorted = sorted(per_rows, key=lambda r: str(r.get("date") or ""))
+            latest_per = per_rows_sorted[-1]
+            pe_val = clean_numeric_or_none(latest_per.get("PER"))
+            pb_val = clean_numeric_or_none(latest_per.get("PBR"))
+            dy_val = clean_numeric_or_none(latest_per.get("dividend_yield"))
+            if pe_val is not None:
+                metrics["pe"] = pe_val
+            if pb_val is not None:
+                metrics["pb"] = pb_val
+            if dy_val is not None:
+                metrics["dividend_yield"] = dy_val
+
+    if any(metrics[k] is not None for k in ("pe", "pb", "dividend_yield")):
+        sources_ok += 1
+
+    # 2. 月營收與 MoM / YoY
     rev_rows = _finmind_query("TaiwanStockMonthRevenue", sym, rev_start, q_guard)
     if rev_rows:
         by_ym: dict[tuple[int, int], float] = {}
@@ -576,16 +543,25 @@ def fetch_fundamental_data(symbol: str, guard: Optional[ApiQuotaGuard] = None) -
                 by_ym[(int(yr), int(mo))] = rev_val
         ordered_ym = sorted(by_ym.keys())
         if ordered_ym:
-            sources_ok += 1
+            curr_ym = ordered_ym[-1]
+            curr_rev = by_ym[curr_ym]
             if len(ordered_ym) >= 2:
                 prev_rev = by_ym[ordered_ym[-2]]
-                curr_rev = by_ym[ordered_ym[-1]]
                 if prev_rev != 0:
                     metrics["rev_mom_pct"] = round(((curr_rev - prev_rev) / abs(prev_rev)) * 100.0, 2)
+            last_year_ym = (curr_ym[0] - 1, curr_ym[1])
+            if last_year_ym in by_ym and by_ym[last_year_ym] != 0:
+                ly_rev = by_ym[last_year_ym]
+                metrics["rev_yoy_pct"] = round(((curr_rev - ly_rev) / abs(ly_rev)) * 100.0, 2)
 
-    # 3. 季報財務指標：損益表 (TaiwanStockFinancialStatements) + 資產負債表 (TaiwanStockBalanceSheet)
-    fin_rows = _finmind_query("TaiwanStockFinancialStatements", sym, fin_start, q_guard)
-    bs_rows = _finmind_query("TaiwanStockBalanceSheet", sym, fin_start, q_guard)
+    if metrics["rev_mom_pct"] is not None or metrics["rev_yoy_pct"] is not None:
+        sources_ok += 1
+
+    # 3. 季報財務指標：損益表 + 資產負債表（僅在缺欄位時才打 FinMind）
+    need_fin = any(metrics[k] is None for k in ("op_income", "net_income", "eps", "roa_pct", "roe_pct"))
+    fin_rows = _finmind_query("TaiwanStockFinancialStatements", sym, fin_start, q_guard) if need_fin else []
+    need_bs = any(metrics[k] is None for k in ("roa_pct", "roe_pct"))
+    bs_rows = _finmind_query("TaiwanStockBalanceSheet", sym, fin_start, q_guard) if need_bs else []
 
     if fin_rows:
         dates = sorted({str(r.get("date") or "") for r in fin_rows if r.get("date")})
@@ -615,9 +591,12 @@ def fetch_fundamental_data(symbol: str, guard: Optional[ApiQuotaGuard] = None) -
             )
             eps_val = item_map.get("EPS") or item_map.get("基本每股盈餘（元）")
 
-            metrics["op_income"] = op_inc
-            metrics["net_income"] = net_inc
-            metrics["eps"] = eps_val
+            if op_inc is not None:
+                metrics["op_income"] = op_inc
+            if net_inc is not None:
+                metrics["net_income"] = net_inc
+            if eps_val is not None:
+                metrics["eps"] = eps_val
 
             total_assets = None
             total_equity = None
@@ -638,27 +617,17 @@ def fetch_fundamental_data(symbol: str, guard: Optional[ApiQuotaGuard] = None) -
                             if t_name:
                                 bs_map[t_name] = val_num
 
-                    total_assets = (
-                        bs_map.get("TotalAssets")
-                        or bs_map.get("資產總計")
-                        or bs_map.get("Assets")
-                    )
-                    total_equity = (
-                        bs_map.get("Equity")
-                        or bs_map.get("TotalEquity")
-                        or bs_map.get("權益總計")
-                    )
+                    total_assets = bs_map.get("TotalAssets") or bs_map.get("資產總計") or bs_map.get("Assets")
+                    total_equity = bs_map.get("Equity") or bs_map.get("TotalEquity") or bs_map.get("權益總計")
 
-            if net_inc is not None and total_assets not in (None, 0):
-                metrics["roa_pct"] = round((net_inc / total_assets) * 100.0, 2)
-            if net_inc is not None and total_equity not in (None, 0):
-                metrics["roe_pct"] = round((net_inc / total_equity) * 100.0, 2)
+            eff_net = metrics["net_income"]
+            if eff_net is not None and total_assets not in (None, 0):
+                metrics["roa_pct"] = round((eff_net / total_assets) * 100.0, 2)
+            if eff_net is not None and total_equity not in (None, 0):
+                metrics["roe_pct"] = round((eff_net / total_equity) * 100.0, 2)
 
-            if any(
-                v is not None
-                for v in (op_inc, net_inc, eps_val, metrics["roa_pct"], metrics["roe_pct"])
-            ):
-                sources_ok += 1
+    if any(metrics[k] is not None for k in ("op_income", "net_income", "eps", "roa_pct", "roe_pct")):
+        sources_ok += 1
 
     all_populated = all(v is not None for v in metrics.values())
     return {

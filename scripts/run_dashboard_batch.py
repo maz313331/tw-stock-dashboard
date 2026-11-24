@@ -8,7 +8,7 @@ import time
 import requests
 
 from calc_scores import build_stock_detail, write_json
-from fetch_chips import fetch_chip_data
+from fetch_chips import fetch_chip_data, reset_chip_session_cache
 from fetch_fundamental import (
     ApiQuotaGuard,
     DataHealthTracker,
@@ -19,21 +19,29 @@ from fetch_fundamental import (
 from fetch_sources import fetch_yf_history
 
 try:
+    from fetch_tpex import reset_tpex_session_cache
+except Exception:
+    try:
+        from scripts.fetch_tpex import reset_tpex_session_cache
+    except Exception:
+        reset_tpex_session_cache = None
+
+try:
     from fetch_fundamental import fetch_fundamental_data as _impl_fetch_fundamental_data
 except ImportError:
     _impl_fetch_fundamental_data = None
 
 
-def fetch_fundamental_data(symbol: str) -> dict:
-    """安全包裝基本面抓取函式：尚未實作或發生例外時回傳安全預設值，避免中斷批次。"""
+def fetch_fundamental_data(symbol: str, guard=None, cached_metrics: dict | None = None) -> dict:
+    """安全包裝基本面抓取函式：共用 quota_guard 並傳入既有快取指標，缺哪項補哪項。"""
     if callable(_impl_fetch_fundamental_data):
         try:
-            res = _impl_fetch_fundamental_data(symbol)
+            res = _impl_fetch_fundamental_data(symbol, guard=guard, cached_metrics=cached_metrics)
             if isinstance(res, dict):
                 return res
         except Exception as exc:
             print(f"[基本面提示] {symbol} 抓取發生例外，改採安全預設: {exc}")
-    return {"complete": False, "metrics": {}}
+    return {"complete": False, "metrics": cached_metrics or {}}
 
 
 DEFAULT_WATCHLIST = [
@@ -501,6 +509,10 @@ def main():
     )
     args = parser.parse_args()
 
+    reset_chip_session_cache()
+    if callable(reset_tpex_session_cache):
+        reset_tpex_session_cache()
+
     effective_phase = resolve_effective_phase(args.phase)
     print(f"[分段設定] 指定={args.phase} -> 實際執行分段={effective_phase}")
 
@@ -646,15 +658,19 @@ def main():
             print(f"[略過] {sym} {name} ({mkt}) 暫時無法取得日線行情（保留既有資料）")
             continue
 
+        cached_fund = _extract_cached_fund_or_chip(detail_path, "fund")
+        cached_chip = _extract_cached_fund_or_chip(detail_path, "chip")
+        cached_fund_metrics = cached_fund.get("metrics") if isinstance(cached_fund, dict) else None
+
         if effective_phase == "fundamental":
-            fund_data = fetch_fundamental_data(sym)
-            chip_data = _extract_cached_fund_or_chip(detail_path, "chip") or fetch_chip_data(sym, stock_df=s_df)
+            fund_data = fetch_fundamental_data(sym, guard=quota_guard, cached_metrics=cached_fund_metrics)
+            chip_data = cached_chip or fetch_chip_data(sym, stock_df=s_df, quota_guard=quota_guard, cached_chip=cached_chip)
         elif effective_phase == "chips":
-            fund_data = _extract_cached_fund_or_chip(detail_path, "fund") or {"complete": str(sym).startswith("00")}
-            chip_data = fetch_chip_data(sym, stock_df=s_df)
+            fund_data = cached_fund or {"complete": str(sym).startswith("00")}
+            chip_data = fetch_chip_data(sym, stock_df=s_df, quota_guard=quota_guard, cached_chip=cached_chip)
         else:
-            fund_data = _extract_cached_fund_or_chip(detail_path, "fund") or fetch_fundamental_data(sym)
-            chip_data = _extract_cached_fund_or_chip(detail_path, "chip") or fetch_chip_data(sym, stock_df=s_df)
+            fund_data = cached_fund or fetch_fundamental_data(sym, guard=quota_guard, cached_metrics=cached_fund_metrics)
+            chip_data = cached_chip or fetch_chip_data(sym, stock_df=s_df, quota_guard=quota_guard, cached_chip=cached_chip)
 
         fund_metrics = fund_data.get("metrics") if isinstance(fund_data, dict) and isinstance(fund_data.get("metrics"), dict) else {}
         val_metrics = {

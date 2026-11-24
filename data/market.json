@@ -6,8 +6,8 @@
     "summary": "大盤跌破關鍵均線或波動放大，宜降低持股水位、重防守與嚴設停損。"
   },
   "tw_index": {
-    "close": 36811.89,
-    "change_pct": 2.16,
+    "close": 40160.12,
+    "change_pct": 11.45,
     "ma_status": "均線下方震盪"
   },
   "otc_index": {
@@ -665,8 +665,8 @@
       "institutional_net": 0.0
     },
     {
-      "date": "2026-11-23",
-      "close": 36811.89,
+      "date": "2026-11-24",
+      "close": 40160.12,
       "institutional_net": 0.0
     }
   ]

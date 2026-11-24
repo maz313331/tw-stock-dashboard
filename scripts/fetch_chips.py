@@ -16,12 +16,13 @@ except Exception:
         fetch_tdcc_holding_shares = None
 
 try:
-    from chips_fallback_helper import ChipsFallbackManager
+    from fetch_tpex import fetch_tpex_inst_df, fetch_tpex_margin_df
 except Exception:
     try:
-        from scripts.chips_fallback_helper import ChipsFallbackManager
+        from scripts.fetch_tpex import fetch_tpex_inst_df, fetch_tpex_margin_df
     except Exception:
-        ChipsFallbackManager = None
+        fetch_tpex_inst_df = None
+        fetch_tpex_margin_df = None
 
 CHIP_LABELS = [
     "近 3 日主力單日買超 > 1,000 張",
@@ -86,13 +87,6 @@ def _parse_num_str(val) -> float:
         return 0.0
 
 
-def _to_yyyymmdd(date_str: str) -> str:
-    cleaned = str(date_str).replace("-", "").replace("/", "").strip()
-    if len(cleaned) == 8 and cleaned.isdigit():
-        return cleaned
-    return dt.date.fromisoformat(str(date_str)[:10]).strftime("%Y%m%d")
-
-
 def _mark_dataset_blocked(dataset: str, status_code: int | None) -> None:
     if status_code in (402, 403) and dataset not in _BLOCKED_FINMIND_DATASETS:
         _BLOCKED_FINMIND_DATASETS.add(dataset)
@@ -119,10 +113,6 @@ def _get_twse_t86_day_map(yyyymmdd: str) -> dict[str, dict]:
             sym = str(row[0]).strip()
             if not sym:
                 continue
-            # T86 常見欄位順序：
-            # 0:代號, 1:名稱, 2:外陸資買進(不含外資自營商), 3:外陸資賣出, 4:外陸資買賣超,
-            # 5:外資自營商買進, 6:外資自營商賣出, 7:外資自營商買賣超,
-            # 8:投信買進, 9:投信賣出, 10:投信買賣超, 11:自營商買賣超
             f_buy = _parse_num_str(row[2]) + _parse_num_str(row[5])
             f_sell = _parse_num_str(row[3]) + _parse_num_str(row[6])
             t_buy = _parse_num_str(row[8])
@@ -168,7 +158,6 @@ def _get_twse_margin_day_map(yyyymmdd: str) -> dict[str, dict]:
                 sym = str(row[0]).strip()
                 if not sym:
                     continue
-                # MI_MARGN 常見欄位：0:代號, 1:名稱, 2:融資買進, 3:融資賣出, 4:現金償還, 5:前日融資餘額, 6:今日融資餘額
                 m_buy = _parse_num_str(row[2])
                 m_sell = _parse_num_str(row[3])
                 day_map[sym] = {
@@ -184,7 +173,7 @@ def _get_twse_margin_day_map(yyyymmdd: str) -> dict[str, dict]:
 
 
 def _recent_trading_dates_yyyymmdd(stock_df: pd.DataFrame | None = None, count: int = 5) -> list[str]:
-    """優先從傳入的 stock_df 拿最近幾個交易日；若無則往回推算近 10 天（跳過週末）"""
+    """優先從傳入的 stock_df 拿最近幾個交易日；若無則往回推算近 14 天（跳過週末）"""
     dates: list[str] = []
     if stock_df is not None and not stock_df.empty and "date" in stock_df.columns:
         raw_dates = sorted(pd.to_datetime(stock_df["date"], errors="coerce").dropna().dt.strftime("%Y%m%d").unique())
@@ -206,7 +195,7 @@ def _recent_trading_dates_yyyymmdd(stock_df: pd.DataFrame | None = None, count: 
 def _fetch_twse_inst_df(stock_id: str, stock_df: pd.DataFrame | None = None) -> pd.DataFrame:
     """從 TWSE T86 快取組出與 FinMind 相同結構的三大法人 DataFrame"""
     sym = str(stock_id).strip()
-    if sym.startswith(("00", "6")) or not sym.isdigit():
+    if sym.startswith("00") or not sym.isdigit():
         return pd.DataFrame()
 
     ymd_list = _recent_trading_dates_yyyymmdd(stock_df=stock_df, count=6)
@@ -341,38 +330,66 @@ def fetch_chip_data(
     stock_id: str,
     stock_df: pd.DataFrame | None = None,
     quota_guard=None,
+    cached_chip: dict | None = None,
 ) -> dict:
+    """
+    三層分流抓籌碼：
+    1. 集保優先走 TDCC 每週快取（第 2 層），若無再補 FinMind（第 3 層）；
+    2. 三大法人與融資融券：若 FinMind 剩餘配額偏低或受限，優先走 TPEx / TWSE 全市場快取（第 1 層）。
+    """
     today = dt.date.today()
     chip_start = (today - dt.timedelta(days=90)).strftime("%Y-%m-%d")
     hold_start = (today - dt.timedelta(days=75)).strftime("%Y-%m-%d")
 
     missing = []
     sources_used = []
+    prev_m6 = (
+        cached_chip.get("metrics_6")
+        if isinstance(cached_chip, dict) and isinstance(cached_chip.get("metrics_6"), dict)
+        else {}
+    )
 
     foreign_daily = pd.Series(dtype=float)
     trust_daily = pd.Series(dtype=float)
     inst_total_daily = pd.Series(dtype=float)
-    margin_net_last = None
+    margin_net_last = _to_finite_float(prev_m6.get("margin_net"))
 
-    major_holder_pct = None
-    retail_holder_pct = None
+    major_holder_pct = (
+        _to_finite_float(prev_m6.get("major_holder_pct"))
+        if prev_m6.get("major_holder_pct") not in (None, 0, 0.0)
+        else None
+    )
+    retail_holder_pct = (
+        _to_finite_float(prev_m6.get("retail_holder_pct"))
+        if prev_m6.get("retail_holder_pct") not in (None, 0, 0.0)
+        else None
+    )
     major_increased_1w = None
     retail_decreased_1w = None
 
-    # 1. 三大法人買賣超（FinMind 為主，缺漏或受限時自動走 TWSE T86 全市場快取備援）
+    # 1. 三大法人買賣超
     df_inst = pd.DataFrame()
-    try:
-        if "TaiwanStockInstitutionalInvestorsBuySell" not in _BLOCKED_FINMIND_DATASETS:
-            df_inst = _finmind_get(
-                "TaiwanStockInstitutionalInvestorsBuySell",
-                stock_id,
-                chip_start,
-                quota_guard=quota_guard,
-            )
-            if not df_inst.empty:
-                sources_used.append("finmind_inst")
-    except Exception:
-        df_inst = pd.DataFrame()
+    prefer_public_first = (
+        quota_guard is not None
+        and hasattr(quota_guard, "remaining_hourly_quota")
+        and quota_guard.remaining_hourly_quota() < 250
+    )
+
+    if not prefer_public_first and "TaiwanStockInstitutionalInvestorsBuySell" not in _BLOCKED_FINMIND_DATASETS:
+        df_inst = _finmind_get(
+            "TaiwanStockInstitutionalInvestorsBuySell",
+            stock_id,
+            chip_start,
+            quota_guard=quota_guard,
+        )
+        if not df_inst.empty:
+            sources_used.append("finmind_inst")
+
+    if df_inst.empty and fetch_tpex_inst_df is not None:
+        df_tpex_inst = fetch_tpex_inst_df(stock_id)
+        if not df_tpex_inst.empty:
+            df_inst = df_tpex_inst
+            sources_used.append("tpex_inst")
 
     if df_inst.empty:
         df_twse_inst = _fetch_twse_inst_df(stock_id, stock_df=stock_df)
@@ -405,29 +422,32 @@ def fetch_chip_data(
     except Exception:
         pass
 
-    if inst_total_daily.empty or len(inst_total_daily) < 2:
+    if inst_total_daily.empty:
         missing.append("三大法人買賣超缺漏或天數不足")
 
-    # 2. 融資融券（FinMind 為主，缺漏或受限時自動走 TWSE MI_MARGN 全市場快取備援）
+    # 2. 融資融券（優先走 TPEx / TWSE 全市場快取）
     df_margin = pd.DataFrame()
-    try:
-        if "TaiwanStockMarginPurchaseShortSale" not in _BLOCKED_FINMIND_DATASETS:
-            df_margin = _finmind_get(
-                "TaiwanStockMarginPurchaseShortSale",
-                stock_id,
-                chip_start,
-                quota_guard=quota_guard,
-            )
-            if not df_margin.empty:
-                sources_used.append("finmind_margin")
-    except Exception:
-        df_margin = pd.DataFrame()
+    if fetch_tpex_margin_df is not None:
+        df_tpex_m = fetch_tpex_margin_df(stock_id)
+        if not df_tpex_m.empty:
+            df_margin = df_tpex_m
+            sources_used.append("tpex_margin")
 
     if df_margin.empty:
-        df_twse_margin = _fetch_twse_margin_df(stock_id, stock_df=stock_df)
-        if not df_twse_margin.empty:
-            df_margin = df_twse_margin
+        df_twse_m = _fetch_twse_margin_df(stock_id, stock_df=stock_df)
+        if not df_twse_m.empty:
+            df_margin = df_twse_m
             sources_used.append("twse_margin")
+
+    if df_margin.empty and "TaiwanStockMarginPurchaseShortSale" not in _BLOCKED_FINMIND_DATASETS:
+        df_margin = _finmind_get(
+            "TaiwanStockMarginPurchaseShortSale",
+            stock_id,
+            chip_start,
+            quota_guard=quota_guard,
+        )
+        if not df_margin.empty:
+            sources_used.append("finmind_margin")
 
     try:
         if not df_margin.empty and {"date", "MarginPurchaseBuy", "MarginPurchaseSell"}.issubset(df_margin.columns):
