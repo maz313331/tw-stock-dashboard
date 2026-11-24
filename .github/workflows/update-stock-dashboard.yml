@@ -2,12 +2,12 @@ name: Update TW Stock Dashboard Data
 
 on:
   schedule:
-    # 週一至週五 15:00 CST (UTC 07:00)：盤後收盤價與技術面主更新
+    # 週一至週五 15:00 CST (UTC 07:00)：核心/熱門股盤後收盤價與技術面主更新
     - cron: "0 7 * * 1-5"
-    # 週一至週五 16:00 CST (UTC 08:00)：三大法人與籌碼面補齊更新
+    # 週一至週五 16:00 CST (UTC 08:00)：核心/熱門股三大法人與籌碼面補齊更新
     - cron: "0 8 * * 1-5"
-    # 每週六 09:00 CST (UTC 01:00)：基本面（營收/季報/除權息）與清單低頻校準
-    - cron: "0 1 * * 6"
+    # 每日 21:00 CST (UTC 13:00)：晚間基本面與缺漏標的滾動補齊（先核心/熱門再往下補）
+    - cron: "0 13 * * *"
   workflow_dispatch:
     inputs:
       run_mode:
@@ -44,11 +44,12 @@ on:
         default: "0.5"
         type: string
       only_missing:
-        description: "是否僅補抓尚未入庫或缺漏標的 (true/false)"
+        description: "是否僅補抓尚未入庫或缺漏標的 (true/false；留空則由排程依時段自動決定)"
         required: true
-        default: "false"
+        default: "auto"
         type: choice
         options:
+          - "auto"
           - "false"
           - "true"
       top_amount:
@@ -105,7 +106,7 @@ jobs:
           START_OFFSET: ${{ github.event.inputs.offset || '0' }}
           BATCH_LIMIT: ${{ github.event.inputs.limit || '100' }}
           SLEEP_SEC: ${{ github.event.inputs.sleep || '0.5' }}
-          ONLY_MISSING: ${{ github.event.inputs.only_missing || 'false' }}
+          ONLY_MISSING_INPUT: ${{ github.event.inputs.only_missing || 'auto' }}
           TOP_AMOUNT: ${{ github.event.inputs.top_amount || '60' }}
           TOP_VOLUME: ${{ github.event.inputs.top_volume || '40' }}
           MAX_TOTAL: ${{ github.event.inputs.max_total || '150' }}
@@ -124,21 +125,31 @@ jobs:
           start_offset = int(os.environ["START_OFFSET"])
           batch_limit = int(os.environ["BATCH_LIMIT"])
           sleep_sec = float(os.environ["SLEEP_SEC"])
-          only_missing = os.environ["ONLY_MISSING"].lower() == "true"
+          only_missing_input = os.environ["ONLY_MISSING_INPUT"].lower()
           top_amount = int(os.environ.get("TOP_AMOUNT", "60"))
           top_volume = int(os.environ.get("TOP_VOLUME", "40"))
           max_total = int(os.environ.get("MAX_TOTAL", "150"))
           max_hourly_calls = int(os.environ.get("MAX_HOURLY_CALLS", "580"))
 
           cst_now = dt.datetime.now(dt.timezone.utc) + dt.timedelta(hours=8)
+          is_evening_补齐 = cst_now.hour >= 20
+
           if phase_input != "auto":
               phase = phase_input
-          elif cst_now.weekday() == 5:
+          elif is_evening_补齐:
               phase = "fundamental"
           elif cst_now.hour >= 16:
               phase = "chips"
           else:
               phase = "close_tech"
+
+          if only_missing_input == "true":
+              only_missing = True
+          elif only_missing_input == "false":
+              only_missing = False
+          else:
+              # 晚間 21:00 補齊時段預設開啟 --only-missing，日間盤後主更新預設關閉
+              only_missing = True if (event_name == "schedule" and is_evening_补齐) else False
 
           priority_file = "data/priority_stocks.json"
 
@@ -155,7 +166,7 @@ jobs:
               print(f"=== 更新盤後重點股清單: {' '.join(cmd)} ===")
               subprocess.run(cmd, check=True)
 
-          # 盤後/手動觸發時先刷新重點股清單（若已存在 priority_stocks.json 則以它為總量參考）
+          # 核心/動態熱門股永遠排在最前面；盤後主更新或尚無清單時刷新
           if phase == "close_tech" or event_name == "workflow_dispatch" or not os.path.exists(priority_file):
               refresh_priority_stocks()
 
@@ -220,7 +231,7 @@ jobs:
               if force_check:
                   cmd.append("--force-check")
 
-              print(f"=== 執行批次 ({desc_tag} | phase={phase}): {' '.join(cmd)} ===")
+              print(f"=== 執行批次 ({desc_tag} | phase={phase} | only_missing={only_missing}): {' '.join(cmd)} ===")
               subprocess.run(cmd, check=True)
               msg = f"chore(data): update stock dashboard [{phase}] ({desc_tag} --offset {cur_offset} --limit {cur_limit})"
               push_data_safely(msg)
