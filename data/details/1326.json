@@ -1,16 +1,16 @@
 {
   "symbol": "1326",
   "name": "台化",
-  "updated_at": "2026-11-24 13:41（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 13:40（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 7,
+  "total_score": 8,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
-    "fundamental": 6,
+    "fundamental": 7,
     "technical": 1,
     "chip": 0
   },
@@ -46,8 +46,8 @@
       },
       {
         "label": "月營收年增",
-        "passed": false,
-        "value": "+7.28%"
+        "passed": true,
+        "value": "+61.79%"
       },
       {
         "label": "營業利益為正",
@@ -188,12 +188,13 @@
       "pb": 0.56,
       "dividend_yield": 1.05,
       "rev_new_10m": true,
-      "rev_mom_pct": 7.282107339763641,
+      "rev_mom_pct": 7.28,
       "op_income": -960923000.0,
       "net_income": 5535183000.0,
       "eps": 0.92,
       "roa_pct": 2.2299204715381293,
-      "roe_pct": 2.797670360336772
+      "roe_pct": 2.797670360336772,
+      "rev_yoy_pct": 61.79
     }
   },
   "chip_data": {

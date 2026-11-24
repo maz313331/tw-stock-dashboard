@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T18:14:16.100127+08:00",
+  "generated_at": "2026-11-24T21:40:34.135695+08:00",
   "as_of_date": "2026-11-24",
   "market_stats_source": "twse_tpex_openapi",
   "rules": {
@@ -8,11 +8,11 @@
     "min_volume_amount": 50000000.0,
     "max_total": 150
   },
-  "fixed_core_count": 66,
-  "dynamic_amount_added": 33,
+  "fixed_core_count": 65,
+  "dynamic_amount_added": 32,
   "dynamic_volume_added": 13,
-  "dynamic_added_count": 46,
-  "total_count": 112,
+  "dynamic_added_count": 45,
+  "total_count": 110,
   "trimmed_by_max_total": false,
   "items": [
     {
@@ -344,18 +344,6 @@
       ],
       "trade_amount": 44488133.0,
       "trade_volume_lots": 1833.6
-    },
-    {
-      "symbol": "4136",
-      "ticker": "4136.TWO",
-      "market": "TPEx",
-      "name": "泰宗",
-      "category": "ALL_USERS_CORE",
-      "tags": [
-        "core"
-      ],
-      "trade_amount": 0.0,
-      "trade_volume_lots": 0.0
     },
     {
       "symbol": "4906",
@@ -816,16 +804,17 @@
       "trade_volume_lots": 830.17
     },
     {
-      "symbol": "2325",
-      "ticker": "2325.TW",
+      "symbol": "3711",
+      "ticker": "3711.TW",
       "market": "TWSE",
-      "name": "2325",
+      "name": "日月光",
       "category": "EXTRA",
       "tags": [
-        "core"
+        "core",
+        "top_amount"
       ],
-      "trade_amount": 0.0,
-      "trade_volume_lots": 0.0
+      "trade_amount": 16286642179.0,
+      "trade_volume_lots": 34564.52
     },
     {
       "symbol": "2498",
@@ -912,18 +901,6 @@
       ],
       "trade_amount": 19977803683.0,
       "trade_volume_lots": 73336.04
-    },
-    {
-      "symbol": "3711",
-      "ticker": "3711.TW",
-      "market": "TWSE",
-      "name": "日月光投控",
-      "category": "DYNAMIC_AMOUNT",
-      "tags": [
-        "top_amount"
-      ],
-      "trade_amount": 16286642179.0,
-      "trade_volume_lots": 34564.52
     },
     {
       "symbol": "3653",

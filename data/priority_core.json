@@ -1,7 +1,7 @@
 {
-  "updated_at": "2026-11-24T18:14:08.239191+08:00",
+  "updated_at": "2026-11-24T21:39:53.956470+08:00",
   "mode": "direct_fixed_core_pool",
-  "total_count": 66,
+  "total_count": 65,
   "excluded_non_tw_or_options": [
     "VOO",
     "QQQ",
@@ -264,16 +264,6 @@
       "ticker": "3380.TW",
       "name": "明泰",
       "market": "TWSE",
-      "category": "ALL_USERS_CORE",
-      "tags": [
-        "core"
-      ]
-    },
-    {
-      "symbol": "4136",
-      "ticker": "4136.TWO",
-      "name": "泰宗",
-      "market": "TPEx",
       "category": "ALL_USERS_CORE",
       "tags": [
         "core"
@@ -640,9 +630,9 @@
       ]
     },
     {
-      "symbol": "2325",
-      "ticker": "2325.TW",
-      "name": "2325",
+      "symbol": "3711",
+      "ticker": "3711.TW",
+      "name": "日月光",
       "market": "TWSE",
       "category": "EXTRA",
       "tags": [

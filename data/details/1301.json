@@ -1,16 +1,16 @@
 {
   "symbol": "1301",
   "name": "台塑",
-  "updated_at": "2026-11-24 13:41（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 13:40（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 7,
+  "total_score": 8,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
-    "fundamental": 6,
+    "fundamental": 7,
     "technical": 1,
     "chip": 0
   },
@@ -46,8 +46,8 @@
       },
       {
         "label": "月營收年增",
-        "passed": false,
-        "value": "+3.77%"
+        "passed": true,
+        "value": "+16.21%"
       },
       {
         "label": "營業利益為正",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "+0.99%"
+        "value": "+0.83%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,22 +94,22 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:26.7 / D:32.2"
+        "value": "K:26.5 / D:32.1"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:39.7"
+        "value": "RSI14:39.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-3.20"
+        "value": "DIF:-3.21"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:59.74"
+        "value": "5MA:59.72"
       },
       {
         "label": "收盤價大於月線",
@@ -188,12 +188,13 @@
       "pb": 0.52,
       "dividend_yield": 0.89,
       "rev_new_10m": false,
-      "rev_mom_pct": 3.7653271939883033,
+      "rev_mom_pct": 3.77,
       "op_income": -4209817000.0,
       "net_income": 5739032000.0,
       "eps": 0.9,
       "roa_pct": 1.9539987705831092,
-      "roe_pct": 2.4663209104950585
+      "roe_pct": 2.4663209104950585,
+      "rev_yoy_pct": 16.21
     }
   },
   "chip_data": {

@@ -1,16 +1,16 @@
 {
   "symbol": "2330",
   "name": "台積電",
-  "updated_at": "2026-11-24 14:02（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 13:40（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
-  "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏",
-  "total_score": 8,
+  "partial_missing": "",
+  "total_score": 10,
   "max_score": 30,
   "badge": "中性觀望",
-  "trading_note": "部分欄位暫缺（估值資料(PE/PB/殖利率)部分缺漏），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
+  "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
-    "fundamental": 6,
+    "fundamental": 8,
     "technical": 2,
     "chip": 0
   },
@@ -26,18 +26,18 @@
     "fundamental": [
       {
         "label": "本益比合理",
-        "passed": false,
-        "value": "20.4"
+        "passed": true,
+        "value": "22.70"
       },
       {
         "label": "股價淨值比合理",
         "passed": false,
-        "value": "7.41"
+        "value": "8.26"
       },
       {
         "label": "殖利率具吸引力",
         "passed": false,
-        "value": "1.10%"
+        "value": "0.99%"
       },
       {
         "label": "月營收月增",
@@ -46,8 +46,8 @@
       },
       {
         "label": "月營收年增",
-        "passed": false,
-        "value": "+14.66%"
+        "passed": true,
+        "value": "+59.71%"
       },
       {
         "label": "營業利益為正",
@@ -181,21 +181,22 @@
     ]
   },
   "fundamental_data": {
-    "complete": false,
+    "complete": true,
     "missing_reasons": [
       "估值資料(PE/PB/殖利率)部分缺漏"
     ],
     "metrics": {
-      "pe": null,
-      "pb": null,
-      "dividend_yield": null,
+      "pe": 22.7,
+      "pb": 8.26,
+      "dividend_yield": 0.99,
       "rev_new_10m": true,
-      "rev_mom_pct": 14.658949962741477,
+      "rev_mom_pct": 14.66,
       "op_income": 876445164000.0,
       "net_income": 763340827000.0,
       "eps": 29.43,
       "roa_pct": 25.34931763089058,
-      "roe_pct": 36.181401386324396
+      "roe_pct": 36.181401386324396,
+      "rev_yoy_pct": 59.71
     }
   },
   "chip_data": {
@@ -221,7 +222,5 @@
       "tdcc"
     ]
   },
-  "missing_reasons": [
-    "估值資料(PE/PB/殖利率)部分缺漏"
-  ]
+  "missing_reasons": []
 }

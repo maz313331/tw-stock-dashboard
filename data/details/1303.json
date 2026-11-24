@@ -1,16 +1,16 @@
 {
   "symbol": "1303",
   "name": "南亞",
-  "updated_at": "2026-11-24 13:41（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 13:40（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 11,
+  "total_score": 12,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
-    "fundamental": 8,
+    "fundamental": 9,
     "technical": 3,
     "chip": 0
   },
@@ -46,8 +46,8 @@
       },
       {
         "label": "月營收年增",
-        "passed": false,
-        "value": "+1.51%"
+        "passed": true,
+        "value": "+64.60%"
       },
       {
         "label": "營業利益為正",
@@ -188,12 +188,13 @@
       "pb": 3.06,
       "dividend_yield": 0.39,
       "rev_new_10m": true,
-      "rev_mom_pct": 1.5083141733268424,
+      "rev_mom_pct": 1.51,
       "op_income": 18291183000.0,
       "net_income": 40136935000.0,
       "eps": 4.9,
       "roa_pct": 11.203243736735587,
-      "roe_pct": 15.81136146871747
+      "roe_pct": 15.81136146871747,
+      "rev_yoy_pct": 64.6
     }
   },
   "chip_data": {

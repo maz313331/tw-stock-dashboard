@@ -87,10 +87,11 @@
   },
   "1216": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "1217": {
     "trade_date": "2026-11-23",
@@ -136,10 +137,11 @@
   },
   "1229": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "1231": {
     "trade_date": "2026-11-23",
@@ -234,17 +236,19 @@
   },
   "1301": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "1303": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "1304": {
     "trade_date": "2026-11-23",
@@ -360,10 +364,11 @@
   },
   "1326": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "1336": {
     "trade_date": "2026-11-23",
@@ -756,10 +761,11 @@
   },
   "1477": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "1503": {
     "trade_date": "2026-11-23",
@@ -2404,11 +2410,12 @@
   },
   "2303": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2305": {
     "trade_date": "2026-11-23",
@@ -2419,27 +2426,30 @@
   },
   "2308": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2312": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2313": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2314": {
     "trade_date": "2026-11-23",
@@ -2457,11 +2467,12 @@
   },
   "2317": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2321": {
     "trade_date": "2026-11-23",
@@ -2486,11 +2497,12 @@
   },
   "2327": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2328": {
     "trade_date": "2026-11-23",
@@ -2508,11 +2520,12 @@
   },
   "2330": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2331": {
     "trade_date": "2026-11-23",
@@ -2530,11 +2543,12 @@
   },
   "2337": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2338": {
     "trade_date": "2026-11-23",
@@ -2559,19 +2573,21 @@
   },
   "2344": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2345": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2347": {
     "trade_date": "2026-11-23",
@@ -2610,11 +2626,12 @@
   },
   "2353": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2354": {
     "trade_date": "2026-11-23",
@@ -2632,18 +2649,20 @@
   },
   "2356": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2357": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
-    "complete_chips": true
+    "complete": true,
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "2359": {
     "trade_date": "2026-11-23",
@@ -2654,11 +2673,12 @@
   },
   "2360": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2362": {
     "trade_date": "2026-11-23",
@@ -2697,11 +2717,12 @@
   },
   "2368": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2369": {
     "trade_date": "2026-11-23",
@@ -2747,19 +2768,21 @@
   },
   "2377": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2379": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2380": {
     "trade_date": "2026-11-23",
@@ -2778,11 +2801,12 @@
   },
   "2383": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2385": {
     "trade_date": "2026-11-23",
@@ -2828,11 +2852,12 @@
   },
   "2395": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2397": {
     "trade_date": "2026-11-23",
@@ -2885,27 +2910,30 @@
   },
   "2408": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2409": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2412": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2413": {
     "trade_date": "2026-11-23",
@@ -3091,11 +3119,12 @@
   },
   "2449": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2450": {
     "trade_date": "2026-11-23",
@@ -3120,11 +3149,12 @@
   },
   "2454": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2455": {
     "trade_date": "2026-11-23",
@@ -3205,11 +3235,12 @@
   },
   "2468": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2471": {
     "trade_date": "2026-11-23",
@@ -3325,11 +3356,12 @@
   },
   "2492": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2493": {
     "trade_date": "2026-11-23",
@@ -3361,11 +3393,12 @@
   },
   "2498": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2501": {
     "trade_date": "2026-11-23",
@@ -3502,10 +3535,11 @@
   },
   "2539": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "2540": {
     "trade_date": "2026-11-23",
@@ -3580,11 +3614,12 @@
   },
   "2603": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2605": {
     "trade_date": "2026-11-23",
@@ -3679,11 +3714,12 @@
   },
   "2618": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2630": {
     "trade_date": "2026-11-23",
@@ -3757,11 +3793,12 @@
   },
   "2646": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2701": {
     "trade_date": "2026-11-23",
@@ -3989,11 +4026,12 @@
   },
   "2812": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2816": {
     "trade_date": "2026-11-23",
@@ -4018,11 +4056,12 @@
   },
   "2834": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2836": {
     "trade_date": "2026-11-23",
@@ -4061,11 +4100,12 @@
   },
   "2851": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2852": {
     "trade_date": "2026-11-23",
@@ -4090,27 +4130,30 @@
   },
   "2881": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2882": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2883": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2884": {
     "trade_date": "2026-11-24",
@@ -4122,27 +4165,30 @@
   },
   "2885": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2886": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2887": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2889": {
     "trade_date": "2026-11-23",
@@ -4161,11 +4207,12 @@
   },
   "2891": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "2892": {
     "trade_date": "2026-11-24",
@@ -4387,11 +4434,12 @@
   },
   "3008": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "3010": {
     "trade_date": "2026-11-23",
@@ -4437,11 +4485,12 @@
   },
   "3017": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "3018": {
     "trade_date": "2026-11-23",
@@ -4494,10 +4543,11 @@
   },
   "3026": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
-    "complete_chips": true
+    "complete": true,
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "3027": {
     "trade_date": "2026-11-23",
@@ -4571,11 +4621,12 @@
   },
   "3037": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "3038": {
     "trade_date": "2026-11-23",
@@ -4980,10 +5031,11 @@
   },
   "3167": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
-    "complete_chips": true
+    "complete": true,
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "3168": {
     "trade_date": "2026-11-23",
@@ -5029,11 +5081,12 @@
   },
   "3189": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "3191": {
     "trade_date": "2026-11-23",
@@ -5156,11 +5209,12 @@
   },
   "3231": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "3232": {
     "trade_date": "2026-11-23",
@@ -5537,11 +5591,12 @@
   },
   "3380": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "3388": {
     "trade_date": "2026-11-23",
@@ -5566,11 +5621,12 @@
   },
   "3406": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "3413": {
     "trade_date": "2026-11-23",
@@ -5637,11 +5693,12 @@
   },
   "3443": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "3444": {
     "trade_date": "2026-11-23",
@@ -5701,11 +5758,12 @@
   },
   "3481": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "3483": {
     "trade_date": "2026-11-23",
@@ -5884,10 +5942,11 @@
   },
   "3529": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
-    "complete_chips": true
+    "complete": true,
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "3530": {
     "trade_date": "2026-11-23",
@@ -6269,19 +6328,21 @@
   },
   "3653": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "3661": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "3663": {
     "trade_date": "2026-11-23",
@@ -6299,11 +6360,12 @@
   },
   "3665": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "3666": {
     "trade_date": "2026-11-23",
@@ -6482,11 +6544,12 @@
   },
   "3711": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "3712": {
     "trade_date": "2026-11-23",
@@ -7708,11 +7771,12 @@
   },
   "4906": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "4907": {
     "trade_date": "2026-11-23",
@@ -7765,11 +7829,12 @@
   },
   "4919": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "4923": {
     "trade_date": "2026-11-23",
@@ -7906,11 +7971,12 @@
   },
   "4958": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "4960": {
     "trade_date": "2026-11-23",
@@ -9007,11 +9073,12 @@
   },
   "5876": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "5878": {
     "trade_date": "2026-11-23",
@@ -9022,11 +9089,12 @@
   },
   "5880": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "5902": {
     "trade_date": "2026-11-23",
@@ -9772,11 +9840,12 @@
   },
   "6213": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "6214": {
     "trade_date": "2026-11-23",
@@ -10153,11 +10222,12 @@
   },
   "6285": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "6290": {
     "trade_date": "2026-11-23",
@@ -10224,11 +10294,12 @@
   },
   "6415": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "6416": {
     "trade_date": "2026-11-23",
@@ -11108,11 +11179,12 @@
   },
   "6669": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "6670": {
     "trade_date": "2026-11-23",
@@ -11130,10 +11202,11 @@
   },
   "6672": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
-    "complete_chips": true
+    "complete": true,
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "6674": {
     "trade_date": "2026-11-23",
@@ -11452,11 +11525,12 @@
   },
   "6770": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "6771": {
     "trade_date": "2026-11-23",
@@ -11495,11 +11569,12 @@
   },
   "6788": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "6789": {
     "trade_date": "2026-11-23",
@@ -12518,11 +12593,12 @@
   },
   "7769": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "7770": {
     "trade_date": "2026-11-23",
@@ -12883,11 +12959,12 @@
   },
   "8046": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "8047": {
     "trade_date": "2026-11-23",
@@ -12961,11 +13038,12 @@
   },
   "8069": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "8070": {
     "trade_date": "2026-11-23",
@@ -13095,11 +13173,12 @@
   },
   "8096": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "8097": {
     "trade_date": "2026-11-23",
@@ -13938,11 +14017,12 @@
   },
   "8996": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "9103": {
     "trade_date": "2026-11-23",
@@ -14086,11 +14166,12 @@
   },
   "9925": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 14:02",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
-    "last_missing_retry_date": "2026-11-24"
+    "last_missing_retry_date": "2026-11-24",
+    "complete_fundamental": true
   },
   "9926": {
     "trade_date": "2026-11-23",
@@ -14276,108 +14357,123 @@
   },
   "0050": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "0056": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "00878": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "00919": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "006208": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "00713": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "00929": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "00631L": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "00981A": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "00406A": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "00632R": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "00685L": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "009816": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:14",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "00403A": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:15",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "00991A": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 10:15",
+    "updated_at": "2026-11-24 13:40",
     "complete_close_tech": true,
     "complete": true,
-    "complete_chips": true
+    "complete_chips": true,
+    "complete_fundamental": true
   },
   "00664R": {
     "trade_date": "2026-11-24",

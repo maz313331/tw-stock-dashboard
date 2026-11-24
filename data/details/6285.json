@@ -1,18 +1,18 @@
 {
   "symbol": "6285",
   "name": "啟碁",
-  "updated_at": "2026-11-24 14:02（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 13:40（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
-  "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏",
-  "total_score": 10,
+  "partial_missing": "",
+  "total_score": 11,
   "max_score": 30,
   "badge": "中性觀望",
-  "trading_note": "部分欄位暫缺（估值資料(PE/PB/殖利率)部分缺漏），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
+  "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
-    "fundamental": 6,
+    "fundamental": 9,
     "technical": 2,
-    "chip": 2
+    "chip": 0
   },
   "metrics_6": {
     "main_force_net": -3095.0,
@@ -26,18 +26,18 @@
     "fundamental": [
       {
         "label": "本益比合理",
-        "passed": false,
-        "value": "14.2"
+        "passed": true,
+        "value": "16.10"
       },
       {
         "label": "股價淨值比合理",
-        "passed": false,
-        "value": "2.14"
+        "passed": true,
+        "value": "2.43"
       },
       {
         "label": "殖利率具吸引力",
         "passed": false,
-        "value": "2.50%"
+        "value": "2.21%"
       },
       {
         "label": "月營收月增",
@@ -46,8 +46,8 @@
       },
       {
         "label": "月營收年增",
-        "passed": false,
-        "value": "+4.85%"
+        "passed": true,
+        "value": "+77.78%"
       },
       {
         "label": "營業利益為正",
@@ -130,7 +130,7 @@
     "chip": [
       {
         "label": "近 3 日主力單日買超 > 1,000 張",
-        "passed": true,
+        "passed": false,
         "value": "最大:+2270張"
       },
       {
@@ -170,7 +170,7 @@
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
@@ -181,21 +181,22 @@
     ]
   },
   "fundamental_data": {
-    "complete": false,
+    "complete": true,
     "missing_reasons": [
       "估值資料(PE/PB/殖利率)部分缺漏"
     ],
     "metrics": {
-      "pe": null,
-      "pb": null,
-      "dividend_yield": null,
+      "pe": 16.1,
+      "pb": 2.43,
+      "dividend_yield": 2.21,
       "rev_new_10m": false,
-      "rev_mom_pct": 4.8451873107943895,
+      "rev_mom_pct": 4.85,
       "op_income": 2567153000.0,
       "net_income": 2090048000.0,
       "eps": 4.35,
       "roa_pct": 4.672673477085461,
-      "roe_pct": 15.061814197217952
+      "roe_pct": 15.061814197217952,
+      "rev_yoy_pct": 77.78
     }
   },
   "chip_data": {
@@ -221,7 +222,5 @@
       "tdcc"
     ]
   },
-  "missing_reasons": [
-    "估值資料(PE/PB/殖利率)部分缺漏"
-  ]
+  "missing_reasons": []
 }

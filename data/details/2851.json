@@ -1,18 +1,18 @@
 {
   "symbol": "2851",
   "name": "中再保",
-  "updated_at": "2026-11-24 14:02（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 13:40（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
-  "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏",
+  "partial_missing": "",
   "total_score": 8,
   "max_score": 30,
   "badge": "中性觀望",
-  "trading_note": "部分欄位暫缺（估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
+  "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
-    "fundamental": 0,
+    "fundamental": 7,
     "technical": 1,
-    "chip": 7
+    "chip": 0
   },
   "metrics_6": {
     "main_force_net": 354.7,
@@ -26,53 +26,53 @@
     "fundamental": [
       {
         "label": "本益比合理",
-        "passed": false,
-        "value": "缺漏"
+        "passed": true,
+        "value": "4.10"
       },
       {
         "label": "股價淨值比合理",
-        "passed": false,
-        "value": "缺漏"
+        "passed": true,
+        "value": "1.28"
       },
       {
         "label": "殖利率具吸引力",
-        "passed": false,
-        "value": "缺漏"
+        "passed": true,
+        "value": "5.15%"
       },
       {
         "label": "月營收月增",
         "passed": false,
-        "value": "缺漏"
+        "value": "-15.70%"
       },
       {
         "label": "月營收年增",
         "passed": false,
-        "value": "缺漏"
+        "value": "-56.73%"
       },
       {
         "label": "營業利益為正",
-        "passed": false,
-        "value": "缺漏"
+        "passed": true,
+        "value": "856,509,000"
       },
       {
         "label": "本期淨利為正",
-        "passed": false,
-        "value": "缺漏"
+        "passed": true,
+        "value": "686,531,000"
       },
       {
         "label": "每股盈餘為正",
-        "passed": false,
-        "value": "缺漏"
+        "passed": true,
+        "value": "0.85"
       },
       {
         "label": "ROA 表現穩健",
-        "passed": false,
-        "value": "缺漏"
+        "passed": true,
+        "value": "1.11%"
       },
       {
         "label": "ROE 表現穩健",
         "passed": false,
-        "value": "缺漏"
+        "value": "2.57%"
       }
     ],
     "technical": [
@@ -130,12 +130,12 @@
     "chip": [
       {
         "label": "近 3 日主力單日買超 > 1,000 張",
-        "passed": true,
+        "passed": false,
         "value": "最大:+1057張"
       },
       {
         "label": "近 1 日、5 日籌碼集中度為正",
-        "passed": true,
+        "passed": false,
         "value": "5日集中度:+16.44%"
       },
       {
@@ -145,17 +145,17 @@
       },
       {
         "label": "近 2 日中長線買盤連續買超",
-        "passed": true,
+        "passed": false,
         "value": "連2日買超"
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長6日"
       },
       {
         "label": "近 20 日波段買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長6日"
       },
       {
@@ -165,12 +165,12 @@
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
-        "passed": true,
+        "passed": false,
         "value": "+6116張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
@@ -181,23 +181,24 @@
     ]
   },
   "fundamental_data": {
-    "complete": false,
+    "complete": true,
     "missing_reasons": [
       "估值資料(PE/PB/殖利率)部分缺漏",
       "月營收資料缺漏或尚未公布",
       "財報/ROA/ROE欄位尚未公布或缺漏"
     ],
     "metrics": {
-      "pe": null,
-      "pb": null,
-      "dividend_yield": null,
+      "pe": 4.1,
+      "pb": 1.28,
+      "dividend_yield": 5.15,
       "rev_new_10m": null,
-      "rev_mom_pct": null,
-      "op_income": null,
-      "net_income": null,
-      "eps": null,
-      "roa_pct": null,
-      "roe_pct": null
+      "rev_mom_pct": -15.7,
+      "op_income": 856509000.0,
+      "net_income": 686531000.0,
+      "eps": 0.85,
+      "roa_pct": 1.11,
+      "roe_pct": 2.57,
+      "rev_yoy_pct": -56.73
     }
   },
   "chip_data": {
@@ -223,9 +224,5 @@
       "tdcc"
     ]
   },
-  "missing_reasons": [
-    "估值資料(PE/PB/殖利率)部分缺漏",
-    "月營收資料缺漏或尚未公布",
-    "財報/ROA/ROE欄位尚未公布或缺漏"
-  ]
+  "missing_reasons": []
 }

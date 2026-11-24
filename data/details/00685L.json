@@ -2,7 +2,7 @@
   "symbol": "00685L",
   "name": "群益臺灣加權正2",
   "asset_type": "ETF",
-  "updated_at": "2026-11-24 10:14（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 13:40（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=25.8，近 20 日報酬 -42.28%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -24,14 +24,14 @@
     "updated_at": "2026-11-22 15:33（行情日 2026-11-20）"
   },
   "partial_missing": "",
-  "total_score": 4,
+  "total_score": 2,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 0,
     "technical": 2,
-    "chip": 2
+    "chip": 0
   },
   "metrics_6": {
     "main_force_net": -47193.3,
@@ -169,7 +169,7 @@
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長4日"
       },
       {
@@ -189,7 +189,7 @@
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
