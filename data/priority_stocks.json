@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-24T21:49:13.868816+08:00",
+  "generated_at": "2026-11-24T22:35:05.784370+08:00",
   "as_of_date": "2026-11-24",
   "market_stats_source": "twse_tpex_openapi",
   "rules": {
@@ -830,9 +830,9 @@
     },
     {
       "symbol": "6788",
-      "ticker": "6788.TW",
+      "ticker": "6788.TWO",
       "market": "TPEx",
-      "name": "6788",
+      "name": "華景電",
       "category": "EXTRA",
       "tags": [
         "core"

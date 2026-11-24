@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-24T21:49:04.777170+08:00",
+  "updated_at": "2026-11-24T22:34:58.247603+08:00",
   "mode": "direct_fixed_core_pool",
   "total_count": 65,
   "excluded_non_tw_or_options": [
@@ -652,7 +652,7 @@
     {
       "symbol": "6788",
       "ticker": "6788.TW",
-      "name": "6788",
+      "name": "華景電",
       "market": "TWSE",
       "category": "EXTRA",
       "tags": [
