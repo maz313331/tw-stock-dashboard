@@ -2,7 +2,7 @@
   "symbol": "00406A",
   "name": "主動中信台灣收益",
   "asset_type": "ETF",
-  "updated_at": "2026-11-24 13:41（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 10:14（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=24.6，近 20 日報酬 -35.21%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -34,10 +34,10 @@
     "chip": 0
   },
   "metrics_6": {
-    "main_force_net": -311626.1,
+    "main_force_net": -1524005.5,
     "retail_net": 0,
     "margin_net": 12740.0,
-    "chip_concentration_5d": -49.25,
+    "chip_concentration_5d": -54.75,
     "major_holder_pct": 54.31,
     "retail_holder_pct": 23.89
   },
@@ -103,7 +103,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "+4.87%"
+        "value": "+4.71%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -113,12 +113,12 @@
       {
         "label": "KD 黃金交叉",
         "passed": true,
-        "value": "K:23.6 / D:21.4"
+        "value": "K:23.5 / D:21.4"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:39.0"
+        "value": "RSI14:38.9"
       },
       {
         "label": "MACD 多頭趨勢",
@@ -128,7 +128,7 @@
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:6.39"
+        "value": "5MA:6.38"
       },
       {
         "label": "收盤價大於月線",
@@ -155,7 +155,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": false,
-        "value": "5日集中度:-49.25%"
+        "value": "5日集中度:-54.75%"
       },
       {
         "label": "外資、投信同時連買 2 天",
@@ -180,12 +180,12 @@
       {
         "label": "近 1 日法人或主力買超力道放大",
         "passed": false,
-        "value": "-311626 (5日均-707755)"
+        "value": "-1524006 (5日均-803686)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
         "passed": false,
-        "value": "-11467735張"
+        "value": "-12069838張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
@@ -223,10 +223,10 @@
       "tdcc"
     ],
     "metrics_6": {
-      "main_force_net": -311626.1,
+      "main_force_net": -1524005.5,
       "retail_net": 0,
       "margin_net": 12740.0,
-      "chip_concentration_5d": -49.25,
+      "chip_concentration_5d": -54.75,
       "major_holder_pct": 54.31,
       "retail_holder_pct": 23.89
     }

@@ -2,7 +2,7 @@
   "symbol": "00632R",
   "name": "元大台灣50反1",
   "asset_type": "ETF",
-  "updated_at": "2026-11-24 13:59（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 10:14（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「多頭排列」，RSI(14)=73.0，近 20 日報酬 +26.72%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -34,10 +34,10 @@
     "chip": 7
   },
   "metrics_6": {
-    "main_force_net": 202406.1,
+    "main_force_net": 13213.9,
     "retail_net": 0,
     "margin_net": -61151.0,
-    "chip_concentration_5d": 15.29,
+    "chip_concentration_5d": 11.12,
     "major_holder_pct": 74.14,
     "retail_holder_pct": 13.66
   },
@@ -155,7 +155,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": true,
-        "value": "5日集中度:+15.29%"
+        "value": "5日集中度:+11.12%"
       },
       {
         "label": "外資、投信同時連買 2 天",
@@ -164,28 +164,28 @@
       },
       {
         "label": "近 2 日中長線買盤連續買超",
-        "passed": false,
-        "value": "未連2日"
+        "passed": true,
+        "value": "連2日買超"
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
         "passed": true,
-        "value": "最長9日"
+        "value": "最長8日"
       },
       {
         "label": "近 20 日波段買盤曾連買",
         "passed": true,
-        "value": "最長9日"
+        "value": "最長8日"
       },
       {
         "label": "近 1 日法人或主力買超力道放大",
-        "passed": true,
-        "value": "+202406 (5日均+63267)"
+        "passed": false,
+        "value": "+13214 (5日均+45985)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
         "passed": true,
-        "value": "+592246張"
+        "value": "+581959張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
@@ -223,10 +223,10 @@
       "tdcc"
     ],
     "metrics_6": {
-      "main_force_net": 202406.1,
+      "main_force_net": 13213.9,
       "retail_net": 0,
       "margin_net": -61151.0,
-      "chip_concentration_5d": 15.29,
+      "chip_concentration_5d": 11.12,
       "major_holder_pct": 74.14,
       "retail_holder_pct": 13.66
     }

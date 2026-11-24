@@ -2639,8 +2639,8 @@
     "last_missing_retry_date": "2026-11-24"
   },
   "2357": {
-    "trade_date": "2026-11-23",
-    "updated_at": "2026-11-23 09:44",
+    "trade_date": "2026-11-24",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true
@@ -4493,8 +4493,8 @@
     "complete_chips": true
   },
   "3026": {
-    "trade_date": "2026-11-23",
-    "updated_at": "2026-11-23 10:09",
+    "trade_date": "2026-11-24",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true
@@ -4979,8 +4979,8 @@
     "complete_chips": true
   },
   "3167": {
-    "trade_date": "2026-11-23",
-    "updated_at": "2026-11-23 10:12",
+    "trade_date": "2026-11-24",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true
@@ -5883,8 +5883,8 @@
     "complete_chips": true
   },
   "3529": {
-    "trade_date": "2026-11-23",
-    "updated_at": "2026-11-23 10:14",
+    "trade_date": "2026-11-24",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true
@@ -11129,8 +11129,8 @@
     "complete_chips": true
   },
   "6672": {
-    "trade_date": "2026-11-23",
-    "updated_at": "2026-11-23 11:46",
+    "trade_date": "2026-11-24",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
     "complete": false,
     "complete_chips": true
@@ -14276,81 +14276,94 @@
   },
   "0050": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "0056": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00878": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00919": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "006208": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00713": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00929": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00631L": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00981A": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00406A": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:41",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00632R": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:59",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00685L": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:59",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "009816": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:59",
+    "updated_at": "2026-11-24 10:14",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00403A": {
     "trade_date": "2026-11-24",

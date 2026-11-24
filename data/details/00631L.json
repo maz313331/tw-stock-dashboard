@@ -2,7 +2,7 @@
   "symbol": "00631L",
   "name": "元大台灣50正2",
   "asset_type": "ETF",
-  "updated_at": "2026-11-24 13:41（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 10:14（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=26.6，近 20 日報酬 -40.35%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -24,20 +24,20 @@
     "updated_at": "2026-11-22 15:33（行情日 2026-11-20）"
   },
   "partial_missing": "",
-  "total_score": 2,
+  "total_score": 4,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 0,
     "technical": 2,
-    "chip": 0
+    "chip": 2
   },
   "metrics_6": {
-    "main_force_net": -349294.2,
+    "main_force_net": -9180.8,
     "retail_net": 0,
     "margin_net": 91443.0,
-    "chip_concentration_5d": -31.91,
+    "chip_concentration_5d": -26.38,
     "major_holder_pct": 53.06,
     "retail_holder_pct": 28.41
   },
@@ -150,12 +150,12 @@
       {
         "label": "近 3 日主力單日買超 > 1,000 張",
         "passed": false,
-        "value": "最大:-161748張"
+        "value": "最大:-9181張"
       },
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": false,
-        "value": "5日集中度:-31.91%"
+        "value": "5日集中度:-26.38%"
       },
       {
         "label": "外資、投信同時連買 2 天",
@@ -169,7 +169,7 @@
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": false,
+        "passed": true,
         "value": "最長4日"
       },
       {
@@ -180,16 +180,16 @@
       {
         "label": "近 1 日法人或主力買超力道放大",
         "passed": false,
-        "value": "-349294 (5日均-260165)"
+        "value": "-9181 (5日均-215102)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
         "passed": false,
-        "value": "-3026270張"
+        "value": "-2991908張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": false,
+        "passed": true,
         "value": "符合"
       },
       {
@@ -223,10 +223,10 @@
       "tdcc"
     ],
     "metrics_6": {
-      "main_force_net": -349294.2,
+      "main_force_net": -9180.8,
       "retail_net": 0,
       "margin_net": 91443.0,
-      "chip_concentration_5d": -31.91,
+      "chip_concentration_5d": -26.38,
       "major_holder_pct": 53.06,
       "retail_holder_pct": 28.41
     }

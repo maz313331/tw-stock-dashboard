@@ -2,7 +2,7 @@
   "symbol": "00878",
   "name": "國泰永續高股息",
   "asset_type": "ETF",
-  "updated_at": "2026-11-24 13:41（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 10:14（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=19.2，近 20 日報酬 -20.53%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -34,10 +34,10 @@
     "chip": 0
   },
   "metrics_6": {
-    "main_force_net": -22148.0,
+    "main_force_net": -61147.0,
     "retail_net": 0,
     "margin_net": 198.0,
-    "chip_concentration_5d": -37.18,
+    "chip_concentration_5d": -38.73,
     "major_holder_pct": 24.97,
     "retail_holder_pct": 52.48
   },
@@ -103,7 +103,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "+3.56%"
+        "value": "+3.46%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -113,12 +113,12 @@
       {
         "label": "KD 黃金交叉",
         "passed": true,
-        "value": "K:26.5 / D:24.8"
+        "value": "K:26.3 / D:24.7"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:39.0"
+        "value": "RSI14:38.9"
       },
       {
         "label": "MACD 多頭趨勢",
@@ -128,12 +128,12 @@
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:29.47"
+        "value": "5MA:29.46"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:32.48"
+        "value": "20MA:32.47"
       },
       {
         "label": "月線大於季線",
@@ -155,7 +155,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": false,
-        "value": "5日集中度:-37.18%"
+        "value": "5日集中度:-38.73%"
       },
       {
         "label": "外資、投信同時連買 2 天",
@@ -180,12 +180,12 @@
       {
         "label": "近 1 日法人或主力買超力道放大",
         "passed": false,
-        "value": "-22148 (5日均-39711)"
+        "value": "-61147 (5日均-41796)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
         "passed": false,
-        "value": "-1191001張"
+        "value": "-1240834張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
@@ -223,10 +223,10 @@
       "tdcc"
     ],
     "metrics_6": {
-      "main_force_net": -22148.0,
+      "main_force_net": -61147.0,
       "retail_net": 0,
       "margin_net": 198.0,
-      "chip_concentration_5d": -37.18,
+      "chip_concentration_5d": -38.73,
       "major_holder_pct": 24.97,
       "retail_holder_pct": 52.48
     }

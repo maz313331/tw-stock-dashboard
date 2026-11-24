@@ -2,7 +2,7 @@
   "symbol": "00685L",
   "name": "群益臺灣加權正2",
   "asset_type": "ETF",
-  "updated_at": "2026-11-24 13:59（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 10:14（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=25.8，近 20 日報酬 -42.28%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -34,10 +34,10 @@
     "chip": 2
   },
   "metrics_6": {
-    "main_force_net": -270990.4,
+    "main_force_net": -47193.3,
     "retail_net": 0,
     "margin_net": 57844.0,
-    "chip_concentration_5d": -37.77,
+    "chip_concentration_5d": -31.39,
     "major_holder_pct": 62.44,
     "retail_holder_pct": 19.94
   },
@@ -150,12 +150,12 @@
       {
         "label": "近 3 日主力單日買超 > 1,000 張",
         "passed": false,
-        "value": "最大:-270990張"
+        "value": "最大:-47193張"
       },
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": false,
-        "value": "5日集中度:-37.77%"
+        "value": "5日集中度:-31.39%"
       },
       {
         "label": "外資、投信同時連買 2 天",
@@ -180,12 +180,12 @@
       {
         "label": "近 1 日法人或主力買超力道放大",
         "passed": false,
-        "value": "-270990 (5日均-318143)"
+        "value": "-47193 (5日均-264368)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
         "passed": false,
-        "value": "-4287026張"
+        "value": "-4273946張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
@@ -223,10 +223,10 @@
       "tdcc"
     ],
     "metrics_6": {
-      "main_force_net": -270990.4,
+      "main_force_net": -47193.3,
       "retail_net": 0,
       "margin_net": 57844.0,
-      "chip_concentration_5d": -37.77,
+      "chip_concentration_5d": -31.39,
       "major_holder_pct": 62.44,
       "retail_holder_pct": 19.94
     }
