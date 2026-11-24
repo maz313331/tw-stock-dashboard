@@ -2,7 +2,7 @@
   "symbol": "00405A",
   "name": "主動富邦台灣龍耀",
   "asset_type": "ETF",
-  "updated_at": "2026-11-24 13:59（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 10:15（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=26.2，近 20 日報酬 -34.24%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -34,10 +34,10 @@
     "chip": 2
   },
   "metrics_6": {
-    "main_force_net": -523.6,
+    "main_force_net": -73694.0,
     "retail_net": 0,
     "margin_net": -1501.0,
-    "chip_concentration_5d": -14.68,
+    "chip_concentration_5d": -25.77,
     "major_holder_pct": 38.9,
     "retail_holder_pct": 36.9
   },
@@ -155,7 +155,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": false,
-        "value": "5日集中度:-14.68%"
+        "value": "5日集中度:-25.77%"
       },
       {
         "label": "外資、投信同時連買 2 天",
@@ -180,12 +180,12 @@
       {
         "label": "近 1 日法人或主力買超力道放大",
         "passed": false,
-        "value": "-524 (5日均-13908)"
+        "value": "-73694 (5日均-24419)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
         "passed": false,
-        "value": "-283281張"
+        "value": "-342562張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
@@ -223,10 +223,10 @@
       "tdcc"
     ],
     "metrics_6": {
-      "main_force_net": -523.6,
+      "main_force_net": -73694.0,
       "retail_net": 0,
       "margin_net": -1501.0,
-      "chip_concentration_5d": -14.68,
+      "chip_concentration_5d": -25.77,
       "major_holder_pct": 38.9,
       "retail_holder_pct": 36.9
     }

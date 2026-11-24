@@ -1731,10 +1731,10 @@
     "last_missing_retry_date": "2026-11-20"
   },
   "2002": {
-    "trade_date": "2026-11-20",
-    "updated_at": "2026-11-24 09:19",
+    "trade_date": "2026-11-24",
+    "updated_at": "2026-11-24 10:15",
     "complete_close_tech": true,
-    "complete": false,
+    "complete": true,
     "complete_chips": true,
     "complete_fundamental": true,
     "last_missing_retry_date": "2026-11-20"
@@ -14367,39 +14367,45 @@
   },
   "00403A": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:59",
+    "updated_at": "2026-11-24 10:15",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00991A": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:59",
+    "updated_at": "2026-11-24 10:15",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00664R": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:59",
+    "updated_at": "2026-11-24 10:15",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00992A": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:59",
+    "updated_at": "2026-11-24 10:15",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00405A": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:59",
+    "updated_at": "2026-11-24 10:15",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00686R": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:59",
+    "updated_at": "2026-11-24 10:15",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00937B": {
     "trade_date": "2026-11-24",
@@ -14409,14 +14415,16 @@
   },
   "00982A": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:59",
+    "updated_at": "2026-11-24 10:15",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   },
   "00400A": {
     "trade_date": "2026-11-24",
-    "updated_at": "2026-11-24 13:59",
+    "updated_at": "2026-11-24 10:15",
     "complete_close_tech": true,
-    "complete": true
+    "complete": true,
+    "complete_chips": true
   }
 }

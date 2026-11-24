@@ -2,7 +2,7 @@
   "symbol": "00686R",
   "name": "群益臺灣加權反1",
   "asset_type": "ETF",
-  "updated_at": "2026-11-24 13:59（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 10:15（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「多頭排列」，RSI(14)=74.5，近 20 日報酬 +27.84%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -24,20 +24,20 @@
     "updated_at": "2026-11-22 15:33（行情日 2026-11-20）"
   },
   "partial_missing": "",
-  "total_score": 8,
+  "total_score": 7,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 0,
     "technical": 4,
-    "chip": 4
+    "chip": 3
   },
   "metrics_6": {
-    "main_force_net": -1616.4,
+    "main_force_net": 0.0,
     "retail_net": 0,
     "margin_net": -5107.0,
-    "chip_concentration_5d": 10.37,
+    "chip_concentration_5d": 2.84,
     "major_holder_pct": 89.34,
     "retail_holder_pct": 4.23
   },
@@ -149,13 +149,13 @@
     "chip": [
       {
         "label": "近 3 日主力單日買超 > 1,000 張",
-        "passed": true,
-        "value": "最大:+5432張"
+        "passed": false,
+        "value": "最大:+0張"
       },
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": false,
-        "value": "5日集中度:+10.37%"
+        "value": "5日集中度:+2.84%"
       },
       {
         "label": "外資、投信同時連買 2 天",
@@ -180,12 +180,12 @@
       {
         "label": "近 1 日法人或主力買超力道放大",
         "passed": false,
-        "value": "-1616 (5日均+3202)"
+        "value": "+0 (5日均+876)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
         "passed": true,
-        "value": "+38229張"
+        "value": "+37329張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
@@ -223,10 +223,10 @@
       "tdcc"
     ],
     "metrics_6": {
-      "main_force_net": -1616.4,
+      "main_force_net": 0.0,
       "retail_net": 0,
       "margin_net": -5107.0,
-      "chip_concentration_5d": 10.37,
+      "chip_concentration_5d": 2.84,
       "major_holder_pct": 89.34,
       "retail_holder_pct": 4.23
     }

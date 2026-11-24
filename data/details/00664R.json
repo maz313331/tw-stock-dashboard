@@ -2,7 +2,7 @@
   "symbol": "00664R",
   "name": "國泰臺灣加權反1",
   "asset_type": "ETF",
-  "updated_at": "2026-11-24 13:59（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 10:15（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「多頭排列」，RSI(14)=72.6，近 20 日報酬 +26.42%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -24,20 +24,20 @@
     "updated_at": "2026-11-22 15:33（行情日 2026-11-20）"
   },
   "partial_missing": "",
-  "total_score": 12,
+  "total_score": 11,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 0,
     "technical": 4,
-    "chip": 8
+    "chip": 7
   },
   "metrics_6": {
-    "main_force_net": 30028.0,
+    "main_force_net": 4224.9,
     "retail_net": 0,
     "margin_net": -21082.0,
-    "chip_concentration_5d": 28.36,
+    "chip_concentration_5d": 26.99,
     "major_holder_pct": 85.33,
     "retail_holder_pct": 6.38
   },
@@ -103,7 +103,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-2.22%"
+        "value": "-6.38%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -113,12 +113,12 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:61.0 / D:59.7"
+        "value": "K:62.3 / D:64.0"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:53.8"
+        "value": "RSI14:52.9"
       },
       {
         "label": "MACD 多頭趨勢",
@@ -128,12 +128,12 @@
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:1.85"
+        "value": "5MA:1.88"
       },
       {
         "label": "收盤價大於月線",
         "passed": true,
-        "value": "20MA:1.73"
+        "value": "20MA:1.74"
       },
       {
         "label": "月線大於季線",
@@ -155,7 +155,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": true,
-        "value": "5日集中度:+28.36%"
+        "value": "5日集中度:+26.99%"
       },
       {
         "label": "外資、投信同時連買 2 天",
@@ -179,13 +179,13 @@
       },
       {
         "label": "近 1 日法人或主力買超力道放大",
-        "passed": true,
-        "value": "+30028 (5日均+19874)"
+        "passed": false,
+        "value": "+4225 (5日均+19840)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
         "passed": true,
-        "value": "+219436張"
+        "value": "+191895張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
@@ -223,10 +223,10 @@
       "tdcc"
     ],
     "metrics_6": {
-      "main_force_net": 30028.0,
+      "main_force_net": 4224.9,
       "retail_net": 0,
       "margin_net": -21082.0,
-      "chip_concentration_5d": 28.36,
+      "chip_concentration_5d": 26.99,
       "major_holder_pct": 85.33,
       "retail_holder_pct": 6.38
     }

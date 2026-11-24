@@ -2,7 +2,7 @@
   "symbol": "00403A",
   "name": "主動統一升級50",
   "asset_type": "ETF",
-  "updated_at": "2026-11-24 13:59（行情日 2026-11-24）",
+  "updated_at": "2026-11-24 10:15（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=27.5，近 20 日報酬 -30.08%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -34,10 +34,10 @@
     "chip": 1
   },
   "metrics_6": {
-    "main_force_net": -7824.4,
+    "main_force_net": -644656.4,
     "retail_net": 0,
     "margin_net": 4189.0,
-    "chip_concentration_5d": -16.93,
+    "chip_concentration_5d": -41.61,
     "major_holder_pct": 33.91,
     "retail_holder_pct": 42.62
   },
@@ -155,7 +155,7 @@
       {
         "label": "近 1 日、5 日籌碼集中度為正",
         "passed": false,
-        "value": "5日集中度:-16.93%"
+        "value": "5日集中度:-41.61%"
       },
       {
         "label": "外資、投信同時連買 2 天",
@@ -180,12 +180,12 @@
       {
         "label": "近 1 日法人或主力買超力道放大",
         "passed": false,
-        "value": "-7824 (5日均-71277)"
+        "value": "-644656 (5日均-175236)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
         "passed": false,
-        "value": "-1472345張"
+        "value": "-1951229張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
@@ -223,10 +223,10 @@
       "tdcc"
     ],
     "metrics_6": {
-      "main_force_net": -7824.4,
+      "main_force_net": -644656.4,
       "retail_net": 0,
       "margin_net": 4189.0,
-      "chip_concentration_5d": -16.93,
+      "chip_concentration_5d": -41.61,
       "major_holder_pct": 33.91,
       "retail_holder_pct": 42.62
     }
