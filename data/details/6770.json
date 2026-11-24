@@ -1,17 +1,17 @@
 {
   "symbol": "6770",
   "name": "力積電",
-  "updated_at": "2026-11-24 13:40（行情日 2026-11-24）",
+  "updated_at": "2026-11-25 02:39（行情日 2026-11-23）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 12,
+  "total_score": 9,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 9,
-    "technical": 3,
+    "technical": 0,
     "chip": 0
   },
   "metrics_6": {
@@ -83,8 +83,8 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": true,
-        "value": "+9.00%"
+        "passed": false,
+        "value": "-6.55%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -93,33 +93,33 @@
       },
       {
         "label": "KD 黃金交叉",
-        "passed": true,
-        "value": "K:31.0 / D:24.2"
+        "passed": false,
+        "value": "K:17.8 / D:20.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:42.3"
+        "value": "RSI14:33.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-4.73"
+        "value": "DIF:-5.14"
       },
       {
         "label": "收盤價大於週線",
-        "passed": true,
-        "value": "5MA:49.34"
+        "passed": false,
+        "value": "5MA:48.98"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:57.04"
+        "value": "20MA:57.85"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:57.0/66.2"
+        "value": "20MA/60MA:57.8/66.4"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

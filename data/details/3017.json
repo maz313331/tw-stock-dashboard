@@ -1,17 +1,17 @@
 {
   "symbol": "3017",
   "name": "奇鋐",
-  "updated_at": "2026-11-24 13:40（行情日 2026-11-24）",
+  "updated_at": "2026-11-25 02:39（行情日 2026-11-23）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 10,
+  "total_score": 7,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 7,
-    "technical": 3,
+    "technical": 0,
     "chip": 0
   },
   "metrics_6": {
@@ -83,8 +83,8 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": true,
-        "value": "+6.34%"
+        "passed": false,
+        "value": "-12.89%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -93,33 +93,33 @@
       },
       {
         "label": "KD 黃金交叉",
-        "passed": true,
-        "value": "K:38.1 / D:36.8"
+        "passed": false,
+        "value": "K:28.9 / D:36.1"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:46.8"
+        "value": "RSI14:41.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-186.84"
+        "value": "DIF:-200.97"
       },
       {
         "label": "收盤價大於週線",
-        "passed": true,
-        "value": "5MA:2466.00"
+        "passed": false,
+        "value": "5MA:2440.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:2741.50"
+        "value": "20MA:2768.00"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:2741.5/3153.8"
+        "value": "20MA/60MA:2768.0/3163.0"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

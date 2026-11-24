@@ -2,7 +2,7 @@
   "symbol": "00919",
   "name": "群益台灣精選高息",
   "asset_type": "ETF",
-  "updated_at": "2026-11-24 13:40（行情日 2026-11-24）",
+  "updated_at": "2026-11-25 02:39（行情日 2026-11-23）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=20.5，近 20 日報酬 -15.21%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -24,13 +24,13 @@
     "updated_at": "2026-11-22 15:33（行情日 2026-11-20）"
   },
   "partial_missing": "",
-  "total_score": 1,
+  "total_score": 0,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 0,
-    "technical": 1,
+    "technical": 0,
     "chip": 0
   },
   "metrics_6": {
@@ -103,7 +103,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "+1.20%"
+        "value": "-9.57%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -113,32 +113,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:34.2 / D:34.7"
+        "value": "K:22.2 / D:35.0"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:41.2"
+        "value": "RSI14:21.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.91"
+        "value": "DIF:-0.96"
       },
       {
         "label": "收盤價大於週線",
-        "passed": true,
-        "value": "5MA:28.65"
+        "passed": false,
+        "value": "5MA:28.83"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:30.74"
+        "value": "20MA:30.91"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:30.7/31.7"
+        "value": "20MA/60MA:30.9/31.8"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

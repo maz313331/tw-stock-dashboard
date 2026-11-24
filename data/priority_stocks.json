@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-24T22:35:05.784370+08:00",
-  "as_of_date": "2026-11-24",
+  "generated_at": "2026-11-25T02:39:56.025731+08:00",
+  "as_of_date": "2026-11-25",
   "market_stats_source": "twse_tpex_openapi",
   "rules": {
     "top_amount_n": 60,

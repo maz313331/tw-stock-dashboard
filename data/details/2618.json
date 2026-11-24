@@ -1,17 +1,17 @@
 {
   "symbol": "2618",
   "name": "長榮航",
-  "updated_at": "2026-11-24 13:40（行情日 2026-11-24）",
+  "updated_at": "2026-11-25 02:39（行情日 2026-11-23）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 14,
+  "total_score": 11,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 10,
-    "technical": 4,
+    "technical": 1,
     "chip": 0
   },
   "metrics_6": {
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "+4.74%"
+        "value": "-5.56%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:58.5 / D:59.3"
+        "value": "K:40.8 / D:59.7"
       },
       {
         "label": "RSI 多頭趨勢",
-        "passed": true,
-        "value": "RSI14:63.7"
+        "passed": false,
+        "value": "RSI14:51.9"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:1.00"
+        "value": "DIF:0.83"
       },
       {
         "label": "收盤價大於週線",
-        "passed": true,
-        "value": "5MA:46.13"
+        "passed": false,
+        "value": "5MA:46.03"
       },
       {
         "label": "收盤價大於月線",
-        "passed": true,
-        "value": "20MA:45.28"
+        "passed": false,
+        "value": "20MA:45.00"
       },
       {
         "label": "月線大於季線",
         "passed": true,
-        "value": "20MA/60MA:45.3/43.3"
+        "value": "20MA/60MA:45.0/43.2"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

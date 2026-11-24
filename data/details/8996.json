@@ -1,7 +1,7 @@
 {
   "symbol": "8996",
   "name": "高力",
-  "updated_at": "2026-11-24 13:40（行情日 2026-11-24）",
+  "updated_at": "2026-11-25 02:39（行情日 2026-11-23）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-8.00%"
+        "value": "-24.41%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:11.2 / D:16.7"
+        "value": "K:9.3 / D:19.4"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:30.5"
+        "value": "RSI14:29.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-138.69"
+        "value": "DIF:-130.24"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:976.80"
+        "value": "5MA:1022.20"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:1284.95"
+        "value": "20MA:1311.05"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:1285.0/1397.8"
+        "value": "20MA/60MA:1311.0/1402.0"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

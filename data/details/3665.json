@@ -1,17 +1,17 @@
 {
   "symbol": "3665",
   "name": "貿聯-KY",
-  "updated_at": "2026-11-24 13:40（行情日 2026-11-24）",
+  "updated_at": "2026-11-25 02:39（行情日 2026-11-23）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 11,
+  "total_score": 8,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 7,
-    "technical": 4,
+    "technical": 1,
     "chip": 0
   },
   "metrics_6": {
@@ -83,8 +83,8 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": true,
-        "value": "+9.03%"
+        "passed": false,
+        "value": "-7.74%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -93,33 +93,33 @@
       },
       {
         "label": "KD 黃金交叉",
-        "passed": true,
-        "value": "K:54.3 / D:46.3"
+        "passed": false,
+        "value": "K:39.1 / D:42.3"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:50.0"
+        "value": "RSI14:44.0"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-130.58"
+        "value": "DIF:-148.64"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:1458.00"
+        "value": "5MA:1426.00"
       },
       {
         "label": "收盤價大於月線",
-        "passed": true,
-        "value": "20MA:1522.00"
+        "passed": false,
+        "value": "20MA:1530.25"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:1522.0/1944.2"
+        "value": "20MA/60MA:1530.2/1951.4"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
