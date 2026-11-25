@@ -2,3 +2,9 @@ __pycache__/
 *.pyc
 .vscode/
 .env
+.dev.vars
+.wrangler/
+node_modules/
+*.log
+.DS_Store
+Thumbs.db

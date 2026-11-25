@@ -1,0 +1,177 @@
+[
+  {
+    "symbol": "3380",
+    "ticker": "3380.TW",
+    "market": "TWSE",
+    "name": "明泰",
+    "status": "ok"
+  },
+  {
+    "symbol": "4906",
+    "ticker": "4906.TW",
+    "market": "TWSE",
+    "name": "正文",
+    "status": "ok"
+  },
+  {
+    "symbol": "4919",
+    "ticker": "4919.TW",
+    "market": "TWSE",
+    "name": "新唐",
+    "status": "ok"
+  },
+  {
+    "symbol": "7769",
+    "ticker": "7769.TW",
+    "market": "TWSE",
+    "name": "鴻勁",
+    "status": "ok"
+  },
+  {
+    "symbol": "8046",
+    "ticker": "8046.TW",
+    "market": "TWSE",
+    "name": "南電",
+    "status": "ok"
+  },
+  {
+    "symbol": "2330",
+    "ticker": "2330.TW",
+    "market": "TWSE",
+    "name": "台積電",
+    "status": "ok"
+  },
+  {
+    "symbol": "2303",
+    "ticker": "2303.TW",
+    "market": "TWSE",
+    "name": "聯電",
+    "status": "ok"
+  },
+  {
+    "symbol": "6285",
+    "ticker": "6285.TW",
+    "market": "TWSE",
+    "name": "啟碁",
+    "status": "ok"
+  },
+  {
+    "symbol": "2317",
+    "ticker": "2317.TW",
+    "market": "TWSE",
+    "name": "鴻海",
+    "status": "ok"
+  },
+  {
+    "symbol": "2454",
+    "ticker": "2454.TW",
+    "market": "TWSE",
+    "name": "聯發科",
+    "status": "ok"
+  },
+  {
+    "symbol": "2383",
+    "ticker": "2383.TW",
+    "market": "TWSE",
+    "name": "台光電",
+    "status": "ok"
+  },
+  {
+    "symbol": "2382",
+    "ticker": "2382.TW",
+    "market": "TWSE",
+    "name": "廣達",
+    "status": "ok"
+  },
+  {
+    "symbol": "3231",
+    "ticker": "3231.TW",
+    "market": "TWSE",
+    "name": "緯創",
+    "status": "ok"
+  },
+  {
+    "symbol": "6669",
+    "ticker": "6669.TW",
+    "market": "TWSE",
+    "name": "緯穎",
+    "status": "ok"
+  },
+  {
+    "symbol": "2353",
+    "ticker": "2353.TW",
+    "market": "TWSE",
+    "name": "宏碁",
+    "status": "ok"
+  },
+  {
+    "symbol": "2356",
+    "ticker": "2356.TW",
+    "market": "TWSE",
+    "name": "英業達",
+    "status": "ok"
+  },
+  {
+    "symbol": "3017",
+    "ticker": "3017.TW",
+    "market": "TWSE",
+    "name": "奇鋐",
+    "status": "ok"
+  },
+  {
+    "symbol": "2368",
+    "ticker": "2368.TW",
+    "market": "TWSE",
+    "name": "金像電",
+    "status": "ok"
+  },
+  {
+    "symbol": "2327",
+    "ticker": "2327.TW",
+    "market": "TWSE",
+    "name": "國巨",
+    "status": "ok"
+  },
+  {
+    "symbol": "6415",
+    "ticker": "6415.TW",
+    "market": "TWSE",
+    "name": "矽力",
+    "status": "ok"
+  },
+  {
+    "symbol": "8069",
+    "ticker": "8069.TWO",
+    "market": "TPEx",
+    "name": "元太",
+    "status": "ok"
+  },
+  {
+    "symbol": "8096",
+    "ticker": "8096.TWO",
+    "market": "TPEx",
+    "name": "擎亞",
+    "status": "ok"
+  },
+  {
+    "symbol": "3406",
+    "ticker": "3406.TW",
+    "market": "TWSE",
+    "name": "玉晶光",
+    "status": "ok"
+  },
+  {
+    "symbol": "2881",
+    "ticker": "2881.TW",
+    "market": "TWSE",
+    "name": "富邦金",
+    "status": "ok"
+  },
+  {
+    "symbol": "2882",
+    "ticker": "2882.TW",
+    "market": "TWSE",
+    "name": "國泰金",
+    "status": "ok"
+  }
+]

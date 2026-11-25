@@ -1,0 +1,72 @@
+[
+  {
+    "symbol": "00664R",
+    "ticker": "00664R.TW",
+    "market": "TWSE",
+    "name": "國泰臺灣加權反1",
+    "status": "ok"
+  },
+  {
+    "symbol": "00992A",
+    "ticker": "00992A.TW",
+    "market": "TWSE",
+    "name": "主動群益科技創新",
+    "status": "ok"
+  },
+  {
+    "symbol": "2890",
+    "ticker": "2890.TW",
+    "market": "TWSE",
+    "name": "永豐金",
+    "status": "ok"
+  },
+  {
+    "symbol": "00405A",
+    "ticker": "00405A.TW",
+    "market": "TWSE",
+    "name": "主動富邦台灣龍耀",
+    "status": "ok"
+  },
+  {
+    "symbol": "00686R",
+    "ticker": "00686R.TW",
+    "market": "TWSE",
+    "name": "群益臺灣加權反1",
+    "status": "ok"
+  },
+  {
+    "symbol": "00982A",
+    "ticker": "00982A.TW",
+    "market": "TWSE",
+    "name": "主動群益台灣強棒",
+    "status": "ok"
+  },
+  {
+    "symbol": "00400A",
+    "ticker": "00400A.TW",
+    "market": "TWSE",
+    "name": "主動國泰動能高息",
+    "status": "ok"
+  },
+  {
+    "symbol": "2884",
+    "ticker": "2884.TW",
+    "market": "TWSE",
+    "name": "玉山金",
+    "status": "ok"
+  },
+  {
+    "symbol": "2892",
+    "ticker": "2892.TW",
+    "market": "TWSE",
+    "name": "第一金",
+    "status": "ok"
+  },
+  {
+    "symbol": "2002",
+    "ticker": "2002.TW",
+    "market": "TWSE",
+    "name": "中鋼",
+    "status": "ok"
+  }
+]

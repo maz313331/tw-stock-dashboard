@@ -10,14 +10,15 @@ const appState = {
 
 // ===== 本機偽即時設定（尚未部署 Worker 前維持 enabled: false，部署後填入網址並改為 true）=====
 const RT_CONFIG = {
-  enabled: false,
-  workerBaseUrl: "https://your-worker.workers.dev",
+  enabled: true,
+  workerBaseUrl: "https://tw-stock-rt-proxy.maz313331.workers.dev",
   pollIntervalMs: 20000,
 };
 
 let rtMarketTimer = null;
 let rtQuoteTimer = null;
 let latestRtQuoteData = null;
+let latestRtMarketData = null;
 
 function fmtPct(val) {
   if (val === null || val === undefined || Number.isNaN(Number(val))) return "--";
@@ -114,6 +115,52 @@ function resolveSymbolInput(rawInput) {
 }
 
 /* ================= 第 1 頁：大盤總覽與中間走勢圖 ================= */
+function renderUsIndicesGrid(rtUs = null) {
+  const gridEl = document.getElementById("us-indices-grid");
+  if (!gridEl) return;
+
+  const m = appState.market || {};
+  const fallbackMap = {
+    dji: m.us?.dji || {},
+    sp500: m.us?.sp500 || {},
+    ixic: m.us?.ixic || {},
+    sox: m.us?.sox || {},
+  };
+
+  const usList = [
+    { key: "dji", name: "道瓊工業", symbol: "^DJI", tag: "美股參考" },
+    { key: "sp500", name: "標普 500", symbol: "^GSPC", tag: "美股參考" },
+    { key: "ixic", name: "那斯達克", symbol: "^IXIC", tag: "科技風向" },
+    { key: "sox", name: "費城半導體", symbol: "^SOX", tag: "2330 連動" },
+  ].map((cfg) => {
+    const live = rtUs?.[cfg.key];
+    const base = fallbackMap[cfg.key] || {};
+    return {
+      name: live?.name || cfg.name,
+      symbol: live?.symbol || cfg.symbol,
+      tag: live?.tag || cfg.tag,
+      close: live?.close ?? base.close,
+      change_pct: live?.change_pct ?? base.change_pct,
+      change_pts: live?.change_pts ?? base.change_pts,
+    };
+  });
+
+  gridEl.innerHTML = usList
+    .map(
+      (u) => `
+      <div class="us-box">
+        <div class="us-head">
+          <span>${u.name || u.symbol} (${u.symbol || ""})</span>
+          <span class="us-tag">${u.tag || "美股參考"}</span>
+        </div>
+        <div class="us-val ${pctClass(u.change_pct)}">${u.close !== undefined && u.close !== null ? fmtNum(u.close, 2) : "--"} <small>(${fmtPct(u.change_pct)})</small></div>
+        <div class="us-sub">漲跌點：${u.change_pts !== undefined && u.change_pts !== null ? `${Number(u.change_pts) > 0 ? "+" : ""}${fmtNum(u.change_pts, 2)}` : "--"}</div>
+      </div>
+    `
+    )
+    .join("");
+}
+
 function renderOverview() {
   const m = appState.market || {};
   const tw = m.tw_index || {};
@@ -158,29 +205,7 @@ function renderOverview() {
   `;
   document.getElementById("overview-kpis").innerHTML = kpiHtml;
 
-  const usList = Array.isArray(m.us_indices) && m.us_indices.length > 0
-    ? m.us_indices
-    : [
-        { name: "道瓊工業", symbol: "^DJI", close: m.us?.dji?.close, change_pct: m.us?.dji?.change_pct, tag: "美股參考" },
-        { name: "標普 500", symbol: "^GSPC", close: m.us?.sp500?.close, change_pct: m.us?.sp500?.change_pct, tag: "美股參考" },
-        { name: "那斯達克", symbol: "^IXIC", close: m.us?.ixic?.close, change_pct: m.us?.ixic?.change_pct, tag: "科技風向" },
-        { name: "費城半導體", symbol: "^SOX", close: m.us?.sox?.close, change_pct: m.us?.sox?.change_pct, tag: "2330 連動" },
-      ];
-
-  document.getElementById("us-indices-grid").innerHTML = usList
-    .map(
-      (u) => `
-      <div class="us-box">
-        <div class="us-head">
-          <span>${u.name || u.symbol} (${u.symbol || ""})</span>
-          <span class="us-tag">${u.tag || "美股參考"}</span>
-        </div>
-        <div class="us-val ${pctClass(u.change_pct)}">${u.close ?? "--"} <small>(${fmtPct(u.change_pct)})</small></div>
-        <div class="us-sub">漲跌點：${u.change_pts !== undefined && u.change_pts !== null ? `${Number(u.change_pts) > 0 ? "+" : ""}${u.change_pts}` : "--"}</div>
-      </div>
-    `
-    )
-    .join("");
+  renderUsIndicesGrid(latestRtMarketData?.us);
 
   drawMarketTrendChart();
   refreshMarketRealtime();
@@ -650,7 +675,12 @@ function openStockInDetailPage(symbol) {
 /* ================= 第 3 頁：強勢高分榜 ================= */
 function renderStocks() {
   const kw = (document.getElementById("stock-search")?.value || "").trim().toLowerCase();
-  const filter = document.getElementById("stock-filter")?.value || "high";
+  const filterSelect = document.getElementById("stock-filter");
+  if (filterSelect && !filterSelect.dataset.inited) {
+    filterSelect.value = "all";
+    filterSelect.dataset.inited = "1";
+  }
+  const filter = filterSelect?.value || "all";
   const sort = document.getElementById("stock-sort")?.value || "score_desc";
 
   let list = appState.stocks.filter((r) => {
@@ -702,7 +732,12 @@ function renderStocks() {
 function renderEtfs() {
   const kw = (document.getElementById("etf-search")?.value || "").trim().toLowerCase();
   const trendFilter = document.getElementById("etf-trend-filter")?.value || "all";
-  const sort = document.getElementById("etf-sort")?.value || "symbol_asc";
+  const sortSelect = document.getElementById("etf-sort");
+  if (sortSelect && !sortSelect.dataset.inited) {
+    sortSelect.value = "chg_desc";
+    sortSelect.dataset.inited = "1";
+  }
+  const sort = sortSelect?.value || "chg_desc";
 
   let list = appState.etfs.filter((r) => {
     if (kw && !`${r.symbol} ${r.name}`.toLowerCase().includes(kw)) return false;
@@ -754,6 +789,10 @@ async function refreshMarketRealtime() {
     const resp = await fetch(`${RT_CONFIG.workerBaseUrl}/api/market-rt`, { cache: "no-store" });
     if (!resp.ok) return;
     const data = await resp.json();
+    latestRtMarketData = data;
+    if (data.us) {
+      renderUsIndicesGrid(data.us);
+    }
 
     const modeTag = data.isTradingHours
       ? `● 盤中即時 ${data.updatedAt || ""}`

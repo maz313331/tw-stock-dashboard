@@ -1,0 +1,5 @@
+{
+  "name": "tw-stock-rt-proxy",
+  "compatibility_date": "2026-11-04",
+  "main": ".\\worker-rt-proxy.js"
+}

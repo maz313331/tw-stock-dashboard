@@ -1,0 +1,775 @@
+{
+  "records": {
+    "0050": {
+      "symbol": "0050",
+      "ticker": "0050.TW",
+      "market": "TWSE",
+      "name": "元大台灣50",
+      "status": "ok"
+    },
+    "0056": {
+      "symbol": "0056",
+      "ticker": "0056.TW",
+      "market": "TWSE",
+      "name": "元大高股息",
+      "status": "ok"
+    },
+    "00878": {
+      "symbol": "00878",
+      "ticker": "00878.TW",
+      "market": "TWSE",
+      "name": "國泰永續高股息",
+      "status": "ok"
+    },
+    "00919": {
+      "symbol": "00919",
+      "ticker": "00919.TW",
+      "market": "TWSE",
+      "name": "群益台灣精選高息",
+      "status": "ok"
+    },
+    "006208": {
+      "symbol": "006208",
+      "ticker": "006208.TW",
+      "market": "TWSE",
+      "name": "富邦台50",
+      "status": "ok"
+    },
+    "00713": {
+      "symbol": "00713",
+      "ticker": "00713.TW",
+      "market": "TWSE",
+      "name": "元大台灣高息低波",
+      "status": "ok"
+    },
+    "00929": {
+      "symbol": "00929",
+      "ticker": "00929.TW",
+      "market": "TWSE",
+      "name": "復華台灣科技優息",
+      "status": "ok"
+    },
+    "00631L": {
+      "symbol": "00631L",
+      "ticker": "00631L.TW",
+      "market": "TWSE",
+      "name": "元大台灣50正2",
+      "status": "ok"
+    },
+    "00981A": {
+      "symbol": "00981A",
+      "ticker": "00981A.TW",
+      "market": "TWSE",
+      "name": "主動統一台股增長",
+      "status": "ok"
+    },
+    "00406A": {
+      "symbol": "00406A",
+      "ticker": "00406A.TW",
+      "market": "TWSE",
+      "name": "主動中信台灣收益",
+      "status": "ok"
+    },
+    "1216": {
+      "symbol": "1216",
+      "ticker": "1216.TW",
+      "market": "TWSE",
+      "name": "統一",
+      "status": "ok"
+    },
+    "1229": {
+      "symbol": "1229",
+      "ticker": "1229.TW",
+      "market": "TWSE",
+      "name": "聯華",
+      "status": "ok"
+    },
+    "1477": {
+      "symbol": "1477",
+      "ticker": "1477.TW",
+      "market": "TWSE",
+      "name": "儒鴻",
+      "status": "ok"
+    },
+    "1711": {
+      "symbol": "1711",
+      "ticker": "1711.TW",
+      "market": "TWSE",
+      "name": "永光",
+      "status": "ok"
+    },
+    "2312": {
+      "symbol": "2312",
+      "ticker": "2312.TW",
+      "market": "TWSE",
+      "name": "金寶",
+      "status": "ok"
+    },
+    "2337": {
+      "symbol": "2337",
+      "ticker": "2337.TW",
+      "market": "TWSE",
+      "name": "旺宏",
+      "status": "ok"
+    },
+    "2377": {
+      "symbol": "2377",
+      "ticker": "2377.TW",
+      "market": "TWSE",
+      "name": "華碩",
+      "status": "ok"
+    },
+    "2379": {
+      "symbol": "2379",
+      "ticker": "2379.TW",
+      "market": "TWSE",
+      "name": "瑞昱",
+      "status": "ok"
+    },
+    "2395": {
+      "symbol": "2395",
+      "ticker": "2395.TW",
+      "market": "TWSE",
+      "name": "研華",
+      "status": "ok"
+    },
+    "2492": {
+      "symbol": "2492",
+      "ticker": "2492.TW",
+      "market": "TWSE",
+      "name": "華新科",
+      "status": "ok"
+    },
+    "2539": {
+      "symbol": "2539",
+      "ticker": "2539.TW",
+      "market": "TWSE",
+      "name": "櫻花建",
+      "status": "ok"
+    },
+    "2618": {
+      "symbol": "2618",
+      "ticker": "2618.TW",
+      "market": "TWSE",
+      "name": "長榮航",
+      "status": "ok"
+    },
+    "2646": {
+      "symbol": "2646",
+      "ticker": "2646.TW",
+      "market": "TWSE",
+      "name": "寶成",
+      "status": "ok"
+    },
+    "2885": {
+      "symbol": "2885",
+      "ticker": "2885.TW",
+      "market": "TWSE",
+      "name": "元大金",
+      "status": "ok"
+    },
+    "2887": {
+      "symbol": "2887",
+      "ticker": "2887.TW",
+      "market": "TWSE",
+      "name": "台新金",
+      "status": "ok"
+    },
+    "3380": {
+      "symbol": "3380",
+      "ticker": "3380.TW",
+      "market": "TWSE",
+      "name": "明泰",
+      "status": "ok"
+    },
+    "4906": {
+      "symbol": "4906",
+      "ticker": "4906.TW",
+      "market": "TWSE",
+      "name": "正文",
+      "status": "ok"
+    },
+    "4919": {
+      "symbol": "4919",
+      "ticker": "4919.TW",
+      "market": "TWSE",
+      "name": "新唐",
+      "status": "ok"
+    },
+    "7769": {
+      "symbol": "7769",
+      "ticker": "7769.TW",
+      "market": "TWSE",
+      "name": "鴻勁",
+      "status": "ok"
+    },
+    "8046": {
+      "symbol": "8046",
+      "ticker": "8046.TW",
+      "market": "TWSE",
+      "name": "南電",
+      "status": "ok"
+    },
+    "2330": {
+      "symbol": "2330",
+      "ticker": "2330.TW",
+      "market": "TWSE",
+      "name": "台積電",
+      "status": "ok"
+    },
+    "2303": {
+      "symbol": "2303",
+      "ticker": "2303.TW",
+      "market": "TWSE",
+      "name": "聯電",
+      "status": "ok"
+    },
+    "6285": {
+      "symbol": "6285",
+      "ticker": "6285.TW",
+      "market": "TWSE",
+      "name": "啟碁",
+      "status": "ok"
+    },
+    "2317": {
+      "symbol": "2317",
+      "ticker": "2317.TW",
+      "market": "TWSE",
+      "name": "鴻海",
+      "status": "ok"
+    },
+    "2454": {
+      "symbol": "2454",
+      "ticker": "2454.TW",
+      "market": "TWSE",
+      "name": "聯發科",
+      "status": "ok"
+    },
+    "2383": {
+      "symbol": "2383",
+      "ticker": "2383.TW",
+      "market": "TWSE",
+      "name": "台光電",
+      "status": "ok"
+    },
+    "2382": {
+      "symbol": "2382",
+      "ticker": "2382.TW",
+      "market": "TWSE",
+      "name": "廣達",
+      "status": "ok"
+    },
+    "3231": {
+      "symbol": "3231",
+      "ticker": "3231.TW",
+      "market": "TWSE",
+      "name": "緯創",
+      "status": "ok"
+    },
+    "6669": {
+      "symbol": "6669",
+      "ticker": "6669.TW",
+      "market": "TWSE",
+      "name": "緯穎",
+      "status": "ok"
+    },
+    "2353": {
+      "symbol": "2353",
+      "ticker": "2353.TW",
+      "market": "TWSE",
+      "name": "宏碁",
+      "status": "ok"
+    },
+    "2356": {
+      "symbol": "2356",
+      "ticker": "2356.TW",
+      "market": "TWSE",
+      "name": "英業達",
+      "status": "ok"
+    },
+    "3017": {
+      "symbol": "3017",
+      "ticker": "3017.TW",
+      "market": "TWSE",
+      "name": "奇鋐",
+      "status": "ok"
+    },
+    "2368": {
+      "symbol": "2368",
+      "ticker": "2368.TW",
+      "market": "TWSE",
+      "name": "金像電",
+      "status": "ok"
+    },
+    "2327": {
+      "symbol": "2327",
+      "ticker": "2327.TW",
+      "market": "TWSE",
+      "name": "國巨",
+      "status": "ok"
+    },
+    "6415": {
+      "symbol": "6415",
+      "ticker": "6415.TW",
+      "market": "TWSE",
+      "name": "矽力",
+      "status": "ok"
+    },
+    "8069": {
+      "symbol": "8069",
+      "ticker": "8069.TWO",
+      "market": "TPEx",
+      "name": "元太",
+      "status": "ok"
+    },
+    "8096": {
+      "symbol": "8096",
+      "ticker": "8096.TWO",
+      "market": "TPEx",
+      "name": "擎亞",
+      "status": "ok"
+    },
+    "3406": {
+      "symbol": "3406",
+      "ticker": "3406.TW",
+      "market": "TWSE",
+      "name": "玉晶光",
+      "status": "ok"
+    },
+    "2881": {
+      "symbol": "2881",
+      "ticker": "2881.TW",
+      "market": "TWSE",
+      "name": "富邦金",
+      "status": "ok"
+    },
+    "2882": {
+      "symbol": "2882",
+      "ticker": "2882.TW",
+      "market": "TWSE",
+      "name": "國泰金",
+      "status": "ok"
+    },
+    "2886": {
+      "symbol": "2886",
+      "ticker": "2886.TW",
+      "market": "TWSE",
+      "name": "兆豐金",
+      "status": "ok"
+    },
+    "2891": {
+      "symbol": "2891",
+      "ticker": "2891.TW",
+      "market": "TWSE",
+      "name": "中信金",
+      "status": "ok"
+    },
+    "2883": {
+      "symbol": "2883",
+      "ticker": "2883.TW",
+      "market": "TWSE",
+      "name": "凱基金",
+      "status": "ok"
+    },
+    "2834": {
+      "symbol": "2834",
+      "ticker": "2834.TW",
+      "market": "TWSE",
+      "name": "臺企銀",
+      "status": "ok"
+    },
+    "2812": {
+      "symbol": "2812",
+      "ticker": "2812.TW",
+      "market": "TWSE",
+      "name": "台中銀",
+      "status": "ok"
+    },
+    "2851": {
+      "symbol": "2851",
+      "ticker": "2851.TW",
+      "market": "TWSE",
+      "name": "中再保",
+      "status": "ok"
+    },
+    "5880": {
+      "symbol": "5880",
+      "ticker": "5880.TW",
+      "market": "TWSE",
+      "name": "合庫金",
+      "status": "ok"
+    },
+    "5876": {
+      "symbol": "5876",
+      "ticker": "5876.TW",
+      "market": "TWSE",
+      "name": "上海商銀",
+      "status": "ok"
+    },
+    "1301": {
+      "symbol": "1301",
+      "ticker": "1301.TW",
+      "market": "TWSE",
+      "name": "台塑",
+      "status": "ok"
+    },
+    "1303": {
+      "symbol": "1303",
+      "ticker": "1303.TW",
+      "market": "TWSE",
+      "name": "南亞",
+      "status": "ok"
+    },
+    "1326": {
+      "symbol": "1326",
+      "ticker": "1326.TW",
+      "market": "TWSE",
+      "name": "台化",
+      "status": "ok"
+    },
+    "9925": {
+      "symbol": "9925",
+      "ticker": "9925.TW",
+      "market": "TWSE",
+      "name": "新保",
+      "status": "ok"
+    },
+    "3711": {
+      "symbol": "3711",
+      "ticker": "3711.TW",
+      "market": "TWSE",
+      "name": "日月光",
+      "status": "ok"
+    },
+    "2498": {
+      "symbol": "2498",
+      "ticker": "2498.TW",
+      "market": "TWSE",
+      "name": "宏達電",
+      "status": "ok"
+    },
+    "6788": {
+      "symbol": "6788",
+      "ticker": "6788.TW",
+      "market": "TPEx",
+      "name": "6788",
+      "status": "ok"
+    },
+    "3443": {
+      "symbol": "3443",
+      "ticker": "3443.TW",
+      "market": "TWSE",
+      "name": "創意",
+      "status": "ok"
+    },
+    "2308": {
+      "symbol": "2308",
+      "ticker": "2308.TW",
+      "market": "TWSE",
+      "name": "台達電",
+      "status": "ok"
+    },
+    "3189": {
+      "symbol": "3189",
+      "ticker": "3189.TW",
+      "market": "TWSE",
+      "name": "景碩",
+      "status": "ok"
+    },
+    "3037": {
+      "symbol": "3037",
+      "ticker": "3037.TW",
+      "market": "TWSE",
+      "name": "欣興",
+      "status": "ok"
+    },
+    "2408": {
+      "symbol": "2408",
+      "ticker": "2408.TW",
+      "market": "TWSE",
+      "name": "南亞科",
+      "status": "ok"
+    },
+    "3653": {
+      "symbol": "3653",
+      "ticker": "3653.TW",
+      "market": "TWSE",
+      "name": "健策",
+      "status": "ok"
+    },
+    "3008": {
+      "symbol": "3008",
+      "ticker": "3008.TW",
+      "market": "TWSE",
+      "name": "大立光",
+      "status": "ok"
+    },
+    "3661": {
+      "symbol": "3661",
+      "ticker": "3661.TW",
+      "market": "TWSE",
+      "name": "世芯-KY",
+      "status": "ok"
+    },
+    "2344": {
+      "symbol": "2344",
+      "ticker": "2344.TW",
+      "market": "TWSE",
+      "name": "華邦電",
+      "status": "ok"
+    },
+    "6213": {
+      "symbol": "6213",
+      "ticker": "6213.TW",
+      "market": "TWSE",
+      "name": "聯茂",
+      "status": "ok"
+    },
+    "1802": {
+      "symbol": "1802",
+      "ticker": "1802.TW",
+      "market": "TWSE",
+      "name": "台玻",
+      "status": "ok"
+    },
+    "2345": {
+      "symbol": "2345",
+      "ticker": "2345.TW",
+      "market": "TWSE",
+      "name": "智邦",
+      "status": "ok"
+    },
+    "4958": {
+      "symbol": "4958",
+      "ticker": "4958.TW",
+      "market": "TWSE",
+      "name": "臻鼎-KY",
+      "status": "ok"
+    },
+    "00632R": {
+      "symbol": "00632R",
+      "ticker": "00632R.TW",
+      "market": "TWSE",
+      "name": "元大台灣50反1",
+      "status": "ok"
+    },
+    "3529": {
+      "symbol": "3529",
+      "ticker": "3529.TWO",
+      "market": "TPEx",
+      "name": "力旺",
+      "status": "ok"
+    },
+    "00685L": {
+      "symbol": "00685L",
+      "ticker": "00685L.TW",
+      "market": "TWSE",
+      "name": "群益臺灣加權正2",
+      "status": "ok"
+    },
+    "2360": {
+      "symbol": "2360",
+      "ticker": "2360.TW",
+      "market": "TWSE",
+      "name": "致茂",
+      "status": "ok"
+    },
+    "3481": {
+      "symbol": "3481",
+      "ticker": "3481.TW",
+      "market": "TWSE",
+      "name": "群創",
+      "status": "ok"
+    },
+    "2412": {
+      "symbol": "2412",
+      "ticker": "2412.TW",
+      "market": "TWSE",
+      "name": "中華電",
+      "status": "ok"
+    },
+    "3665": {
+      "symbol": "3665",
+      "ticker": "3665.TW",
+      "market": "TWSE",
+      "name": "貿聯-KY",
+      "status": "ok"
+    },
+    "2603": {
+      "symbol": "2603",
+      "ticker": "2603.TW",
+      "market": "TWSE",
+      "name": "長榮",
+      "status": "ok"
+    },
+    "2313": {
+      "symbol": "2313",
+      "ticker": "2313.TW",
+      "market": "TWSE",
+      "name": "華通",
+      "status": "ok"
+    },
+    "2059": {
+      "symbol": "2059",
+      "ticker": "2059.TW",
+      "market": "TWSE",
+      "name": "川湖",
+      "status": "ok"
+    },
+    "2449": {
+      "symbol": "2449",
+      "ticker": "2449.TW",
+      "market": "TWSE",
+      "name": "京元電子",
+      "status": "ok"
+    },
+    "2409": {
+      "symbol": "2409",
+      "ticker": "2409.TW",
+      "market": "TWSE",
+      "name": "友達",
+      "status": "ok"
+    },
+    "6770": {
+      "symbol": "6770",
+      "ticker": "6770.TW",
+      "market": "TWSE",
+      "name": "力積電",
+      "status": "ok"
+    },
+    "8996": {
+      "symbol": "8996",
+      "ticker": "8996.TW",
+      "market": "TWSE",
+      "name": "高力",
+      "status": "ok"
+    },
+    "6672": {
+      "symbol": "6672",
+      "ticker": "6672.TW",
+      "market": "TWSE",
+      "name": "騰輝電子-KY",
+      "status": "ok"
+    },
+    "3167": {
+      "symbol": "3167",
+      "ticker": "3167.TW",
+      "market": "TWSE",
+      "name": "大量",
+      "status": "ok"
+    },
+    "2468": {
+      "symbol": "2468",
+      "ticker": "2468.TW",
+      "market": "TWSE",
+      "name": "華經",
+      "status": "ok"
+    },
+    "3026": {
+      "symbol": "3026",
+      "ticker": "3026.TW",
+      "market": "TWSE",
+      "name": "禾伸堂",
+      "status": "ok"
+    },
+    "2357": {
+      "symbol": "2357",
+      "ticker": "2357.TW",
+      "market": "TWSE",
+      "name": "華碩",
+      "status": "ok"
+    },
+    "009816": {
+      "symbol": "009816",
+      "ticker": "009816.TW",
+      "market": "TWSE",
+      "name": "凱基台灣TOP50",
+      "status": "ok"
+    },
+    "00403A": {
+      "symbol": "00403A",
+      "ticker": "00403A.TW",
+      "market": "TWSE",
+      "name": "主動統一升級50",
+      "status": "ok"
+    },
+    "00991A": {
+      "symbol": "00991A",
+      "ticker": "00991A.TW",
+      "market": "TWSE",
+      "name": "主動復華未來50",
+      "status": "ok"
+    },
+    "00664R": {
+      "symbol": "00664R",
+      "ticker": "00664R.TW",
+      "market": "TWSE",
+      "name": "國泰臺灣加權反1",
+      "status": "ok"
+    },
+    "00992A": {
+      "symbol": "00992A",
+      "ticker": "00992A.TW",
+      "market": "TWSE",
+      "name": "主動群益科技創新",
+      "status": "ok"
+    },
+    "2890": {
+      "symbol": "2890",
+      "ticker": "2890.TW",
+      "market": "TWSE",
+      "name": "永豐金",
+      "status": "ok"
+    },
+    "00405A": {
+      "symbol": "00405A",
+      "ticker": "00405A.TW",
+      "market": "TWSE",
+      "name": "主動富邦台灣龍耀",
+      "status": "ok"
+    },
+    "00686R": {
+      "symbol": "00686R",
+      "ticker": "00686R.TW",
+      "market": "TWSE",
+      "name": "群益臺灣加權反1",
+      "status": "ok"
+    },
+    "00982A": {
+      "symbol": "00982A",
+      "ticker": "00982A.TW",
+      "market": "TWSE",
+      "name": "主動群益台灣強棒",
+      "status": "ok"
+    },
+    "00400A": {
+      "symbol": "00400A",
+      "ticker": "00400A.TW",
+      "market": "TWSE",
+      "name": "主動國泰動能高息",
+      "status": "ok"
+    },
+    "2884": {
+      "symbol": "2884",
+      "ticker": "2884.TW",
+      "market": "TWSE",
+      "name": "玉山金",
+      "status": "ok"
+    },
+    "2892": {
+      "symbol": "2892",
+      "ticker": "2892.TW",
+      "market": "TWSE",
+      "name": "第一金",
+      "status": "ok"
+    },
+    "2002": {
+      "symbol": "2002",
+      "ticker": "2002.TW",
+      "market": "TWSE",
+      "name": "中鋼",
+      "status": "ok"
+    }
+  },
+  "errors": {}
+}
