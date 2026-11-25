@@ -1,17 +1,17 @@
 {
   "symbol": "3167",
   "name": "大量",
-  "updated_at": "2026-11-25 02:39（行情日 2026-11-23）",
+  "updated_at": "2026-11-26 06:03（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 7,
+  "total_score": 9,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 7,
-    "technical": 0,
+    "technical": 2,
     "chip": 0
   },
   "metrics_6": {
@@ -83,8 +83,8 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": false,
-        "value": "-10.85%"
+        "passed": true,
+        "value": "+17.49%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:11.8 / D:15.9"
+        "value": "K:20.9 / D:18.0"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:33.8"
+        "value": "RSI14:38.1"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-89.64"
+        "value": "DIF:-88.45"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:585.60"
+        "passed": true,
+        "value": "5MA:569.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:787.25"
+        "value": "20MA:748.35"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:787.2/859.3"
+        "value": "20MA/60MA:748.4/855.2"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

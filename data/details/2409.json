@@ -1,7 +1,7 @@
 {
   "symbol": "2409",
   "name": "友達",
-  "updated_at": "2026-11-25 02:39（行情日 2026-11-23）",
+  "updated_at": "2026-11-26 06:03（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-12.04%"
+        "value": "+3.87%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:21.0 / D:30.9"
+        "value": "K:25.0 / D:28.4"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:35.2"
+        "value": "RSI14:41.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-2.17"
+        "value": "DIF:-2.13"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:25.53"
+        "value": "5MA:24.62"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:28.78"
+        "value": "20MA:27.86"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:28.8/31.4"
+        "value": "20MA/60MA:27.9/31.4"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-26 02:15（行情日 2026-11-24）",
+  "updated_at": "2026-11-26 06:03（行情日 2026-11-24）",
   "regime": {
     "signal": "保守防禦",
     "suggested_exposure": "30% ~ 45%",
@@ -21,8 +21,8 @@
     "total_net": 169.8
   },
   "market_breadth": {
-    "advancing": 1306,
-    "declining": 59,
+    "advancing": 78,
+    "declining": 1273,
     "high_score_count": 0,
     "excluded_count": 5
   },
@@ -30,9 +30,9 @@
     {
       "name": "道瓊工業",
       "symbol": "^DJI",
-      "close": 50042.95,
-      "change_pts": 24.25,
-      "change_pct": 0.05,
+      "close": 50182.95,
+      "change_pts": 164.25,
+      "change_pct": 0.33,
       "date": "2026-11-25",
       "source": "yfinance",
       "note": "美股參考"
@@ -40,9 +40,9 @@
     {
       "name": "標普 500",
       "symbol": "^GSPC",
-      "close": 7131.67,
-      "change_pts": -69.42,
-      "change_pct": -0.96,
+      "close": 7182.78,
+      "change_pts": -18.31,
+      "change_pct": -0.25,
       "date": "2026-11-25",
       "source": "yfinance",
       "note": "美股參考"
@@ -50,9 +50,9 @@
     {
       "name": "那斯達克",
       "symbol": "^IXIC",
-      "close": 23306.87,
-      "change_pts": -426.67,
-      "change_pct": -1.8,
+      "close": 23585.8,
+      "change_pts": -147.74,
+      "change_pct": -0.62,
       "date": "2026-11-25",
       "source": "yfinance",
       "note": "科技風向"
@@ -60,9 +60,9 @@
     {
       "name": "費城半導體",
       "symbol": "^SOX",
-      "close": 8481.28,
-      "change_pts": -351.22,
-      "change_pct": -3.98,
+      "close": 8774.86,
+      "change_pts": -57.64,
+      "change_pct": -0.65,
       "date": "2026-11-25",
       "source": "yfinance",
       "note": "2330 連動"

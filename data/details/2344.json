@@ -1,17 +1,17 @@
 {
   "symbol": "2344",
   "name": "華邦電",
-  "updated_at": "2026-11-25 02:39（行情日 2026-11-23）",
+  "updated_at": "2026-11-26 06:03（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 9,
+  "total_score": 10,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 9,
-    "technical": 0,
+    "technical": 1,
     "chip": 0
   },
   "metrics_6": {
@@ -83,8 +83,8 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": false,
-        "value": "-11.57%"
+        "passed": true,
+        "value": "+5.94%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:10.1 / D:12.9"
+        "value": "K:16.2 / D:15.0"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:23.4"
+        "value": "RSI14:32.9"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-17.23"
+        "value": "DIF:-16.91"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:100.24"
+        "value": "5MA:96.44"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:131.91"
+        "value": "20MA:125.13"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:131.9/158.6"
+        "value": "20MA/60MA:125.1/155.8"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

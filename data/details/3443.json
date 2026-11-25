@@ -1,7 +1,7 @@
 {
   "symbol": "3443",
   "name": "創意",
-  "updated_at": "2026-11-25 02:39（行情日 2026-11-23）",
+  "updated_at": "2026-11-26 06:03（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-23.18%"
+        "value": "-6.11%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:17.8 / D:33.6"
+        "value": "K:14.3 / D:23.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:38.3"
+        "value": "RSI14:40.7"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-390.02"
+        "value": "DIF:-515.86"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:6032.00"
+        "value": "5MA:5444.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:7041.00"
+        "value": "20MA:6796.00"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:7041.0/7128.2"
+        "value": "20MA/60MA:6796.0/7105.8"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

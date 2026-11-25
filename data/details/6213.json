@@ -1,7 +1,7 @@
 {
   "symbol": "6213",
   "name": "聯茂",
-  "updated_at": "2026-11-25 02:39（行情日 2026-11-23）",
+  "updated_at": "2026-11-26 06:03（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -83,8 +83,8 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": false,
-        "value": "-10.83%"
+        "passed": true,
+        "value": "+9.70%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -93,33 +93,33 @@
       },
       {
         "label": "KD 黃金交叉",
-        "passed": true,
-        "value": "K:12.3 / D:11.2"
+        "passed": false,
+        "value": "K:23.1 / D:17.4"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:29.6"
+        "value": "RSI14:34.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-76.04"
+        "value": "DIF:-74.34"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:402.40"
+        "value": "5MA:392.30"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:552.85"
+        "value": "20MA:517.65"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:552.9/607.7"
+        "value": "20MA/60MA:517.6/602.3"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
