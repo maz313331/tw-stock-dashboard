@@ -1,7 +1,7 @@
 {
   "symbol": "2102",
   "name": "泰豐",
-  "updated_at": "2026-11-24 09:19（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-2.76%"
+        "value": "+1.09%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,12 +94,12 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:25.2 / D:29.2"
+        "value": "K:25.9 / D:28.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:31.3"
+        "value": "RSI14:30.5"
       },
       {
         "label": "MACD 多頭趨勢",
@@ -109,17 +109,17 @@
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:14.14"
+        "value": "5MA:14.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:14.86"
+        "value": "20MA:14.77"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:14.9/16.3"
+        "value": "20MA/60MA:14.8/16.3"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

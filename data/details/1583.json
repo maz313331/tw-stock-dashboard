@@ -1,7 +1,7 @@
 {
   "symbol": "1583",
   "name": "程泰",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 09:32（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-11.47%"
+        "value": "-7.51%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:21.9 / D:33.2"
+        "value": "K:21.7 / D:29.4"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:25.0"
+        "value": "RSI14:32.8"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.97"
+        "value": "DIF:-1.11"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:44.36"
+        "value": "5MA:43.74"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:46.37"
+        "value": "20MA:46.09"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:46.4/47.2"
+        "value": "20MA/60MA:46.1/47.1"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

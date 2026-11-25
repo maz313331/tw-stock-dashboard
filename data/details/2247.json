@@ -1,7 +1,7 @@
 {
   "symbol": "2247",
   "name": "汎德永業",
-  "updated_at": "2026-11-24 09:19（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -84,42 +84,42 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-2.21%"
+        "value": "+3.03%"
       },
       {
         "label": "連 3 日打敗大盤",
-        "passed": true,
-        "value": "符合"
+        "passed": false,
+        "value": "未連3日勝出"
       },
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:19.8 / D:22.8"
+        "value": "K:35.7 / D:28.6"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:26.2"
+        "value": "RSI14:36.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-5.95"
+        "value": "DIF:-5.38"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:200.70"
+        "passed": true,
+        "value": "5MA:200.80"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:211.12"
+        "value": "20MA:210.53"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:211.1/221.8"
+        "value": "20MA/60MA:210.5/221.5"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

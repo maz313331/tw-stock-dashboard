@@ -1,18 +1,18 @@
 {
   "symbol": "1438",
   "name": "三地開發",
-  "updated_at": "2026-11-23 08:53（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:30（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 12,
+  "total_score": 8,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 7,
-    "technical": 2,
-    "chip": 3
+    "technical": 1,
+    "chip": 0
   },
   "metrics_6": {
     "main_force_net": -43.6,
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-7.21%"
+        "value": "-4.07%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,27 +94,27 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:34.5 / D:50.5"
+        "value": "K:35.5 / D:45.5"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:33.3"
+        "value": "RSI14:43.3"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.03"
+        "value": "DIF:-0.05"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:21.65"
+        "value": "5MA:21.50"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:21.61"
+        "value": "20MA:21.58"
       },
       {
         "label": "月線大於季線",
@@ -123,8 +123,8 @@
       },
       {
         "label": "均線多頭排列 (5>10>20)",
-        "passed": true,
-        "value": "多頭排列"
+        "passed": false,
+        "value": "非多頭排列"
       }
     ],
     "chip": [
@@ -150,7 +150,7 @@
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長4日"
       },
       {
@@ -165,12 +165,12 @@
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
-        "passed": true,
+        "passed": false,
         "value": "+14張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {

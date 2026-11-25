@@ -1,7 +1,7 @@
 {
   "symbol": "3085",
   "name": "新零售",
-  "updated_at": "2026-11-23 10:12（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:44（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-0.68%"
+        "value": "+0.00%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,7 +94,7 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:5.1 / D:11.2"
+        "value": "K:3.4 / D:8.6"
       },
       {
         "label": "RSI 多頭趨勢",
@@ -104,17 +104,17 @@
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.20"
+        "value": "DIF:-0.21"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:14.58"
+        "value": "5MA:14.52"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:14.94"
+        "value": "20MA:14.89"
       },
       {
         "label": "月線大於季線",

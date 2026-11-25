@@ -1,7 +1,7 @@
 {
   "symbol": "1736",
   "name": "喬山",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 09:32（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-7.59%"
+        "value": "+3.96%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:29.3 / D:33.5"
+        "value": "K:35.2 / D:35.0"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:30.5"
+        "value": "RSI14:34.8"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-4.50"
+        "value": "DIF:-4.20"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:106.90"
+        "value": "5MA:105.80"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:113.62"
+        "value": "20MA:112.20"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:113.6/121.0"
+        "value": "20MA/60MA:112.2/120.3"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

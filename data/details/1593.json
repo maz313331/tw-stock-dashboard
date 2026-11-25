@@ -1,17 +1,17 @@
 {
   "symbol": "1593",
   "name": "祺驊",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 09:32（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 11,
+  "total_score": 10,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 9,
-    "technical": 2,
+    "technical": 1,
     "chip": 0
   },
   "metrics_6": {
@@ -84,37 +84,37 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-4.69%"
+        "value": "-1.60%"
       },
       {
         "label": "連 3 日打敗大盤",
-        "passed": true,
-        "value": "符合"
+        "passed": false,
+        "value": "未連3日勝出"
       },
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:33.6 / D:51.7"
+        "value": "K:29.1 / D:44.2"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": true,
-        "value": "RSI14:51.2"
+        "value": "RSI14:57.1"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.03"
+        "value": "DIF:-0.06"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:31.22"
+        "value": "5MA:30.98"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:31.03"
+        "value": "20MA:31.00"
       },
       {
         "label": "月線大於季線",

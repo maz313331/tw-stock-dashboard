@@ -1,7 +1,7 @@
 {
   "symbol": "3532",
   "name": "台勝科",
-  "updated_at": "2026-11-23 10:14（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:47（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-26.80%"
+        "value": "-6.17%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:5.1 / D:11.4"
+        "value": "K:6.7 / D:9.0"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:20.3"
+        "value": "RSI14:27.9"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-54.00"
+        "value": "DIF:-55.88"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:206.00"
+        "value": "5MA:184.20"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:292.65"
+        "value": "20MA:269.75"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:292.6/383.3"
+        "value": "20MA/60MA:269.8/376.3"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

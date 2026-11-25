@@ -1,18 +1,18 @@
 {
   "symbol": "6965",
   "name": "中傑-KY",
-  "updated_at": "2026-11-23 12:04（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:59（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏",
-  "total_score": 7,
+  "total_score": 2,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "部分欄位暫缺（估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 0,
-    "technical": 3,
-    "chip": 4
+    "technical": 2,
+    "chip": 0
   },
   "metrics_6": {
     "main_force_net": -17.0,
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-0.63%"
+        "value": "+0.16%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,37 +94,37 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:87.3 / D:71.4"
+        "value": "K:91.3 / D:82.5"
       },
       {
         "label": "RSI 多頭趨勢",
-        "passed": true,
-        "value": "RSI14:50.2"
+        "passed": false,
+        "value": "RSI14:54.9"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.82"
+        "value": "DIF:-0.39"
       },
       {
         "label": "收盤價大於週線",
-        "passed": true,
-        "value": "5MA:62.92"
+        "passed": false,
+        "value": "5MA:63.34"
       },
       {
         "label": "收盤價大於月線",
         "passed": true,
-        "value": "20MA:61.18"
+        "value": "20MA:60.99"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:61.2/66.1"
+        "value": "20MA/60MA:61.0/65.7"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
-        "passed": false,
-        "value": "非多頭排列"
+        "passed": true,
+        "value": "多頭排列"
       }
     ],
     "chip": [
@@ -150,12 +150,12 @@
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長5日"
       },
       {
         "label": "近 20 日波段買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長5日"
       },
       {
@@ -165,12 +165,12 @@
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
-        "passed": true,
+        "passed": false,
         "value": "+219張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {

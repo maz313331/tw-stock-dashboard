@@ -1,17 +1,17 @@
 {
   "symbol": "1733",
   "name": "五鼎",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 09:32（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 6,
+  "total_score": 9,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 6,
-    "technical": 0,
+    "technical": 3,
     "chip": 0
   },
   "metrics_6": {
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-2.76%"
+        "value": "+3.93%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:21.3 / D:32.1"
+        "value": "K:40.0 / D:34.8"
       },
       {
         "label": "RSI 多頭趨勢",
-        "passed": false,
-        "value": "RSI14:41.9"
+        "passed": true,
+        "value": "RSI14:52.8"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.38"
+        "value": "DIF:-0.27"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:28.60"
+        "passed": true,
+        "value": "5MA:28.62"
       },
       {
         "label": "收盤價大於月線",
-        "passed": false,
-        "value": "20MA:28.92"
+        "passed": true,
+        "value": "20MA:28.86"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:28.9/30.1"
+        "value": "20MA/60MA:28.9/30.0"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

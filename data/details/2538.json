@@ -1,7 +1,7 @@
 {
   "symbol": "2538",
   "name": "基泰",
-  "updated_at": "2026-11-23 10:01（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:42（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-9.09%"
+        "value": "+1.93%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:8.1 / D:9.7"
+        "value": "K:19.9 / D:15.0"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:10.0"
+        "value": "RSI14:20.2"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.45"
+        "value": "DIF:-0.46"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:7.08"
+        "value": "5MA:6.92"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:8.01"
+        "value": "20MA:7.85"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:8.0/8.5"
+        "value": "20MA/60MA:7.8/8.4"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

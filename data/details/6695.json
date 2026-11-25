@@ -1,7 +1,7 @@
 {
   "symbol": "6695",
   "name": "芯鼎",
-  "updated_at": "2026-11-23 11:46（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:59（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-15.07%"
+        "value": "+4.73%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:21.3 / D:34.1"
+        "value": "K:23.5 / D:28.6"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:39.3"
+        "value": "RSI14:43.2"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-1.87"
+        "value": "DIF:-2.01"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:45.16"
+        "value": "5MA:43.36"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:49.03"
+        "value": "20MA:48.04"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:49.0/50.0"
+        "value": "20MA/60MA:48.0/49.8"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

@@ -1,7 +1,7 @@
 {
   "symbol": "6662",
   "name": "樂斯科",
-  "updated_at": "2026-11-23 11:46（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:59（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；籌碼/集保欄位尚未更新或缺漏",
@@ -83,8 +83,8 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": false,
-        "value": "-0.36%"
+        "passed": true,
+        "value": "+5.26%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -93,33 +93,33 @@
       },
       {
         "label": "KD 黃金交叉",
-        "passed": true,
-        "value": "K:26.1 / D:23.3"
+        "passed": false,
+        "value": "K:53.1 / D:37.6"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:46.7"
+        "value": "RSI14:47.7"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.24"
+        "value": "DIF:-0.19"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:27.60"
+        "value": "5MA:27.55"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:28.13"
+        "value": "20MA:28.09"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:28.1/28.5"
+        "value": "20MA/60MA:28.1/28.4"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

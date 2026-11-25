@@ -1,7 +1,7 @@
 {
   "symbol": "1721",
   "name": "國慶科技",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 09:32（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-17.00%"
+        "value": "+3.14%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:9.0 / D:11.4"
+        "value": "K:14.5 / D:12.7"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:18.6"
+        "value": "RSI14:13.4"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-2.14"
+        "value": "DIF:-2.24"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:16.11"
+        "value": "5MA:14.96"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:19.64"
+        "value": "20MA:18.82"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:19.6/22.5"
+        "value": "20MA/60MA:18.8/22.3"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

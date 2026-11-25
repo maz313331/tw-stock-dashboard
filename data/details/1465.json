@@ -1,18 +1,18 @@
 {
   "symbol": "1465",
   "name": "偉全",
-  "updated_at": "2026-11-23 08:53（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:30（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 5,
+  "total_score": 2,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 2,
     "technical": 0,
-    "chip": 3
+    "chip": 0
   },
   "metrics_6": {
     "main_force_net": -18.0,
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-4.46%"
+        "value": "-1.38%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,27 +94,27 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:20.2 / D:23.2"
+        "value": "K:20.7 / D:22.4"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:17.2"
+        "value": "RSI14:26.7"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.21"
+        "value": "DIF:-0.23"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:11.00"
+        "value": "5MA:10.80"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:11.35"
+        "value": "20MA:11.27"
       },
       {
         "label": "月線大於季線",
@@ -150,12 +150,12 @@
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長5日"
       },
       {
         "label": "近 20 日波段買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長5日"
       },
       {
@@ -170,7 +170,7 @@
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {

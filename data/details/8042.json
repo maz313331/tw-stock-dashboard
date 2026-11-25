@@ -1,18 +1,18 @@
 {
   "symbol": "8042",
   "name": "金山電",
-  "updated_at": "2026-11-23 12:10（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 10:02（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏",
-  "total_score": 6,
+  "total_score": 0,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "部分欄位暫缺（估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 0,
     "technical": 0,
-    "chip": 6
+    "chip": 0
   },
   "metrics_6": {
     "main_force_net": 1638.0,
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-18.58%"
+        "value": "+2.57%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:7.5 / D:10.9"
+        "value": "K:13.8 / D:12.3"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:25.2"
+        "value": "RSI14:20.2"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-11.54"
+        "value": "DIF:-12.90"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:87.86"
+        "value": "5MA:81.50"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:118.89"
+        "value": "20MA:113.64"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:118.9/119.9"
+        "value": "20MA/60MA:113.6/119.3"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
@@ -130,12 +130,12 @@
     "chip": [
       {
         "label": "近 3 日主力單日買超 > 1,000 張",
-        "passed": true,
+        "passed": false,
         "value": "最大:+1638張"
       },
       {
         "label": "近 1 日、5 日籌碼集中度為正",
-        "passed": true,
+        "passed": false,
         "value": "5日集中度:+9.76%"
       },
       {
@@ -145,7 +145,7 @@
       },
       {
         "label": "近 2 日中長線買盤連續買超",
-        "passed": true,
+        "passed": false,
         "value": "連2日買超"
       },
       {
@@ -160,17 +160,17 @@
       },
       {
         "label": "近 1 日法人或主力買超力道放大",
-        "passed": true,
+        "passed": false,
         "value": "+1638 (5日均+487)"
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
-        "passed": true,
+        "passed": false,
         "value": "+1228張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {

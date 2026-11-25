@@ -1,7 +1,7 @@
 {
   "symbol": "1808",
   "name": "潤隆",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-10.06%"
+        "value": "-11.87%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:21.8 / D:17.0"
+        "value": "K:21.3 / D:21.2"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:1.4"
+        "value": "RSI14:14.3"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-1.40"
+        "value": "DIF:-1.73"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:37.97"
+        "value": "5MA:36.51"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:40.74"
+        "value": "20MA:39.62"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:40.7/41.9"
+        "value": "20MA/60MA:39.6/41.6"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

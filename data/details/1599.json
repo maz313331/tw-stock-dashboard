@@ -1,17 +1,17 @@
 {
   "symbol": "1599",
   "name": "宏佳騰",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 09:32（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 5,
+  "total_score": 6,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 5,
-    "technical": 0,
+    "technical": 1,
     "chip": 0
   },
   "metrics_6": {
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-6.00%"
+        "value": "+0.47%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:33.8 / D:38.3"
+        "value": "K:34.8 / D:36.4"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:35.4"
+        "value": "RSI14:35.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.31"
+        "value": "DIF:-0.32"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:21.84"
+        "passed": true,
+        "value": "5MA:21.43"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:22.12"
+        "value": "20MA:22.02"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:22.1/22.7"
+        "value": "20MA/60MA:22.0/22.6"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

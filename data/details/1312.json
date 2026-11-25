@@ -1,7 +1,7 @@
 {
   "symbol": "1312",
   "name": "國喬",
-  "updated_at": "2026-11-23 08:53（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:30（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-12.12%"
+        "value": "+2.50%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:8.8 / D:10.8"
+        "value": "K:17.2 / D:14.1"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:19.8"
+        "value": "RSI14:23.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-1.09"
+        "value": "DIF:-1.11"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:10.86"
+        "value": "5MA:10.38"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:12.62"
+        "value": "20MA:12.20"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:12.6/14.2"
+        "value": "20MA/60MA:12.2/14.1"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

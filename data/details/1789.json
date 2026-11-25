@@ -1,7 +1,7 @@
 {
   "symbol": "1789",
   "name": "神隆",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-11.20%"
+        "value": "+2.67%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:13.9 / D:26.3"
+        "value": "K:22.4 / D:23.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:24.8"
+        "value": "RSI14:35.2"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.48"
+        "value": "DIF:-0.57"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:17.88"
+        "value": "5MA:17.31"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:19.44"
+        "value": "20MA:19.20"
       },
       {
         "label": "月線大於季線",
         "passed": true,
-        "value": "20MA/60MA:19.4/19.2"
+        "value": "20MA/60MA:19.2/19.1"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

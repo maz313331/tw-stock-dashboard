@@ -1,7 +1,7 @@
 {
   "symbol": "2013",
   "name": "中鋼構",
-  "updated_at": "2026-11-24 09:19（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-4.21%"
+        "value": "+0.00%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:16.5 / D:27.0"
+        "value": "K:15.9 / D:22.1"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:21.6"
+        "value": "RSI14:30.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.53"
+        "value": "DIF:-0.62"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:39.64"
+        "value": "5MA:39.05"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:40.74"
+        "value": "20MA:40.46"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:40.7/41.2"
+        "value": "20MA/60MA:40.5/41.1"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

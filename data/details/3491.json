@@ -1,7 +1,7 @@
 {
   "symbol": "3491",
   "name": "昇達科",
-  "updated_at": "2026-11-23 10:14（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:47（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-16.56%"
+        "value": "+4.90%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:41.0 / D:54.1"
+        "value": "K:43.7 / D:49.0"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:50.0"
+        "value": "RSI14:54.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-12.75"
+        "value": "DIF:-12.51"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:1360.00"
+        "value": "5MA:1303.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:1311.50"
+        "value": "20MA:1314.25"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:1311.5/1416.2"
+        "value": "20MA/60MA:1314.2/1414.6"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

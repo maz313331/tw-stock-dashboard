@@ -1,7 +1,7 @@
 {
   "symbol": "2236",
   "name": "百達-KY",
-  "updated_at": "2026-11-24 09:19（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -83,8 +83,8 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": false,
-        "value": "-1.79%"
+        "passed": true,
+        "value": "+5.06%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -93,33 +93,33 @@
       },
       {
         "label": "KD 黃金交叉",
-        "passed": true,
-        "value": "K:33.3 / D:32.3"
+        "passed": false,
+        "value": "K:38.6 / D:34.9"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:30.9"
+        "value": "RSI14:34.1"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-4.35"
+        "value": "DIF:-4.31"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:81.50"
+        "value": "5MA:80.62"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:91.09"
+        "value": "20MA:90.27"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:91.1/100.7"
+        "value": "20MA/60MA:90.3/100.1"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

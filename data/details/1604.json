@@ -1,7 +1,7 @@
 {
   "symbol": "1604",
   "name": "聲寶",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 09:32（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-6.47%"
+        "value": "+1.90%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:8.5 / D:13.0"
+        "value": "K:22.9 / D:17.9"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:8.9"
+        "value": "RSI14:26.9"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.48"
+        "value": "DIF:-0.50"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:21.73"
+        "value": "5MA:21.41"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:22.72"
+        "value": "20MA:22.54"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:22.7/23.2"
+        "value": "20MA/60MA:22.5/23.1"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

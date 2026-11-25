@@ -2,7 +2,7 @@
   "symbol": "00664R",
   "name": "國泰臺灣加權反1",
   "asset_type": "ETF",
-  "updated_at": "2026-11-24 13:44（行情日 2026-11-24）",
+  "updated_at": "2026-11-25 09:24（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「多頭排列」，RSI(14)=72.6，近 20 日報酬 +26.42%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -103,7 +103,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-6.38%"
+        "value": "+0.00%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -113,32 +113,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:62.3 / D:64.0"
+        "value": "K:72.1 / D:67.3"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:52.9"
+        "value": "RSI14:60.0"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": true,
-        "value": "DIF:0.07"
+        "value": "DIF:0.08"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:1.88"
+        "value": "5MA:1.90"
       },
       {
         "label": "收盤價大於月線",
         "passed": true,
-        "value": "20MA:1.74"
+        "value": "20MA:1.75"
       },
       {
         "label": "月線大於季線",
         "passed": true,
-        "value": "20MA/60MA:1.7/1.6"
+        "value": "20MA/60MA:1.8/1.6"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

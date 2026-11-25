@@ -1,17 +1,17 @@
 {
   "symbol": "6751",
   "name": "智聯服務",
-  "updated_at": "2026-11-23 11:46（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:59（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；籌碼/集保欄位尚未更新或缺漏",
-  "total_score": 1,
+  "total_score": 2,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "部分欄位暫缺（估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；三大法人買賣超缺漏或天數不足；融資增減資料缺漏），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 0,
-    "technical": 1,
+    "technical": 2,
     "chip": 0
   },
   "metrics_6": {
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-22.66%"
+        "value": "-6.44%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:26.9 / D:48.9"
+        "value": "K:17.8 / D:32.9"
       },
       {
         "label": "RSI 多頭趨勢",
-        "passed": false,
-        "value": "RSI14:47.4"
+        "passed": true,
+        "value": "RSI14:51.8"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:6.19"
+        "value": "DIF:3.44"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:84.40"
+        "value": "5MA:74.62"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:84.80"
+        "value": "20MA:84.06"
       },
       {
         "label": "月線大於季線",
         "passed": true,
-        "value": "20MA/60MA:84.8/59.7"
+        "value": "20MA/60MA:84.1/60.7"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

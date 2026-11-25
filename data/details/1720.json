@@ -1,7 +1,7 @@
 {
   "symbol": "1720",
   "name": "生達",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 09:32（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,42 +84,42 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-5.06%"
+        "value": "+1.89%"
       },
       {
         "label": "連 3 日打敗大盤",
-        "passed": true,
-        "value": "符合"
+        "passed": false,
+        "value": "未連3日勝出"
       },
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:18.7 / D:25.6"
+        "value": "K:36.3 / D:30.2"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:22.7"
+        "value": "RSI14:35.7"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.77"
+        "value": "DIF:-0.73"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:54.08"
+        "passed": true,
+        "value": "5MA:53.66"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:55.49"
+        "value": "20MA:55.21"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:55.5/56.1"
+        "value": "20MA/60MA:55.2/56.1"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

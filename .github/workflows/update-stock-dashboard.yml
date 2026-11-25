@@ -10,6 +10,14 @@ on:
     - cron: "0 13 * * *"
   workflow_dispatch:
     inputs:
+      market_scope:
+        description: "抓取範圍：priority（重點股清單 priority_stocks.json）或 full_market（全市場 stock_list_common.json）"
+        required: true
+        default: "priority"
+        type: choice
+        options:
+          - priority
+          - full_market
       run_mode:
         description: "執行模式：single_batch（單批/排程同款）或 full_auto_all（手動全自動分批跑完）"
         required: true
@@ -34,17 +42,17 @@ on:
         default: "0"
         type: string
       limit:
-        description: "單批處理檔數 (limit)；建議 100~150 以控管每小時 600 次額度"
+        description: "單批處理檔數 (limit)；全市場建議設 150~200 以控管每小時 600 次額度"
         required: true
         default: "100"
         type: string
       sleep:
-        description: "每檔間隔秒數 (sleep)，建議 0.4~0.6 降低限流風險"
+        description: "每檔間隔秒數 (sleep)，建議 0.45~0.6 降低限流風險"
         required: true
         default: "0.5"
         type: string
       only_missing:
-        description: "是否僅補抓尚未入庫或缺漏標的 (true/false；留空則由排程依時段自動決定)"
+        description: "是否僅補抓尚未入庫或缺漏標的 (auto=排程依時段自動決定)"
         required: true
         default: "auto"
         type: choice
@@ -96,11 +104,12 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-      - name: Run dashboard update (scheduled, single_batch, or full_auto_all)
+      - name: Run dashboard update (scheduled, priority, or full_market)
         env:
           PYTHONPATH: scripts
           FINMIND_TOKEN: ${{ secrets.FINMIND_TOKEN }}
           EVENT_NAME: ${{ github.event_name }}
+          MARKET_SCOPE: ${{ github.event.inputs.market_scope || 'priority' }}
           RUN_MODE: ${{ github.event.inputs.run_mode || 'single_batch' }}
           PHASE_INPUT: ${{ github.event.inputs.phase || 'auto' }}
           START_OFFSET: ${{ github.event.inputs.offset || '0' }}
@@ -122,6 +131,7 @@ jobs:
           import time
 
           event_name = os.environ["EVENT_NAME"]
+          market_scope = os.environ.get("MARKET_SCOPE", "priority").strip().lower()
           run_mode = os.environ["RUN_MODE"]
           phase_input = os.environ["PHASE_INPUT"]
           start_offset = int(os.environ["START_OFFSET"])
@@ -154,7 +164,17 @@ jobs:
               # 晚間 20:00/21:00 補齊時段預設開啟 --only-missing，日間盤後主更新預設關閉
               only_missing = True if (event_name == "schedule" and is_evening_backfill) else False
 
+          use_full_market = (event_name == "workflow_dispatch" and market_scope == "full_market")
           priority_file = "data/priority_stocks.json"
+
+          def update_market_overview():
+              if not os.path.exists("scripts/update_market.py"):
+                  print("[略過] 找不到 scripts/update_market.py")
+                  return
+              print("=== 更新大盤與市場概況: python -u scripts/update_market.py ===")
+              res = subprocess.run(["python", "-u", "scripts/update_market.py"], check=False)
+              if res.returncode != 0:
+                  print(f"[警告] update_market.py 回傳碼={res.returncode}，沿用既有大盤資料繼續執行個股批次")
 
           def refresh_priority_stocks():
               if not os.path.exists("scripts/build_priority_stocks.py"):
@@ -169,12 +189,19 @@ jobs:
               print(f"=== 更新盤後重點股清單: {' '.join(cmd)} ===")
               subprocess.run(cmd, check=True)
 
-          # 核心/動態熱門股永遠排在最前面；盤後主更新或尚無清單時刷新
-          if phase == "close_tech" or event_name == "workflow_dispatch" or not os.path.exists(priority_file):
-              refresh_priority_stocks()
+          # 先更新大盤概況，再處理清單與個股
+          update_market_overview()
+
+          if not use_full_market:
+              if phase == "close_tech" or event_name == "workflow_dispatch" or not os.path.exists(priority_file):
+                  refresh_priority_stocks()
 
           total_symbols = None
-          list_candidates = [priority_file, "data/stock_list_common.json", "scripts/data/stock_list_common.json"]
+          if use_full_market:
+              list_candidates = ["data/stock_list_common.json", "scripts/data/stock_list_common.json"]
+          else:
+              list_candidates = [priority_file, "data/stock_list_common.json", "scripts/data/stock_list_common.json"]
+
           for candidate in list_candidates:
               if os.path.exists(candidate):
                   with open(candidate, "r", encoding="utf-8") as f:
@@ -183,7 +210,15 @@ jobs:
                           total_symbols = len(data)
                       elif isinstance(data, dict) and "items" in data:
                           total_symbols = len(data["items"])
+                      elif isinstance(data, dict) and "stocks" in data:
+                          total_symbols = len(data["stocks"])
+                  print(f"[清單來源] scope={market_scope} | 檔案={candidate} | 總檔數={total_symbols}")
                   break
+
+          def run_health_check():
+              if os.path.exists("check_data_health.py"):
+                  print("=== 執行 JSON 語法與數值健康檢查 ===")
+                  subprocess.run(["python", "-u", "check_data_health.py"], check=True)
 
           def push_data_safely(msg: str):
               subprocess.run(["git", "add", "data/"], check=True)
@@ -234,28 +269,34 @@ jobs:
                   "--sleep", str(cur_sleep),
                   "--max-hourly-calls", str(max_hourly_calls),
               ]
-              if os.path.exists(priority_file):
+              if use_full_market:
+                  cmd.append("--full-market")
+              elif os.path.exists(priority_file):
                   cmd.extend(["--priority-file", priority_file])
+
               if only_missing:
                   cmd.append("--only-missing")
               if force_check:
                   cmd.append("--force-check")
 
-              print(f"=== 執行批次 ({desc_tag} | phase={phase} | only_missing={only_missing}): {' '.join(cmd)} ===")
+              scope_tag = "full" if use_full_market else "priority"
+              print(f"=== 執行批次 ({desc_tag} | scope={scope_tag} | phase={phase} | only_missing={only_missing}): {' '.join(cmd)} ===")
               subprocess.run(cmd, check=True)
-              msg = f"chore(data): update stock dashboard [{phase}] ({desc_tag} --offset {cur_offset} --limit {cur_limit})"
+              run_health_check()
+              msg = f"chore(data): update stock dashboard [{scope_tag}/{phase}] ({desc_tag} --offset {cur_offset} --limit {cur_limit})"
               push_data_safely(msg)
 
           if event_name != "workflow_dispatch" or run_mode == "single_batch":
               run_one_batch(start_offset, batch_limit, sleep_sec, event_name, force_check=False)
           else:
-              step_size = batch_limit if batch_limit > 0 else 100
+              step_size = batch_limit if batch_limit > 0 else 150
               cur = start_offset
               batch_idx = 1
+              pause_sec = 20 if use_full_market else 8
 
               while True:
                   if total_symbols is not None and cur >= total_symbols:
-                      print(f"已達清單結尾 (total={total_symbols})，full_auto_all 完成。")
+                      print(f"已達清單結尾 (scope={market_scope}, total={total_symbols})，full_auto_all 完成。")
                       break
 
                   run_one_batch(cur, step_size, sleep_sec, f"full_auto_all #{batch_idx}", force_check=False)
@@ -266,5 +307,5 @@ jobs:
                       print("已達安全上限 25 批，結束迴圈。")
                       break
 
-                  time.sleep(8)
+                  time.sleep(pause_sec)
           EOF

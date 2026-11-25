@@ -1,7 +1,7 @@
 {
   "symbol": "1519",
   "name": "華城",
-  "updated_at": "2026-11-23 09:01（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:32（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -11,8 +11,8 @@
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 5,
-    "technical": 0,
-    "chip": 2
+    "technical": 2,
+    "chip": 0
   },
   "metrics_6": {
     "main_force_net": 166.1,
@@ -83,8 +83,8 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": false,
-        "value": "-11.09%"
+        "passed": true,
+        "value": "+9.13%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:21.8 / D:26.8"
+        "value": "K:39.4 / D:32.2"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:34.9"
+        "value": "RSI14:45.0"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-49.37"
+        "value": "DIF:-44.13"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:452.00"
+        "passed": true,
+        "value": "5MA:448.40"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:502.43"
+        "value": "20MA:489.95"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:502.4/633.9"
+        "value": "20MA/60MA:489.9/624.5"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
@@ -160,7 +160,7 @@
       },
       {
         "label": "近 1 日法人或主力買超力道放大",
-        "passed": true,
+        "passed": false,
         "value": "+166 (5日均-18)"
       },
       {
@@ -170,7 +170,7 @@
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {

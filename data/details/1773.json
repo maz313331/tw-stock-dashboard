@@ -1,7 +1,7 @@
 {
   "symbol": "1773",
   "name": "勝一",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-11.15%"
+        "value": "+3.94%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:19.0 / D:28.9"
+        "value": "K:30.2 / D:29.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:27.1"
+        "value": "RSI14:38.8"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-8.14"
+        "value": "DIF:-7.77"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:135.00"
+        "value": "5MA:132.60"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:148.15"
+        "value": "20MA:145.43"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:148.2/160.1"
+        "value": "20MA/60MA:145.4/159.2"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

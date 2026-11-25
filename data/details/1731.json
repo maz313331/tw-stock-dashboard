@@ -1,7 +1,7 @@
 {
   "symbol": "1731",
   "name": "美吾華",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 09:32（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-3.30%"
+        "value": "+0.24%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:38.3 / D:51.2"
+        "value": "K:39.6 / D:45.3"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:42.6"
+        "value": "RSI14:43.9"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.02"
+        "value": "DIF:-0.04"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:20.96"
+        "value": "5MA:20.77"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:21.00"
+        "value": "20MA:20.97"
       },
       {
         "label": "月線大於季線",
         "passed": true,
-        "value": "20MA/60MA:21.0/21.0"
+        "value": "20MA/60MA:21.0/20.9"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

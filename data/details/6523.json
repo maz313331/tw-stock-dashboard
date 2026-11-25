@@ -1,7 +1,7 @@
 {
   "symbol": "6523",
   "name": "達爾膚",
-  "updated_at": "2026-11-23 11:29（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:56（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-2.84%"
+        "value": "+2.94%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,37 +94,37 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:64.2 / D:69.7"
+        "value": "K:67.1 / D:69.1"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": true,
-        "value": "RSI14:59.5"
+        "value": "RSI14:68.7"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": true,
-        "value": "DIF:0.13"
+        "value": "DIF:0.50"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:86.68"
+        "passed": true,
+        "value": "5MA:86.74"
       },
       {
         "label": "收盤價大於月線",
         "passed": true,
-        "value": "20MA:83.71"
+        "value": "20MA:84.14"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:83.7/87.1"
+        "value": "20MA/60MA:84.1/87.0"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
-        "passed": true,
-        "value": "多頭排列"
+        "passed": false,
+        "value": "非多頭排列"
       }
     ],
     "chip": [

@@ -1,7 +1,7 @@
 {
   "symbol": "8931",
   "name": "大汽電",
-  "updated_at": "2026-11-23 12:16（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 10:05（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-8.03%"
+        "value": "+2.46%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:11.6 / D:22.1"
+        "value": "K:18.0 / D:19.6"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:21.1"
+        "value": "RSI14:27.4"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-1.11"
+        "value": "DIF:-1.20"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:38.40"
+        "value": "5MA:37.59"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:40.73"
+        "value": "20MA:40.31"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:40.7/41.7"
+        "value": "20MA/60MA:40.3/41.6"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

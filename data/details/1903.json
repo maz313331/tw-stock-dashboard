@@ -1,7 +1,7 @@
 {
   "symbol": "1903",
   "name": "士紙",
-  "updated_at": "2026-11-24 09:19（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-8.45%"
+        "value": "+0.49%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:9.7 / D:10.9"
+        "value": "K:19.8 / D:16.1"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:9.7"
+        "value": "RSI14:23.7"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-1.34"
+        "value": "DIF:-1.44"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:42.82"
+        "value": "5MA:41.78"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:45.38"
+        "value": "20MA:44.78"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:45.4/46.8"
+        "value": "20MA/60MA:44.8/46.6"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

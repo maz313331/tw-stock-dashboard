@@ -1,7 +1,7 @@
 {
   "symbol": "2227",
   "name": "裕日車",
-  "updated_at": "2026-11-24 09:19（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-8.03%"
+        "value": "-4.75%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:16.4 / D:16.1"
+        "value": "K:11.8 / D:15.0"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:21.3"
+        "value": "RSI14:17.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-1.82"
+        "value": "DIF:-2.07"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:37.55"
+        "value": "5MA:36.13"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:40.04"
+        "value": "20MA:39.23"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:40.0/43.7"
+        "value": "20MA/60MA:39.2/43.3"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

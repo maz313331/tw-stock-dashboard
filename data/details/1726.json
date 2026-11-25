@@ -1,7 +1,7 @@
 {
   "symbol": "1726",
   "name": "永記",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 09:32（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-2.65%"
+        "value": "+0.00%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:9.1 / D:19.4"
+        "value": "K:15.5 / D:18.2"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:17.1"
+        "value": "RSI14:29.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.52"
+        "value": "DIF:-0.60"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:74.56"
+        "value": "5MA:73.98"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:75.61"
+        "value": "20MA:75.38"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:75.6/76.3"
+        "value": "20MA/60MA:75.4/76.2"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

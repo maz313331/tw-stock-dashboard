@@ -1,7 +1,7 @@
 {
   "symbol": "2065",
   "name": "世豐",
-  "updated_at": "2026-11-24 09:19（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-4.25%"
+        "value": "-0.63%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:26.6 / D:28.2"
+        "value": "K:37.4 / D:33.2"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:12.0"
+        "value": "RSI14:25.2"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.82"
+        "value": "DIF:-0.87"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:32.46"
+        "value": "5MA:32.08"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:34.00"
+        "value": "20MA:33.65"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:34.0/35.2"
+        "value": "20MA/60MA:33.6/35.0"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

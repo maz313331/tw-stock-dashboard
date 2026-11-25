@@ -1,7 +1,7 @@
 {
   "symbol": "2009",
   "name": "第一銅",
-  "updated_at": "2026-11-24 09:19（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-9.97%"
+        "value": "+4.53%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:14.3 / D:18.6"
+        "value": "K:24.1 / D:21.5"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:26.6"
+        "value": "RSI14:34.3"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-2.40"
+        "value": "DIF:-2.37"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:29.84"
+        "value": "5MA:29.02"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:33.84"
+        "value": "20MA:32.96"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:33.8/37.8"
+        "value": "20MA/60MA:33.0/37.3"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

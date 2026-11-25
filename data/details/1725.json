@@ -1,7 +1,7 @@
 {
   "symbol": "1725",
   "name": "元禎",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 09:32（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-13.10%"
+        "value": "+2.35%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -93,33 +93,33 @@
       },
       {
         "label": "KD 黃金交叉",
-        "passed": true,
-        "value": "K:10.2 / D:10.1"
+        "passed": false,
+        "value": "K:22.8 / D:14.3"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:26.2"
+        "value": "RSI14:37.1"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-1.47"
+        "value": "DIF:-1.43"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:28.07"
+        "passed": true,
+        "value": "5MA:27.71"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:30.82"
+        "value": "20MA:30.63"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:30.8/32.4"
+        "value": "20MA/60MA:30.6/32.4"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

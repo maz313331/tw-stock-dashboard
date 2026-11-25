@@ -1,7 +1,7 @@
 {
   "symbol": "1784",
   "name": "訊聯",
-  "updated_at": "2026-11-24 09:05（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -84,42 +84,42 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-8.64%"
+        "value": "+3.63%"
       },
       {
         "label": "連 3 日打敗大盤",
-        "passed": true,
-        "value": "符合"
+        "passed": false,
+        "value": "未連3日勝出"
       },
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:16.4 / D:21.8"
+        "value": "K:26.2 / D:23.3"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:29.6"
+        "value": "RSI14:35.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-3.48"
+        "value": "DIF:-3.24"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:42.69"
+        "passed": true,
+        "value": "5MA:42.07"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:46.85"
+        "value": "20MA:45.76"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:46.8/55.0"
+        "value": "20MA/60MA:45.8/54.3"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

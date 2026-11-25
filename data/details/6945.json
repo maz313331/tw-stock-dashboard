@@ -1,18 +1,18 @@
 {
   "symbol": "6945",
   "name": "圓祥生技",
-  "updated_at": "2026-11-23 12:04（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:59（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；籌碼/集保欄位尚未更新或缺漏",
-  "total_score": 3,
+  "total_score": 0,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "部分欄位暫缺（估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；融資增減資料缺漏），已依現有資料計分；請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 0,
     "technical": 0,
-    "chip": 3
+    "chip": 0
   },
   "metrics_6": {
     "main_force_net": 0.0,
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-24.50%"
+        "value": "-4.22%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:19.1 / D:32.3"
+        "value": "K:16.8 / D:24.3"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:24.0"
+        "value": "RSI14:33.7"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-5.63"
+        "value": "DIF:-7.13"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:107.76"
+        "value": "5MA:97.04"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:118.46"
+        "value": "20MA:114.66"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:118.5/118.7"
+        "value": "20MA/60MA:114.7/118.3"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
@@ -150,7 +150,7 @@
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長4日"
       },
       {
@@ -165,12 +165,12 @@
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
-        "passed": true,
+        "passed": false,
         "value": "+63張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {

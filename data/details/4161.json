@@ -1,7 +1,7 @@
 {
   "symbol": "4161",
   "name": "聿新科",
-  "updated_at": "2026-11-23 10:45（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:50（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏；籌碼/集保欄位尚未更新或缺漏",
@@ -84,42 +84,42 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-4.25%"
+        "value": "+4.55%"
       },
       {
         "label": "連 3 日打敗大盤",
-        "passed": true,
-        "value": "符合"
+        "passed": false,
+        "value": "未連3日勝出"
       },
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:17.9 / D:25.1"
+        "value": "K:31.6 / D:27.9"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:30.0"
+        "value": "RSI14:41.0"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.55"
+        "value": "DIF:-0.52"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:19.51"
+        "passed": true,
+        "value": "5MA:19.37"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:20.52"
+        "value": "20MA:20.37"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:20.5/21.5"
+        "value": "20MA/60MA:20.4/21.4"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

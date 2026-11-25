@@ -2,7 +2,7 @@
   "symbol": "00400A",
   "name": "主動國泰動能高息",
   "asset_type": "ETF",
-  "updated_at": "2026-11-24 13:44（行情日 2026-11-24）",
+  "updated_at": "2026-11-25 09:24（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=32.0，近 20 日報酬 -30.40%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -24,13 +24,13 @@
     "updated_at": "2026-11-23 11:28（行情日 2026-11-23）"
   },
   "partial_missing": "",
-  "total_score": 3,
+  "total_score": 1,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 0,
-    "technical": 3,
+    "technical": 1,
     "chip": 0
   },
   "metrics_6": {
@@ -102,8 +102,8 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": true,
-        "value": "+5.02%"
+        "passed": false,
+        "value": "-0.09%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -112,28 +112,28 @@
       },
       {
         "label": "KD 黃金交叉",
-        "passed": true,
-        "value": "K:25.5 / D:24.9"
+        "passed": false,
+        "value": "K:20.7 / D:23.3"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:40.2"
+        "value": "RSI14:36.4"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-1.03"
+        "value": "DIF:-1.07"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:10.64"
+        "value": "5MA:10.53"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:12.23"
+        "value": "20MA:12.21"
       },
       {
         "label": "月線大於季線",

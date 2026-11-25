@@ -1,7 +1,7 @@
 {
   "symbol": "2072",
   "name": "世紀能源",
-  "updated_at": "2026-11-24 09:19（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-4.17%"
+        "value": "+0.55%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:11.3 / D:6.7"
+        "value": "K:14.3 / D:9.4"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:10.9"
+        "value": "RSI14:12.3"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-12.77"
+        "value": "DIF:-12.89"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:77.08"
+        "value": "5MA:74.62"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:99.18"
+        "value": "20MA:96.78"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:99.2/120.2"
+        "value": "20MA/60MA:96.8/119.0"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

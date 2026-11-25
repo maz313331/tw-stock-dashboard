@@ -1,7 +1,7 @@
 {
   "symbol": "2006",
   "name": "東和鋼鐵",
-  "updated_at": "2026-11-24 09:19（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -83,43 +83,43 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": false,
-        "value": "-4.80%"
+        "passed": true,
+        "value": "+5.13%"
       },
       {
         "label": "連 3 日打敗大盤",
-        "passed": true,
-        "value": "符合"
+        "passed": false,
+        "value": "未連3日勝出"
       },
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:15.3 / D:19.8"
+        "value": "K:37.7 / D:28.1"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:22.5"
+        "value": "RSI14:40.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-2.09"
+        "value": "DIF:-1.87"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:81.02"
+        "passed": true,
+        "value": "5MA:80.94"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:86.30"
+        "value": "20MA:85.25"
       },
       {
         "label": "月線大於季線",
-        "passed": true,
-        "value": "20MA/60MA:86.3/85.7"
+        "passed": false,
+        "value": "20MA/60MA:85.2/85.7"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

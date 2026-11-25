@@ -1,7 +1,7 @@
 {
   "symbol": "2010",
   "name": "春源",
-  "updated_at": "2026-11-24 09:19（行情日 2026-11-20）",
+  "updated_at": "2026-11-25 10:11（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "籌碼/集保欄位尚未更新或缺漏",
@@ -84,42 +84,42 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-8.07%"
+        "value": "+4.16%"
       },
       {
         "label": "連 3 日打敗大盤",
-        "passed": true,
-        "value": "符合"
+        "passed": false,
+        "value": "未連3日勝出"
       },
       {
         "label": "KD 黃金交叉",
-        "passed": false,
-        "value": "K:23.4 / D:37.1"
+        "passed": true,
+        "value": "K:37.5 / D:36.6"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:23.5"
+        "value": "RSI14:38.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.41"
+        "value": "DIF:-0.42"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:21.44"
+        "passed": true,
+        "value": "5MA:21.15"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:22.57"
+        "value": "20MA:22.36"
       },
       {
         "label": "月線大於季線",
-        "passed": true,
-        "value": "20MA/60MA:22.6/22.5"
+        "passed": false,
+        "value": "20MA/60MA:22.4/22.5"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

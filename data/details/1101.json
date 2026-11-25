@@ -1,18 +1,18 @@
 {
   "symbol": "1101",
   "name": "台泥",
-  "updated_at": "2026-11-23 08:53（行情日 2026-11-23）",
+  "updated_at": "2026-11-25 09:30（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 13,
+  "total_score": 8,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 7,
     "technical": 1,
-    "chip": 5
+    "chip": 0
   },
   "metrics_6": {
     "main_force_net": 2361.5,
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-7.05%"
+        "value": "+1.64%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:15.2 / D:26.2"
+        "value": "K:19.6 / D:22.7"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:22.0"
+        "value": "RSI14:31.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.37"
+        "value": "DIF:-0.48"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:25.44"
+        "value": "5MA:24.87"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:26.98"
+        "value": "20MA:26.67"
       },
       {
         "label": "月線大於季線",
         "passed": true,
-        "value": "20MA/60MA:27.0/25.9"
+        "value": "20MA/60MA:26.7/25.9"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
@@ -130,12 +130,12 @@
     "chip": [
       {
         "label": "近 3 日主力單日買超 > 1,000 張",
-        "passed": true,
+        "passed": false,
         "value": "最大:+10496張"
       },
       {
         "label": "近 1 日、5 日籌碼集中度為正",
-        "passed": true,
+        "passed": false,
         "value": "5日集中度:+7.74%"
       },
       {
@@ -150,7 +150,7 @@
       },
       {
         "label": "近 20 日短線強勢買盤曾連買",
-        "passed": true,
+        "passed": false,
         "value": "最長4日"
       },
       {
@@ -165,12 +165,12 @@
       },
       {
         "label": "近 20 日前十大買盤淨額為正",
-        "passed": true,
+        "passed": false,
         "value": "+36471張"
       },
       {
         "label": "近 20 日前十大買盤曾連日買超",
-        "passed": true,
+        "passed": false,
         "value": "符合"
       },
       {
