@@ -1,7 +1,7 @@
 {
   "symbol": "3006",
   "name": "晶豪科",
-  "updated_at": "2026-11-25 09:44（行情日 2026-11-25）",
+  "updated_at": "2026-11-26 01:49（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "+1.71%"
+        "value": "-4.92%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:16.2 / D:21.4"
+        "value": "K:18.5 / D:24.1"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:37.6"
+        "value": "RSI14:34.7"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-18.49"
+        "value": "DIF:-17.52"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:184.20"
+        "value": "5MA:191.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:221.28"
+        "value": "20MA:226.15"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:221.3/254.5"
+        "value": "20MA/60MA:226.2/256.1"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

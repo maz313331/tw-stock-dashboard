@@ -1,7 +1,7 @@
 {
   "symbol": "2539",
   "name": "櫻花建",
-  "updated_at": "2026-11-25 02:39（行情日 2026-11-23）",
+  "updated_at": "2026-11-26 01:49（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-10.45%"
+        "value": "-4.61%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:25.4 / D:41.2"
+        "value": "K:25.3 / D:35.9"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:34.9"
+        "value": "RSI14:44.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.93"
+        "value": "DIF:-0.95"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:29.82"
+        "value": "5MA:29.34"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:30.63"
+        "value": "20MA:30.46"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:30.6/33.1"
+        "value": "20MA/60MA:30.5/33.0"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

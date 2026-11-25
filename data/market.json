@@ -1,14 +1,14 @@
 {
-  "updated_at": "2026-11-25 06:50（行情日 2026-11-23）",
+  "updated_at": "2026-11-26 01:49（行情日 2026-11-24）",
   "regime": {
     "signal": "保守防禦",
     "suggested_exposure": "30% ~ 45%",
     "summary": "大盤跌破關鍵均線或波動放大，宜降低持股水位、重防守與嚴設停損。"
   },
   "tw_index": {
-    "close": 36811.89,
-    "change_pct": 2.16,
-    "ma_status": "均線下方震盪"
+    "close": 40122.35,
+    "change_pct": 8.99,
+    "ma_status": "站上 5MA"
   },
   "otc_index": {
     "close": 274.35,
@@ -30,50 +30,45 @@
     {
       "name": "道瓊工業",
       "symbol": "^DJI",
-      "close": 48147.33,
-      "change_pts": -949.73,
-      "change_pct": -1.93,
-      "date": "2026-11-20",
+      "close": 49973.34,
+      "change_pts": -45.36,
+      "change_pct": -0.09,
+      "date": "2026-11-25",
       "source": "yfinance",
       "note": "美股參考"
     },
     {
       "name": "標普 500",
       "symbol": "^GSPC",
-      "close": 6910.39,
-      "change_pts": -265.44,
-      "change_pct": -3.7,
-      "date": "2026-11-20",
+      "close": 7120.15,
+      "change_pts": -80.94,
+      "change_pct": -1.12,
+      "date": "2026-11-25",
       "source": "yfinance",
       "note": "美股參考"
     },
     {
       "name": "那斯達克",
       "symbol": "^IXIC",
-      "close": 22617.73,
-      "change_pts": -1261.47,
-      "change_pct": -5.28,
-      "date": "2026-11-20",
+      "close": 23247.89,
+      "change_pts": -485.64,
+      "change_pct": -2.05,
+      "date": "2026-11-25",
       "source": "yfinance",
       "note": "科技風向"
     },
     {
       "name": "費城半導體",
       "symbol": "^SOX",
-      "close": 8408.59,
-      "change_pts": -1011.13,
-      "change_pct": -10.73,
-      "date": "2026-11-20",
+      "close": 8451.15,
+      "change_pts": -381.35,
+      "change_pct": -4.32,
+      "date": "2026-11-25",
       "source": "yfinance",
       "note": "2330 連動"
     }
   ],
   "history": [
-    {
-      "date": "2026-05-29",
-      "close": 44732.94,
-      "institutional_net": 0.0
-    },
     {
       "date": "2026-06-01",
       "close": 45337.91,
@@ -667,6 +662,11 @@
     {
       "date": "2026-11-23",
       "close": 36811.89,
+      "institutional_net": 0.0
+    },
+    {
+      "date": "2026-11-24",
+      "close": 40122.35,
       "institutional_net": 0.0
     }
   ]

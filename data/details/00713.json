@@ -2,7 +2,7 @@
   "symbol": "00713",
   "name": "元大台灣高息低波",
   "asset_type": "ETF",
-  "updated_at": "2026-11-25 02:39（行情日 2026-11-23）",
+  "updated_at": "2026-11-26 01:49（行情日 2026-11-24）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=15.8，近 20 日報酬 -11.99%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -24,13 +24,13 @@
     "updated_at": "2026-11-22 15:33（行情日 2026-11-20）"
   },
   "partial_missing": "",
-  "total_score": 0,
+  "total_score": 2,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 0,
-    "technical": 0,
+    "technical": 2,
     "chip": 0
   },
   "metrics_6": {
@@ -103,7 +103,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-6.07%"
+        "value": "+0.99%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -112,33 +112,33 @@
       },
       {
         "label": "KD 黃金交叉",
-        "passed": false,
-        "value": "K:17.4 / D:29.5"
+        "passed": true,
+        "value": "K:30.9 / D:30.0"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:17.7"
+        "value": "RSI14:39.9"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-1.23"
+        "value": "DIF:-1.14"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:60.27"
+        "passed": true,
+        "value": "5MA:59.99"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:63.15"
+        "value": "20MA:62.91"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:63.2/63.5"
+        "value": "20MA/60MA:62.9/63.5"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
