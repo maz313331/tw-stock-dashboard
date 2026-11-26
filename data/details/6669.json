@@ -1,17 +1,17 @@
 {
   "symbol": "6669",
   "name": "緯穎",
-  "updated_at": "2026-11-26 01:49（行情日 2026-11-24）",
+  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 12,
+  "total_score": 10,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 8,
-    "technical": 4,
+    "technical": 2,
     "chip": 0
   },
   "metrics_6": {
@@ -84,42 +84,42 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+7.09%"
+        "value": "+7.92%"
       },
       {
         "label": "連 3 日打敗大盤",
-        "passed": true,
-        "value": "符合"
+        "passed": false,
+        "value": "未連3日勝出"
       },
       {
         "label": "KD 黃金交叉",
-        "passed": true,
-        "value": "K:28.6 / D:21.4"
+        "passed": false,
+        "value": "K:31.3 / D:24.7"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:37.2"
+        "value": "RSI14:39.2"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-146.85"
+        "value": "DIF:-142.94"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:1419.00"
+        "value": "5MA:1410.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:1624.75"
+        "value": "20MA:1598.75"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:1624.8/2002.0"
+        "value": "20MA/60MA:1598.8/1987.7"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

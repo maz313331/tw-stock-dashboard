@@ -1,7 +1,7 @@
 {
   "symbol": "8069",
   "name": "元太",
-  "updated_at": "2026-11-26 01:49（行情日 2026-11-24）",
+  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-2.64%"
+        "value": "-3.21%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:23.5 / D:29.3"
+        "value": "K:19.9 / D:26.2"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:37.4"
+        "value": "RSI14:34.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-5.80"
+        "value": "DIF:-6.52"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:129.50"
+        "value": "5MA:125.50"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:141.15"
+        "value": "20MA:139.38"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:141.2/146.6"
+        "value": "20MA/60MA:139.4/146.0"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

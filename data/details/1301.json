@@ -1,17 +1,17 @@
 {
   "symbol": "1301",
   "name": "台塑",
-  "updated_at": "2026-11-26 01:49（行情日 2026-11-24）",
+  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 8,
+  "total_score": 7,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 7,
-    "technical": 1,
+    "technical": 0,
     "chip": 0
   },
   "metrics_6": {
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "+0.83%"
+        "value": "+1.25%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:26.5 / D:32.1"
+        "value": "K:22.5 / D:28.9"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:39.6"
+        "value": "RSI14:39.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-3.21"
+        "value": "DIF:-3.52"
       },
       {
         "label": "收盤價大於週線",
-        "passed": true,
-        "value": "5MA:59.72"
+        "passed": false,
+        "value": "5MA:58.20"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:67.10"
+        "value": "20MA:66.17"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:67.1/68.8"
+        "value": "20MA/60MA:66.2/68.7"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

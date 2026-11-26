@@ -1,7 +1,7 @@
 {
   "symbol": "5274",
   "name": "信驊",
-  "updated_at": "2026-11-25 09:53（行情日 2026-11-25）",
+  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏",
@@ -78,48 +78,48 @@
     "technical": [
       {
         "label": "收盤價連 3 日漲",
-        "passed": true,
-        "value": "符合"
+        "passed": false,
+        "value": "未連3漲"
       },
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+17.37%"
+        "value": "+11.90%"
       },
       {
         "label": "連 3 日打敗大盤",
-        "passed": false,
-        "value": "未連3日勝出"
+        "passed": true,
+        "value": "符合"
       },
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:22.5 / D:15.8"
+        "value": "K:20.0 / D:14.9"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:30.2"
+        "value": "RSI14:28.3"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-2000.39"
+        "value": "DIF:-2034.69"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:8653.00"
+        "value": "5MA:8567.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:11756.75"
+        "value": "20MA:11735.25"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:11756.8/15853.9"
+        "value": "20MA/60MA:11735.2/15846.8"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

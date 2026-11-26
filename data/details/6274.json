@@ -1,7 +1,7 @@
 {
   "symbol": "6274",
   "name": "台燿",
-  "updated_at": "2026-11-25 09:56（行情日 2026-11-25）",
+  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "估值資料(PE/PB/殖利率)部分缺漏；月營收資料缺漏或尚未公布；財報/ROA/ROE欄位尚未公布或缺漏",
@@ -78,48 +78,48 @@
     "technical": [
       {
         "label": "收盤價連 3 日漲",
-        "passed": true,
-        "value": "符合"
+        "passed": false,
+        "value": "未連3漲"
       },
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+24.08%"
+        "value": "+18.62%"
       },
       {
         "label": "連 3 日打敗大盤",
-        "passed": false,
-        "value": "未連3日勝出"
+        "passed": true,
+        "value": "符合"
       },
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:26.0 / D:16.7"
+        "value": "K:23.5 / D:15.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:36.8"
+        "value": "RSI14:34.7"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-179.30"
+        "value": "DIF:-182.01"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:705.20"
+        "value": "5MA:698.40"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:943.80"
+        "value": "20MA:942.10"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:943.8/1310.0"
+        "value": "20MA/60MA:942.1/1309.5"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
