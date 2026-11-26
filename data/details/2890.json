@@ -1,7 +1,7 @@
 {
   "symbol": "2890",
   "name": "永豐金",
-  "updated_at": "2026-11-25 09:24（行情日 2026-11-25）",
+  "updated_at": "2026-11-27 06:01（行情日 2026-11-25）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "財報/ROA/ROE欄位尚未公布或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "+3.33%"
+        "value": "-3.13%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:31.9 / D:32.2"
+        "value": "K:22.9 / D:28.4"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:34.8"
+        "value": "RSI14:33.9"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-1.70"
+        "value": "DIF:-1.98"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:37.87"
+        "value": "5MA:36.99"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:41.95"
+        "value": "20MA:41.37"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:42.0/43.5"
+        "value": "20MA/60MA:41.4/43.4"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
