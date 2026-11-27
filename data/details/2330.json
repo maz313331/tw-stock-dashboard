@@ -1,7 +1,7 @@
 {
   "symbol": "2330",
   "name": "台積電",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+7.50%"
+        "value": "+5.67%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -93,33 +93,33 @@
       },
       {
         "label": "KD 黃金交叉",
-        "passed": true,
-        "value": "K:37.9 / D:36.5"
+        "passed": false,
+        "value": "K:40.6 / D:37.9"
       },
       {
         "label": "RSI 多頭趨勢",
-        "passed": false,
-        "value": "RSI14:45.9"
+        "passed": true,
+        "value": "RSI14:50.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-74.23"
+        "value": "DIF:-71.59"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:2102.00"
+        "value": "5MA:2111.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:2236.00"
+        "value": "20MA:2222.50"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:2236.0/2380.8"
+        "value": "20MA/60MA:2222.5/2376.2"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

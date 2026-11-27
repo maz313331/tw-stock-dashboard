@@ -1,7 +1,7 @@
 {
   "symbol": "5876",
   "name": "上海商銀",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "財報/ROA/ROE欄位尚未公布或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "+1.61%"
+        "value": "+1.84%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:44.1 / D:51.1"
+        "value": "K:36.1 / D:46.1"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:45.9"
+        "value": "RSI14:46.1"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.16"
+        "value": "DIF:-0.30"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:50.99"
+        "value": "5MA:50.26"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:52.24"
+        "value": "20MA:52.00"
       },
       {
         "label": "月線大於季線",
         "passed": true,
-        "value": "20MA/60MA:52.2/50.5"
+        "value": "20MA/60MA:52.0/50.7"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

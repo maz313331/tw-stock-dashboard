@@ -1,13 +1,13 @@
 {
-  "updated_at": "2026-11-27 06:01（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "regime": {
     "signal": "保守防禦",
     "suggested_exposure": "30% ~ 45%",
     "summary": "大盤跌破關鍵均線或波動放大，宜降低持股水位、重防守與嚴設停損。"
   },
   "tw_index": {
-    "close": 38195.43,
-    "change_pct": -4.8,
+    "close": 39151.81,
+    "change_pct": 2.5,
     "ma_status": "站上 5MA"
   },
   "otc_index": {
@@ -30,50 +30,45 @@
     {
       "name": "道瓊工業",
       "symbol": "^DJI",
-      "close": 50182.95,
-      "change_pts": 164.25,
-      "change_pct": 0.33,
-      "date": "2026-11-25",
+      "close": 50736.37,
+      "change_pts": 553.42,
+      "change_pct": 1.1,
+      "date": "2026-11-27",
       "source": "yfinance",
       "note": "美股參考"
     },
     {
       "name": "標普 500",
       "symbol": "^GSPC",
-      "close": 7182.78,
-      "change_pts": -18.31,
-      "change_pct": -0.25,
-      "date": "2026-11-25",
+      "close": 7278.34,
+      "change_pts": 95.56,
+      "change_pct": 1.33,
+      "date": "2026-11-27",
       "source": "yfinance",
       "note": "美股參考"
     },
     {
       "name": "那斯達克",
       "symbol": "^IXIC",
-      "close": 23585.8,
-      "change_pts": -147.74,
-      "change_pct": -0.62,
-      "date": "2026-11-25",
+      "close": 24014.86,
+      "change_pts": 429.06,
+      "change_pct": 1.82,
+      "date": "2026-11-27",
       "source": "yfinance",
       "note": "科技風向"
     },
     {
       "name": "費城半導體",
       "symbol": "^SOX",
-      "close": 8774.86,
-      "change_pts": -57.64,
-      "change_pct": -0.65,
-      "date": "2026-11-25",
+      "close": 9082.78,
+      "change_pts": 307.92,
+      "change_pct": 3.51,
+      "date": "2026-11-27",
       "source": "yfinance",
       "note": "2330 連動"
     }
   ],
   "history": [
-    {
-      "date": "2026-06-02",
-      "close": 45557.31,
-      "institutional_net": 0.0
-    },
     {
       "date": "2026-06-03",
       "close": 46459.16,
@@ -667,6 +662,11 @@
     {
       "date": "2026-11-25",
       "close": 38195.43,
+      "institutional_net": 0.0
+    },
+    {
+      "date": "2026-11-26",
+      "close": 39151.81,
       "institutional_net": 0.0
     }
   ]

@@ -1,7 +1,7 @@
 {
   "symbol": "2059",
   "name": "川湖",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+21.59%"
+        "value": "+26.86%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:25.9 / D:18.0"
+        "value": "K:43.8 / D:26.6"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:37.8"
+        "value": "RSI14:46.8"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-1144.00"
+        "value": "DIF:-1031.79"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:5927.00"
+        "value": "5MA:6170.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:7677.25"
+        "value": "20MA:7541.00"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:7677.2/10475.1"
+        "value": "20MA/60MA:7541.0/10356.0"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

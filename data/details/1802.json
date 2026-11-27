@@ -1,7 +1,7 @@
 {
   "symbol": "1802",
   "name": "台玻",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -83,8 +83,8 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": true,
-        "value": "+13.23%"
+        "passed": false,
+        "value": "+2.75%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:26.9 / D:31.5"
+        "value": "K:27.5 / D:30.2"
       },
       {
         "label": "RSI 多頭趨勢",
-        "passed": false,
-        "value": "RSI14:49.9"
+        "passed": true,
+        "value": "RSI14:51.3"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.89"
+        "value": "DIF:-1.17"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:58.70"
+        "value": "5MA:58.90"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:66.07"
+        "value": "20MA:65.95"
       },
       {
         "label": "月線大於季線",
         "passed": true,
-        "value": "20MA/60MA:66.1/63.0"
+        "value": "20MA/60MA:66.0/62.9"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

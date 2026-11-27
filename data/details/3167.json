@@ -1,7 +1,7 @@
 {
   "symbol": "3167",
   "name": "大量",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+17.49%"
+        "value": "+10.91%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:20.9 / D:18.0"
+        "value": "K:28.5 / D:21.5"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:38.1"
+        "value": "RSI14:44.3"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-88.45"
+        "value": "DIF:-85.38"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:569.00"
+        "value": "5MA:580.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:748.35"
+        "value": "20MA:732.05"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:748.4/855.2"
+        "value": "20MA/60MA:732.0/852.5"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

@@ -1,17 +1,17 @@
 {
   "symbol": "2492",
   "name": "華新科",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 8,
+  "total_score": 10,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 8,
-    "technical": 0,
+    "technical": 2,
     "chip": 0
   },
   "metrics_6": {
@@ -83,8 +83,8 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": false,
-        "value": "+1.87%"
+        "passed": true,
+        "value": "+8.81%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:15.4 / D:12.9"
+        "value": "K:21.7 / D:15.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:30.1"
+        "value": "RSI14:39.1"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-40.81"
+        "value": "DIF:-39.65"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:198.30"
+        "passed": true,
+        "value": "5MA:198.70"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:273.15"
+        "value": "20MA:262.50"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:273.1/319.7"
+        "value": "20MA/60MA:262.5/317.9"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

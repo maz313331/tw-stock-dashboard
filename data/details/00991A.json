@@ -2,7 +2,7 @@
   "symbol": "00991A",
   "name": "主動復華未來50",
   "asset_type": "ETF",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=24.7，近 20 日報酬 -38.39%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -103,7 +103,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+13.63%"
+        "value": "+10.77%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -113,32 +113,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:27.2 / D:23.2"
+        "value": "K:38.3 / D:28.2"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:41.5"
+        "value": "RSI14:48.6"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-1.39"
+        "value": "DIF:-1.30"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:11.39"
+        "value": "5MA:11.60"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:13.61"
+        "value": "20MA:13.39"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:13.6/16.4"
+        "value": "20MA/60MA:13.4/16.3"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

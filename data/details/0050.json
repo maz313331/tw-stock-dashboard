@@ -2,7 +2,7 @@
   "symbol": "0050",
   "name": "元大台灣50",
   "asset_type": "ETF",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "ETF 獨立追蹤模式（不適用個股財報與估值評分）",
   "notice": "ETF 獨立追蹤模式：目前技術架構為「空頭排列」，RSI(14)=27.8，近 20 日報酬 -21.00%。ETF 不適用個股財報(EPS/ROE)與本益比評分。",
@@ -24,13 +24,13 @@
     "updated_at": "2026-11-22 15:33（行情日 2026-11-20）"
   },
   "partial_missing": "",
-  "total_score": 2,
+  "total_score": 4,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 0,
-    "technical": 2,
+    "technical": 4,
     "chip": 0
   },
   "metrics_6": {
@@ -103,7 +103,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+6.93%"
+        "value": "+6.72%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -112,33 +112,33 @@
       },
       {
         "label": "KD 黃金交叉",
-        "passed": false,
-        "value": "K:33.4 / D:33.6"
+        "passed": true,
+        "value": "K:39.6 / D:35.6"
       },
       {
         "label": "RSI 多頭趨勢",
-        "passed": false,
-        "value": "RSI14:43.7"
+        "passed": true,
+        "value": "RSI14:50.3"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-4.42"
+        "value": "DIF:-4.17"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:89.53"
+        "value": "5MA:90.06"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:97.12"
+        "value": "20MA:96.40"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:97.1/105.7"
+        "value": "20MA/60MA:96.4/105.4"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

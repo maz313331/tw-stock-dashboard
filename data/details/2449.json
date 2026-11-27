@@ -1,17 +1,17 @@
 {
   "symbol": "2449",
   "name": "京元電子",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 11,
+  "total_score": 13,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 9,
-    "technical": 2,
+    "technical": 4,
     "chip": 0
   },
   "metrics_6": {
@@ -78,48 +78,48 @@
     "technical": [
       {
         "label": "收盤價連 3 日漲",
-        "passed": false,
-        "value": "未連3漲"
+        "passed": true,
+        "value": "符合"
       },
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+9.84%"
+        "value": "+19.75%"
       },
       {
         "label": "連 3 日打敗大盤",
-        "passed": false,
-        "value": "未連3日勝出"
+        "passed": true,
+        "value": "符合"
       },
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:21.9 / D:16.9"
+        "value": "K:38.4 / D:24.0"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:33.9"
+        "value": "RSI14:44.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-26.46"
+        "value": "DIF:-24.51"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:167.00"
+        "value": "5MA:169.60"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:210.80"
+        "value": "20MA:206.72"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:210.8/257.1"
+        "value": "20MA/60MA:206.7/255.8"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

@@ -1,17 +1,17 @@
 {
   "symbol": "2312",
   "name": "金寶",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 6,
+  "total_score": 8,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 6,
-    "technical": 0,
+    "technical": 2,
     "chip": 0
   },
   "metrics_6": {
@@ -83,8 +83,8 @@
       },
       {
         "label": "3 日漲幅大於 5%",
-        "passed": false,
-        "value": "+3.66%"
+        "passed": true,
+        "value": "+6.13%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:18.7 / D:17.5"
+        "value": "K:24.6 / D:19.9"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:32.0"
+        "value": "RSI14:40.0"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-2.38"
+        "value": "DIF:-2.31"
       },
       {
         "label": "收盤價大於週線",
-        "passed": false,
-        "value": "5MA:21.71"
+        "passed": true,
+        "value": "5MA:21.75"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:26.06"
+        "value": "20MA:25.62"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:26.1/29.7"
+        "value": "20MA/60MA:25.6/29.6"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

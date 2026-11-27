@@ -1,7 +1,7 @@
 {
   "symbol": "3037",
   "name": "欣興",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+8.94%"
+        "value": "+15.23%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:20.4 / D:15.4"
+        "value": "K:31.8 / D:20.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:34.4"
+        "value": "RSI14:43.8"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-123.54"
+        "value": "DIF:-116.54"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:577.80"
+        "value": "5MA:587.20"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:763.20"
+        "value": "20MA:743.35"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:763.2/979.3"
+        "value": "20MA/60MA:743.4/971.5"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

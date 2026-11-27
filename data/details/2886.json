@@ -1,7 +1,7 @@
 {
   "symbol": "2886",
   "name": "兆豐金",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "財報/ROA/ROE欄位尚未公布或缺漏",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "-4.05%"
+        "value": "-3.50%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:30.4 / D:39.3"
+        "value": "K:20.3 / D:33.0"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:40.0"
+        "value": "RSI14:38.3"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-0.14"
+        "value": "DIF:-0.49"
       },
       {
         "label": "收盤價大於週線",
         "passed": false,
-        "value": "5MA:51.98"
+        "value": "5MA:50.95"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:53.47"
+        "value": "20MA:53.14"
       },
       {
         "label": "月線大於季線",
         "passed": true,
-        "value": "20MA/60MA:53.5/51.8"
+        "value": "20MA/60MA:53.1/51.8"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

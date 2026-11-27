@@ -1,7 +1,7 @@
 {
   "symbol": "3665",
   "name": "貿聯-KY",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+25.38%"
+        "value": "+25.17%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:63.8 / D:52.1"
+        "value": "K:75.9 / D:60.1"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": true,
-        "value": "RSI14:56.2"
+        "value": "RSI14:67.7"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-110.16"
+        "value": "DIF:-80.12"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:1474.00"
+        "value": "5MA:1544.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": true,
-        "value": "20MA:1513.00"
+        "value": "20MA:1517.25"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:1513.0/1937.1"
+        "value": "20MA/60MA:1517.2/1929.2"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

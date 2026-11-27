@@ -1,6 +1,6 @@
 {
-  "generated_at": "2026-11-27T06:01:07.832428+08:00",
-  "as_of_date": "2026-11-27",
+  "generated_at": "2026-11-28T01:15:37.476083+08:00",
+  "as_of_date": "2026-11-28",
   "market_stats_source": "twse_tpex_openapi",
   "rules": {
     "top_amount_n": 60,
@@ -10,9 +10,9 @@
   },
   "fixed_core_count": 65,
   "dynamic_amount_added": 37,
-  "dynamic_volume_added": 12,
-  "dynamic_added_count": 49,
-  "total_count": 114,
+  "dynamic_volume_added": 10,
+  "dynamic_added_count": 47,
+  "total_count": 112,
   "trimmed_by_max_total": false,
   "items": [
     {
@@ -593,8 +593,8 @@
       "tags": [
         "core"
       ],
-      "trade_amount": 1012667000.0,
-      "trade_volume_lots": 8012.0
+      "trade_amount": 618777500.0,
+      "trade_volume_lots": 4942.0
     },
     {
       "symbol": "8096",
@@ -605,8 +605,8 @@
       "tags": [
         "core"
       ],
-      "trade_amount": 89927700.0,
-      "trade_volume_lots": 1546.0
+      "trade_amount": 83937300.0,
+      "trade_volume_lots": 1451.0
     },
     {
       "symbol": "3406",
@@ -831,8 +831,21 @@
       "tags": [
         "core"
       ],
-      "trade_amount": 77405500.0,
-      "trade_volume_lots": 301.0
+      "trade_amount": 37018000.0,
+      "trade_volume_lots": 144.0
+    },
+    {
+      "symbol": "3105",
+      "ticker": "3105.TWO",
+      "market": "TPEx",
+      "name": "穩懋",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 24412839000.0,
+      "trade_volume_lots": 53485.0
     },
     {
       "symbol": "1802",
@@ -885,6 +898,18 @@
       "trade_volume_lots": 39813.06
     },
     {
+      "symbol": "8299",
+      "ticker": "8299.TWO",
+      "market": "TPEx",
+      "name": "群聯",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 13802955000.0,
+      "trade_volume_lots": 8488.0
+    },
+    {
       "symbol": "3661",
       "ticker": "3661.TW",
       "market": "TWSE",
@@ -895,18 +920,6 @@
       ],
       "trade_amount": 13045791960.0,
       "trade_volume_lots": 3443.71
-    },
-    {
-      "symbol": "6274",
-      "ticker": "6274.TWO",
-      "market": "TPEx",
-      "name": "台燿",
-      "category": "DYNAMIC_AMOUNT",
-      "tags": [
-        "top_amount"
-      ],
-      "trade_amount": 12989405000.0,
-      "trade_volume_lots": 16520.0
     },
     {
       "symbol": "2408",
@@ -922,16 +935,16 @@
       "trade_volume_lots": 41211.92
     },
     {
-      "symbol": "3374",
-      "ticker": "3374.TWO",
+      "symbol": "6274",
+      "ticker": "6274.TWO",
       "market": "TPEx",
-      "name": "精材",
+      "name": "台燿",
       "category": "DYNAMIC_AMOUNT",
       "tags": [
         "top_amount"
       ],
-      "trade_amount": 10170640000.0,
-      "trade_volume_lots": 30020.0
+      "trade_amount": 10037421000.0,
+      "trade_volume_lots": 12999.0
     },
     {
       "symbol": "3443",
@@ -969,18 +982,6 @@
       ],
       "trade_amount": 8887268215.0,
       "trade_volume_lots": 5534.55
-    },
-    {
-      "symbol": "8299",
-      "ticker": "8299.TWO",
-      "market": "TPEx",
-      "name": "群聯",
-      "category": "DYNAMIC_AMOUNT",
-      "tags": [
-        "top_amount"
-      ],
-      "trade_amount": 8569005000.0,
-      "trade_volume_lots": 5310.0
     },
     {
       "symbol": "6213",
@@ -1055,18 +1056,6 @@
       "trade_volume_lots": 17981.43
     },
     {
-      "symbol": "3105",
-      "ticker": "3105.TWO",
-      "market": "TPEx",
-      "name": "穩懋",
-      "category": "DYNAMIC_AMOUNT",
-      "tags": [
-        "top_amount"
-      ],
-      "trade_amount": 6312791000.0,
-      "trade_volume_lots": 14250.0
-    },
-    {
       "symbol": "00991A",
       "ticker": "00991A.TW",
       "market": "TWSE",
@@ -1104,19 +1093,6 @@
       "trade_volume_lots": 5562.45
     },
     {
-      "symbol": "1815",
-      "ticker": "1815.TWO",
-      "market": "TPEx",
-      "name": "富喬",
-      "category": "DYNAMIC_AMOUNT",
-      "tags": [
-        "top_amount",
-        "top_volume"
-      ],
-      "trade_amount": 5783870000.0,
-      "trade_volume_lots": 53772.0
-    },
-    {
       "symbol": "2344",
       "ticker": "2344.TW",
       "market": "TWSE",
@@ -1143,6 +1119,19 @@
       "trade_volume_lots": 152747.22
     },
     {
+      "symbol": "1815",
+      "ticker": "1815.TWO",
+      "market": "TPEx",
+      "name": "富喬",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 5160843000.0,
+      "trade_volume_lots": 48434.0
+    },
+    {
       "symbol": "00685L",
       "ticker": "00685L.TW",
       "market": "TWSE",
@@ -1154,42 +1143,6 @@
       ],
       "trade_amount": 4755904749.0,
       "trade_volume_lots": 586507.14
-    },
-    {
-      "symbol": "6223",
-      "ticker": "6223.TWO",
-      "market": "TPEx",
-      "name": "旺矽",
-      "category": "DYNAMIC_AMOUNT",
-      "tags": [
-        "top_amount"
-      ],
-      "trade_amount": 4512735000.0,
-      "trade_volume_lots": 1113.0
-    },
-    {
-      "symbol": "5274",
-      "ticker": "5274.TWO",
-      "market": "TPEx",
-      "name": "信驊",
-      "category": "DYNAMIC_AMOUNT",
-      "tags": [
-        "top_amount"
-      ],
-      "trade_amount": 4512330000.0,
-      "trade_volume_lots": 481.0
-    },
-    {
-      "symbol": "3324",
-      "ticker": "3324.TWO",
-      "market": "TPEx",
-      "name": "雙鴻",
-      "category": "DYNAMIC_AMOUNT",
-      "tags": [
-        "top_amount"
-      ],
-      "trade_amount": 4461465000.0,
-      "trade_volume_lots": 5313.0
     },
     {
       "symbol": "6770",
@@ -1217,6 +1170,30 @@
       "trade_volume_lots": 21825.12
     },
     {
+      "symbol": "3374",
+      "ticker": "3374.TWO",
+      "market": "TPEx",
+      "name": "精材",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 4265585000.0,
+      "trade_volume_lots": 12776.0
+    },
+    {
+      "symbol": "5274",
+      "ticker": "5274.TWO",
+      "market": "TPEx",
+      "name": "信驊",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 4005440000.0,
+      "trade_volume_lots": 423.0
+    },
+    {
       "symbol": "00632R",
       "ticker": "00632R.TW",
       "market": "TWSE",
@@ -1240,18 +1217,6 @@
       ],
       "trade_amount": 3921880820.0,
       "trade_volume_lots": 559.31
-    },
-    {
-      "symbol": "6488",
-      "ticker": "6488.TWO",
-      "market": "TPEx",
-      "name": "環球晶",
-      "category": "DYNAMIC_AMOUNT",
-      "tags": [
-        "top_amount"
-      ],
-      "trade_amount": 3892557500.0,
-      "trade_volume_lots": 7586.0
     },
     {
       "symbol": "3715",
@@ -1279,6 +1244,18 @@
       "trade_volume_lots": 101259.62
     },
     {
+      "symbol": "8358",
+      "ticker": "8358.TWO",
+      "market": "TPEx",
+      "name": "金居",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 3596348500.0,
+      "trade_volume_lots": 13422.0
+    },
+    {
       "symbol": "3008",
       "ticker": "3008.TW",
       "market": "TWSE",
@@ -1289,6 +1266,31 @@
       ],
       "trade_amount": 3425914650.0,
       "trade_volume_lots": 780.22
+    },
+    {
+      "symbol": "2409",
+      "ticker": "2409.TW",
+      "market": "TWSE",
+      "name": "友達",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount",
+        "top_volume"
+      ],
+      "trade_amount": 3418275768.0,
+      "trade_volume_lots": 133777.99
+    },
+    {
+      "symbol": "3324",
+      "ticker": "3324.TWO",
+      "market": "TPEx",
+      "name": "雙鴻",
+      "category": "DYNAMIC_AMOUNT",
+      "tags": [
+        "top_amount"
+      ],
+      "trade_amount": 3117151000.0,
+      "trade_volume_lots": 3803.0
     },
     {
       "symbol": "00403A",
@@ -1325,18 +1327,6 @@
       ],
       "trade_amount": 912307778.0,
       "trade_volume_lots": 138078.95
-    },
-    {
-      "symbol": "2409",
-      "ticker": "2409.TW",
-      "market": "TWSE",
-      "name": "友達",
-      "category": "DYNAMIC_VOLUME",
-      "tags": [
-        "top_volume"
-      ],
-      "trade_amount": 3418275768.0,
-      "trade_volume_lots": 133777.99
     },
     {
       "symbol": "00405A",
@@ -1421,18 +1411,6 @@
       ],
       "trade_amount": 522458291.0,
       "trade_volume_lots": 47211.65
-    },
-    {
-      "symbol": "00418A",
-      "ticker": "00418A.TW",
-      "market": "TWSE",
-      "name": "主動復華台灣新星",
-      "category": "DYNAMIC_VOLUME",
-      "tags": [
-        "top_volume"
-      ],
-      "trade_amount": 325225949.0,
-      "trade_volume_lots": 38444.21
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "symbol": "2383",
   "name": "台光電",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+19.40%"
+        "value": "+18.45%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:29.6 / D:22.9"
+        "value": "K:42.2 / D:29.3"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:39.3"
+        "value": "RSI14:47.7"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-472.82"
+        "value": "DIF:-430.98"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:3154.00"
+        "value": "5MA:3262.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:3954.25"
+        "value": "20MA:3886.75"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:3954.2/4831.5"
+        "value": "20MA/60MA:3886.8/4801.0"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

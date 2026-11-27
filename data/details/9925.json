@@ -1,7 +1,7 @@
 {
   "symbol": "9925",
   "name": "新保",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": false,
-        "value": "+1.67%"
+        "value": "+1.66%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -93,28 +93,28 @@
       },
       {
         "label": "KD 黃金交叉",
-        "passed": true,
-        "value": "K:63.2 / D:61.1"
+        "passed": false,
+        "value": "K:68.5 / D:63.6"
       },
       {
         "label": "RSI 多頭趨勢",
-        "passed": false,
-        "value": "RSI14:62.0"
+        "passed": true,
+        "value": "RSI14:63.5"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": true,
-        "value": "DIF:0.01"
+        "value": "DIF:0.03"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:39.44"
+        "value": "5MA:39.47"
       },
       {
         "label": "收盤價大於月線",
         "passed": true,
-        "value": "20MA:39.45"
+        "value": "20MA:39.46"
       },
       {
         "label": "月線大於季線",

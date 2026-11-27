@@ -1,7 +1,7 @@
 {
   "symbol": "2345",
   "name": "智邦",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+19.92%"
+        "value": "+20.00%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:47.1 / D:37.4"
+        "value": "K:64.7 / D:46.5"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": true,
-        "value": "RSI14:54.0"
+        "value": "RSI14:63.8"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-106.24"
+        "value": "DIF:-83.52"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:1378.00"
+        "value": "5MA:1432.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": true,
-        "value": "20MA:1460.50"
+        "value": "20MA:1453.75"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:1460.5/1788.3"
+        "value": "20MA/60MA:1453.8/1779.9"
       },
       {
         "label": "均線多頭排列 (5>10>20)",

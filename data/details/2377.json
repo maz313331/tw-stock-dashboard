@@ -1,7 +1,7 @@
 {
   "symbol": "2377",
   "name": "華碩",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 01:15（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
@@ -84,7 +84,7 @@
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+6.90%"
+        "value": "+5.76%"
       },
       {
         "label": "連 3 日打敗大盤",
@@ -94,32 +94,32 @@
       {
         "label": "KD 黃金交叉",
         "passed": false,
-        "value": "K:27.1 / D:23.0"
+        "value": "K:37.5 / D:27.8"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:37.7"
+        "value": "RSI14:44.3"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-8.15"
+        "value": "DIF:-7.77"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:123.80"
+        "value": "5MA:124.60"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:138.90"
+        "value": "20MA:137.32"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:138.9/150.1"
+        "value": "20MA/60MA:137.3/149.8"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
