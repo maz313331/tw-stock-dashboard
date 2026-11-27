@@ -1,17 +1,17 @@
 {
   "symbol": "3653",
   "name": "健策",
-  "updated_at": "2026-11-27 01:33（行情日 2026-11-25）",
+  "updated_at": "2026-11-28 05:44（行情日 2026-11-26）",
   "excluded": false,
   "exclude_reason": "",
   "partial_missing": "",
-  "total_score": 10,
+  "total_score": 11,
   "max_score": 30,
   "badge": "中性觀望",
   "trading_note": "資料齊全，請結合進場位置、量價結構、大盤環境與停損紀律綜合判斷。",
   "scores": {
     "fundamental": 7,
-    "technical": 3,
+    "technical": 4,
     "chip": 0
   },
   "metrics_6": {
@@ -78,48 +78,48 @@
     "technical": [
       {
         "label": "收盤價連 3 日漲",
-        "passed": false,
-        "value": "未連3漲"
+        "passed": true,
+        "value": "符合"
       },
       {
         "label": "3 日漲幅大於 5%",
         "passed": true,
-        "value": "+12.55%"
+        "value": "+20.62%"
       },
       {
         "label": "連 3 日打敗大盤",
-        "passed": false,
-        "value": "未連3日勝出"
+        "passed": true,
+        "value": "符合"
       },
       {
         "label": "KD 黃金交叉",
-        "passed": true,
-        "value": "K:20.1 / D:16.4"
+        "passed": false,
+        "value": "K:53.1 / D:32.6"
       },
       {
         "label": "RSI 多頭趨勢",
         "passed": false,
-        "value": "RSI14:33.9"
+        "value": "RSI14:42.2"
       },
       {
         "label": "MACD 多頭趨勢",
         "passed": false,
-        "value": "DIF:-612.34"
+        "value": "DIF:-498.52"
       },
       {
         "label": "收盤價大於週線",
         "passed": true,
-        "value": "5MA:3945.00"
+        "value": "5MA:4275.00"
       },
       {
         "label": "收盤價大於月線",
         "passed": false,
-        "value": "20MA:5230.00"
+        "value": "20MA:5067.50"
       },
       {
         "label": "月線大於季線",
         "passed": false,
-        "value": "20MA/60MA:5230.0/5911.7"
+        "value": "20MA/60MA:5067.5/5873.2"
       },
       {
         "label": "均線多頭排列 (5>10>20)",
